@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Transform your RNA-seq count files into analysis-ready DESeq2 objects. Learn the essential workflow for importing count matrices, preparing sample metadata, and avoiding common pitfalls in data preprocessing.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Bulk RNA-seq Analysis – Post 3: Data Import & Preprocessing">
+  <meta name="twitter:description" content="Transform your RNA-seq count files into analysis-ready DESeq2 objects. Learn the essential workflow for importing count matrices, preparing sample metadata, and avoiding common pitfalls in data preprocessing.">
+
+<meta property="og:url" content="http://localhost:1313/posts/data-import-preprocessing/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Bulk RNA-seq Analysis – Post 3: Data Import & Preprocessing">
+  <meta property="og:description" content="Transform your RNA-seq count files into analysis-ready DESeq2 objects. Learn the essential workflow for importing count matrices, preparing sample metadata, and avoiding common pitfalls in data preprocessing.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-30T09:30:00+00:00">
+    <meta property="article:modified_time" content="2025-07-30T09:30:00+00:00">
+    <meta property="article:tag" content="DESeq2">
+    <meta property="article:tag" content="RNA-Seq">
+    <meta property="article:tag" content="Data Import">
+    <meta property="article:tag" content="DESeqDataSet">
+    <meta property="article:tag" content="Count Matrix">
+    <meta property="article:tag" content="Sample Metadata">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/data-import-preprocessing/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/data-import-preprocessing/">
+              Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-07-30T09:30:00Z">
+                July 30, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-import/">Data Import</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-preprocessing/">Data Preprocessing</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/deseq2/">DESeq2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rna-seq/">RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-import/">Data Import</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/deseqdataset/">DESeqDataSet</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/count-matrix/">Count Matrix</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sample-metadata/">Sample Metadata</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-preprocessing/">Data Preprocessing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/featurecounts/">FeatureCounts</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tximport/">Tximport</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-mastering-bulk-rna-seq-analysis-in-r----post-3-data-import--preprocessing">
+  🧬 Mastering Bulk RNA-seq Analysis in R &ndash; Post 3: Data Import &amp; Preprocessing
+  <a class="heading-link" href="#-mastering-bulk-rna-seq-analysis-in-r----post-3-data-import--preprocessing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-from-files-to-analysis-the-essential-workflow">
+  🎯 From Files to Analysis: The Essential Workflow
+  <a class="heading-link" href="#-from-files-to-analysis-the-essential-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ready to transform your RNA-seq count files into DESeq2-ready objects? This is where theory meets practice&mdash;taking real data from your sequencing pipeline and preparing it for statistical analysis.</p>
+<p>The good news? DESeq2 makes this surprisingly straightforward once you understand the essential components.</p>
+<hr>
+<h2 id="-what-you-need">
+  🔍 What You Need
+  <a class="heading-link" href="#-what-you-need">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-count-matrix">
+  1. Count Matrix
+  <a class="heading-link" href="#1-count-matrix">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Rows</strong>: Genes</li>
+<li><strong>Columns</strong>: Samples</li>
+<li><strong>Values</strong>: Integer counts (no decimals!)</li>
+</ul>
+<h3 id="2-sample-metadata">
+  2. Sample Metadata
+  <a class="heading-link" href="#2-sample-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Rows</strong>: Samples (matching count matrix column names)</li>
+<li><strong>Columns</strong>: Experimental factors (condition, batch, etc.)</li>
+</ul>
+<p>That&rsquo;s it! Let&rsquo;s put them together.</p>
+<hr>
+<h2 id="-the-core-workflow">
+  🔧 The Core Workflow
+  <a class="heading-link" href="#-the-core-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-1-load-libraries-and-data">
+  Step 1: Load Libraries and Data
+  <a class="heading-link" href="#step-1-load-libraries-and-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import count matrix</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;count_matrix.csv&#34;</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">storage.mode</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&#34;integer&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import sample metadata  </span>
+</span></span><span class="line"><span class="cl"><span class="n">metadata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;sample_info.csv&#34;</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify sample names match</span>
+</span></span><span class="line"><span class="cl"><span class="nf">all</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">==</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">metadata</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="step-2-create-deseqdataset">
+  Step 2: Create DESeqDataSet
+  <a class="heading-link" href="#step-2-create-deseqdataset">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="nf">DESeqDataSetFromMatrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">countData</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">design</span> <span class="o">=</span> <span class="o">~</span> <span class="n">condition</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="step-3-essential-preprocessing">
+  Step 3: Essential Preprocessing
+  <a class="heading-link" href="#step-3-essential-preprocessing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Remove low-count genes</span>
+</span></span><span class="line"><span class="cl"><span class="n">keep</span> <span class="o">&lt;-</span> <span class="nf">rowSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="n">dds[keep</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set reference level for comparisons</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span><span class="o">$</span><span class="n">condition</span> <span class="o">&lt;-</span> <span class="nf">relevel</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Done!</strong> You now have an analysis-ready DESeqDataSet.</p>
+<hr>
+<h2 id="-common-input-scenarios">
+  ⚡ Common Input Scenarios
+  <a class="heading-link" href="#-common-input-scenarios">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="from-featurecounts">
+  From featureCounts
+  <a class="heading-link" href="#from-featurecounts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Remove annotation columns (keep only count data)</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts_raw</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;featurecounts_output.txt&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">counts_raw[</span><span class="p">,</span> <span class="m">6</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">counts_raw</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="from-tximport-transcript-level-data">
+  From tximport (transcript-level data)
+  <a class="heading-link" href="#from-tximport-transcript-level-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tximport</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">txi</span> <span class="o">&lt;-</span> <span class="nf">tximport</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;salmon&#34;</span><span class="p">,</span> <span class="n">tx2gene</span> <span class="o">=</span> <span class="n">tx2gene_map</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="nf">DESeqDataSetFromTximport</span><span class="p">(</span><span class="n">txi</span><span class="p">,</span> <span class="n">colData</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">design</span> <span class="o">=</span> <span class="o">~</span> <span class="n">condition</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-critical-pitfalls-to-avoid">
+  ⚠️ Critical Pitfalls to Avoid
+  <a class="heading-link" href="#-critical-pitfalls-to-avoid">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-sample-name-mismatches">
+  1. Sample Name Mismatches
+  <a class="heading-link" href="#1-sample-name-mismatches">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Always verify this returns TRUE</span>
+</span></span><span class="line"><span class="cl"><span class="nf">identical</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">metadata</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="2-non-integer-counts">
+  2. Non-Integer Counts
+  <a class="heading-link" href="#2-non-integer-counts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># DESeq2 needs raw counts, not normalized values</span>
+</span></span><span class="line"><span class="cl"><span class="nf">all</span><span class="p">(</span><span class="n">counts</span> <span class="o">==</span> <span class="nf">round</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span>  <span class="c1"># Should be TRUE</span>
+</span></span></code></pre></div><h3 id="3-wrong-reference-level">
+  3. Wrong Reference Level
+  <a class="heading-link" href="#3-wrong-reference-level">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Control should be first in factor levels</span>
+</span></span><span class="line"><span class="cl"><span class="nf">levels</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">)</span>  <span class="c1"># Check this!</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span><span class="o">$</span><span class="n">condition</span> <span class="o">&lt;-</span> <span class="nf">relevel</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-quick-quality-check">
+  ✅ Quick Quality Check
+  <a class="heading-link" href="#-quick-quality-check">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Basic statistics</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">))</span>  <span class="c1"># Sequencing depth per sample</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>  <span class="c1"># Number of detected genes</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Save for analysis</span>
+</span></span><span class="line"><span class="cl"><span class="nf">saveRDS</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="s">&#34;analysis_ready_dds.rds&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-youre-ready">
+  🚀 You&rsquo;re Ready!
+  <a class="heading-link" href="#-youre-ready">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Your DESeqDataSet object now contains: - ✅ Properly formatted count data - ✅ Linked sample metadata - ✅ Correct experimental design - ✅ Filtered, analysis-ready genes</p>
+<p>Next up: <strong>Post 4</strong> will cover experimental design considerations and handling complex designs with batch effects and multiple factors.</p>
+<p>Ready to run your first differential expression analysis? The statistical magic begins with <code>DESeq(dds)</code>! 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>What&rsquo;s your most challenging data import scenario? Drop a comment below! 👇</p>
+<p>#DESeq2 #RNAseq #DataImport #Bioinformatics #GeneExpression #DataPreprocessing #ComputationalBiology #BulkRNAseq #DataAnalysis #RStats</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

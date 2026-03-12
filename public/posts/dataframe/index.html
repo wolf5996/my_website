@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 8: DataFrame · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master the S4 DataFrame, the powerful engine behind Bioconductor&#39;s genomic data structures. Learn how this enhanced data.frame alternative enables complex operations and provides the foundation for the entire genomic data ecosystem.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 8: DataFrame">
+  <meta name="twitter:description" content="Master the S4 DataFrame, the powerful engine behind Bioconductor&#39;s genomic data structures. Learn how this enhanced data.frame alternative enables complex operations and provides the foundation for the entire genomic data ecosystem.">
+
+<meta property="og:url" content="http://localhost:1313/posts/dataframe/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 8: DataFrame">
+  <meta property="og:description" content="Master the S4 DataFrame, the powerful engine behind Bioconductor&#39;s genomic data structures. Learn how this enhanced data.frame alternative enables complex operations and provides the foundation for the entire genomic data ecosystem.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-12T09:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-12T09:00:00+00:00">
+    <meta property="article:tag" content="DataFrame">
+    <meta property="article:tag" content="S4Vectors">
+    <meta property="article:tag" content="Metadata">
+    <meta property="article:tag" content="GRanges">
+    <meta property="article:tag" content="GenomicAlignments">
+    <meta property="article:tag" content="SummarizedExperiment">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/dataframe/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/dataframe/">
+              Foundations of Genomic Data – Post 8: DataFrame
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-05-12T09:00:00Z">
+                May 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/dataframe/">DataFrame</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/s4vectors/">S4Vectors</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/metadata/">Metadata</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/granges/">GRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/genomicalignments/">GenomicAlignments</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/summarizedexperiment/">SummarizedExperiment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rle/">Rle</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/list-columns/">List Columns</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/s4-classes/">S4 Classes</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-8-dataframe">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 8: DataFrame
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-8-dataframe">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-dataframe">
+  🚀 Why DataFrame?
+  <a class="heading-link" href="#-why-dataframe">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After exploring <strong>GRanges</strong>, <strong>GRangesList</strong>, and <strong>GenomicAlignments</strong>, it&rsquo;s time to dive into a foundational data structure that powers them all: the <strong>DataFrame</strong>. While less visible than other Bioconductor components, DataFrame is the unsung hero enabling complex operations throughout the genomic data ecosystem.</p>
+<p>Ever wondered why genomic objects don&rsquo;t just use standard R data frames? The S4 DataFrame is the powerful engine behind Bioconductor&rsquo;s genomic data structures, bringing robustness, flexibility, and computational efficiency to biological data analysis.</p>
+<hr>
+<h2 id="-getting-started-with-dataframe">
+  🔧 Getting Started with DataFrame
+  <a class="heading-link" href="#-getting-started-with-dataframe">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Creating a DataFrame is similar to creating a regular data.frame:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">S4Vectors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a simple DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gene_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ENSG00000139618&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000141510&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000157764&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">symbol</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;BRCA2&#34;</span><span class="p">,</span> <span class="s">&#34;TP53&#34;</span><span class="p">,</span> <span class="s">&#34;BRAF&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">score</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">98.2</span><span class="p">,</span> <span class="m">88.5</span><span class="p">,</span> <span class="m">76.9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Examine the object</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>DataFrame with 3 rows and 3 columns
+      gene_id     symbol     score
+  &lt;character&gt; &lt;character&gt; &lt;numeric&gt;
+1 ENSG0000013…       BRCA2      98.2
+2 ENSG0000014…        TP53      88.5
+3 ENSG0000015…        BRAF      76.9
+</code></pre>
+<p>At first glance, this looks exactly like a standard data.frame, but DataFrame offers powerful capabilities beyond its familiar appearance.</p>
+<hr>
+<h2 id="-key-features-of-dataframe">
+  🔍 Key Features of DataFrame
+  <a class="heading-link" href="#-key-features-of-dataframe">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-support-for-any-object-type-in-columns">
+  1. Support for ANY object type in columns
+  <a class="heading-link" href="#1-support-for-any-object-type-in-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Unlike base R data.frames (which store only atomic vectors), DataFrames can store any S4 object type:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create a DataFrame with complex column types</span>
+</span></span><span class="line"><span class="cl"><span class="n">complex_df</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span> <span class="o">=</span> <span class="nf">Rle</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;feature1&#34;</span><span class="p">,</span> <span class="s">&#34;feature2&#34;</span><span class="p">,</span> <span class="s">&#34;feature3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>This flexibility is crucial for genomic data, which often combines simple types (gene names, scores) with complex objects (genomic ranges, compressed vectors).</p>
+<h3 id="2-other-key-features">
+  2. Other key features
+  <a class="heading-link" href="#2-other-key-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Formal validation</strong>: As an S4 class, DataFrame enforces stricter validation</li>
+<li><strong>Nested structures</strong>: DataFrames can contain other DataFrames as columns</li>
+<li><strong>Familiar syntax</strong>: Most operations work just like traditional data.frames</li>
+<li><strong>Enhanced methods</strong>: Specialized features optimized for biological data</li>
+</ul>
+<hr>
+<h2 id="-dataframes-in-genomic-contexts">
+  ⚡ DataFrames in Genomic Contexts
+  <a class="heading-link" href="#-dataframes-in-genomic-contexts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-metadata-columns-in-granges-objects">
+  1. Metadata Columns in GRanges Objects
+  <a class="heading-link" href="#1-metadata-columns-in-granges-objects">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In GRanges, all feature annotations are stored as DataFrame objects:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a GRanges object with metadata</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;chr1&#34;</span><span class="p">,</span> <span class="s">&#34;chr2&#34;</span><span class="p">,</span> <span class="s">&#34;chr3&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">3000</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">150</span><span class="p">,</span> <span class="m">200</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">,</span> <span class="s">&#34;*&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add metadata as a DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mcols</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gene_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ENSG00000139618&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000141510&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000157764&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">expression</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1045</span><span class="p">,</span> <span class="m">772</span><span class="p">,</span> <span class="m">1290</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fold_change</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2.4</span><span class="p">,</span> <span class="m">0.8</span><span class="p">,</span> <span class="m">1.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access metadata directly</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span><span class="o">$</span><span class="n">expression</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span><span class="o">$</span><span class="n">fold_change</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter based on metadata</span>
+</span></span><span class="line"><span class="cl"><span class="n">significant_genes</span> <span class="o">&lt;-</span> <span class="n">gr[gr</span><span class="o">$</span><span class="n">fold_change</span> <span class="o">&gt;</span> <span class="m">1</span><span class="n">]</span>
+</span></span></code></pre></div><p>Using DataFrame allows GRanges to maintain consistent behavior with standard R operations while enforcing validation rules specific to genomic data.</p>
+<h3 id="2-integration-with-genomicalignments">
+  2. Integration with GenomicAlignments
+  <a class="heading-link" href="#2-integration-with-genomicalignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When working with aligned reads, DataFrame stores alignment information:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Rsamtools</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read alignments from a BAM file with metadata</span>
+</span></span><span class="line"><span class="cl"><span class="n">bamfile</span> <span class="o">&lt;-</span> <span class="nf">BamFile</span><span class="p">(</span><span class="s">&#34;example.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">param</span> <span class="o">&lt;-</span> <span class="nf">ScanBamParam</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;qname&#34;</span><span class="p">,</span> <span class="s">&#34;flag&#34;</span><span class="p">,</span> <span class="s">&#34;mapq&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">param</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter reads based on mapping quality stored in DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="n">high_quality</span> <span class="o">&lt;-</span> <span class="n">reads</span><span class="nf">[mcols</span><span class="p">(</span><span class="n">reads</span><span class="p">)</span><span class="o">$</span><span class="n">mapq</span> <span class="o">&gt;</span> <span class="m">30</span><span class="n">]</span>
+</span></span></code></pre></div><h3 id="3-dataframe-in-summarizedexperiment">
+  3. DataFrame in SummarizedExperiment
+  <a class="heading-link" href="#3-dataframe-in-summarizedexperiment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>SummarizedExperiment uses DataFrame to store feature annotations and sample information:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">SummarizedExperiment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create count matrix (genes x samples)</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">rpois</span><span class="p">(</span><span class="m">30</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="m">10</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rownames</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;gene&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colnames</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;sample&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create feature annotations as DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="n">rowData</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gene_id</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;ENSG&#34;</span><span class="p">,</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%011d&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">symbol</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;gene&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">biotype</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;protein_coding&#34;</span><span class="p">,</span> <span class="s">&#34;lncRNA&#34;</span><span class="p">),</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create sample annotations as DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="n">colData</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">condition</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;treated&#34;</span><span class="p">,</span> <span class="s">&#34;control&#34;</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">batch</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create SummarizedExperiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">&lt;-</span> <span class="nf">SummarizedExperiment</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">assays</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">rowData</span> <span class="o">=</span> <span class="n">rowData</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span> <span class="o">=</span> <span class="n">colData</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter by annotations</span>
+</span></span><span class="line"><span class="cl"><span class="n">protein_coding</span> <span class="o">&lt;-</span> <span class="n">se</span><span class="nf">[rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">biotype</span> <span class="o">==</span> <span class="s">&#34;protein_coding&#34;</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">treated_samples</span> <span class="o">&lt;-</span> <span class="n">se[</span><span class="p">,</span> <span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">condition</span> <span class="o">==</span> <span class="s">&#34;treated&#34;</span><span class="n">]</span>
+</span></span></code></pre></div><h3 id="4-list-columns-for-complex-annotations">
+  4. List Columns for Complex Annotations
+  <a class="heading-link" href="#4-list-columns-for-complex-annotations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DataFrame excels at handling list columns, common in genomic analyses:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create a DataFrame with list columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">exon_starts</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">150</span><span class="p">,</span> <span class="m">250</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">500</span><span class="p">,</span> <span class="m">600</span><span class="p">,</span> <span class="m">700</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">exon_ends</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">150</span><span class="p">,</span> <span class="m">250</span><span class="p">,</span> <span class="m">350</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">550</span><span class="p">,</span> <span class="m">650</span><span class="p">,</span> <span class="m">750</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">transcript_df</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">tx_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ENST00000123&#34;</span><span class="p">,</span> <span class="s">&#34;ENST00000456&#34;</span><span class="p">,</span> <span class="s">&#34;ENST00000789&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gene_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;ENSG00000111&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000222&#34;</span><span class="p">,</span> <span class="s">&#34;ENSG00000333&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">exon_starts</span> <span class="o">=</span> <span class="n">exon_starts</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">exon_ends</span> <span class="o">=</span> <span class="n">exon_ends</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculate exon counts</span>
+</span></span><span class="line"><span class="cl"><span class="n">transcript_df</span><span class="o">$</span><span class="n">exon_count</span> <span class="o">&lt;-</span> <span class="nf">lengths</span><span class="p">(</span><span class="n">transcript_df</span><span class="o">$</span><span class="n">exon_starts</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-performance-benefits-for-genomic-analyses">
+  💯 Performance Benefits for Genomic Analyses
+  <a class="heading-link" href="#-performance-benefits-for-genomic-analyses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="memory-efficiency-with-rle-columns">
+  Memory efficiency with Rle columns
+  <a class="heading-link" href="#memory-efficiency-with-rle-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Compare memory usage for repeated data</span>
+</span></span><span class="line"><span class="cl"><span class="n">std_vector</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">1000000</span><span class="p">,</span> <span class="m">1000000</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rle_vector</span> <span class="o">&lt;-</span> <span class="nf">Rle</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">1000000</span><span class="p">,</span> <span class="m">1000000</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">object.size</span><span class="p">(</span><span class="n">std_vector</span><span class="p">)</span>  <span class="c1"># 8,000,064 bytes</span>
+</span></span><span class="line"><span class="cl"><span class="nf">object.size</span><span class="p">(</span><span class="n">rle_vector</span><span class="p">)</span>  <span class="c1"># 192 bytes (dramatic reduction!)</span>
+</span></span></code></pre></div><h3 id="key-advantages-for-genomic-workflows">
+  Key advantages for genomic workflows
+  <a class="heading-link" href="#key-advantages-for-genomic-workflows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Optimized for large datasets</strong>: Efficiently handles millions of features</li>
+<li><strong>Consistent ecosystem</strong>: Enforces standardized data structures across Bioconductor</li>
+<li><strong>Familiar interface</strong>: Maintains data.frame-like behavior for easy adoption</li>
+<li><strong>Enhanced capabilities</strong>: Enables complex operations impossible with base R</li>
+<li><strong>Integration</strong>: Seamlessly connects with all major Bioconductor components</li>
+</ul>
+<hr>
+<h2 id="-why-dataframe-matters">
+  🧬 Why DataFrame Matters
+  <a class="heading-link" href="#-why-dataframe-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>DataFrame brings structure, formality, and efficiency to your genomic data handling &mdash; the critical foundation for robust bioinformatics workflows. It&rsquo;s the glue that holds the Bioconductor ecosystem together, enabling:</p>
+<ul>
+<li><strong>Seamless transitions</strong> between different genomic data types</li>
+<li><strong>Consistent interfaces</strong> across diverse biological applications</li>
+<li><strong>Efficient storage</strong> for specialized genomic data structures</li>
+<li><strong>Extensibility</strong> for evolving genomic analysis needs</li>
+</ul>
+<p>While often hidden behind the scenes, understanding DataFrame is essential for mastering genomic data manipulation in R and unlocking the full power of Bioconductor&rsquo;s ecosystem.</p>
+<hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Coming up: <strong>SummarizedExperiment</strong> &mdash; bringing it all together for experimental data analysis, combining assay data with genomic coordinates and sample information in a unified container! 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How are you using DataFrames in your genomic workflows? Any tricks for optimizing complex nested data structures? Drop a comment below! 👇</p>
+<p>#Bioinformatics #RStats #DataFrame #S4Vectors #GenomicRanges #Bioconductor #DataStructures #GenomicAlignments #ComputationalBiology #GenomicAnalysis</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

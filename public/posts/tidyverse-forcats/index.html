@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 6: Handling Categorical Data with forcats · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 6: Handling Categorical Data with forcats">
+  <meta name="twitter:description" content="A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-forcats/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 6: Handling Categorical Data with forcats">
+  <meta property="og:description" content="A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-25T12:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-25T12:00:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Categorical Data">
+    <meta property="article:tag" content="Forcats">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Data Manipulation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-forcats/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-forcats/">
+              Tidyverse Series – Post 6: Handling Categorical Data with forcats
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-25T12:00:00Z">
+                February 25, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/categorical-data/">Categorical Data</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/forcats/">Forcats</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-manipulation/">Data Manipulation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-6-handling-categorical-data-with-forcats">
+  🔬 Tidyverse Series &ndash; Post 6: Handling Categorical Data with <code>forcats</code>
+  <a class="heading-link" href="#-tidyverse-series----post-6-handling-categorical-data-with-forcats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-forcats">
+  🛠 Why <code>forcats</code>?
+  <a class="heading-link" href="#-why-forcats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Categorical variables (factors) are essential in data analysis, but handling them in base R can be frustrating. <code>{forcats}</code> simplifies working with factors by providing <strong>intuitive, readable functions</strong> for:</p>
+<p>✔️ <strong>Reordering categories for better visualization</strong><br>
+✔️ <strong>Lumping small groups together</strong><br>
+✔️ <strong>Handling missing values efficiently</strong><br>
+✔️ <strong>Creating consistent factor levels across datasets</strong></p>
+<p>Working with factors is crucial when dealing with <strong>biological classifications, categorical survey responses, or any grouped data</strong>. Let&rsquo;s explore the key functions in <code>{forcats}</code> and how they enhance data manipulation.</p>
+<hr>
+<h2 id="-key-forcats-functions">
+  📚 Key <code>forcats</code> Functions
+  <a class="heading-link" href="#-key-forcats-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><code>forcats</code> provides multiple functions for handling categorical data efficiently. Below are the most commonly used ones, along with practical applications.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>fct_reorder()</code></td>
+          <td>Reorder factor levels based on a numerical variable</td>
+      </tr>
+      <tr>
+          <td><code>fct_rev()</code></td>
+          <td>Reverse the order of factor levels</td>
+      </tr>
+      <tr>
+          <td><code>fct_lump()</code></td>
+          <td>Group infrequent categories into &ldquo;Other&rdquo;</td>
+      </tr>
+      <tr>
+          <td><code>fct_recode()</code></td>
+          <td>Rename factor levels</td>
+      </tr>
+      <tr>
+          <td><code>fct_explicit_na()</code></td>
+          <td>Make missing values explicit</td>
+      </tr>
+      <tr>
+          <td><code>fct_collapse()</code></td>
+          <td>Combine multiple factor levels into a single category</td>
+      </tr>
+  </tbody>
+</table>
+<p>Let&rsquo;s examine these functions in detail with real-world examples.</p>
+<hr>
+<h2 id="-reordering-factor-levels-with-fct_reorder">
+  🔄 <strong>Reordering Factor Levels with <code>fct_reorder()</code></strong>
+  <a class="heading-link" href="#-reordering-factor-levels-with-fct_reorder">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>By default, R <strong>orders factor levels alphabetically</strong>, which isn&rsquo;t always meaningful. <code>fct_reorder()</code> allows us to <strong>sort factors based on a numerical variable</strong>.</p>
+<h3 id="-example-ordering-genes-by-mean-expression">
+  🔹 Example: Ordering Genes by Mean Expression
+  <a class="heading-link" href="#-example-ordering-genes-by-mean-expression">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Imagine we have <strong>gene expression data</strong>, and we want to order genes by expression level in a plot.</p>
+<h4 id="dataset-before-reordering">
+  <strong>Dataset Before Reordering</strong>
+  <a class="heading-link" href="#dataset-before-reordering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>BRCA1</td>
+          <td>8.9</td>
+      </tr>
+      <tr>
+          <td>EGFR</td>
+          <td>15.2</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="reorder-genes-by-expression-level">
+  <strong>Reorder Genes by Expression Level</strong>
+  <a class="heading-link" href="#reorder-genes-by-expression-level">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Gene</span> <span class="o">=</span> <span class="nf">fct_reorder</span><span class="p">(</span><span class="n">Gene</span><span class="p">,</span> <span class="n">Expression</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ Now, <code>ggplot2</code> will automatically order genes by their expression levels instead of alphabetically.</p>
+<h4 id="before-vsafter-reordering-in-a-ggplot2-visualization">
+  <strong>Before vs. After Reordering in a ggplot2 Visualization</strong>
+  <a class="heading-link" href="#before-vsafter-reordering-in-a-ggplot2-visualization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Gene</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Without reordering, bars would be plotted alphabetically. <strong>With <code>fct_reorder()</code> applied, genes are sorted by expression level!</strong></p>
+<hr>
+<h2 id="-reversing-factor-levels-with-fct_rev">
+  🔄 <strong>Reversing Factor Levels with <code>fct_rev()</code></strong>
+  <a class="heading-link" href="#-reversing-factor-levels-with-fct_rev">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Reversing the order of a factor is useful when <strong>plotting ordered categories</strong>.</p>
+<h4 id="-example-reversing-treatment-groups">
+  🔹 Example: Reversing Treatment Groups
+  <a class="heading-link" href="#-example-reversing-treatment-groups">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Treatment</span> <span class="o">=</span> <span class="nf">fct_rev</span><span class="p">(</span><span class="n">Treatment</span><span class="p">))</span>
+</span></span></code></pre></div><p>This ensures that <strong>&ldquo;Control&rdquo; appears at the top rather than the bottom in plots</strong>.</p>
+<hr>
+<h2 id="-lumping-small-categories-with-fct_lump">
+  🔄 <strong>Lumping Small Categories with <code>fct_lump()</code></strong>
+  <a class="heading-link" href="#-lumping-small-categories-with-fct_lump">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Often, datasets contain <strong>many categories with very few observations</strong>. <code>fct_lump()</code> allows us to <strong>group infrequent categories into an &ldquo;Other&rdquo; category</strong>, simplifying analysis.</p>
+<h4 id="-example-merging-small-sample-groups">
+  🔹 Example: Merging Small Sample Groups
+  <a class="heading-link" href="#-example-merging-small-sample-groups">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">SampleType</span> <span class="o">=</span> <span class="nf">fct_lump</span><span class="p">(</span><span class="n">SampleType</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">3</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ This retains the <strong>three most common categories</strong> and groups the rest under &ldquo;Other&rdquo;.</p>
+<h4 id="before--after-fct_lump-application">
+  <strong>Before &amp; After <code>fct_lump()</code> Application</strong>
+  <a class="heading-link" href="#before--after-fct_lump-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>SampleType</th>
+          <th>Count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Control</td>
+          <td>150</td>
+      </tr>
+      <tr>
+          <td>Treated</td>
+          <td>120</td>
+      </tr>
+      <tr>
+          <td>Disease</td>
+          <td>80</td>
+      </tr>
+      <tr>
+          <td>Unknown1</td>
+          <td>10</td>
+      </tr>
+      <tr>
+          <td>Unknown2</td>
+          <td>5</td>
+      </tr>
+  </tbody>
+</table>
+<p>➡️ <strong>After <code>fct_lump(n = 3)</code>:</strong> | SampleType | Count | |&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;-| | Control | 150 | | Treated | 120 | | Disease | 80 | | Other | 15 |</p>
+<hr>
+<h2 id="-renaming-factor-levels-with-fct_recode">
+  🔄 <strong>Renaming Factor Levels with <code>fct_recode()</code></strong>
+  <a class="heading-link" href="#-renaming-factor-levels-with-fct_recode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Sometimes, category names are <strong>too long or not informative</strong>. <code>fct_recode()</code> allows us to rename them efficiently.</p>
+<h4 id="-example-simplifying-condition-labels">
+  🔹 Example: Simplifying Condition Labels
+  <a class="heading-link" href="#-example-simplifying-condition-labels">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Ctrl&#34;</span> <span class="o">=</span> <span class="s">&#34;Control&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Trt&#34;</span> <span class="o">=</span> <span class="s">&#34;Treatment&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ Now, <code>&quot;Control&quot;</code> becomes <code>&quot;Ctrl&quot;</code> and <code>&quot;Treatment&quot;</code> becomes <code>&quot;Trt&quot;</code>.</p>
+<hr>
+<h2 id="-making-missing-values-explicit-with-fct_explicit_na">
+  🔄 <strong>Making Missing Values Explicit with <code>fct_explicit_na()</code></strong>
+  <a class="heading-link" href="#-making-missing-values-explicit-with-fct_explicit_na">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>By default, R treats missing factor levels as <code>NA</code>. Sometimes, it&rsquo;s useful to <strong>explicitly label them</strong>.</p>
+<h4 id="-example-labeling-missing-values-as-unknown">
+  🔹 Example: Labeling Missing Values as &ldquo;Unknown&rdquo;
+  <a class="heading-link" href="#-example-labeling-missing-values-as-unknown">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_explicit_na</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">na_level</span> <span class="o">=</span> <span class="s">&#34;Unknown&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ Now, <code>NA</code> values are replaced with <code>&quot;Unknown&quot;</code>.</p>
+<hr>
+<h2 id="-complete-example-using-forcats-in-a-workflow">
+  📈 <strong>Complete Example: Using <code>forcats</code> in a Workflow</strong>
+  <a class="heading-link" href="#-complete-example-using-forcats-in-a-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="scenario-we-have-clinical-trial-data-with-patient-conditions-and-treatment-responses-we-need-to">
+  <strong>Scenario:</strong> We have clinical trial data with patient conditions and treatment responses. We need to:
+  <a class="heading-link" href="#scenario-we-have-clinical-trial-data-with-patient-conditions-and-treatment-responses-we-need-to">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ Reorder conditions by severity<br>
+✔️ Lump minor conditions together<br>
+✔️ Rename conditions for clarity</p>
+<h4 id="full-workflow">
+  <strong>Full Workflow</strong>
+  <a class="heading-link" href="#full-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">clinical_data</span> <span class="o">&lt;-</span> <span class="n">clinical_data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_reorder</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">SeverityScore</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">         <span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_lump</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">         <span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_recode</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Mild&#34;</span> <span class="o">=</span> <span class="s">&#34;Low&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Severe&#34;</span> <span class="o">=</span> <span class="s">&#34;Critical&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ <strong>Now, the dataset is clean, structured, and ready for visualization!</strong></p>
+<hr>
+<h2 id="-key-takeaways">
+  📈 <strong>Key Takeaways</strong>
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>{forcats}</code> makes working with categorical data <strong>intuitive and flexible</strong><br>
+✅ <code>fct_reorder()</code> improves visualizations by ordering factors logically<br>
+✅ <code>fct_lump()</code> is useful for <strong>handling rare categories</strong><br>
+✅ <code>fct_recode()</code> renames factors efficiently<br>
+✅ Handling missing values with <code>fct_explicit_na()</code> improves data clarity</p>
+<p>📌 <strong>Next up: Importing &amp; Handling Data Efficiently with <code>readr</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>How do you manage categorical data in your analyses? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #forcats #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

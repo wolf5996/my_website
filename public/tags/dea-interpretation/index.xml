@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DEA Interpretation on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/dea-interpretation/</link>
+    <description>Recent content in DEA Interpretation on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Nov 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dea-interpretation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
+      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
+    </item>
+  </channel>
+</rss>

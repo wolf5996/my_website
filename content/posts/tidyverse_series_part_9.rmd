@@ -1,0 +1,209 @@
+---
+title: "Tidyverse Series – Post 9: Functional Programming in R with purrr"
+author: "Badran Elshenawy"
+date: 2025-03-03T12:30:00Z
+categories:
+  - "Data Science"
+  - "R"
+  - "Tidyverse"
+  - "Bioinformatics"
+tags:
+  - "Tidyverse"
+  - "Functional Programming"
+  - "purrr"
+  - "R"
+  - "Data Manipulation"
+  - "Iteration"
+description: "A complete guide to functional programming in R using purrr. Learn how to apply, map, reduce, and iterate efficiently over lists and data frames."
+slug: "tidyverse-purrr"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/tidyverse_purrr/"
+summary: "Master functional programming in R with purrr. Learn to map, reduce, and iterate over data structures efficiently in the Tidyverse."
+featured: true
+---
+
+# 🔬 Tidyverse Series – Post 9: Functional Programming in R with `purrr`
+
+## 🛠 Why `{purrr}`?
+
+Iteration in R **can be clunky** using for-loops, especially when working with lists and complex data structures. `{purrr}` provides **elegant functional programming tools** that make iteration cleaner, safer, and more expressive.
+
+### 🔹 Why Use `{purrr}`?
+
+✔️ **Replaces slow and verbose for-loops**\
+✔️ **Works seamlessly with lists and tibbles**\
+✔️ **Encourages a functional programming approach**\
+✔️ **Improves error handling in iterative tasks**\
+✔️ **Simplifies nested operations**
+
+Let’s explore the key functions that make `{purrr}` a game-changer.
+
+------------------------------------------------------------------------
+
+## 📚 Key `{purrr}` Functions
+
+| Function | Purpose |
+|------------------------------------------------|-------------------------|
+| `map()` | Apply a function to each element of a list |
+| `map_dbl()`, `map_chr()`, `map_lgl()` | Ensure output as numeric, character, or logical vectors |
+| `map2()` | Iterate over two lists at once |
+| `pmap()` | Iterate over multiple lists simultaneously |
+| `possibly()`, `safely()` | Handle errors gracefully |
+| `reduce()` | Perform iterative reduction (e.g., cumulative sums, merging) |
+| `walk()` | Apply functions for side effects (e.g., printing, logging) |
+
+------------------------------------------------------------------------
+
+## 📊 **Example 1: Applying a Function to a List of Values**
+
+Imagine we need to **take the square root of a list of numbers**, handling potential errors.
+
+### **➡️ Base R approach using a for-loop:**
+
+``` r
+numbers <- list(4, 9, 16, 25, -1)
+results <- c()
+
+for (x in numbers) {
+  results <- c(results, sqrt(x))
+}
+```
+
+✔️ Works, but not scalable for more complex cases.
+
+### **➡️ `{purrr}` approach using `map()`:**
+
+``` r
+library(purrr)
+numbers <- list(4, 9, 16, 25, -1)
+results <- map(numbers, sqrt)
+```
+
+✅ **More concise and readable**\
+✅ **Handles list structures effortlessly**\
+✅ **Easily extendable to more complex functions**
+
+------------------------------------------------------------------------
+
+## 📊 **Example 2: Handling Errors with `possibly()`**
+
+Some operations might fail. `{purrr}` helps us handle errors gracefully using `possibly()`.
+
+### **➡️ Handling errors in a safe way:**
+
+``` r
+safe_sqrt <- possibly(sqrt, otherwise = NA)
+results <- map(numbers, safe_sqrt)
+```
+
+✅ **Prevents the entire operation from failing due to a single error**
+
+------------------------------------------------------------------------
+
+## 📊 **Example 3: Iterating Over Two Lists with `map2()`**
+
+We can iterate over **two lists** simultaneously.
+
+### **➡️ Multiply corresponding elements in two lists:**
+
+``` r
+list1 <- list(2, 4, 6)
+list2 <- list(3, 5, 7)
+
+map2(list1, list2, ~ .x * .y)
+```
+
+✅ Efficiently processes **paired** elements from two lists.
+
+------------------------------------------------------------------------
+
+## 📊 **Example 4: Working with Data Frames Using `pmap()`**
+
+When we need to apply a function across **multiple columns** in a dataframe, `pmap()` is the best choice.
+
+### **➡️ Example: Compute a BMI column**
+
+``` r
+library(dplyr)
+df <- tibble(Weight = c(70, 80, 65), Height = c(1.75, 1.82, 1.68))
+
+df <- df %>%
+  mutate(BMI = pmap_dbl(list(Weight, Height), ~ .x / (.y^2)))
+```
+
+✅ Computes **BMI for each row** efficiently.
+
+------------------------------------------------------------------------
+
+## 📊 **Example 5: Reducing a List Using `reduce()`**
+
+If we need to **perform cumulative operations**, `reduce()` is our go-to function.
+
+### **➡️ Compute the cumulative sum of a list:**
+
+``` r
+values <- list(1, 2, 3, 4, 5)
+sum_result <- reduce(values, `+`)
+```
+
+✅ Returns **the total sum of all values** in the list.
+
+------------------------------------------------------------------------
+
+## 📊 **Example 6: Using `walk()` for Side Effects**
+
+`walk()` is similar to `map()` but is used when the function has **side effects** (e.g., printing, saving files, logging messages).
+
+### **➡️ Print each element in a list:**
+
+``` r
+walk(numbers, print)
+```
+
+✅ Runs functions **without returning output**, useful for **logging or debugging**.
+
+------------------------------------------------------------------------
+
+## 📈 **Complete Workflow: Functional Programming with `{purrr}`**
+
+Let’s put everything together into a **cohesive pipeline**.
+
+``` r
+library(purrr)
+library(dplyr)
+
+# Sample dataset
+df <- tibble(
+  Name = c("Alice", "Bob", "Charlie"),
+  Score1 = c(85, 90, 78),
+  Score2 = c(80, 95, 88)
+)
+
+# Apply functions using purrr
+df <- df %>%
+  mutate(
+    Avg_Score = map2_dbl(Score1, Score2, ~ mean(c(.x, .y))),
+    Score_Summary = pmap_chr(list(Name, Score1, Score2), 
+                             ~ paste(.x, "has an average score of", mean(c(.y, .z))))
+  )
+```
+
+✅ **Uses `map2()` and `pmap()` to efficiently compute new variables**
+
+------------------------------------------------------------------------
+
+## 📌 **Key Takeaways**
+
+✅ `{purrr}` makes iteration in R **more intuitive and powerful**.\
+✅ `map()` and related functions **streamline repetitive tasks**.\
+✅ `possibly()` and `safely()` **help with robust error handling**.\
+✅ `map2()` and `pmap()` **simplify multi-list operations**.\
+✅ `reduce()` and `walk()` **offer advanced functional programming workflows**.
+
+📌 **Next up: String Manipulation Made Easy with `stringr`!** Stay tuned! 🚀
+
+👇 **How do you currently handle iteration in R? Let’s discuss!**
+
+#Tidyverse #purrr #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology

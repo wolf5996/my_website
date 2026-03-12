@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSV Handling on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/csv-handling/</link>
+    <description>Recent content in CSV Handling on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 26 Feb 2025 10:50:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/csv-handling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr</title>
+      <link>http://localhost:1313/posts/tidyverse-readr/</link>
+      <pubDate>Wed, 26 Feb 2025 10:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-readr/</guid>
+      <description>Master data import in R with readr. Learn to load, clean, and process large datasets efficiently using modern Tidyverse tools.</description>
+    </item>
+  </channel>
+</rss>

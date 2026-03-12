@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quality Control on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/quality-control/</link>
+    <description>Recent content in Quality Control on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Oct 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/quality-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 5: QC Metrics That Actually Matter!</title>
+      <link>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</link>
+      <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</guid>
+      <description>Learn to set quality control thresholds without throwing away good cells. Discover how histograms and scatter plots reveal your data&amp;rsquo;s unique characteristics for optimal filtering.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 4: Quality Control - The Make-or-Break Step!</title>
+      <link>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</link>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</guid>
+      <description>Why single-cell analysis lives or dies by quality control. Learn to spot the three villains that ruin downstream analysis and master the mindset shift that saves months of confusion.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
+      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
+      <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
+      <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 12: ShortRead</title>
+      <link>http://localhost:1313/posts/shortread/</link>
+      <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/shortread/</guid>
+      <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-trimming/</link>
+      <pubDate>Mon, 24 Mar 2025 06:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-trimming/</guid>
+      <description>Master read trimming in RNA-Seq using Trimmomatic. Discover essential options, command examples, and how trimming enhances read quality before alignment.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
+      <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
+      <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
+    </item>
+  </channel>
+</rss>

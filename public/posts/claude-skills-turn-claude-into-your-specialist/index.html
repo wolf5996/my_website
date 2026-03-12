@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master Claude Skills - reusable instruction packages that transform Claude from a general assistant into a specialist for your exact workflow. Learn how to create, install, and use Skills in both Claude chat and Claude Code, plus discover the Superpowers plugin ecosystem.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!">
+  <meta name="twitter:description" content="Master Claude Skills - reusable instruction packages that transform Claude from a general assistant into a specialist for your exact workflow. Learn how to create, install, and use Skills in both Claude chat and Claude Code, plus discover the Superpowers plugin ecosystem.">
+
+<meta property="og:url" content="http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!">
+  <meta property="og:description" content="Master Claude Skills - reusable instruction packages that transform Claude from a general assistant into a specialist for your exact workflow. Learn how to create, install, and use Skills in both Claude chat and Claude Code, plus discover the Superpowers plugin ecosystem.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-10T09:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-10T09:00:00+00:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Skills">
+    <meta property="article:tag" content="Agent Skills">
+    <meta property="article:tag" content="SKILL.md">
+    <meta property="article:tag" content="Superpowers">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/">
+              Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-02-10T09:00:00Z">
+                February 10, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/ai-tools/">AI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a>
+      <span class="separator">•</span>
+    <a href="/categories/claude/">Claude</a>
+      <span class="separator">•</span>
+    <a href="/categories/research-tools/">Research Tools</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/claude/">Claude</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/claude-code/">Claude Code</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/skills/">Skills</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/agent-skills/">Agent Skills</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/skill.md/">SKILL.md</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/superpowers/">Superpowers</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-workflow/">AI Workflow</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/research-productivity/">Research Productivity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/custom-ai/">Custom AI</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="claude-series----post-6-skills---turn-claude-into-your-specialist-">
+  Claude Series &ndash; Post 6: Skills - Turn Claude Into YOUR Specialist! 🧬
+  <a class="heading-link" href="#claude-series----post-6-skills---turn-claude-into-your-specialist-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Remember <a href="https://badran-elshenawy.netlify.app/posts/"  class="external-link" target="_blank" rel="noopener">CLAUDE.md from Post 5</a>? That was about onboarding Claude into your project &mdash; telling it about your files, packages, and standards.</p>
+<p>Skills take it further. Instead of just <em>informing</em> Claude about your project, you <em>teach</em> it how to perform specific tasks exactly the way you want &mdash; and it remembers that expertise forever.</p>
+<hr>
+<h2 id="-what-are-skills">
+  🎯 What Are Skills?
+  <a class="heading-link" href="#-what-are-skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Skills are <strong>reusable instruction packages</strong> that extend Claude&rsquo;s capabilities. Each Skill is a folder containing a <strong>SKILL.md</strong> file with YAML frontmatter (name + description) and detailed Markdown instructions. You can optionally include scripts, templates, and reference files.</p>
+<p>The clever part is <strong>progressive disclosure</strong>. Claude scans only the metadata of all available Skills (~100 tokens each), then loads the full content of only the relevant ones when your task matches. Dozens of Skills, zero context bloat.</p>
+<h3 id="how-claude-uses-them">
+  How Claude Uses Them
+  <a class="heading-link" href="#how-claude-uses-them">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Automatically:</strong> Claude reads Skill descriptions and loads matching ones when your task fits. Ask &ldquo;filter my Seurat object for low-quality cells&rdquo; and Claude auto-loads your QC Skill without being told.</p>
+<p><strong>Manually:</strong> In Claude Code, every Skill becomes a slash command. Type <code>/scrnaseq-qc</code> to force-load it, optionally with arguments:</p>
+<pre><code>/scrnaseq-qc Filter the PBMC dataset with strict thresholds
+</code></pre>
+<hr>
+<h2 id="-where-do-skills-live">
+  📂 Where Do Skills Live?
+  <a class="heading-link" href="#-where-do-skills-live">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Claude chat:</strong> Upload a zipped Skill folder in <strong>Settings → Capabilities → Skills</strong></li>
+<li><strong>Claude Code (project):</strong> Drop folders into <code>.claude/skills/</code> in your project &mdash; version-controlled and shared via git</li>
+<li><strong>Claude Code (personal):</strong> Place in <code>~/.claude/skills/</code> for Skills available across all projects</li>
+<li><strong>Marketplace:</strong> Install community Skills with <code>/plugin marketplace add</code></li>
+</ul>
+<p>Priority when names collide: <strong>Enterprise &gt; Personal &gt; Project</strong>.</p>
+<hr>
+<h2 id="-built-in-and-partner-skills">
+  💡 Built-In and Partner Skills
+  <a class="heading-link" href="#-built-in-and-partner-skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Claude ships with professional Skills for <strong>docx</strong>, <strong>xlsx</strong>, <strong>pptx</strong>, and <strong>pdf</strong> creation. Say &ldquo;take my DESeq2 results and create a Word document with summary table and volcano plot&rdquo; and Claude produces a publication-ready file. The <a href="https://claude.com/connectors"  class="external-link" target="_blank" rel="noopener">Skills Directory</a> also features partner Skills from Notion, Figma, and Atlassian that integrate with MCP connectors (more on MCPs next post!).</p>
+<hr>
+<h2 id="-superpowers-the-community-game-changer">
+  🚀 Superpowers: The Community Game-Changer
+  <a class="heading-link" href="#-superpowers-the-community-game-changer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://github.com/obra/superpowers"  class="external-link" target="_blank" rel="noopener"><strong>Superpowers</strong></a> by Jesse Vincent is a battle-tested library of 20+ Skills for Claude Code. Install it in two commands:</p>
+<pre><code>/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+</code></pre>
+<p>What you get:</p>
+<ul>
+<li><code>/superpowers:brainstorm</code> &mdash; Interactive design refinement before writing code</li>
+<li><code>/superpowers:write-plan</code> &mdash; Structured implementation plans</li>
+<li><code>/superpowers:execute-plan</code> &mdash; Executes plans in verified batches</li>
+</ul>
+<p>Plus <strong>auto-activating Skills</strong> that fire when Claude detects the right context: <strong>test-driven-development</strong> when implementing features, <strong>systematic-debugging</strong> when tracing bugs (root cause, not symptoms), and <strong>verification-before-completion</strong> before Claude claims work is done.</p>
+<p>The bootstrap is fewer than 2,000 tokens &mdash; individual Skills load on demand via a search script, so you never pay for what you don&rsquo;t use. The broader <a href="https://github.com/travisvn/awesome-claude-skills"  class="external-link" target="_blank" rel="noopener">awesome-claude-skills</a> repository curates even more community Skills across scientific computing, security, writing, and more.</p>
+<hr>
+<h2 id="-creating-your-own-skills">
+  🏗️ Creating Your Own Skills
+  <a class="heading-link" href="#-creating-your-own-skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-1-create-the-directory">
+  Step 1: Create the Directory
+  <a class="heading-link" href="#step-1-create-the-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Project-level</span>
+</span></span><span class="line"><span class="cl">mkdir -p my-project/.claude/skills/scrnaseq-qc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Or personal (all projects)</span>
+</span></span><span class="line"><span class="cl">mkdir -p ~/.claude/skills/scrnaseq-qc
+</span></span></code></pre></div><h3 id="step-2-write-skillmd">
+  Step 2: Write SKILL.md
+  <a class="heading-link" href="#step-2-write-skillmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The description is critical &mdash; it&rsquo;s what Claude reads to decide relevance:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">name: scrnaseq-qc
+</span></span><span class="line"><span class="cl">description: &#34;Standard single-cell RNA-seq quality control workflow. 
+</span></span><span class="line"><span class="cl">Use when performing QC filtering on 10X Chromium scRNA-seq data, 
+</span></span><span class="line"><span class="cl">setting QC thresholds, or filtering cells by nFeature, nCount, 
+</span></span><span class="line"><span class="cl">and percent.mt metrics.&#34;
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gh"># Single-Cell RNA-seq QC Protocol
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>
+</span></span><span class="line"><span class="cl"><span class="gu">## Standard Thresholds
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">-</span> nFeature_RNA: 200 - 5000
+</span></span><span class="line"><span class="cl"><span class="k">-</span> nCount_RNA: minimum 500
+</span></span><span class="line"><span class="cl"><span class="k">-</span> percent.mt: <span class="p">&lt;</span> <span class="nt">15</span><span class="err">%</span> <span class="err">(</span><span class="na">tissue-dependent</span><span class="err">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Workflow Order
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">1.</span> <span class="na">Run</span> <span class="na">SoupX</span> <span class="na">on</span> <span class="na">raw</span> <span class="na">matrix</span> <span class="na">FIRST</span>
+</span></span><span class="line"><span class="cl"><span class="k">2.</span> <span class="na">Create</span> <span class="na">Seurat</span> <span class="na">object</span> <span class="na">from</span> <span class="na">corrected</span> <span class="na">counts</span>
+</span></span><span class="line"><span class="cl"><span class="k">3.</span> <span class="na">Calculate</span> <span class="na">percent</span><span class="err">.</span><span class="na">mt</span> <span class="na">with</span> <span class="na">PercentageFeatureSet</span><span class="err">(</span><span class="na">pattern </span><span class="o">=</span> <span class="s">&#34;^MT-&#34;</span><span class="err">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">4.</span> <span class="na">Visualize</span> <span class="na">QC</span> <span class="na">metrics</span> <span class="na">BEFORE</span> <span class="na">any</span> <span class="na">filtering</span>
+</span></span><span class="line"><span class="cl"><span class="k">5.</span> <span class="na">Apply</span> <span class="na">thresholds</span> <span class="na">based</span> <span class="na">on</span> <span class="na">distribution</span>
+</span></span><span class="line"><span class="cl"><span class="k">6.</span> <span class="na">Run</span> <span class="na">DoubletFinder</span> <span class="na">AFTER</span> <span class="na">initial</span> <span class="na">filtering</span>
+</span></span><span class="line"><span class="cl"><span class="k">7.</span> <span class="na">Document</span> <span class="na">all</span> <span class="na">thresholds</span> <span class="na">and</span> <span class="na">cells</span> <span class="na">removed</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Critical Rules
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span><span class="k">-</span> <span class="na">NEVER</span> <span class="na">skip</span> <span class="na">ambient</span> <span class="na">RNA</span> <span class="na">removal</span> <span class="na">for</span> <span class="na">droplet-based</span> <span class="na">data</span>
+</span></span><span class="line"><span class="cl"><span class="k">-</span> <span class="na">ALWAYS</span> <span class="na">set</span> <span class="na">seed</span> <span class="err">(</span><span class="na">42</span><span class="err">)</span> <span class="na">for</span> <span class="na">reproducibility</span>
+</span></span><span class="line"><span class="cl"><span class="k">-</span> <span class="na">ALWAYS</span> <span class="na">generate</span> <span class="na">QC</span> <span class="na">plots</span> <span class="na">BEFORE</span> <span class="na">and</span> <span class="na">AFTER</span> <span class="na">filtering</span>
+</span></span></code></pre></div><h3 id="step-3-add-supporting-files-optional">
+  Step 3: Add Supporting Files (Optional)
+  <a class="heading-link" href="#step-3-add-supporting-files-optional">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre><code>scrnaseq-qc/
+├── SKILL.md              # Main instructions (required)
+├── templates/
+│   └── qc_report.Rmd     # Template Claude fills in
+├── scripts/
+│   └── validate_qc.R     # Executable validation
+└── resources/
+    └── marker_genes.csv   # Reference data
+</code></pre>
+<h3 id="step-4-share-it">
+  Step 4: Share It
+  <a class="heading-link" href="#step-4-share-it">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .claude/skills/scrnaseq-qc/
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Add scRNA-seq QC skill&#34;</span>
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></div><p>Everyone who pulls the repo gets the same protocol. For Claude chat, zip the folder and share the .zip file &mdash; colleagues upload through Settings.</p>
+<p><strong>Pro tip:</strong> Claude ships with a built-in <strong>skill-creator</strong> Skill. Just ask &ldquo;help me create a new Skill for [your workflow]&rdquo; and it walks you through the process interactively.</p>
+<hr>
+<h2 id="-skills-vs-claudemd">
+  🤝 Skills vs CLAUDE.md
+  <a class="heading-link" href="#-skills-vs-claudemd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>CLAUDE.md</strong> = project context (the <em>what</em> and <em>where</em>): project description, directory structure, package versions, naming conventions.</p>
+<p><strong>Skills</strong> = task expertise (the <em>how</em>): how QC should be performed, how reports should be formatted, how figures should be generated.</p>
+<p>They&rsquo;re complementary. CLAUDE.md gives Claude the map. Skills give Claude the expertise to navigate it. Use both.</p>
+<hr>
+<h2 id="-tips-for-effective-skills">
+  ⚡ Tips for Effective Skills
+  <a class="heading-link" href="#-tips-for-effective-skills">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Write specific descriptions.</strong> &ldquo;Data analysis helper&rdquo; won&rsquo;t trigger reliably. &ldquo;Single-cell RNA-seq QC for 10X data with SoupX and DoubletFinder&rdquo; will.</p>
+<p><strong>Keep Skills focused.</strong> One Skill per workflow. Focused Skills compose better than one monolithic Skill.</p>
+<p><strong>Include examples.</strong> A <code>sample_output.md</code> showing expected output is worth a thousand words of instruction.</p>
+<p><strong>Version control everything.</strong> When your lab updates a protocol, update the Skill. Everyone pulls the latest automatically.</p>
+<hr>
+<h2 id="-the-bottom-line">
+  🔥 The Bottom Line
+  <a class="heading-link" href="#-the-bottom-line">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Skills transform Claude from a general assistant into YOUR specialist &mdash; reusable, shareable, composable, and automatically invoked. Set them up once, benefit forever. They work across Claude chat, Claude Code, and the API. Write once, use everywhere.</p>
+<p><strong>Next up: MCPs (Model Context Protocol) &mdash; connecting Claude to external tools, databases, and services!</strong> If Skills teach Claude <em>how</em> to do tasks, MCPs give Claude <em>access</em> to the tools and data it needs. The combination is where things get really powerful. 🔌</p>
+<hr>
+<p><em>Full Claude series at <a href="https://badran-elshenawy.netlify.app/posts/"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app/posts</a></em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

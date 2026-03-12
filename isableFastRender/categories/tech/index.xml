@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/tech/</link>
+    <description>Recent content in Tech on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Jan 2025 10:51:58 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to My Personal Blog</title>
+      <link>http://localhost:1313/posts/welcome-to-my-personal-blog/</link>
+      <pubDate>Wed, 22 Jan 2025 10:51:58 +0000</pubDate>
+      <guid>http://localhost:1313/posts/welcome-to-my-personal-blog/</guid>
+      <description>&lt;h1 id=&#34;-welcome-to-my-personal-blog&#34;&gt;&#xA;  🚀 Welcome to My Personal Blog&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-welcome-to-my-personal-blog&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;For a while now, I’ve been posting daily on &lt;strong&gt;LinkedIn&lt;/strong&gt;—sharing insights on &lt;strong&gt;bioinformatics, command-line tools, and productivity&lt;/strong&gt;. But I wanted a space that’s truly my own. So, I built this site.&lt;/p&gt;&#xA;&lt;p&gt;This blog will be a &lt;strong&gt;continuation of my LinkedIn posts&lt;/strong&gt;, but with more flexibility. I’ll use it to:&lt;br&gt;&#xA;✅ Share &lt;strong&gt;quick insights&lt;/strong&gt; and &lt;strong&gt;technical tips&lt;/strong&gt;.&lt;br&gt;&#xA;✅ Write about &lt;strong&gt;bioinformatics, data science, and scripting&lt;/strong&gt;.&lt;br&gt;&#xA;✅ Explore &lt;strong&gt;philosophy, productivity, and deep work&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>File Formats on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/file-formats/</link>
+    <description>Recent content in File Formats on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 May 2025 15:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/file-formats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Foundations of Genomic Data – Post 11: rtracklayer</title>
+      <link>http://localhost:1313/posts/rtracklayer/</link>
+      <pubDate>Tue, 20 May 2025 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rtracklayer/</guid>
+      <description>Discover how rtracklayer serves as the critical bridge between the diverse world of genomic file formats and Bioconductor&amp;rsquo;s analytical environment. Explore efficient techniques for importing, exporting, and converting between formats with a consistent interface that simplifies genomic workflows.</description>
+    </item>
+  </channel>
+</rss>

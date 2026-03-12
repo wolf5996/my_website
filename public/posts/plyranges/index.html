@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 10: plyranges · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master plyranges for elegant genomic data manipulation in R. Learn how this innovative package bridges Bioconductor and the tidyverse, enabling intuitive analysis of genomic ranges through familiar pipes and verbs that transform complex nested operations into readable workflows.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 10: plyranges">
+  <meta name="twitter:description" content="Master plyranges for elegant genomic data manipulation in R. Learn how this innovative package bridges Bioconductor and the tidyverse, enabling intuitive analysis of genomic ranges through familiar pipes and verbs that transform complex nested operations into readable workflows.">
+
+<meta property="og:url" content="http://localhost:1313/posts/plyranges/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 10: plyranges">
+  <meta property="og:description" content="Master plyranges for elegant genomic data manipulation in R. Learn how this innovative package bridges Bioconductor and the tidyverse, enabling intuitive analysis of genomic ranges through familiar pipes and verbs that transform complex nested operations into readable workflows.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-19T00:30:00+00:00">
+    <meta property="article:modified_time" content="2025-05-19T00:30:00+00:00">
+    <meta property="article:tag" content="Plyranges">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="GenomicRanges">
+    <meta property="article:tag" content="Pipes">
+    <meta property="article:tag" content="Dplyr">
+    <meta property="article:tag" content="Bioconductor">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/plyranges/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/plyranges/">
+              Foundations of Genomic Data – Post 10: plyranges
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-05-19T00:30:00Z">
+                May 19, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-manipulation/">Data Manipulation</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/plyranges/">Plyranges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/genomicranges/">GenomicRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pipes/">Pipes</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/dplyr/">Dplyr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/join-operations/">Join Operations</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/filtering/">Filtering</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/mutate/">Mutate</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/code-readability/">Code Readability</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-10-plyranges">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 10: plyranges
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-10-plyranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-plyranges">
+  🚀 Why plyranges?
+  <a class="heading-link" href="#-why-plyranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After exploring the core Bioconductor infrastructure for genomic ranges, alignments, and sequences, it&rsquo;s time to discover how modern R programming paradigms can transform our workflows. <strong>plyranges</strong> bridges the gap between Bioconductor&rsquo;s powerful genomic tools and the intuitive tidyverse syntax that R users love.</p>
+<p>Remember when genomic range operations required pages of complex, hard-to-read code with nested function calls? plyranges changed the game by bringing tidyverse elegance to genomic data analysis. It transforms the way we interact with GRanges objects, making genomic analyses more readable, maintainable, and fun!</p>
+<hr>
+<h2 id="-getting-started-with-plyranges">
+  🔧 Getting Started with plyranges
+  <a class="heading-link" href="#-getting-started-with-plyranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>First, install and load the required packages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Install if needed</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;plyranges&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load libraries</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">plyranges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+</span></span></code></pre></div><p>Let&rsquo;s create a simple GRanges object and apply some basic plyranges operations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create a basic GRanges object</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="s">&#34;chr1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;*&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">score</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Apply plyranges operations with pipes</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr_filtered</span> <span class="o">&lt;-</span> <span class="n">gr</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="m">2</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">score_doubled</span> <span class="o">=</span> <span class="n">score</span> <span class="o">*</span> <span class="m">2</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">score_doubled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gr_filtered</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>GRanges object with 3 ranges and 2 metadata columns:
+      seqnames    ranges strand |     score score_doubled
+         &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;     &lt;numeric&gt;
+  [1]     chr1     3-12      * |         3             6
+  [2]     chr1     4-13      - |         4             8
+  [3]     chr1     5-14      - |         5            10
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+</code></pre><p>The transformation is remarkable &ndash; what would have been multiple nested function calls becomes a linear, readable pipeline.</p>
+<hr>
+<h2 id="-key-features-of-plyranges">
+  🔍 Key Features of plyranges
+  <a class="heading-link" href="#-key-features-of-plyranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>plyranges reimagines genomic range manipulation through familiar tidyverse-style verbs:</p>
+<h3 id="1-filtering-and-subsetting-ranges">
+  1. Filtering and Subsetting Ranges
+  <a class="heading-link" href="#1-filtering-and-subsetting-ranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Filter based on range properties</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">width</span> <span class="o">&gt;</span> <span class="m">5</span><span class="p">,</span> <span class="n">strand</span> <span class="o">==</span> <span class="s">&#34;+&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter based on metadata</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">score</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Slice to select specific ranges</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">slice</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="2-adding-and-transforming-metadata">
+  2. Adding and Transforming Metadata
+  <a class="heading-link" href="#2-adding-and-transforming-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Add new metadata columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">category</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">score</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="s">&#34;high&#34;</span><span class="p">,</span> <span class="s">&#34;low&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gc_content</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">gr</span><span class="p">),</span> <span class="m">0.3</span><span class="p">,</span> <span class="m">0.6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Modify existing columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span> <span class="o">/</span> <span class="nf">max</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="3-genomic-range-operations">
+  3. Genomic Range Operations
+  <a class="heading-link" href="#3-genomic-range-operations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Shift ranges by 1000bp</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="m">1000</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">end</span> <span class="o">+</span> <span class="m">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># More elegant with specialized functions</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">shift_right</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Resize ranges</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>  <span class="c1"># or</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">resize</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create flanking regions</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">flank_left</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>  <span class="c1"># 50bp upstream</span>
+</span></span></code></pre></div><h3 id="4-joining-genomic-ranges">
+  4. Joining Genomic Ranges
+  <a class="heading-link" href="#4-joining-genomic-ranges">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the most powerful features is the intuitive syntax for overlap operations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create another set of ranges</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr2</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="s">&#34;chr1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">15</span><span class="p">),</span> <span class="n">width</span> <span class="o">=</span> <span class="m">5</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;*&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">type</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;enhancer&#34;</span><span class="p">,</span> <span class="s">&#34;promoter&#34;</span><span class="p">,</span> <span class="s">&#34;gene&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find overlaps between ranges (like SQL INNER JOIN)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">join_overlap_inner</span><span class="p">(</span><span class="n">gr2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Overlap with additional constraints</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">join_overlap_inner</span><span class="p">(</span><span class="n">gr2</span><span class="p">,</span> <span class="n">maxgap</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>  <span class="c1"># Allow 2bp gap</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find ranges in gr that overlap gr2 (like SQL LEFT JOIN)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">join_overlap_left</span><span class="p">(</span><span class="n">gr2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find ranges in gr that don&#39;t overlap gr2</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span> <span class="nf">join_overlap_inner_not</span><span class="p">(</span><span class="n">gr2</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="5-grouping-and-summarizing">
+  5. Grouping and Summarizing
+  <a class="heading-link" href="#5-grouping-and-summarizing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>plyranges extends the group-by operations to genomic contexts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Group by strand and summarize</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">strand</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean_score</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">score</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_width</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>GRanges object with 3 ranges and 3 metadata columns:
+      seqnames    ranges strand |     count mean_score total_width
+         &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;  &lt;numeric&gt;   &lt;integer&gt;
+  [1]     chr1        NA      + |         2        1.5          20
+  [2]     chr1        NA      * |         1        3.0          10
+  [3]     chr1        NA      - |         2        4.5          20
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+</code></pre><hr>
+<h2 id="-real-world-applications-with-code-examples">
+  💯 Real-World Applications with Code Examples
+  <a class="heading-link" href="#-real-world-applications-with-code-examples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s explore some practical genomic analysis workflows using plyranges:</p>
+<h3 id="1-finding-promoters-overlapping-chip-seq-peaks">
+  1. Finding Promoters Overlapping ChIP-seq Peaks
+  <a class="heading-link" href="#1-finding-promoters-overlapping-chip-seq-peaks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">plyranges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get gene models</span>
+</span></span><span class="line"><span class="cl"><span class="n">genes</span> <span class="o">&lt;-</span> <span class="nf">genes</span><span class="p">(</span><span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define promoters (2kb upstream)</span>
+</span></span><span class="line"><span class="cl"><span class="n">promoters</span> <span class="o">&lt;-</span> <span class="n">genes</span> <span class="o">%&gt;%</span> <span class="nf">promoters</span><span class="p">(</span><span class="n">upstream</span> <span class="o">=</span> <span class="m">2000</span><span class="p">,</span> <span class="n">downstream</span> <span class="o">=</span> <span class="m">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read ChIP-seq peaks from BED file</span>
+</span></span><span class="line"><span class="cl"><span class="n">peaks</span> <span class="o">&lt;-</span> <span class="nf">read_bed</span><span class="p">(</span><span class="s">&#34;chipseq_peaks.bed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find promoters with overlapping peaks and count peaks per gene</span>
+</span></span><span class="line"><span class="cl"><span class="n">promoter_peaks</span> <span class="o">&lt;-</span> <span class="n">promoters</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">join_overlap_inner</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">gene_id</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">peak_count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">peak_count</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Display top genes by peak count</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">promoter_peaks</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="2-filtering-and-classifying-genomic-features">
+  2. Filtering and Classifying Genomic Features
+  <a class="heading-link" href="#2-filtering-and-classifying-genomic-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Read genomic features</span>
+</span></span><span class="line"><span class="cl"><span class="n">features</span> <span class="o">&lt;-</span> <span class="nf">read_gff</span><span class="p">(</span><span class="s">&#34;annotations.gff&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Complex filtering and annotation</span>
+</span></span><span class="line"><span class="cl"><span class="n">filtered_features</span> <span class="o">&lt;-</span> <span class="n">features</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="s">&#34;exon&#34;</span><span class="p">,</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="m">100</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gc_content</span> <span class="o">=</span> <span class="nf">calculate_gc</span><span class="p">(</span><span class="n">sequence</span><span class="p">),</span>  <span class="c1"># Hypothetical function</span>
+</span></span><span class="line"><span class="cl">    <span class="n">size_class</span> <span class="o">=</span> <span class="nf">case_when</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">&lt;</span> <span class="m">200</span> <span class="o">~</span> <span class="s">&#34;small&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">&lt;</span> <span class="m">500</span> <span class="o">~</span> <span class="s">&#34;medium&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="kc">TRUE</span> <span class="o">~</span> <span class="s">&#34;large&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">gc_content</span> <span class="o">&gt;</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">gene_id</span><span class="p">,</span> <span class="n">transcript_id</span><span class="p">,</span> <span class="n">size_class</span><span class="p">,</span> <span class="n">gc_content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Summarize by size class</span>
+</span></span><span class="line"><span class="cl"><span class="n">filtered_features</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">size_class</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean_gc</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">gc_content</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean_width</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><h3 id="3-finding-distance-to-nearest-feature">
+  3. Finding Distance to Nearest Feature
+  <a class="heading-link" href="#3-finding-distance-to-nearest-feature">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Find closest genes to each peak</span>
+</span></span><span class="line"><span class="cl"><span class="n">nearest_genes</span> <span class="o">&lt;-</span> <span class="n">peaks</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">join_nearest</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">distance</span> <span class="o">=</span> <span class="nf">distance_to_nearest</span><span class="p">(</span><span class="n">genes</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">regulation</span> <span class="o">=</span> <span class="nf">case_when</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">strand</span> <span class="o">==</span> <span class="s">&#34;+&#34;</span> <span class="o">&amp;</span> <span class="nf">start</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">end</span> <span class="o">~</span> <span class="s">&#34;upstream&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">strand</span> <span class="o">==</span> <span class="s">&#34;-&#34;</span> <span class="o">&amp;</span> <span class="nf">start</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">start</span> <span class="o">~</span> <span class="s">&#34;upstream&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="kc">TRUE</span> <span class="o">~</span> <span class="s">&#34;downstream&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">peak_id</span><span class="p">,</span> <span class="n">gene_id</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">regulation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Tabulate regulatory relationships</span>
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">nearest_genes</span><span class="o">$</span><span class="n">regulation</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="4-finding-differentially-accessible-regions">
+  4. Finding Differentially Accessible Regions
+  <a class="heading-link" href="#4-finding-differentially-accessible-regions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Combine ATAC-seq peaks from multiple conditions</span>
+</span></span><span class="line"><span class="cl"><span class="n">condition1</span> <span class="o">&lt;-</span> <span class="nf">read_bed</span><span class="p">(</span><span class="s">&#34;condition1_peaks.bed&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">condition</span> <span class="o">=</span> <span class="s">&#34;treatment&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">condition2</span> <span class="o">&lt;-</span> <span class="nf">read_bed</span><span class="p">(</span><span class="s">&#34;condition2_peaks.bed&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">condition</span> <span class="o">=</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Combine peaks</span>
+</span></span><span class="line"><span class="cl"><span class="n">all_peaks</span> <span class="o">&lt;-</span> <span class="nf">bind_ranges</span><span class="p">(</span><span class="n">condition1</span><span class="p">,</span> <span class="n">condition2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find consensus peaks</span>
+</span></span><span class="line"><span class="cl"><span class="n">consensus</span> <span class="o">&lt;-</span> <span class="n">all_peaks</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">reduce_ranges</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">peak_id</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;peak_&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">.)</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Count peaks per condition in each consensus region</span>
+</span></span><span class="line"><span class="cl"><span class="n">peak_matrix</span> <span class="o">&lt;-</span> <span class="n">consensus</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">join_overlap_left</span><span class="p">(</span><span class="n">all_peaks</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">peak_id</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">pivot_wider</span><span class="p">(</span><span class="n">names_from</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">values_from</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">values_fill</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Identify differential peaks</span>
+</span></span><span class="line"><span class="cl"><span class="n">differential_peaks</span> <span class="o">&lt;-</span> <span class="n">peak_matrix</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">treatment</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="o">|</span> <span class="n">control</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">log2FC</span> <span class="o">=</span> <span class="nf">log2</span><span class="p">((</span><span class="n">treatment</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">control</span> <span class="o">+</span> <span class="m">1</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status</span> <span class="o">=</span> <span class="nf">case_when</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">log2FC</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="o">~</span> <span class="s">&#34;treatment_specific&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">log2FC</span> <span class="o">&lt;</span> <span class="m">-1</span> <span class="o">~</span> <span class="s">&#34;control_specific&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="kc">TRUE</span> <span class="o">~</span> <span class="s">&#34;shared&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-why-plyranges-matters">
+  🧠 Why plyranges Matters
+  <a class="heading-link" href="#-why-plyranges-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>plyranges represents more than just a syntactic convenience&mdash;it&rsquo;s a paradigm shift in how we approach genomic data analysis:</p>
+<h3 id="1-code-readability-and-maintainability">
+  1. Code Readability and Maintainability
+  <a class="heading-link" href="#1-code-readability-and-maintainability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Compare the traditional approach:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Traditional nested approach</span>
+</span></span><span class="line"><span class="cl"><span class="nf">subset</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mcols</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">resize</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">shift</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">subset</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">strand</span> <span class="o">==</span> <span class="s">&#34;+&#34;</span> <span class="o">&amp;</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">      <span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="n">width</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">fix</span> <span class="o">=</span> <span class="s">&#34;center&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">select</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;score&#34;</span><span class="p">,</span> <span class="s">&#34;gc_content&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>With the plyranges approach:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># plyranges approach</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">strand</span> <span class="o">==</span> <span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">shift_right</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">resize</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span> <span class="n">fix</span> <span class="o">=</span> <span class="s">&#34;center&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">gc_content</span><span class="p">)</span>
+</span></span></code></pre></div><p>The difference is striking&mdash;the plyranges version reads like a story, making it easier to understand, debug, and maintain.</p>
+<h3 id="2-integration-with-both-ecosystems">
+  2. Integration with Both Ecosystems
+  <a class="heading-link" href="#2-integration-with-both-ecosystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>plyranges creates a seamless bridge between two powerful R ecosystems: - Leverages the rich genomic functionality of Bioconductor - Adopts the intuitive grammar of the tidyverse</p>
+<p>This integration allows analysts familiar with either ecosystem to quickly become productive.</p>
+<h3 id="3-lowering-the-learning-curve">
+  3. Lowering the Learning Curve
+  <a class="heading-link" href="#3-lowering-the-learning-curve">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>By using consistent, meaningful verbs across operations, plyranges reduces the cognitive load required to work with genomic data: - Same verbs apply to different genomic operations - Intuitive function names reflect their purpose - Consistent argument patterns across functions</p>
+<h3 id="4-improved-reproducibility">
+  4. Improved Reproducibility
+  <a class="heading-link" href="#4-improved-reproducibility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Clear, readable code enhances reproducibility by: - Making the analysis intention obvious - Reducing errors from complex nested syntax - Facilitating code review and collaboration - Enabling clearer documentation in publications</p>
+<hr>
+<h2 id="-plyranges-in-the-genomic-ecosystem">
+  🎯 plyranges in the Genomic Ecosystem
+  <a class="heading-link" href="#-plyranges-in-the-genomic-ecosystem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>plyranges integrates seamlessly with other Bioconductor tools:</p>
+<ul>
+<li><strong>GenomicRanges</strong>: Enhances the core functionality without replacing it</li>
+<li><strong>rtracklayer</strong>: Import/export functions like <code>read_bed()</code> and <code>read_gff()</code></li>
+<li><strong>BSgenome</strong>: Simplified extraction of sequences from reference genomes</li>
+<li><strong>SummarizedExperiment</strong>: Streamlined manipulation of feature annotations</li>
+<li><strong>GenomicFeatures</strong>: Fluent interfaces for gene model manipulation</li>
+</ul>
+<p>plyranges demonstrates the power of bringing modern programming paradigms to specialized domains &mdash; a true game-changer that has made genomic data analysis more intuitive and productive.</p>
+<hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Coming up: <strong>SummarizedExperiment</strong> &mdash; bringing it all together for a unified container integrating assay data with genomic coordinates and sample information! 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How has plyranges transformed your genomic data analysis workflows? Any favorite tricks for simplifying complex operations? Drop a comment below! 👇</p>
+<p>#Bioinformatics #RStats #plyranges #tidyverse #GenomicRanges #Bioconductor #DataManipulation #Genomics #ComputationalBiology #DataScience</p>
+<p><img src="/images/plyranges_post_CodeSnap.png" alt="plyranges Figure"></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Formula on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/design-formula/</link>
+    <description>Recent content in Design Formula on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 31 Jul 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/design-formula/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
+      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
+    </item>
+  </channel>
+</rss>

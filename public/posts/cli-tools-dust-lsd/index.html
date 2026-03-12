@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Essential CLI Tools You Should Know - Part 1: dust &amp; lsd · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A deep dive into two essential CLI tools, `dust` and `lsd`, that will enhance your workflow.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Essential CLI Tools You Should Know - Part 1: dust & lsd">
+  <meta name="twitter:description" content="A deep dive into two essential CLI tools, `dust` and `lsd`, that will enhance your workflow.">
+
+<meta property="og:url" content="http://localhost:1313/posts/cli-tools-dust-lsd/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Essential CLI Tools You Should Know - Part 1: dust & lsd">
+  <meta property="og:description" content="A deep dive into two essential CLI tools, `dust` and `lsd`, that will enhance your workflow.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-17T00:00:00+00:00">
+    <meta property="article:tag" content="CLI">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="SysAdmin">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Automation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/cli-tools-dust-lsd/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/cli-tools-dust-lsd/">
+              Essential CLI Tools You Should Know - Part 1: dust &amp; lsd
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-12-17T00:00:00Z">
+                December 17, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/cli-tools/">CLI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/linux/">Linux</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/cli/">CLI</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/linux/">Linux</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sysadmin/">SysAdmin</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/devops/">DevOps</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-essential-cli-tools-you-should-know---part-1-dust--lsd">
+  🛠️ Essential CLI Tools You Should Know - Part 1: <code>dust</code> &amp; <code>lsd</code>
+  <a class="heading-link" href="#-essential-cli-tools-you-should-know---part-1-dust--lsd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>The command line is an <strong>unstoppable force</strong> when used correctly. With the right tools, you can <strong>work faster, navigate smarter, and automate efficiently</strong>.</p>
+<p>In this post, I&rsquo;ll introduce <strong>two modern replacements</strong> for old Unix commands that <strong>massively improve disk usage analysis and file listing</strong>:</p>
+<ul>
+<li>
+<p><strong><code>dust</code></strong> → A better <code>du</code></p>
+</li>
+<li>
+<p><strong><code>lsd</code></strong> → A better <code>ls</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="-dust----a-smarter-alternative-to-du">
+  🌟 <code>dust</code> &ndash; A Smarter Alternative to <code>du</code>
+  <a class="heading-link" href="#-dust----a-smarter-alternative-to-du">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Need to check disk usage but tired of manually parsing <code>du -sh</code> output? <code>dust</code> makes this <strong>fast, readable, and intuitive</strong>.</p>
+<h3 id="-why-dust">
+  🔹 Why <code>dust</code>?
+  <a class="heading-link" href="#-why-dust">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✅ <strong>Human-readable output</strong> (sizes in MB/GB, no cryptic blocks) ✅ <strong>Graphical tree view</strong> 📊 ✅ <strong>Parallel execution</strong> &ndash; it&rsquo;s <strong>much faster</strong> than <code>du</code> ✅ <strong>Ignores <code>.gitignore</code> files</strong> (no clutter)</p>
+<h3 id="-quick-start">
+  ⚡ Quick Start
+  <a class="heading-link" href="#-quick-start">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="-install">
+  📥 Install:
+  <a class="heading-link" href="#-install">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Ubuntu/Debian:</strong> <code>cargo install du-dust</code></p>
+</li>
+<li>
+<p><strong>MacOS:</strong> <code>brew install dust</code></p>
+</li>
+</ul>
+<h4 id="-common-usage">
+  💡 Common Usage:
+  <a class="heading-link" href="#-common-usage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dust        <span class="c1"># Show disk usage in current directory  </span>
+</span></span><span class="line"><span class="cl">dust -d <span class="m">2</span>   <span class="c1"># Show 2 levels deep  </span>
+</span></span><span class="line"><span class="cl">dust -r     <span class="c1"># Reverse order (largest first)  </span>
+</span></span></code></pre></div><p>🔥 <strong>Why use it?</strong> Instead of running <code>du -sh * | sort -h</code>, <code>dust</code> <strong>does it all in one go</strong>.</p>
+<hr>
+<h2 id="-lsd----the-ls-you-always-wanted">
+  🌟 <code>lsd</code> &ndash; The <code>ls</code> You Always Wanted
+  <a class="heading-link" href="#-lsd----the-ls-you-always-wanted">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The standard <code>ls</code> is <strong>functional but ugly</strong>. <code>lsd</code> (<strong>LS Deluxe</strong>) brings: ✅ <strong>Color-coded output</strong> 🎨 ✅ <strong>Tree view support</strong> 🌲 ✅ <strong>Icons for files &amp; directories</strong> 📂 ✅ <strong>Git status indicators</strong></p>
+<h3 id="-quick-start-1">
+  ⚡ Quick Start
+  <a class="heading-link" href="#-quick-start-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="-install-1">
+  📥 Install:
+  <a class="heading-link" href="#-install-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>Ubuntu/Debian:</strong> <code>sudo apt install lsd</code></p>
+</li>
+<li>
+<p><strong>MacOS:</strong> <code>brew install lsd</code></p>
+</li>
+</ul>
+<h4 id="-common-usage-1">
+  💡 Common Usage:
+  <a class="heading-link" href="#-common-usage-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsd         <span class="c1"># Beautiful, colorful `ls`  </span>
+</span></span><span class="line"><span class="cl">lsd -l      <span class="c1"># Detailed list view  </span>
+</span></span><span class="line"><span class="cl">lsd --tree  <span class="c1"># Show directory structure as a tree</span>
+</span></span></code></pre></div><p>🔥 <strong>Why use it?</strong> Instant <strong>visual improvements</strong> while keeping everything familiar.</p>
+<hr>
+<h2 id="-final-thoughts">
+  ✅ Final Thoughts
+  <a class="heading-link" href="#-final-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Both <code>dust</code> and <code>lsd</code> are <strong>drop-in replacements</strong> for <code>du</code> and <code>ls</code>. They work <strong>out of the box</strong>, and <strong>you&rsquo;ll never want to go back</strong>.</p>
+<h3 id="-pro-tip">
+  🔥 Pro Tip:
+  <a class="heading-link" href="#-pro-tip">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Make them your <strong>default</strong> by adding these aliases to <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">du</span><span class="o">=</span><span class="s2">&#34;dust&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s2">&#34;lsd&#34;</span>
+</span></span></code></pre></div><p>Now every time you type <code>ls</code> or <code>du</code>, you get the <strong>superior</strong> versions. 🚀</p>
+<hr>
+<h2 id="-whats-next">
+  💡 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This is <strong>just the start</strong> of a <strong>CLI revolution</strong>! In the next post, I&rsquo;ll introduce: 📂 <strong><code>zoxide</code></strong> &ndash; A smarter way to <code>cd</code> 🗃️ <strong><code>ouch</code></strong> &ndash; The easiest way to compress &amp; extract files</p>
+<p>What are your <strong>favorite CLI tools</strong>? Drop them in the comments! 👇</p>
+<hr>
+<h3 id="-want-more">
+  📢 Want more?
+  <a class="heading-link" href="#-want-more">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>🔗 Check out my <strong>full blog here</strong>: <a href="https://badran-elshenawy.netlify.app/posts/"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app/posts</a></p>
+<p>#CLI #Linux #Productivity #SysAdmin #DevOps #Automation</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TPM on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/tpm/</link>
+    <description>Recent content in TPM on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Aug 2025 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tpm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 5: Normalization Methods</title>
+      <link>http://localhost:1313/posts/normalization-methods/</link>
+      <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/normalization-methods/</guid>
+      <description>Discover how normalization transforms meaningless raw counts into biologically interpretable expression values. Explore DESeq2&amp;rsquo;s robust median-of-ratios method and learn to identify normalization issues that could derail your analysis.</description>
+    </item>
+  </channel>
+</rss>

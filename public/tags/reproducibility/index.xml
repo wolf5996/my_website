@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reproducibility on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/reproducibility/</link>
+    <description>Recent content in Reproducibility on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Apr 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Capstone: Mastering Git for Reproducible Research</title>
+      <link>http://localhost:1313/posts/git-capstone-mastering/</link>
+      <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-capstone-mastering/</guid>
+      <description>Consolidate your Git knowledge with this capstone guide covering essential Git workflows, best practices, and key takeaways.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 7: Git Diff &amp; Log – Tracking Changes Like a Pro</title>
+      <link>http://localhost:1313/posts/git-diff-log-tracking/</link>
+      <pubDate>Tue, 04 Feb 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-diff-log-tracking/</guid>
+      <description>Master git diff and git log to track changes efficiently and enhance your version control workflow.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 6: Understanding .gitignore – Keeping Your Repo Clean</title>
+      <link>http://localhost:1313/posts/gitignore-best-practices/</link>
+      <pubDate>Mon, 03 Feb 2025 17:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gitignore-best-practices/</guid>
+      <description>Learn how to effectively use .gitignore to keep your Git repositories clean and manageable.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 5: Undoing Mistakes in Git</title>
+      <link>http://localhost:1313/posts/git-undo-mistakes/</link>
+      <pubDate>Thu, 30 Jan 2025 12:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-undo-mistakes/</guid>
+      <description>Learn how to undo mistakes in Git using reset, revert, and other rollback techniques.</description>
+    </item>
+    <item>
+      <title>From R Markdown to Quarto: Why Visual Mode in VS Code is a Game Changer</title>
+      <link>http://localhost:1313/posts/quarto-vscode/</link>
+      <pubDate>Wed, 29 Jan 2025 04:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/quarto-vscode/</guid>
+      <description>Discover why Quarto and VS Code&amp;rsquo;s Visual Mode is a game-changer for reproducible research.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 4: GitHub &amp; Collaboration</title>
+      <link>http://localhost:1313/posts/github-collaboration/</link>
+      <pubDate>Tue, 28 Jan 2025 06:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-collaboration/</guid>
+      <description>Learn how to collaborate effectively on GitHub using pull requests, forks, and branching workflows.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 3: Branching &amp; Merging in Git</title>
+      <link>http://localhost:1313/posts/git-branching-merging/</link>
+      <pubDate>Mon, 27 Jan 2025 19:26:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching-merging/</guid>
+      <description>Understand Git branching and merging to work confidently without disrupting your main codebase.</description>
+    </item>
+    <item>
+      <title>Version Control Series - Part 2: Essential Git Commands You Should Know</title>
+      <link>http://localhost:1313/posts/git-basics-part2/</link>
+      <pubDate>Sat, 25 Jan 2025 17:39:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-basics-part2/</guid>
+      <description>Learn essential Git commands like &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;, and &lt;code&gt;pull&lt;/code&gt; to start mastering version control in bioinformatics.</description>
+    </item>
+    <item>
+      <title>Version Control Series - Part 1: Why Every Bioinformatician Needs Git</title>
+      <link>http://localhost:1313/posts/git-version-control-part1/</link>
+      <pubDate>Sat, 25 Jan 2025 17:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-version-control-part1/</guid>
+      <description>Discover why Git is a game-changer for bioinformatics, providing version control, reproducibility, and seamless collaboration.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master MCP (Model Context Protocol) - the universal standard connecting Claude to PubMed, GitHub, databases, and any external tool. Learn how to set up MCP servers and build a complete research command center from your terminal.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!">
+  <meta name="twitter:description" content="Master MCP (Model Context Protocol) - the universal standard connecting Claude to PubMed, GitHub, databases, and any external tool. Learn how to set up MCP servers and build a complete research command center from your terminal.">
+
+<meta property="og:url" content="http://localhost:1313/posts/claude-mcp-connect-to-everything/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!">
+  <meta property="og:description" content="Master MCP (Model Context Protocol) - the universal standard connecting Claude to PubMed, GitHub, databases, and any external tool. Learn how to set up MCP servers and build a complete research command center from your terminal.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-13T09:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-13T09:00:00+00:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="Model Context Protocol">
+    <meta property="article:tag" content="PubMed">
+    <meta property="article:tag" content="AI Workflow">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/claude-mcp-connect-to-everything/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/claude-mcp-connect-to-everything/">
+              Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-02-13T09:00:00Z">
+                February 13, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/ai-tools/">AI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a>
+      <span class="separator">•</span>
+    <a href="/categories/claude/">Claude</a>
+      <span class="separator">•</span>
+    <a href="/categories/research-tools/">Research Tools</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/claude/">Claude</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/claude-code/">Claude Code</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/mcp/">MCP</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/model-context-protocol/">Model Context Protocol</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pubmed/">PubMed</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-workflow/">AI Workflow</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/research-productivity/">Research Productivity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/api-integration/">API Integration</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/scientific-literature/">Scientific Literature</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="the-problem-claude-lives-in-a-bubble-">
+  The Problem: Claude Lives in a Bubble 🫧
+  <a class="heading-link" href="#the-problem-claude-lives-in-a-bubble-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In <a href="https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/"  class="external-link" target="_blank" rel="noopener">Post 6</a>, we gave Claude <strong>Skills</strong> - reusable instruction packages that teach it HOW to do specific tasks like an expert. That was a massive upgrade!</p>
+<p>But here&rsquo;s the thing - Skills make Claude smarter about your work, yet Claude still can&rsquo;t <em>reach out</em> and interact with external tools. Want to search PubMed? You have to do it yourself, copy the results, and paste them in. Need a file from Google Drive? Same thing. Want to post results to Slack? You&rsquo;re the middleman.</p>
+<p><strong>MCPs change everything.</strong> 🚀</p>
+<p>MCP stands for <strong>Model Context Protocol</strong> - an open standard created by Anthropic that gives Claude hands to reach out and interact with the world. If Skills are Claude&rsquo;s brain training, MCPs are Claude&rsquo;s arms and legs.</p>
+<hr>
+<h2 id="what-is-mcp-really-">
+  What Is MCP, Really? 🔌
+  <a class="heading-link" href="#what-is-mcp-really-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Think of MCP as <strong>USB-C for AI</strong>.</p>
+<p>Before USB-C, every device had its own proprietary cable. Phones, cameras, hard drives - all different connectors. It was a mess.</p>
+<p>Before MCP, every AI integration was custom. Want Claude to access your database? Build a custom integration. Connect to PubMed? Another one. Each connection required specific code, authentication handling, and maintenance.</p>
+<p>MCP solves this with <strong>one universal protocol</strong> that connects Claude to <em>anything</em>. One standard, one interface, infinite connections.</p>
+<p>Here&rsquo;s the architecture in plain English:</p>
+<ul>
+<li>
+<p><strong>MCP Client</strong> = Claude (the AI asking for things)</p>
+</li>
+<li>
+<p><strong>MCP Server</strong> = The bridge to an external tool (PubMed, GitHub, Slack, etc.)</p>
+</li>
+<li>
+<p><strong>Protocol</strong> = The standardized language they use to communicate</p>
+</li>
+</ul>
+<p>When Claude needs to search PubMed, it sends a request through the MCP client to the PubMed MCP server. The server queries PubMed&rsquo;s API, gets results, and sends them back to Claude. All standardized, all automatic.</p>
+<p>And here&rsquo;s the best part: <strong>MCP is open source and model-agnostic.</strong> OpenAI adopted it for ChatGPT in March 2025. Google confirmed support for Gemini. Microsoft integrated it into Copilot. This isn&rsquo;t a niche Anthropic feature - it&rsquo;s becoming the industry standard. 🌐</p>
+<hr>
+<h2 id="mcp-servers-that-matter-for-researchers-">
+  MCP Servers That Matter for Researchers 🔬
+  <a class="heading-link" href="#mcp-servers-that-matter-for-researchers-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>There are now over <strong>1,200 MCP servers</strong> available. Here are the ones that will transform your research workflow:</p>
+<p><strong>Scientific Literature:</strong></p>
+<ul>
+<li>
+<p><strong>PubMed MCP</strong> - Search 35M+ biomedical articles directly from Claude. Get abstracts, metadata, citations, even full-text when available. No more browser tab juggling!</p>
+</li>
+<li>
+<p><strong>bioRxiv/medRxiv MCP</strong> - Access preprints before they hit journals</p>
+</li>
+<li>
+<p><strong>Semantic Scholar MCP</strong> - Citation network analysis and paper recommendations</p>
+</li>
+<li>
+<p><strong>arXiv MCP</strong> - For those computational methods papers</p>
+</li>
+</ul>
+<p><strong>Development &amp; Collaboration:</strong></p>
+<ul>
+<li>
+<p><strong>GitHub MCP</strong> - Review pull requests, create issues, manage repos, search code. Your entire codebase management from Claude&rsquo;s terminal</p>
+</li>
+<li>
+<p><strong>Slack MCP</strong> - Send analysis summaries, share results, post updates to channels</p>
+</li>
+<li>
+<p><strong>Google Drive MCP</strong> - Pull shared documents, access collaborator files</p>
+</li>
+<li>
+<p><strong>Notion MCP</strong> - Manage lab notebooks and project documentation</p>
+</li>
+</ul>
+<p><strong>Data &amp; Infrastructure:</strong></p>
+<ul>
+<li>
+<p><strong>Filesystem MCP</strong> - Deep file system access and organization</p>
+</li>
+<li>
+<p><strong>PostgreSQL MCP</strong> - Query databases directly with natural language</p>
+</li>
+<li>
+<p><strong>Docker MCP</strong> - Manage containerized analysis environments</p>
+</li>
+</ul>
+<p><strong>Bioinformatics-Specific:</strong></p>
+<ul>
+<li>
+<p><strong>Ensembl MCP</strong> - Genomic annotations and variant data</p>
+</li>
+<li>
+<p><strong>UniProt MCP</strong> - Protein sequences and functional information</p>
+</li>
+<li>
+<p><strong>Reactome MCP</strong> - Pathway data for biological interpretation</p>
+</li>
+<li>
+<p><strong>PubChem MCP</strong> - Chemical compound data and drug information</p>
+</li>
+</ul>
+<p>The biotech MCP ecosystem is growing fast. You can literally build a setup where Claude has direct access to your entire research infrastructure! 🧬</p>
+<hr>
+<h2 id="setting-up-your-first-mcp-server-">
+  Setting Up Your First MCP Server ⚡
+  <a class="heading-link" href="#setting-up-your-first-mcp-server-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s what blew my mind - the setup is absurdly simple.</p>
+<p><strong>For Claude Code (terminal), it&rsquo;s one command:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add PubMed MCP server</span>
+</span></span><span class="line"><span class="cl">claude mcp add --transport stdio pubmed -- npx @cyanheads/pubmed-mcp-server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add GitHub MCP server</span>
+</span></span><span class="line"><span class="cl">claude mcp add --transport stdio github -- npx @modelcontextprotocol/server-github
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add filesystem access</span>
+</span></span><span class="line"><span class="cl">claude mcp add --transport stdio filesystem -- npx @modelcontextprotocol/server-filesystem /path/to/your/project
+</span></span></code></pre></div><p>That&rsquo;s it. Claude auto-discovers the new tools and they&rsquo;re immediately available! ✨</p>
+<p><strong>For HTTP-based servers (remote services):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Connect to Notion</span>
+</span></span><span class="line"><span class="cl">claude mcp add --transport http notion https://mcp.notion.com/mcp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Connect to Asana</span>
+</span></span><span class="line"><span class="cl">claude mcp add --transport sse asana https://mcp.asana.com/sse
+</span></span></code></pre></div><p><strong>For Claude Desktop, edit the config file:</strong></p>
+<p>On macOS: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></p>
+<p>On Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;mcpServers&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;pubmed&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;npx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;@cyanheads/pubmed-mcp-server&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;NCBI_API_KEY&#34;</span><span class="p">:</span> <span class="s2">&#34;your_api_key_here&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;filesystem&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;npx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;-y&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@modelcontextprotocol/server-filesystem&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;/Users/yourname/research&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Restart Claude Desktop and the servers start automatically! 🚀</p>
+<hr>
+<h2 id="where-mcp-configurations-live-">
+  Where MCP Configurations Live 📂
+  <a class="heading-link" href="#where-mcp-configurations-live-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Just like Skills had multiple locations, MCP configs have a clear hierarchy:</p>
+<ul>
+<li>
+<p><strong>Project-level</strong>: <code>.mcp.json</code> in your project root (version-controlled, shared with team)</p>
+</li>
+<li>
+<p><strong>Project-local</strong>: <code>.claude/settings.local.json</code> (personal project overrides, gitignored)</p>
+</li>
+<li>
+<p><strong>User-level</strong>: <code>~/.claude/settings.local.json</code> (your personal servers across all projects)</p>
+</li>
+</ul>
+<p><strong>Pro tip:</strong> Put shared research MCPs (PubMed, GitHub) in your user-level config so they&rsquo;re always available. Put project-specific database connections in <code>.mcp.json</code> so your whole team gets them! 🤝</p>
+<hr>
+<h2 id="real-research-workflow-the-mcp-dream-setup-">
+  Real Research Workflow: The MCP Dream Setup 🧠
+  <a class="heading-link" href="#real-research-workflow-the-mcp-dream-setup-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let me show you what a fully connected research session looks like.</p>
+<p><strong>The old way (without MCPs):</strong></p>
+<ol>
+<li>Open browser, go to PubMed, search for papers ⏱️</li>
+<li>Read abstracts, note relevant ones 📝</li>
+<li>Open another tab, go to GitHub, check collaborator&rsquo;s latest code 💻</li>
+<li>Switch to Google Drive, find shared analysis notes 📁</li>
+<li>Go back to terminal, tell Claude about what you found 🗣️</li>
+<li>Claude generates results, you copy them 📋</li>
+<li>Open Slack, paste summary for your PI 💬</li>
+</ol>
+<p><strong>The MCP way:</strong></p>
+<pre><code>You: &quot;Search PubMed for the 5 most recent MERFISH liver zonation papers,
+      check our GitHub repo for any related marker gene lists,
+      cross-reference with my current DESeq2 results in ~/research/liver_project/,
+      draft an introduction paragraph citing the relevant papers,
+      and post a summary to #lab-updates on Slack&quot;
+</code></pre>
+<p><strong>Claude does ALL of this.</strong> One prompt. Multiple tools. Complete output. 🎯</p>
+<p>The context switching alone probably saves 30-45 minutes per session. But the real magic is Claude&rsquo;s ability to <strong>cross-reference</strong> across sources - finding connections between literature, your code, and your data that you might have missed! 💡</p>
+<hr>
+<h2 id="three-transport-types-explained-">
+  Three Transport Types Explained 🔧
+  <a class="heading-link" href="#three-transport-types-explained-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>MCP servers communicate using three transport methods. Here&rsquo;s when to use each:</p>
+<p><strong>stdio (Standard Input/Output):</strong></p>
+<ul>
+<li>Server runs as a local process on your machine</li>
+<li>Best for: Tools that need direct system access (filesystem, local databases)</li>
+<li>Most common type for development tools</li>
+</ul>
+<p><strong>HTTP:</strong></p>
+<ul>
+<li>Server runs remotely, communicates over HTTPS</li>
+<li>Best for: Cloud-based services (Notion, hosted APIs)</li>
+<li>Recommended for most remote MCP servers</li>
+</ul>
+<p><strong>SSE (Server-Sent Events):</strong></p>
+<ul>
+<li>Similar to HTTP but with real-time streaming</li>
+<li>Best for: Services that push updates (Asana, real-time dashboards)</li>
+<li>Legacy transport being replaced by HTTP in newer implementations</li>
+</ul>
+<p>For most researchers, you&rsquo;ll use <strong>stdio</strong> for local tools and <strong>HTTP</strong> for cloud services. Don&rsquo;t overthink it - the <code>claude mcp add</code> command handles the details! ⚡</p>
+<hr>
+<h2 id="context-window-considerations-">
+  Context Window Considerations ⚠️
+  <a class="heading-link" href="#context-window-considerations-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>One important thing to understand: every MCP server&rsquo;s tool descriptions consume tokens from Claude&rsquo;s context window. More servers = less room for your actual conversation.</p>
+<p><strong>Best practices:</strong></p>
+<ul>
+<li>
+<p>Keep your active MCP servers to <strong>2-8</strong> at a time</p>
+</li>
+<li>
+<p>Claude Code has <strong>Tool Search</strong> (enabled by default) that dynamically loads tool descriptions only when relevant, rather than preloading everything</p>
+</li>
+<li>
+<p>If you notice Claude getting confused or forgetting earlier parts of your conversation, you might have too many servers active</p>
+</li>
+<li>
+<p>Use project-level configs to activate only the MCPs relevant to that specific project</p>
+</li>
+</ul>
+<hr>
+<h2 id="building-your-own-mcp-server-">
+  Building Your Own MCP Server 🛠️
+  <a class="heading-link" href="#building-your-own-mcp-server-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s where it gets really exciting for bioinformatics. If a public MCP server doesn&rsquo;t exist for your tool, <strong>you can build one</strong>.</p>
+<p>The MCP SDK is available in TypeScript and Python. A basic server needs:</p>
+<ol>
+<li>Define your <strong>tools</strong> (what actions Claude can take)</li>
+<li>Implement the <strong>handlers</strong> (what happens when Claude calls each tool)</li>
+<li>Set up the <strong>transport</strong> (stdio for local, HTTP for remote)</li>
+</ol>
+<p>Imagine building MCP servers for:</p>
+<ul>
+<li>Your lab&rsquo;s internal LIMS database</li>
+<li>A custom variant annotation pipeline</li>
+<li>Your institution&rsquo;s HPC job submission system</li>
+<li>A local reference genome browser</li>
+</ul>
+<p>Claude could literally submit Slurm jobs, check queue status, and pull results - all from natural language commands! The MCP SDK documentation is excellent, and Claude itself is great at helping you build MCP servers (very meta, I know 😄).</p>
+<hr>
+<h2 id="skills--mcps-the-complete-picture-">
+  Skills + MCPs: The Complete Picture 🧩
+  <a class="heading-link" href="#skills--mcps-the-complete-picture-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s how the pieces fit together in the Claude ecosystem:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>What It Does</th>
+          <th>Analogy</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>CLAUDE.md</strong> (Post 5)</td>
+          <td>Tells Claude about your project</td>
+          <td>Onboarding document</td>
+      </tr>
+      <tr>
+          <td><strong>Skills</strong> (Post 6)</td>
+          <td>Teaches Claude HOW to do tasks</td>
+          <td>Training manual</td>
+      </tr>
+      <tr>
+          <td><strong>MCPs</strong> (Post 7)</td>
+          <td>Gives Claude access to external tools</td>
+          <td>Work equipment</td>
+      </tr>
+  </tbody>
+</table>
+<p>Together, Claude knows your project context (CLAUDE.md), knows your preferred methods and standards (Skills), and can reach out to interact with the world (MCPs).</p>
+<p>That&rsquo;s not a chatbot anymore. That&rsquo;s a research assistant. 🧬</p>
+<hr>
+<h2 id="getting-started-checklist-">
+  Getting Started Checklist ✅
+  <a class="heading-link" href="#getting-started-checklist-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ready to set up your MCP-powered research environment? Here&rsquo;s your action plan:</p>
+<ol>
+<li>
+<p><strong>Install your first MCP server</strong> - Start with PubMed if you&rsquo;re in bioinformatics. One command, immediate value.</p>
+</li>
+<li>
+<p><strong>Add GitHub</strong> - If you use version control (and you should!), this is a no-brainer.</p>
+</li>
+<li>
+<p><strong>Configure filesystem access</strong> - Let Claude see your project directories for cross-referencing.</p>
+</li>
+<li>
+<p><strong>Try a multi-tool prompt</strong> - Ask Claude something that requires combining information from multiple sources. Watch the magic happen.</p>
+</li>
+<li>
+<p><strong>Explore the ecosystem</strong> - Browse <a href="https://mcp-awesome.com"  class="external-link" target="_blank" rel="noopener">mcp-awesome.com</a> or the <a href="https://github.com/modelcontextprotocol"  class="external-link" target="_blank" rel="noopener">official MCP GitHub</a> for servers relevant to your work.</p>
+</li>
+</ol>
+<hr>
+<h2 id="whats-next-">
+  What&rsquo;s Next? 🔮
+  <a class="heading-link" href="#whats-next-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We&rsquo;ve now covered the core Claude Code power trio: CLAUDE.md for context, Skills for expertise, and MCPs for connectivity.</p>
+<p><strong>Next up in Post 8: Subagents</strong> - where Claude learns to spawn parallel AI helpers that work simultaneously on different parts of your task. One agent reads your codebase, another writes tests, another reviews code - all at the same time! 🤖</p>
+<p>The series continues at <a href="https://badran-elshenawy.netlify.app"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app</a> 🚀</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

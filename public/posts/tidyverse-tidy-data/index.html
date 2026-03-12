@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 4: The Power of Tidy Data · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="An in-depth guide exploring the importance of tidy data in R. Learn how to structure, reshape, and clean data efficiently using Tidyverse principles.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 4: The Power of Tidy Data">
+  <meta name="twitter:description" content="An in-depth guide exploring the importance of tidy data in R. Learn how to structure, reshape, and clean data efficiently using Tidyverse principles.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-tidy-data/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 4: The Power of Tidy Data">
+  <meta property="og:description" content="An in-depth guide exploring the importance of tidy data in R. Learn how to structure, reshape, and clean data efficiently using Tidyverse principles.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-18T07:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-18T07:00:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Data Wrangling">
+    <meta property="article:tag" content="Tidy Data">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Data Cleaning">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-tidy-data/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-tidy-data/">
+              Tidyverse Series – Post 4: The Power of Tidy Data
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-18T07:00:00Z">
+                February 18, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-wrangling/">Data Wrangling</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tidy-data/">Tidy Data</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-cleaning/">Data Cleaning</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-4-the-power-of-tidy-data">
+  🔬 Tidyverse Series &ndash; Post 4: The Power of Tidy Data
+  <a class="heading-link" href="#-tidyverse-series----post-4-the-power-of-tidy-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-what-is-tidy-data">
+  🛠 What is Tidy Data?
+  <a class="heading-link" href="#-what-is-tidy-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Tidy data is the <strong>foundation</strong> of the Tidyverse. It provides a <strong>structured, predictable format</strong> that makes data analysis easier, faster, and more reproducible. The core principles of tidy data, as outlined by <strong>Hadley Wickham</strong>, define it as:</p>
+<p>✔️ Each <strong>variable</strong> is in its own column<br>
+✔️ Each <strong>observation</strong> is in its own row<br>
+✔️ Each <strong>value</strong> has its own cell</p>
+<p>This framework ensures that data is <strong>efficient to manipulate, analyze, and visualize</strong> using Tidyverse functions. The structure of tidy data eliminates ambiguity and streamlines workflows.</p>
+<hr>
+<h2 id="-why-does-tidy-data-matter">
+  📚 Why Does Tidy Data Matter?
+  <a class="heading-link" href="#-why-does-tidy-data-matter">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Many datasets start in <strong>messy formats</strong> that require excessive manual cleaning. Tidy data solves this by ensuring:</p>
+<p>➡️ <strong>Consistency</strong> &ndash; A standardized structure for easier analysis<br>
+➡️ <strong>Seamless Integration</strong> &ndash; Works effortlessly with <code>dplyr</code>, <code>ggplot2</code>, and <code>tidyr</code><br>
+➡️ <strong>Efficient Processing</strong> &ndash; Enables fast filtering, summarization, and visualization<br>
+➡️ <strong>Reproducibility</strong> &ndash; Reduces errors and simplifies collaboration</p>
+<p>Most Tidyverse functions <strong>assume</strong> your data is tidy, allowing for smoother transformations and analysis.</p>
+<hr>
+<h2 id="-example-messy-vstidy-data">
+  📊 Example: Messy vs. Tidy Data
+  <a class="heading-link" href="#-example-messy-vstidy-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Many raw datasets are presented in a <strong>wide format</strong>, where repeated measurements are spread across multiple columns. However, most analytical tools work better with <strong>long format</strong> data.</p>
+<h3 id="-messy-data-wide-format">
+  ➡️ <strong>Messy Data (Wide Format):</strong>
+  <a class="heading-link" href="#-messy-data-wide-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample_1</th>
+          <th>Sample_2</th>
+          <th>Sample_3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>12.3</td>
+          <td>10.5</td>
+          <td>14.2</td>
+      </tr>
+      <tr>
+          <td>BRCA1</td>
+          <td>8.9</td>
+          <td>9.2</td>
+          <td>10.1</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-tidy-data-long-format">
+  ➡️ <strong>Tidy Data (Long Format):</strong>
+  <a class="heading-link" href="#-tidy-data-long-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_1</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_2</td>
+          <td>10.5</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_3</td>
+          <td>14.2</td>
+      </tr>
+  </tbody>
+</table>
+<p>With tidy data, you can easily transform, merge, and visualize datasets without restructuring them manually.</p>
+<hr>
+<h2 id="-transforming-messy-data-into-tidy-format">
+  🔄 Transforming Messy Data into Tidy Format
+  <a class="heading-link" href="#-transforming-messy-data-into-tidy-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Using the Tidyverse, we can <strong>easily reshape data</strong> into a tidy format.</p>
+<h3 id="using-pivot_longer-to-convert-wide-to-long-format">
+  <strong>Using <code>pivot_longer()</code> to Convert Wide to Long Format</strong>
+  <a class="heading-link" href="#using-pivot_longer-to-convert-wide-to-long-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df_tidy</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="nf">starts_with</span><span class="p">(</span><span class="s">&#34;Sample&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">               <span class="n">names_to</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">values_to</span> <span class="o">=</span> <span class="s">&#34;Expression&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✔️ <strong>Now, the dataset is structured for easy analysis!</strong></p>
+<hr>
+<h2 id="-tidy-data--the-tidyverse-philosophy">
+  💡 Tidy Data &amp; the Tidyverse Philosophy
+  <a class="heading-link" href="#-tidy-data--the-tidyverse-philosophy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Tidy data is <strong>not just a format&mdash;it&rsquo;s a mindset</strong>. The Tidyverse is built around this structure, enabling:</p>
+<p>✔️ <strong>Filtering &amp; summarizing</strong> with <code>dplyr</code><br>
+✔️ <strong>Reshaping</strong> with <code>tidyr</code><br>
+✔️ <strong>Plotting &amp; visualization</strong> with <code>ggplot2</code></p>
+<p>By adopting tidy principles, you make your work <strong>more efficient, scalable, and reproducible</strong>.</p>
+<hr>
+<h2 id="-advanced-example-tidy-data-in-action">
+  📈 Advanced Example: Tidy Data in Action
+  <a class="heading-link" href="#-advanced-example-tidy-data-in-action">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="using-group_by-and-summarize-for-aggregation">
+  <strong>Using <code>group_by()</code> and <code>summarize()</code> for Aggregation</strong>
+  <a class="heading-link" href="#using-group_by-and-summarize-for-aggregation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df_summary</span> <span class="o">&lt;-</span> <span class="n">df_tidy</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">Gene</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_expression</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">Expression</span><span class="p">))</span>
+</span></span></code></pre></div><p>✔️ <strong>Now, we have the mean expression per gene!</strong></p>
+<h3 id="using-ggplot2-for-visualization">
+  <strong>Using <code>ggplot2</code> for Visualization</strong>
+  <a class="heading-link" href="#using-ggplot2-for-visualization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">df_tidy</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Sample</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Gene</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s">&#34;dodge&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✔️ <strong>This quickly creates an easy-to-read bar plot!</strong></p>
+<hr>
+<h2 id="-key-takeaways">
+  📈 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <strong>Tidy data simplifies data wrangling and ensures consistency</strong><br>
+✅ <strong>Most Tidyverse functions are designed to work with tidy data</strong><br>
+✅ <strong>Following tidy principles improves reproducibility and efficiency</strong><br>
+✅ <strong>Reshaping data is easy with <code>pivot_longer()</code> and <code>pivot_wider()</code></strong><br>
+✅ <strong>Tidy data works seamlessly with visualization tools like <code>ggplot2</code></strong></p>
+<p>📌 <strong>Next up: Data Joins &amp; Merging &ndash; Connecting Datasets with <code>dplyr</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>Do you use tidy data in your analyses? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #TidyData #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

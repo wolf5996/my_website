@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A detailed guide on GTF and GFF files in RNA-Seq. Learn how annotation formats define genes, transcripts, and features — and why choosing the right one matters for accurate analysis.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 9: Understanding GTF & GFF Files for Feature Annotation">
+  <meta name="twitter:description" content="A detailed guide on GTF and GFF files in RNA-Seq. Learn how annotation formats define genes, transcripts, and features — and why choosing the right one matters for accurate analysis.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-gtf-gff/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 9: Understanding GTF & GFF Files for Feature Annotation">
+  <meta property="og:description" content="A detailed guide on GTF and GFF files in RNA-Seq. Learn how annotation formats define genes, transcripts, and features — and why choosing the right one matters for accurate analysis.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-08T09:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-08T09:00:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="GTF">
+    <meta property="article:tag" content="GFF">
+    <meta property="article:tag" content="Annotation">
+    <meta property="article:tag" content="Genome Features">
+    <meta property="article:tag" content="Computational Biology">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-gtf-gff/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-gtf-gff/">
+              Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-04-08T09:00:00Z">
+                April 8, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gtf/">GTF</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gff/">GFF</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/annotation/">Annotation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/genome-features/">Genome Features</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-10-understanding-gtf--gff-files-for-feature-annotation">
+  🔬 Bulk RNA-Seq Series &ndash; Post 10: Understanding GTF &amp; GFF Files for Feature Annotation
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-10-understanding-gtf--gff-files-for-feature-annotation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="1-introduction-from-aligned-reads-to-biological-insight">
+  1️⃣ Introduction: From Aligned Reads to Biological Insight
+  <a class="heading-link" href="#1-introduction-from-aligned-reads-to-biological-insight">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Once your reads are aligned (typically producing <strong>BAM or SAM files</strong>), the next major step in your RNA-Seq pipeline is <strong>annotation</strong>. Alignment tells you <em>where</em> your reads landed on the genome &mdash; but annotation tells you <em>what</em> they hit:</p>
+<ul>
+<li>
+<p>A gene?</p>
+</li>
+<li>
+<p>An exon?</p>
+</li>
+<li>
+<p>A retroelement?</p>
+</li>
+</ul>
+<p>Without reliable annotations, aligned reads are just genomic coordinates with no biological meaning. That&rsquo;s where <strong>GTF</strong> and <strong>GFF</strong> files come in.</p>
+<hr>
+<h2 id="2-what-are-gtf-and-gff-files">
+  2️⃣ What Are GTF and GFF Files?
+  <a class="heading-link" href="#2-what-are-gtf-and-gff-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>GTF</strong> (Gene Transfer Format) and <strong>GFF</strong> (General Feature Format) are plain-text files that define the locations and types of features on a genome. These include:</p>
+<ul>
+<li>
+<p>📍 <strong>Exons</strong></p>
+</li>
+<li>
+<p>📍 <strong>Introns</strong></p>
+</li>
+<li>
+<p>📍 <strong>Coding sequences (CDS)</strong></p>
+</li>
+<li>
+<p>📍 <strong>UTRs</strong></p>
+</li>
+<li>
+<p>📍 <strong>Transcripts</strong></p>
+</li>
+<li>
+<p>📍 <strong>Genes</strong></p>
+</li>
+</ul>
+<p>Each line in a GTF or GFF file describes one feature and includes:</p>
+<ul>
+<li>
+<p>Chromosome name</p>
+</li>
+<li>
+<p>Feature type (e.g., exon, CDS)</p>
+</li>
+<li>
+<p>Start and end coordinates</p>
+</li>
+<li>
+<p>Strand</p>
+</li>
+<li>
+<p>Gene ID, transcript ID, and biotype (in the attributes column)</p>
+</li>
+</ul>
+<p>These annotations guide tools like <strong>featureCounts</strong> and <strong>HTSeq-count</strong> on how to assign reads to features.</p>
+<hr>
+<h2 id="3-gtf-vsgff----a-quick-comparison">
+  3️⃣ GTF vs. GFF &ndash; A Quick Comparison
+  <a class="heading-link" href="#3-gtf-vsgff----a-quick-comparison">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>GTF (GTF2.2)</th>
+          <th>GFF3 (General Feature Format v3)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Structure</td>
+          <td>Simpler, 9th field is unstructured</td>
+          <td>Rich metadata in key=value pairs</td>
+      </tr>
+      <tr>
+          <td>Popularity</td>
+          <td>Common in RNA-Seq workflows</td>
+          <td>Broader in genomics + non-coding RNAs</td>
+      </tr>
+      <tr>
+          <td>Compatibility</td>
+          <td>Supported by HTSeq, featureCounts</td>
+          <td>Required for some genome browsers</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-bottom-line">
+  ✅ Bottom Line:
+  <a class="heading-link" href="#-bottom-line">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Both formats <strong>define the biological meaning</strong> behind your alignments. Choose based on <strong>tool compatibility</strong> and <strong>annotation availability</strong>.</p>
+<hr>
+<h2 id="4-why-annotation-matters">
+  4️⃣ Why Annotation Matters
+  <a class="heading-link" href="#4-why-annotation-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Annotations shape how we <strong>interpret</strong> read alignments:</p>
+<ul>
+<li>
+<p>🔍 <strong>Where</strong> do your reads land?</p>
+</li>
+<li>
+<p>🔄 <strong>What</strong> gene or transcript do they belong to?</p>
+</li>
+<li>
+<p>⚠️ What <strong>biotype</strong> or <strong>biological role</strong> is associated?</p>
+</li>
+</ul>
+<blockquote>
+<p>📌 Changing your annotation file can <strong>completely change your results</strong> &mdash; even with the same BAM file.</p>
+</blockquote>
+<p>Whether you use <strong>GENCODE</strong>, <strong>Ensembl</strong>, <strong>RefSeq</strong>, or a <strong>custom annotation</strong>, your choice impacts:</p>
+<ul>
+<li>
+<p>Gene-level counts</p>
+</li>
+<li>
+<p>Transcript isoform analysis</p>
+</li>
+<li>
+<p>Novel element detection</p>
+</li>
+</ul>
+<hr>
+<h2 id="5-real-life-example-ervs-endogenous-retroviruses">
+  5️⃣ Real-Life Example: ERVs (Endogenous Retroviruses)
+  <a class="heading-link" href="#5-real-life-example-ervs-endogenous-retroviruses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>ERVs</strong> are repetitive elements often <em>excluded</em> from default annotations.</p>
+<p>To capture ERV activity:</p>
+<ul>
+<li>
+<p>🧬 Use an <strong>ERV-specific GTF file</strong> (e.g., from RepeatMasker or curated ERV databases)</p>
+</li>
+<li>
+<p>🔁 Re-analyze previously aligned reads with the updated annotation</p>
+</li>
+</ul>
+<p>This is especially valuable in:</p>
+<ul>
+<li>
+<p>🦠 <strong>Virology</strong></p>
+</li>
+<li>
+<p>🧫 <strong>Cancer biology</strong></p>
+</li>
+<li>
+<p>🧬 <strong>Immunology</strong></p>
+</li>
+</ul>
+<p>Even legacy datasets can reveal <strong>new biological insights</strong> with updated annotation files.</p>
+<hr>
+<h2 id="6-best-practices-choosing-the-right-annotation">
+  6️⃣ Best Practices: Choosing the Right Annotation
+  <a class="heading-link" href="#6-best-practices-choosing-the-right-annotation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ <strong>Source matters</strong>: GENCODE, Ensembl, and RefSeq annotations can vary widely in gene definitions and metadata<br>
+✔️ <strong>Version compatibility</strong>: Make sure your annotation matches the genome build used in alignment (e.g., GRCh38 vs GRCh37)<br>
+✔️ <strong>Custom annotations</strong>: Don&rsquo;t hesitate to tailor your GTF if studying special features like ERVs, lncRNAs, or pseudogenes<br>
+✔️ <strong>Consistency is key</strong>: Use the same annotation across alignment, counting, and downstream analysis to avoid mismatches</p>
+<hr>
+<h2 id="7-whats-next-feature-counting">
+  7️⃣ What&rsquo;s Next? Feature Counting
+  <a class="heading-link" href="#7-whats-next-feature-counting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Once your reads are aligned and annotations are ready, the next step is to <strong>count reads overlapping annotated features</strong> using tools like:</p>
+<ul>
+<li>
+<p>📏 <code>featureCounts</code></p>
+</li>
+<li>
+<p>🐍 <code>HTSeq-count</code></p>
+</li>
+</ul>
+<p>These tools depend heavily on your GTF or GFF file to decide how to group and quantify expression.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ GTF and GFF files add <strong>biological meaning</strong> to raw alignments<br>
+✔️ Annotations impact <strong>every step</strong> of the RNA-Seq pipeline<br>
+✔️ Custom annotations (e.g., ERVs) can unlock <strong>new insights</strong> from existing data<br>
+✔️ Always validate your annotation format, version, and compatibility with analysis tools</p>
+<p>📌 <strong>Coming up: Count Matrix Generation with HTSeq &amp; featureCounts!</strong> Stay tuned! 🚀</p>
+<p>👇 Have you re-annotated datasets with updated or custom GTFs? Share your findings below!</p>
+<p>#RNASeq #GTF #GFF #Transcriptomics #Bioinformatics #Genomics #ERV #Reproducibility #Annotation #NGS #DataScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gene Expression on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/gene-expression/</link>
+    <description>Recent content in Gene Expression on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Nov 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gene-expression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
+      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
+      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
+      <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
+      <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
+      <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
+      <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
+    </item>
+  </channel>
+</rss>

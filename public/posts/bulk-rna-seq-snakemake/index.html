@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A complete guide to automating RNA-Seq analysis with Snakemake. Learn how to create reproducible, efficient, and scalable workflows for bioinformatics projects.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake">
+  <meta name="twitter:description" content="A complete guide to automating RNA-Seq analysis with Snakemake. Learn how to create reproducible, efficient, and scalable workflows for bioinformatics projects.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-snakemake/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake">
+  <meta property="og:description" content="A complete guide to automating RNA-Seq analysis with Snakemake. Learn how to create reproducible, efficient, and scalable workflows for bioinformatics projects.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-07T15:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-07T15:00:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="Snakemake">
+    <meta property="article:tag" content="Workflow">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Reproducibility">
+    <meta property="article:tag" content="NGS">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-snakemake/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-snakemake/">
+              Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-04-07T15:00:00Z">
+                April 7, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/workflow-automation/">Workflow Automation</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/snakemake/">Snakemake</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/workflow/">Workflow</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/reproducibility/">Reproducibility</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ngs/">NGS</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-8-automating-pipelines-with-snakemake">
+  🔬 Bulk RNA-Seq Series &ndash; Post 8: Automating Pipelines with Snakemake
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-8-automating-pipelines-with-snakemake">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-from-chaos-to-control-automate-your-rna-seq-pipeline">
+  ⚙️ From Chaos to Control: Automate Your RNA-Seq Pipeline
+  <a class="heading-link" href="#-from-chaos-to-control-automate-your-rna-seq-pipeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As RNA-Seq datasets grow larger and pipelines become more complex, manually running every step &mdash; from quality control to alignment and quantification &mdash; quickly becomes inefficient and error-prone. 😩</p>
+<p>This is where <strong>Snakemake</strong> shines. 🌟</p>
+<h2 id="-what-is-snakemake">
+  🐍 What is Snakemake?
+  <a class="heading-link" href="#-what-is-snakemake">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Snakemake</strong> is a Python-based workflow management system that helps you <strong>automate, organize, and scale your bioinformatics pipelines</strong>. Inspired by GNU Make, it lets you define each step (called a &ldquo;rule&rdquo;) in your analysis and handles the rest: order, dependencies, re-runs, and even parallelization.</p>
+<blockquote>
+<p>💡 Think of it as Make, but smarter &mdash; and built for bioinformatics.</p>
+</blockquote>
+<p>Each rule specifies: - Inputs (e.g., trimmed reads) - Outputs (e.g., aligned BAM files) - The shell command that generates the output</p>
+<p>Snakemake <strong>automatically determines</strong> what needs to be re-run by checking if the output files exist and whether their inputs have changed.</p>
+<hr>
+<h2 id="-rna-seq-with-snakemake-an-example-pipeline">
+  📂 RNA-Seq with Snakemake: An Example Pipeline
+  <a class="heading-link" href="#-rna-seq-with-snakemake-an-example-pipeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s how a basic RNA-Seq pipeline might look when defined with Snakemake:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">FASTQ ➡️ Trimmomatic ➡️ STAR ➡️ featureCounts ➡️ MultiQC
+</span></span></code></pre></div><h3 id="-manual-approach">
+  ✅ Manual Approach
+  <a class="heading-link" href="#-manual-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fastqc sample1.fastq
+</span></span><span class="line"><span class="cl">trimmomatic PE sample1.fastq sample1_trimmed.fastq <span class="o">[</span>...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">STAR --genomeDir <span class="o">[</span>...<span class="o">]</span> --readFilesIn sample1_trimmed.fastq <span class="o">[</span>...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">featureCounts -a annotation.gtf -o counts.txt aligned.bam
+</span></span><span class="line"><span class="cl">multiqc .
+</span></span></code></pre></div><p>You&rsquo;d run each of these <strong>manually</strong>, track dependencies yourself, and likely repeat steps by accident. 😵</p>
+<h3 id="-snakemake-approach">
+  🔁 Snakemake Approach
+  <a class="heading-link" href="#-snakemake-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>You define your rules once in a <code>Snakefile</code>, and let Snakemake do the work:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rule</span> <span class="n">fastqc</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">input</span><span class="p">:</span> <span class="s2">&#34;samples/</span><span class="si">{sample}</span><span class="s2">.fastq&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">output</span><span class="p">:</span> <span class="s2">&#34;qc/</span><span class="si">{sample}</span><span class="s2">_fastqc.zip&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">shell</span><span class="p">:</span> <span class="s2">&#34;fastqc </span><span class="si">{input}</span><span class="s2"> -o qc/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rule</span> <span class="n">trim</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">input</span><span class="p">:</span> <span class="s2">&#34;samples/</span><span class="si">{sample}</span><span class="s2">.fastq&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">output</span><span class="p">:</span> <span class="s2">&#34;trimmed/</span><span class="si">{sample}</span><span class="s2">_trimmed.fastq&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">shell</span><span class="p">:</span> <span class="s2">&#34;trimmomatic SE </span><span class="si">{input}</span><span class="s2"> </span><span class="si">{output}</span><span class="s2"> [...]&#34;</span>
+</span></span></code></pre></div><p>To execute:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">snakemake -j <span class="m">8</span>
+</span></span></code></pre></div><p>Snakemake will run all the necessary rules <strong>in order</strong>, using <strong>8 cores</strong>, skipping steps with existing outputs.</p>
+<hr>
+<h2 id="-key-benefits-of-using-snakemake">
+  📈 Key Benefits of Using Snakemake
+  <a class="heading-link" href="#-key-benefits-of-using-snakemake">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Benefit</th>
+          <th>Why It Matters</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🔄 Reproducibility</td>
+          <td>Same results every time, same logic, clean logs</td>
+      </tr>
+      <tr>
+          <td>💻 Scalability</td>
+          <td>Works on laptops, servers, or HPC clusters with minimal changes</td>
+      </tr>
+      <tr>
+          <td>📂 Organized Outputs</td>
+          <td>Each output is neatly tracked, versioned, and named</td>
+      </tr>
+      <tr>
+          <td>⏱ Efficiency</td>
+          <td>Skips up-to-date files and minimizes wasted computation</td>
+      </tr>
+      <tr>
+          <td>🧪 Integration</td>
+          <td>Plays well with Conda, Docker, Singularity, and cloud platforms</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-snakemake-vsothers">
+  🧠 Snakemake vs. Others
+  <a class="heading-link" href="#-snakemake-vsothers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Other workflow tools like <strong>Nextflow</strong>, <strong>WDL</strong>, and <strong>Cromwell</strong> offer similar benefits. However:</p>
+<ul>
+<li>Snakemake is ideal for <strong>Python users</strong> and <strong>academic bioinformatics</strong> projects.</li>
+<li>Nextflow excels in cloud-native setups with containerized tools.</li>
+</ul>
+<blockquote>
+<p>🤔 If you love Python and want a lightweight solution that just works, Snakemake is an excellent choice.</p>
+</blockquote>
+<hr>
+<h2 id="-key-takeaways">
+  📌 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ Snakemake helps automate your RNA-Seq workflows for speed and reliability<br>
+✔️ It ensures reproducibility by tracking file dependencies<br>
+✔️ It scales easily from local runs to cloud or cluster environments<br>
+✔️ It integrates with Conda environments, rule-based logic, and parallelism</p>
+<p>📌 <strong>Next up: GTF &amp; GFF Files &ndash; The Key to Genome Annotation! Stay tuned! 🚀</strong></p>
+<p>👇 Are you using Snakemake or another workflow tool like Nextflow or WDL? Share your experience below!</p>
+<p>#RNASeq #Snakemake #WorkflowAutomation #Bioinformatics #Genomics #Transcriptomics #Reproducibility #NGS #DataScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

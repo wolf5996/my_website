@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FASTA on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/fasta/</link>
+    <description>Recent content in FASTA on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Apr 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fasta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
+    </item>
+  </channel>
+</rss>

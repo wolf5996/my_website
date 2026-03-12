@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genomics on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/genomics/</link>
+    <description>Recent content in Genomics on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Jun 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/genomics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
+      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
+    </item>
+  </channel>
+</rss>

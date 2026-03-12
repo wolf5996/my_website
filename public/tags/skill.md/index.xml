@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKILL.md on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/skill.md/</link>
+    <description>Recent content in SKILL.md on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Feb 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/skill.md/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
+      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
+    </item>
+  </channel>
+</rss>

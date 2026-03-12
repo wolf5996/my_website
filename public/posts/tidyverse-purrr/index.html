@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 9: Functional Programming in R with purrr · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A complete guide to functional programming in R using purrr. Learn how to apply, map, reduce, and iterate efficiently over lists and data frames.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 9: Functional Programming in R with purrr">
+  <meta name="twitter:description" content="A complete guide to functional programming in R using purrr. Learn how to apply, map, reduce, and iterate efficiently over lists and data frames.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-purrr/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 9: Functional Programming in R with purrr">
+  <meta property="og:description" content="A complete guide to functional programming in R using purrr. Learn how to apply, map, reduce, and iterate efficiently over lists and data frames.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-03T12:30:00+00:00">
+    <meta property="article:modified_time" content="2025-03-03T12:30:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Functional Programming">
+    <meta property="article:tag" content="Purrr">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Data Manipulation">
+    <meta property="article:tag" content="Iteration">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-purrr/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-purrr/">
+              Tidyverse Series – Post 9: Functional Programming in R with purrr
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-03T12:30:00Z">
+                March 3, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/functional-programming/">Functional Programming</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/purrr/">Purrr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-manipulation/">Data Manipulation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/iteration/">Iteration</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-9-functional-programming-in-r-with-purrr">
+  🔬 Tidyverse Series &ndash; Post 9: Functional Programming in R with <code>purrr</code>
+  <a class="heading-link" href="#-tidyverse-series----post-9-functional-programming-in-r-with-purrr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-purrr">
+  🛠 Why <code>{purrr}</code>?
+  <a class="heading-link" href="#-why-purrr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Iteration in R <strong>can be clunky</strong> using for-loops, especially when working with lists and complex data structures. <code>{purrr}</code> provides <strong>elegant functional programming tools</strong> that make iteration cleaner, safer, and more expressive.</p>
+<h3 id="-why-use-purrr">
+  🔹 Why Use <code>{purrr}</code>?
+  <a class="heading-link" href="#-why-use-purrr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>Replaces slow and verbose for-loops</strong><br>
+✔️ <strong>Works seamlessly with lists and tibbles</strong><br>
+✔️ <strong>Encourages a functional programming approach</strong><br>
+✔️ <strong>Improves error handling in iterative tasks</strong><br>
+✔️ <strong>Simplifies nested operations</strong></p>
+<p>Let&rsquo;s explore the key functions that make <code>{purrr}</code> a game-changer.</p>
+<hr>
+<h2 id="-key-purrr-functions">
+  📚 Key <code>{purrr}</code> Functions
+  <a class="heading-link" href="#-key-purrr-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>map()</code></td>
+          <td>Apply a function to each element of a list</td>
+      </tr>
+      <tr>
+          <td><code>map_dbl()</code>, <code>map_chr()</code>, <code>map_lgl()</code></td>
+          <td>Ensure output as numeric, character, or logical vectors</td>
+      </tr>
+      <tr>
+          <td><code>map2()</code></td>
+          <td>Iterate over two lists at once</td>
+      </tr>
+      <tr>
+          <td><code>pmap()</code></td>
+          <td>Iterate over multiple lists simultaneously</td>
+      </tr>
+      <tr>
+          <td><code>possibly()</code>, <code>safely()</code></td>
+          <td>Handle errors gracefully</td>
+      </tr>
+      <tr>
+          <td><code>reduce()</code></td>
+          <td>Perform iterative reduction (e.g., cumulative sums, merging)</td>
+      </tr>
+      <tr>
+          <td><code>walk()</code></td>
+          <td>Apply functions for side effects (e.g., printing, logging)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-example-1-applying-a-function-to-a-list-of-values">
+  📊 <strong>Example 1: Applying a Function to a List of Values</strong>
+  <a class="heading-link" href="#-example-1-applying-a-function-to-a-list-of-values">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Imagine we need to <strong>take the square root of a list of numbers</strong>, handling potential errors.</p>
+<h3 id="-base-r-approach-using-a-for-loop">
+  <strong>➡️ Base R approach using a for-loop:</strong>
+  <a class="heading-link" href="#-base-r-approach-using-a-for-loop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">x</span> <span class="kr">in</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">results</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>✔️ Works, but not scalable for more complex cases.</p>
+<h3 id="-purrr-approach-using-map">
+  <strong>➡️ <code>{purrr}</code> approach using <code>map()</code>:</strong>
+  <a class="heading-link" href="#-purrr-approach-using-map">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">&lt;-</span> <span class="nf">map</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>More concise and readable</strong><br>
+✅ <strong>Handles list structures effortlessly</strong><br>
+✅ <strong>Easily extendable to more complex functions</strong></p>
+<hr>
+<h2 id="-example-2-handling-errors-with-possibly">
+  📊 <strong>Example 2: Handling Errors with <code>possibly()</code></strong>
+  <a class="heading-link" href="#-example-2-handling-errors-with-possibly">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Some operations might fail. <code>{purrr}</code> helps us handle errors gracefully using <code>possibly()</code>.</p>
+<h3 id="-handling-errors-in-a-safe-way">
+  <strong>➡️ Handling errors in a safe way:</strong>
+  <a class="heading-link" href="#-handling-errors-in-a-safe-way">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">safe_sqrt</span> <span class="o">&lt;-</span> <span class="nf">possibly</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">&lt;-</span> <span class="nf">map</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">safe_sqrt</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>Prevents the entire operation from failing due to a single error</strong></p>
+<hr>
+<h2 id="-example-3-iterating-over-two-lists-with-map2">
+  📊 <strong>Example 3: Iterating Over Two Lists with <code>map2()</code></strong>
+  <a class="heading-link" href="#-example-3-iterating-over-two-lists-with-map2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We can iterate over <strong>two lists</strong> simultaneously.</p>
+<h3 id="-multiply-corresponding-elements-in-two-lists">
+  <strong>➡️ Multiply corresponding elements in two lists:</strong>
+  <a class="heading-link" href="#-multiply-corresponding-elements-in-two-lists">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">list1</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">list2</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">map2</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="o">~</span> <span class="n">.x</span> <span class="o">*</span> <span class="n">.y</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ Efficiently processes <strong>paired</strong> elements from two lists.</p>
+<hr>
+<h2 id="-example-4-working-with-data-frames-using-pmap">
+  📊 <strong>Example 4: Working with Data Frames Using <code>pmap()</code></strong>
+  <a class="heading-link" href="#-example-4-working-with-data-frames-using-pmap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>When we need to apply a function across <strong>multiple columns</strong> in a dataframe, <code>pmap()</code> is the best choice.</p>
+<h3 id="-example-compute-a-bmi-column">
+  <strong>➡️ Example: Compute a BMI column</strong>
+  <a class="heading-link" href="#-example-compute-a-bmi-column">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">Weight</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">70</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="m">65</span><span class="p">),</span> <span class="n">Height</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.75</span><span class="p">,</span> <span class="m">1.82</span><span class="p">,</span> <span class="m">1.68</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">BMI</span> <span class="o">=</span> <span class="nf">pmap_dbl</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">Weight</span><span class="p">,</span> <span class="n">Height</span><span class="p">),</span> <span class="o">~</span> <span class="n">.x</span> <span class="o">/</span> <span class="p">(</span><span class="n">.y^2</span><span class="p">)))</span>
+</span></span></code></pre></div><p>✅ Computes <strong>BMI for each row</strong> efficiently.</p>
+<hr>
+<h2 id="-example-5-reducing-a-list-using-reduce">
+  📊 <strong>Example 5: Reducing a List Using <code>reduce()</code></strong>
+  <a class="heading-link" href="#-example-5-reducing-a-list-using-reduce">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>If we need to <strong>perform cumulative operations</strong>, <code>reduce()</code> is our go-to function.</p>
+<h3 id="-compute-the-cumulative-sum-of-a-list">
+  <strong>➡️ Compute the cumulative sum of a list:</strong>
+  <a class="heading-link" href="#-compute-the-cumulative-sum-of-a-list">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">values</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sum_result</span> <span class="o">&lt;-</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">`+`</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ Returns <strong>the total sum of all values</strong> in the list.</p>
+<hr>
+<h2 id="-example-6-using-walk-for-side-effects">
+  📊 <strong>Example 6: Using <code>walk()</code> for Side Effects</strong>
+  <a class="heading-link" href="#-example-6-using-walk-for-side-effects">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><code>walk()</code> is similar to <code>map()</code> but is used when the function has <strong>side effects</strong> (e.g., printing, saving files, logging messages).</p>
+<h3 id="-print-each-element-in-a-list">
+  <strong>➡️ Print each element in a list:</strong>
+  <a class="heading-link" href="#-print-each-element-in-a-list">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">walk</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">print</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ Runs functions <strong>without returning output</strong>, useful for <strong>logging or debugging</strong>.</p>
+<hr>
+<h2 id="-complete-workflow-functional-programming-with-purrr">
+  📈 <strong>Complete Workflow: Functional Programming with <code>{purrr}</code></strong>
+  <a class="heading-link" href="#-complete-workflow-functional-programming-with-purrr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s put everything together into a <strong>cohesive pipeline</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sample dataset</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Name</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Charlie&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Score1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">85</span><span class="p">,</span> <span class="m">90</span><span class="p">,</span> <span class="m">78</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Score2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">80</span><span class="p">,</span> <span class="m">95</span><span class="p">,</span> <span class="m">88</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Apply functions using purrr</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Avg_Score</span> <span class="o">=</span> <span class="nf">map2_dbl</span><span class="p">(</span><span class="n">Score1</span><span class="p">,</span> <span class="n">Score2</span><span class="p">,</span> <span class="o">~</span> <span class="nf">mean</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span> <span class="n">.y</span><span class="p">))),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Score_Summary</span> <span class="o">=</span> <span class="nf">pmap_chr</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Score1</span><span class="p">,</span> <span class="n">Score2</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">                             <span class="o">~</span> <span class="nf">paste</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span> <span class="s">&#34;has an average score of&#34;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">.y</span><span class="p">,</span> <span class="n">.z</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>Uses <code>map2()</code> and <code>pmap()</code> to efficiently compute new variables</strong></p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 <strong>Key Takeaways</strong>
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>{purrr}</code> makes iteration in R <strong>more intuitive and powerful</strong>.<br>
+✅ <code>map()</code> and related functions <strong>streamline repetitive tasks</strong>.<br>
+✅ <code>possibly()</code> and <code>safely()</code> <strong>help with robust error handling</strong>.<br>
+✅ <code>map2()</code> and <code>pmap()</code> <strong>simplify multi-list operations</strong>.<br>
+✅ <code>reduce()</code> and <code>walk()</code> <strong>offer advanced functional programming workflows</strong>.</p>
+<p>📌 <strong>Next up: String Manipulation Made Easy with <code>stringr</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>How do you currently handle iteration in R? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #purrr #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

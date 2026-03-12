@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow Automation on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/workflow-automation/</link>
+    <description>Recent content in Workflow Automation on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Apr 2025 15:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/workflow-automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
+    </item>
+  </channel>
+</rss>

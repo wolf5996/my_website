@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gene Set Enrichment on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/gene-set-enrichment/</link>
+    <description>Recent content in Gene Set Enrichment on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 21 Sep 2025 01:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gene-set-enrichment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!</title>
+      <link>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</link>
+      <pubDate>Sun, 21 Sep 2025 01:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</guid>
+      <description>Discover GSEA&amp;rsquo;s power to detect coordinated pathway changes using complete expression datasets. Learn advanced enrichment analysis techniques that reveal biological insights hidden from traditional ORA methods.</description>
+    </item>
+  </channel>
+</rss>

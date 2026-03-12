@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DESeq2 on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/deseq2/</link>
+    <description>Recent content in DESeq2 on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Sep 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/deseq2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
+      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 14: From Gene Functions to Metabolic Maps with KEGG!</title>
+      <link>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</link>
+      <pubDate>Tue, 09 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</guid>
+      <description>Bridge the gap between individual gene functions and complete biological networks with KEGG pathway analysis. Discover how to visualize gene interactions, identify drug targets, and understand the molecular mechanisms underlying your experimental results.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!</title>
+      <link>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</link>
+      <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</guid>
+      <description>Bridge the gap between gene lists and biological understanding with GO enrichment analysis. Master the practical application of over-representation analysis to discover which biological processes are affected by your experimental treatments.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
+      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
+      <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
+      <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
+      <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
+      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
+      <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
+      <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 6: Data Transformations</title>
+      <link>http://localhost:1313/posts/data-transformations/</link>
+      <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-transformations/</guid>
+      <description>Discover why normalized counts still aren&amp;rsquo;t ready for PCA and clustering, and how VST and rlog transformations solve the variance problem. Learn to choose the right transformation method and integrate it properly into your RNA-seq workflow.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 5: Normalization Methods</title>
+      <link>http://localhost:1313/posts/normalization-methods/</link>
+      <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/normalization-methods/</guid>
+      <description>Discover how normalization transforms meaningless raw counts into biologically interpretable expression values. Explore DESeq2&amp;rsquo;s robust median-of-ratios method and learn to identify normalization issues that could derail your analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
+      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
+      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
+      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
+      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
+      <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
+      <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
+    </item>
+  </channel>
+</rss>

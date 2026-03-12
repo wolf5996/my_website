@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2 · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="An in-depth guide to read alignment in bulk RNA-Seq analysis using STAR, HISAT2, and Minimap2. Learn when to use each aligner, how to configure them, and how alignment impacts downstream analysis.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 & Minimap2">
+  <meta name="twitter:description" content="An in-depth guide to read alignment in bulk RNA-Seq analysis using STAR, HISAT2, and Minimap2. Learn when to use each aligner, how to configure them, and how alignment impacts downstream analysis.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-alignment/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 & Minimap2">
+  <meta property="og:description" content="An in-depth guide to read alignment in bulk RNA-Seq analysis using STAR, HISAT2, and Minimap2. Learn when to use each aligner, how to configure them, and how alignment impacts downstream analysis.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-25T05:20:00+00:00">
+    <meta property="article:modified_time" content="2025-03-25T05:20:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="Read Alignment">
+    <meta property="article:tag" content="STAR">
+    <meta property="article:tag" content="HISAT2">
+    <meta property="article:tag" content="Minimap2">
+    <meta property="article:tag" content="Computational Biology">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-alignment/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-alignment/">
+              Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-25T05:20:00Z">
+                March 25, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/read-alignment/">Read Alignment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/star/">STAR</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/hisat2/">HISAT2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/minimap2/">Minimap2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-5-read-alignment-with-star-hisat2--minimap2">
+  🔬 Bulk RNA-Seq Series &ndash; Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-5-read-alignment-with-star-hisat2--minimap2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-alignment-matters-in-rna-seq">
+  🧬 Why Alignment Matters in RNA-Seq
+  <a class="heading-link" href="#-why-alignment-matters-in-rna-seq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After quality control and trimming, your RNA-Seq reads are ready for one of the most critical stages in the workflow: <strong>alignment</strong>.</p>
+<p><strong>Read alignment</strong> involves mapping sequencing reads back to a reference genome or transcriptome to determine their origin. This is essential for:</p>
+<p>✔️ <strong>Quantifying gene and transcript expression</strong><br>
+✔️ <strong>Detecting splice junctions and novel isoforms</strong><br>
+✔️ <strong>Performing differential expression analysis</strong><br>
+✔️ <strong>Enabling transcript assembly</strong></p>
+<p>Let&rsquo;s explore three of the most widely used aligners: <strong>STAR</strong>, <strong>HISAT2</strong>, and <strong>Minimap2</strong>.</p>
+<hr>
+<h2 id="-star-ultrafast-and-splice-aware">
+  ⚡ STAR: Ultrafast and Splice-Aware
+  <a class="heading-link" href="#-star-ultrafast-and-splice-aware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>STAR (Spliced Transcripts Alignment to a Reference)</strong> is one of the most popular RNA-Seq aligners, particularly for <strong>short-read data</strong> from Illumina platforms.</p>
+<h3 id="-key-features">
+  🔹 Key Features
+  <a class="heading-link" href="#-key-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Optimized for <strong>speed</strong> and high-throughput datasets</li>
+<li><strong>Splice-aware</strong>: can detect both known and novel splice junctions</li>
+<li>Produces <strong>sorted BAM files</strong> and supports gene quantification</li>
+</ul>
+<h3 id="-typical-use-case">
+  📦 Typical Use Case
+  <a class="heading-link" href="#-typical-use-case">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Used in large-scale RNA-Seq studies such as TCGA, GTEx, and ENCODE.</p>
+<h3 id="-star-command-example">
+  📘 STAR Command Example:
+  <a class="heading-link" href="#-star-command-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">STAR --runThreadN <span class="m">8</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --genomeDir genome_index/ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --readFilesIn sample_R1.fastq.gz sample_R2.fastq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --readFilesCommand zcat <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --outFileNamePrefix aligned/sample_ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --outSAMtype BAM SortedByCoordinate
+</span></span></code></pre></div><p>✅ Output: Sorted BAM files ready for quantification or visualization</p>
+<hr>
+<h2 id="-hisat2-lightweight-and-graph-based">
+  🧠 HISAT2: Lightweight and Graph-Based
+  <a class="heading-link" href="#-hisat2-lightweight-and-graph-based">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>HISAT2</strong> is a fast and memory-efficient RNA-Seq aligner designed as a successor to <strong>TopHat2</strong>. It uses a <strong>graph-based index</strong>, which makes it robust for transcriptome variation.</p>
+<h3 id="-key-features-1">
+  🔹 Key Features
+  <a class="heading-link" href="#-key-features-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Low memory usage</strong> compared to STAR</li>
+<li>Supports <strong>spliced alignments</strong> using genome annotation</li>
+<li>Compatible with downstream tools like <strong>StringTie</strong></li>
+</ul>
+<h3 id="-hisat2-command-example">
+  📘 HISAT2 Command Example:
+  <a class="heading-link" href="#-hisat2-command-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hisat2 -p <span class="m">8</span> -x genome_index/genome <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -1 sample_R1.fastq.gz -2 sample_R2.fastq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -S sample.sam
+</span></span></code></pre></div><p>✅ Output: SAM file for conversion to BAM using <code>samtools view</code></p>
+<hr>
+<h2 id="-minimap2-best-for-long-read-sequencing">
+  🌐 Minimap2: Best for Long-Read Sequencing
+  <a class="heading-link" href="#-minimap2-best-for-long-read-sequencing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Minimap2</strong> is a newer tool designed primarily for <strong>long-read technologies</strong> like Oxford Nanopore and PacBio, but it also supports spliced alignments for RNA-Seq.</p>
+<h3 id="-key-features-2">
+  🔹 Key Features
+  <a class="heading-link" href="#-key-features-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Handles <strong>long and noisy reads</strong> well</li>
+<li>Supports <strong>spliced alignment</strong> for RNA-Seq</li>
+<li>Essential for <strong>third-generation sequencing platforms</strong></li>
+</ul>
+<h3 id="-minimap2-command-example">
+  📘 Minimap2 Command Example:
+  <a class="heading-link" href="#-minimap2-command-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">minimap2 -ax splice -t <span class="m">8</span> genome.fa reads.fastq &gt; aligned.sam
+</span></span></code></pre></div><p>✅ Output: SAM file, easily converted to BAM and sorted for downstream analysis</p>
+<hr>
+<h2 id="-choosing-the-right-aligner">
+  📊 Choosing the Right Aligner
+  <a class="heading-link" href="#-choosing-the-right-aligner">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Best For</th>
+          <th>Strengths</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>STAR</td>
+          <td>Short-read Illumina data</td>
+          <td>Fast, accurate, splice-aware</td>
+      </tr>
+      <tr>
+          <td>HISAT2</td>
+          <td>Compact genomes &amp; limited RAM</td>
+          <td>Lightweight, annotation-ready</td>
+      </tr>
+      <tr>
+          <td>Minimap2</td>
+          <td>Long-read sequencing</td>
+          <td>Long-read &amp; noisy data support</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ All three generate alignment files compatible with <strong>featureCounts</strong>, <strong>HTSeq</strong>, and <strong>StringTie</strong>.</p>
+<hr>
+<h2 id="-post-alignment-tips">
+  📄 Post-Alignment Tips
+  <a class="heading-link" href="#-post-alignment-tips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Validate BAM files</strong> using <code>samtools flagstat</code> or <code>samtools stats</code></li>
+<li><strong>Sort and index</strong> your BAM files with <code>samtools sort</code> and <code>samtools index</code></li>
+<li>Use <strong>Qualimap</strong> for detailed alignment statistics</li>
+<li><strong>Visualize alignments</strong> with IGV (Integrative Genomics Viewer)</li>
+</ul>
+<hr>
+<h2 id="-key-takeaways">
+  📌 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ <strong>STAR</strong> is the go-to tool for high-throughput, short-read RNA-Seq alignment<br>
+✔️ <strong>HISAT2</strong> is ideal when resources are limited or when graph-based indexing is preferred<br>
+✔️ <strong>Minimap2</strong> is the best option for long-read RNA-Seq data<br>
+✔️ Post-alignment validation is critical before proceeding to quantification</p>
+<p>📌 <strong>Next up: From BAM to Counts &ndash; featureCounts &amp; HTSeq! Stay tuned! 🚀</strong></p>
+<p>👇 What aligner do you use most in your RNA-Seq workflows? Let&rsquo;s compare notes!</p>
+<p>#RNASeq #ReadAlignment #STAR #HISAT2 #Minimap2 #Transcriptomics #Genomics #Bioinformatics #ComputationalBiology #OpenScience #DataScience</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

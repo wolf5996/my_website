@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Import on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/data-import/</link>
+    <description>Recent content in Data Import on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Jul 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-import/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
+      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr</title>
+      <link>http://localhost:1313/posts/tidyverse-readr/</link>
+      <pubDate>Wed, 26 Feb 2025 10:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-readr/</guid>
+      <description>Master data import in R with readr. Learn to load, clean, and process large datasets efficiently using modern Tidyverse tools.</description>
+    </item>
+  </channel>
+</rss>

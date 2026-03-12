@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Read Quantification on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/read-quantification/</link>
+    <description>Recent content in Read Quantification on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 26 Mar 2025 10:10:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/read-quantification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
+    </item>
+  </channel>
+</rss>

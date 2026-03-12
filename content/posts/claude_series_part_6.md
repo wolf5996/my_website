@@ -1,0 +1,199 @@
+---
+title: "Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!"
+author: "Badran Elshenawy"
+date: 2026-02-10T09:00:00Z
+categories:
+  - "AI Tools"
+  - "Bioinformatics"
+  - "Productivity"
+  - "Claude"
+  - "Research Tools"
+tags:
+  - "Claude"
+  - "Claude Code"
+  - "Skills"
+  - "Agent Skills"
+  - "SKILL.md"
+  - "Superpowers"
+  - "AI Workflow"
+  - "Bioinformatics"
+  - "Computational Biology"
+  - "Automation"
+  - "Research Productivity"
+  - "Custom AI"
+description: "Master Claude Skills - reusable instruction packages that transform Claude from a general assistant into a specialist for your exact workflow. Learn how to create, install, and use Skills in both Claude chat and Claude Code, plus discover the Superpowers plugin ecosystem."
+slug: "claude-skills-turn-claude-into-your-specialist"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/claude_skills_turn_claude_into_your_specialist/"
+summary: "Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace."
+featured: true
+rmd_hash: 61e3290b6fb56c86
+
+---
+
+# Claude Series -- Post 6: Skills - Turn Claude Into YOUR Specialist! 🧬
+
+Remember [CLAUDE.md from Post 5](https://badran-elshenawy.netlify.app/posts/)? That was about onboarding Claude into your project --- telling it about your files, packages, and standards.
+
+Skills take it further. Instead of just *informing* Claude about your project, you *teach* it how to perform specific tasks exactly the way you want --- and it remembers that expertise forever.
+
+------------------------------------------------------------------------
+
+## 🎯 What Are Skills?
+
+Skills are **reusable instruction packages** that extend Claude's capabilities. Each Skill is a folder containing a **SKILL.md** file with YAML frontmatter (name + description) and detailed Markdown instructions. You can optionally include scripts, templates, and reference files.
+
+The clever part is **progressive disclosure**. Claude scans only the metadata of all available Skills (\~100 tokens each), then loads the full content of only the relevant ones when your task matches. Dozens of Skills, zero context bloat.
+
+### How Claude Uses Them
+
+**Automatically:** Claude reads Skill descriptions and loads matching ones when your task fits. Ask "filter my Seurat object for low-quality cells" and Claude auto-loads your QC Skill without being told.
+
+**Manually:** In Claude Code, every Skill becomes a slash command. Type `/scrnaseq-qc` to force-load it, optionally with arguments:
+
+    /scrnaseq-qc Filter the PBMC dataset with strict thresholds
+
+------------------------------------------------------------------------
+
+## 📂 Where Do Skills Live?
+
+-   **Claude chat:** Upload a zipped Skill folder in **Settings → Capabilities → Skills**
+-   **Claude Code (project):** Drop folders into `.claude/skills/` in your project --- version-controlled and shared via git
+-   **Claude Code (personal):** Place in `~/.claude/skills/` for Skills available across all projects
+-   **Marketplace:** Install community Skills with `/plugin marketplace add`
+
+Priority when names collide: **Enterprise \> Personal \> Project**.
+
+------------------------------------------------------------------------
+
+## 💡 Built-In and Partner Skills
+
+Claude ships with professional Skills for **docx**, **xlsx**, **pptx**, and **pdf** creation. Say "take my DESeq2 results and create a Word document with summary table and volcano plot" and Claude produces a publication-ready file. The [Skills Directory](https://claude.com/connectors) also features partner Skills from Notion, Figma, and Atlassian that integrate with MCP connectors (more on MCPs next post!).
+
+------------------------------------------------------------------------
+
+## 🚀 Superpowers: The Community Game-Changer
+
+[**Superpowers**](https://github.com/obra/superpowers) by Jesse Vincent is a battle-tested library of 20+ Skills for Claude Code. Install it in two commands:
+
+    /plugin marketplace add obra/superpowers-marketplace
+    /plugin install superpowers@superpowers-marketplace
+
+What you get:
+
+-   `/superpowers:brainstorm` --- Interactive design refinement before writing code
+-   `/superpowers:write-plan` --- Structured implementation plans
+-   `/superpowers:execute-plan` --- Executes plans in verified batches
+
+Plus **auto-activating Skills** that fire when Claude detects the right context: **test-driven-development** when implementing features, **systematic-debugging** when tracing bugs (root cause, not symptoms), and **verification-before-completion** before Claude claims work is done.
+
+The bootstrap is fewer than 2,000 tokens --- individual Skills load on demand via a search script, so you never pay for what you don't use. The broader [awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) repository curates even more community Skills across scientific computing, security, writing, and more.
+
+------------------------------------------------------------------------
+
+## 🏗️ Creating Your Own Skills
+
+### Step 1: Create the Directory
+
+``` bash
+# Project-level
+mkdir -p my-project/.claude/skills/scrnaseq-qc
+
+# Or personal (all projects)
+mkdir -p ~/.claude/skills/scrnaseq-qc
+```
+
+### Step 2: Write SKILL.md
+
+The description is critical --- it's what Claude reads to decide relevance:
+
+``` markdown
+---
+name: scrnaseq-qc
+description: "Standard single-cell RNA-seq quality control workflow. 
+Use when performing QC filtering on 10X Chromium scRNA-seq data, 
+setting QC thresholds, or filtering cells by nFeature, nCount, 
+and percent.mt metrics."
+---
+
+# Single-Cell RNA-seq QC Protocol
+
+## Standard Thresholds
+- nFeature_RNA: 200 - 5000
+- nCount_RNA: minimum 500
+- percent.mt: < 15% (tissue-dependent)
+
+## Workflow Order
+1. Run SoupX on raw matrix FIRST
+2. Create Seurat object from corrected counts
+3. Calculate percent.mt with PercentageFeatureSet(pattern = "^MT-")
+4. Visualize QC metrics BEFORE any filtering
+5. Apply thresholds based on distribution
+6. Run DoubletFinder AFTER initial filtering
+7. Document all thresholds and cells removed
+
+## Critical Rules
+- NEVER skip ambient RNA removal for droplet-based data
+- ALWAYS set seed (42) for reproducibility
+- ALWAYS generate QC plots BEFORE and AFTER filtering
+```
+
+### Step 3: Add Supporting Files (Optional)
+
+    scrnaseq-qc/
+    ├── SKILL.md              # Main instructions (required)
+    ├── templates/
+    │   └── qc_report.Rmd     # Template Claude fills in
+    ├── scripts/
+    │   └── validate_qc.R     # Executable validation
+    └── resources/
+        └── marker_genes.csv   # Reference data
+
+### Step 4: Share It
+
+``` bash
+git add .claude/skills/scrnaseq-qc/
+git commit -m "Add scRNA-seq QC skill"
+git push
+```
+
+Everyone who pulls the repo gets the same protocol. For Claude chat, zip the folder and share the .zip file --- colleagues upload through Settings.
+
+**Pro tip:** Claude ships with a built-in **skill-creator** Skill. Just ask "help me create a new Skill for \[your workflow\]" and it walks you through the process interactively.
+
+------------------------------------------------------------------------
+
+## 🤝 Skills vs CLAUDE.md
+
+**CLAUDE.md** = project context (the *what* and *where*): project description, directory structure, package versions, naming conventions.
+
+**Skills** = task expertise (the *how*): how QC should be performed, how reports should be formatted, how figures should be generated.
+
+They're complementary. CLAUDE.md gives Claude the map. Skills give Claude the expertise to navigate it. Use both.
+
+------------------------------------------------------------------------
+
+## ⚡ Tips for Effective Skills
+
+**Write specific descriptions.** "Data analysis helper" won't trigger reliably. "Single-cell RNA-seq QC for 10X data with SoupX and DoubletFinder" will.
+
+**Keep Skills focused.** One Skill per workflow. Focused Skills compose better than one monolithic Skill.
+
+**Include examples.** A `sample_output.md` showing expected output is worth a thousand words of instruction.
+
+**Version control everything.** When your lab updates a protocol, update the Skill. Everyone pulls the latest automatically.
+
+------------------------------------------------------------------------
+
+## 🔥 The Bottom Line
+
+Skills transform Claude from a general assistant into YOUR specialist --- reusable, shareable, composable, and automatically invoked. Set them up once, benefit forever. They work across Claude chat, Claude Code, and the API. Write once, use everywhere.
+
+**Next up: MCPs (Model Context Protocol) --- connecting Claude to external tools, databases, and services!** If Skills teach Claude *how* to do tasks, MCPs give Claude *access* to the tools and data it needs. The combination is where things get really powerful. 🔌
+
+------------------------------------------------------------------------
+
+*Full Claude series at [badran-elshenawy.netlify.app/posts](https://badran-elshenawy.netlify.app/posts/)*
+

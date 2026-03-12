@@ -1,0 +1,132 @@
+---
+title: "From R Markdown to Quarto: Why Visual Mode in VS Code is a Game Changer"
+author: "Badran Elshenawy"
+date: 2025-01-29T04:30:00Z
+categories:
+  - "Version Control"
+  - "Quarto"
+  - "R Markdown"
+  - "VS Code"
+tags:
+  - "Quarto"
+  - "R Markdown"
+  - "VS Code"
+  - "Data Science"
+  - "Reproducibility"
+  - "Open Science"
+description: "An in-depth guide on why Quarto and Visual Mode in VS Code is a massive improvement over R Markdown in RStudio."
+slug: "quarto-vscode"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/quarto_vscode/"
+summary: "Discover why Quarto and VS Code's Visual Mode is a game-changer for reproducible research."
+featured: true
+theme: darkly
+highlight: monokai
+toc: true
+toc-depth: 3
+toc-float: true
+title-block-banner: true
+self-contained: true
+rmd_hash: e01e6ed9b45f331f
+
+---
+
+# 🚀 From R Markdown to Quarto: Why Visual Mode in VS Code is a Game Changer
+
+For years, **R Markdown (`.Rmd`)** was the gold standard for writing reproducible reports, seamlessly blending code, text, and output within a single document. One of its most powerful features in RStudio was **Visual Mode**, a WYSIWYG (What You See Is What You Get) editor that made formatting intuitive, enabling users to style documents effortlessly **without manually writing Markdown syntax**.
+
+But now, with **Quarto (`.qmd`)**, things have evolved---for the better! 🚀
+
+## 💡 What is Quarto? Why Switch from R Markdown?
+
+Quarto is the next-generation system for creating **reproducible reports, technical documents, blogs, books, and presentations**. Think of it as **R Markdown 2.0**---but more flexible, powerful, and designed for a **modern data science workflow**.
+
+### 🔹 Key Advantages of Quarto
+
+✅ **Multi-language support** -- Not just for R! Write in **Python, Julia, JavaScript**, or even combine multiple languages in a single document 🔥  
+✅ **Enhanced YAML headers** -- Improved metadata handling, structured document settings, and better defaults 📜  
+✅ **Better output formatting** -- More control over styling, citations, cross-references, and scientific publishing 🎨  
+✅ **Visual Mode in VS Code!** -- A true game-changer for those who prefer a modern, full-featured coding environment
+
+## 🎯 Why Visual Mode in VS Code is a Big Deal
+
+Previously, **Visual Mode**, which simplified `.Rmd` editing in RStudio, was **exclusive to RStudio users**. But with **Quarto**, VS Code now gains the same powerful **WYSIWYG experience**, allowing users to:
+
+🔹 **Edit and format text without Markdown syntax** 📝  
+🔹 **Embed and run code chunks interactively** 🖥️  
+🔹 **See real-time previews of tables, equations, and document styling** 👀  
+🔹 **Enjoy a modern editor experience with Git integration, extensions, and custom workflows** 🔄
+
+This means **Quarto + VS Code** now delivers a workflow that is **more powerful** than R Markdown in RStudio. **You're no longer restricted to a single editor!**
+
+## 🚀 Why Quarto (`.qmd`) + VS Code \> R Markdown (`.Rmd`) + RStudio
+
+| Feature                    | R Markdown (`.Rmd`) | Quarto (`.qmd`)                                      |
+|-------------------|-------------------|------------------------------------|
+| **Multi-language support** | R-only              | R, Python, Julia, JavaScript                         |
+| **Visual Mode in VS Code** | ❌                  | ✅                                                   |
+| **Cleaner YAML headers**   | Limited             | More readable and structured                         |
+| **Extensibility**          | Basic               | Advanced (slides, blogs, books, interactive content) |
+| **Editor flexibility**     | RStudio only        | VS Code, Jupyter, and RStudio                        |
+
+With **Quarto**, the **entire workflow becomes cross-platform, cross-language, and cross-editor**. Whether you're in RStudio, Jupyter, or VS Code, you get **the same document experience**.
+
+## 🔥 Getting Started with Quarto in VS Code
+
+To begin using Quarto with VS Code:
+
+1️⃣ **Install Quarto** (if you haven't already):  
+👉 [Download Quarto](https://quarto.org/docs/download/)
+
+2️⃣ **Ensure you have VS Code installed** and install the **Quarto extension**:  
+👉 Open VS Code and install **Quarto** from the extensions marketplace.
+
+3️⃣ **Start a new Quarto document**:
+
+-   Open VS Code, create a `.qmd` file, and begin writing!
+-   Use Visual Mode (`Ctrl + Shift + P` → `Quarto: Open Visual Mode`) for a WYSIWYG editing experience.
+
+4️⃣ **Render your document**:
+
+``` bash
+quarto render my_document.qmd
+```
+
+5️⃣ **Preview and refine** -- Enjoy the live preview and enhanced workflow!
+
+## 🔧 My Personal Preferences for Quarto YAML Headers
+
+To enhance the formatting and usability of my Quarto documents, I recommend the following YAML settings:
+
+``` yaml
+theme: darkly
+highlight: monokai
+toc: true
+toc-depth: 3
+toc-float: true
+title-block-banner: true
+self-contained: true
+```
+
+### 🔹 Why These Settings?
+
+-   **`theme: darkly`** → A modern dark mode for better readability.
+-   **`highlight: monokai`** → Syntax highlighting that looks great for code.
+-   **`toc: true`** & `toc-depth: 3` → Enables a floating table of contents with up to 3 levels for easy navigation.
+-   **`title-block-banner: true`** → Enhances document headers with better structure.
+-   `self-contained: true` → Ensures your output document is standalone and can be shared with all your analysis and results.
+
+By using these settings, you ensure that your documents are well-structured, readable, and optimized for both presentation and usability.
+
+## 📌 Final Thoughts
+
+### **Bottom Line:**
+
+Quarto takes everything great about R Markdown and expands it into a truly **cross-language, cross-editor, and extensible** system. If you're still using `.Rmd` in RStudio, it's time to explore `.qmd` in **VS Code** and experience the **future of reproducible research and technical writing**.
+
+👇 **Have you tried Quarto yet? Are you still using R Markdown? Let's discuss!**
+
+#Quarto #RMarkdown #VSCode #DataScience #Reproducibility #OpenScience
+

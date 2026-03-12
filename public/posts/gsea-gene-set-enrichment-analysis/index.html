@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master Gene Set Enrichment Analysis (GSEA) to detect coordinated pathway changes that traditional over-representation analysis misses. Learn when to use GSEA over ORA and how to leverage complete expression datasets for comprehensive pathway insights.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!">
+  <meta name="twitter:description" content="Master Gene Set Enrichment Analysis (GSEA) to detect coordinated pathway changes that traditional over-representation analysis misses. Learn when to use GSEA over ORA and how to leverage complete expression datasets for comprehensive pathway insights.">
+
+<meta property="og:url" content="http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!">
+  <meta property="og:description" content="Master Gene Set Enrichment Analysis (GSEA) to detect coordinated pathway changes that traditional over-representation analysis misses. Learn when to use GSEA over ORA and how to leverage complete expression datasets for comprehensive pathway insights.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-21T01:30:00+00:00">
+    <meta property="article:modified_time" content="2025-09-21T01:30:00+00:00">
+    <meta property="article:tag" content="GSEA">
+    <meta property="article:tag" content="ClusterProfiler">
+    <meta property="article:tag" content="Pathway Analysis">
+    <meta property="article:tag" content="Gene Set Enrichment">
+    <meta property="article:tag" content="Coordinated Expression">
+    <meta property="article:tag" content="Functional Analysis">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/">
+              Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-21T01:30:00Z">
+                September 21, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/pathway-analysis/">Pathway Analysis</a>
+      <span class="separator">•</span>
+    <a href="/categories/systems-biology/">Systems Biology</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/gsea/">GSEA</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/clusterprofiler/">ClusterProfiler</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pathway-analysis/">Pathway Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gene-set-enrichment/">Gene Set Enrichment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/coordinated-expression/">Coordinated Expression</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/functional-analysis/">Functional Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/enrichment-analysis/">Enrichment Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/systems-biology/">Systems Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/go-analysis/">GO Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/kegg-pathways/">KEGG Pathways</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/reactome/">Reactome</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-mastering-bulk-rna-seq-analysis-in-r----post-16-gsea---when-gene-lists-arent-enough">
+  🧬 Mastering Bulk RNA-seq Analysis in R &ndash; Post 16: GSEA - When Gene Lists Aren&rsquo;t Enough!
+  <a class="heading-link" href="#-mastering-bulk-rna-seq-analysis-in-r----post-16-gsea---when-gene-lists-arent-enough">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-the-evolution-beyond-gene-lists">
+  📈 The Evolution Beyond Gene Lists
+  <a class="heading-link" href="#-the-evolution-beyond-gene-lists">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After mastering Over-Representation Analysis (ORA) with GO, KEGG, and Reactome, you&rsquo;ve learned to ask: <em>&ldquo;Are my significant genes enriched in specific pathways?&rdquo;</em></p>
+<p>But what if the most important biological insights are hidden in genes that <strong>didn&rsquo;t make your significance cutoff</strong>? What if subtle but coordinated changes across entire pathways are more meaningful than a few dramatically changing genes?</p>
+<p>Welcome to <strong>Gene Set Enrichment Analysis (GSEA)</strong>&mdash;the method that uses your complete dataset to detect coordinated biological patterns that ORA completely misses.</p>
+<hr>
+<h2 id="-ora-vs-gsea-the-paradigm-shift">
+  🎯 ORA vs GSEA: The Paradigm Shift
+  <a class="heading-link" href="#-ora-vs-gsea-the-paradigm-shift">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-ora-testing-specific-genes-one-by-one">
+  🔬 ORA: Testing Specific Genes One by One
+  <a class="heading-link" href="#-ora-testing-specific-genes-one-by-one">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Takes only genes with padj &lt; 0.05 (maybe 5% of your data)</li>
+<li>Asks: &ldquo;Are my significant genes enriched in this pathway?&rdquo;</li>
+<li>Ignores 95% of your expression data</li>
+</ul>
+<h3 id="-gsea-watching-entire-pathways-coordinate-together">
+  📈 GSEA: Watching Entire Pathways Coordinate Together
+  <a class="heading-link" href="#-gsea-watching-entire-pathways-coordinate-together">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Uses ALL genes ranked by fold change</li>
+<li>Asks: &ldquo;Is this entire pathway trending up or down across my complete dataset?&rdquo;</li>
+<li>Detects coordinated patterns regardless of individual significance</li>
+</ul>
+<p><strong>The power</strong>: Even genes with modest changes contribute if they&rsquo;re part of a coordinated pathway response.</p>
+<hr>
+<h2 id="-setting-up-gsea-analysis">
+  🚀 Setting Up GSEA Analysis
+  <a class="heading-link" href="#-setting-up-gsea-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="required-packages">
+  Required Packages
+  <a class="heading-link" href="#required-packages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Core packages</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span>    <span class="c1"># Main GSEA functions</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">enrichplot</span><span class="p">)</span>         <span class="c1"># GSEA visualizations</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">org.Hs.eg.db</span><span class="p">)</span>      <span class="c1"># Human gene annotations</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ReactomePA</span><span class="p">)</span>         <span class="c1"># Reactome pathways</span>
+</span></span></code></pre></div><p><strong>Key Resources</strong>: - <strong>clusterProfiler</strong>: <a href="https://bioconductor.org/packages/clusterProfiler/"  class="external-link" target="_blank" rel="noopener">Bioconductor</a> | <a href="https://github.com/YuLab-SMU/clusterProfiler"  class="external-link" target="_blank" rel="noopener">GitHub</a> - <strong>ReactomePA</strong>: <a href="https://bioconductor.org/packages/ReactomePA/"  class="external-link" target="_blank" rel="noopener">Bioconductor</a></p>
+<h3 id="preparing-your-ranked-gene-list">
+  Preparing Your Ranked Gene List
+  <a class="heading-link" href="#preparing-your-ranked-gene-list">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Starting with DESeq2 results</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Method 1: Rank by log2FoldChange (simple)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list</span> <span class="o">&lt;-</span> <span class="n">results</span><span class="o">$</span><span class="n">log2FoldChange</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Method 2: Rank by signed p-value (more robust)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list</span> <span class="o">&lt;-</span> <span class="nf">sign</span><span class="p">(</span><span class="n">results</span><span class="o">$</span><span class="n">log2FoldChange</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="nf">log10</span><span class="p">(</span><span class="n">results</span><span class="o">$</span><span class="n">pvalue</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clean and sort</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list</span> <span class="o">&lt;-</span> <span class="n">gene_list[</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">gene_list</span><span class="p">)</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="n">gene_list</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check your list</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">gene_list</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>  <span class="c1"># Top upregulated</span>
+</span></span><span class="line"><span class="cl"><span class="nf">tail</span><span class="p">(</span><span class="n">gene_list</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>  <span class="c1"># Top downregulated</span>
+</span></span></code></pre></div><hr>
+<h2 id="-running-gsea-with-three-databases">
+  🔬 Running GSEA with Three Databases
+  <a class="heading-link" href="#-running-gsea-with-three-databases">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="go-biological-process">
+  GO Biological Process
+  <a class="heading-link" href="#go-biological-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Convert to ENTREZ IDs</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list_entrez</span> <span class="o">&lt;-</span> <span class="nf">bitr</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">gene_list</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">fromType</span> <span class="o">=</span> <span class="s">&#34;SYMBOL&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">toType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                        <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Map to ranked list</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_list_entrez_ranked</span> <span class="o">&lt;-</span> <span class="n">gene_list[gene_list_entrez</span><span class="o">$</span><span class="n">SYMBOL]</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">gene_list_entrez_ranked</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">gene_list_entrez</span><span class="o">$</span><span class="n">ENTREZID</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run GO GSEA</span>
+</span></span><span class="line"><span class="cl"><span class="n">gsea_go</span> <span class="o">&lt;-</span> <span class="nf">gseGO</span><span class="p">(</span><span class="n">geneList</span> <span class="o">=</span> <span class="n">gene_list_entrez_ranked</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="kegg-pathways">
+  KEGG Pathways
+  <a class="heading-link" href="#kegg-pathways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">gsea_kegg</span> <span class="o">&lt;-</span> <span class="nf">gseKEGG</span><span class="p">(</span><span class="n">geneList</span> <span class="o">=</span> <span class="n">gene_list_entrez_ranked</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">organism</span> <span class="o">=</span> <span class="s">&#34;hsa&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="reactome-pathways">
+  Reactome Pathways
+  <a class="heading-link" href="#reactome-pathways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">gsea_reactome</span> <span class="o">&lt;-</span> <span class="nf">gsePathway</span><span class="p">(</span><span class="n">geneList</span> <span class="o">=</span> <span class="n">gene_list_entrez_ranked</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">organism</span> <span class="o">=</span> <span class="s">&#34;human&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">minGSSize</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">maxGSSize</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-understanding-gsea-results">
+  📊 Understanding GSEA Results
+  <a class="heading-link" href="#-understanding-gsea-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="key-metrics">
+  Key Metrics
+  <a class="heading-link" href="#key-metrics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># View top results</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">gsea_go</span><span class="o">@</span><span class="n">result</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Key columns:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - NES: Normalized Enrichment Score (effect size and direction)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - p.adjust: FDR corrected p-value  </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - core_enrichment: Leading edge genes driving enrichment</span>
+</span></span></code></pre></div><h3 id="-interpreting-nes-normalized-enrichment-score">
+  🎯 Interpreting NES (Normalized Enrichment Score)
+  <a class="heading-link" href="#-interpreting-nes-normalized-enrichment-score">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Positive NES</strong>: Pathway enriched in upregulated genes</li>
+<li><strong>Negative NES</strong>: Pathway enriched in downregulated genes</li>
+<li><strong>|NES| &gt; 2.0</strong>: Very strong enrichment</li>
+<li><strong>|NES| &gt; 1.5</strong>: Strong enrichment</li>
+</ul>
+<hr>
+<h2 id="-essential-gsea-visualizations">
+  🎨 Essential GSEA Visualizations
+  <a class="heading-link" href="#-essential-gsea-visualizations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="single-pathway-enrichment-plot">
+  Single Pathway Enrichment Plot
+  <a class="heading-link" href="#single-pathway-enrichment-plot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Classic GSEA plot for top pathway</span>
+</span></span><span class="line"><span class="cl"><span class="nf">gseaplot2</span><span class="p">(</span><span class="n">gsea_go</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">          <span class="n">geneSetID</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">title</span> <span class="o">=</span> <span class="n">gsea_go</span><span class="o">$</span><span class="n">Description[1]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;green&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="multi-database-comparison">
+  Multi-Database Comparison
+  <a class="heading-link" href="#multi-database-comparison">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Compare results across databases</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">dotplot</span><span class="p">(</span><span class="n">gsea_go</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&#34;GO GSEA&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">&lt;-</span> <span class="nf">dotplot</span><span class="p">(</span><span class="n">gsea_kegg</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&#34;KEGG GSEA&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">p3</span> <span class="o">&lt;-</span> <span class="nf">dotplot</span><span class="p">(</span><span class="n">gsea_reactome</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&#34;Reactome GSEA&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">cowplot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plot_grid</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-real-world-example-my-ko-vs-wt-analysis">
+  🔥 Real-World Example: My KO vs WT Analysis
+  <a class="heading-link" href="#-real-world-example-my-ko-vs-wt-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="key-findings-across-databases">
+  Key Findings Across Databases
+  <a class="heading-link" href="#key-findings-across-databases">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>🟨 Upregulated in KO (Yellow bars in plots)</strong>:</p>
+<ul>
+<li>
+<p><strong>KEGG</strong>: Glucose metabolism, glycolysis pathways strongly upregulated</p>
+</li>
+<li>
+<p><strong>Reactome</strong>: Gluconeogenesis and energy production coordinated upregulation</p>
+</li>
+<li>
+<p><strong>GO</strong>: Ion transport processes enhanced</p>
+</li>
+</ul>
+<p><strong>🟦 Downregulated in KO (Blue bars in plots)</strong>:</p>
+<ul>
+<li>
+<p><strong>KEGG</strong>: Hippo signaling pathway suppressed</p>
+</li>
+<li>
+<p><strong>Reactome</strong>: Translation machinery heavily downregulated</p>
+</li>
+<li>
+<p><strong>GO</strong>: Wound healing and transcription processes coordinated downregulation</p>
+</li>
+</ul>
+<h3 id="cross-database-validation">
+  Cross-Database Validation
+  <a class="heading-link" href="#cross-database-validation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Quick summary</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;GO significant pathways:&#34;</span><span class="p">,</span> <span class="nf">sum</span><span class="p">(</span><span class="n">gsea_go</span><span class="o">@</span><span class="n">result</span><span class="o">$</span><span class="n">p.adjust</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;KEGG significant pathways:&#34;</span><span class="p">,</span> <span class="nf">sum</span><span class="p">(</span><span class="n">gsea_kegg</span><span class="o">@</span><span class="n">result</span><span class="o">$</span><span class="n">p.adjust</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Reactome significant pathways:&#34;</span><span class="p">,</span> <span class="nf">sum</span><span class="p">(</span><span class="n">gsea_reactome</span><span class="o">@</span><span class="n">result</span><span class="o">$</span><span class="n">p.adjust</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Notice</strong>: Different databases reveal complementary insights into the same underlying biology&mdash;metabolism coordinately upregulated, translation coordinately downregulated.</p>
+<hr>
+<h2 id="-gsea-red-flags-to-watch">
+  ⚠️ GSEA Red Flags to Watch
+  <a class="heading-link" href="#-gsea-red-flags-to-watch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>🚩 <strong>All pathways show weak enrichment</strong> (|NES| &lt; 1.0)</p>
+<p>🚩 <strong>Contradictory results across databases</strong></p>
+<p>🚩 <strong>Only very large (&gt;500) or small (&lt;15) gene sets significant</strong></p>
+<p>🚩 <strong>No clear biological themes in top pathways</strong></p>
+<hr>
+<h2 id="-gsea-vs-ora-when-to-use-what">
+  💡 GSEA vs ORA: When to Use What?
+  <a class="heading-link" href="#-gsea-vs-ora-when-to-use-what">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Use ORA when</strong>:</p>
+<ul>
+<li>
+<p>You have clear significant gene lists</p>
+</li>
+<li>
+<p>Simple pathway membership questions</p>
+</li>
+<li>
+<p>Preliminary exploration</p>
+</li>
+</ul>
+<p><strong>Use GSEA when</strong>:</p>
+<ul>
+<li>
+<p>Subtle coordinated changes expected</p>
+</li>
+<li>
+<p>Want to use complete expression data</p>
+</li>
+<li>
+<p>Studying regulatory networks or metabolic coordination</p>
+</li>
+<li>
+<p>ORA shows few/no significant pathways</p>
+</li>
+</ul>
+<hr>
+<h2 id="-bottom-line">
+  🔥 Bottom Line
+  <a class="heading-link" href="#-bottom-line">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>ORA tells you</strong>: &ldquo;Which pathways contain your significant genes&rdquo; <strong>GSEA tells you</strong>: &ldquo;Which pathways are coordinately changing across your entire experiment&rdquo;</p>
+<p>My results show perfect examples: metabolism coordinately upregulated, translation coordinately downregulated&mdash;patterns that ORA&rsquo;s arbitrary cutoffs would completely miss! 🎯</p>
+<p>The subtle but coordinated biological responses detected by GSEA often represent the most important regulatory changes in your system.</p>
+<hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Post 17: Advanced GSEA with Custom Gene Sets</strong> will teach you how to create and analyze your own pathway collections, use tissue-specific gene sets, and integrate external databases for specialized GSEA analyses tailored to your research questions.</p>
+<p>Ready to customize GSEA for your unique research needs?</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Have you discovered coordinated pathway changes with GSEA that ORA missed? What subtle biological patterns has GSEA revealed in your data?</p>
+<p>#RNAseq #GSEA #PathwayAnalysis #ClusterProfiler #EnrichmentAnalysis #SystemsBiology #DESeq2 #GO #KEGG #Reactome #Bioinformatics #RStats</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,212 @@
+---
+title: "Tidyverse Series – Post 6: Handling Categorical Data with forcats"
+author: "Badran Elshenawy"
+date: 2025-02-25T12:00:00Z
+categories:
+  - "Data Science"
+  - "R"
+  - "Tidyverse"
+  - "Bioinformatics"
+tags:
+  - "Tidyverse"
+  - "Categorical Data"
+  - "forcats"
+  - "R"
+  - "Bioconductor"
+  - "Data Manipulation"
+description: "A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently."
+slug: "tidyverse-forcats"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/tidyverse_forcats/"
+summary: "Master categorical data manipulation in R with forcats. Learn to reorder, lump, recode, and handle missing factor levels efficiently with real-world examples."
+featured: true
+---
+
+# 🔬 Tidyverse Series – Post 6: Handling Categorical Data with `forcats`
+
+## 🛠 Why `forcats`?
+
+Categorical variables (factors) are essential in data analysis, but handling them in base R can be frustrating. `{forcats}` simplifies working with factors by providing **intuitive, readable functions** for:
+
+✔️ **Reordering categories for better visualization**\
+✔️ **Lumping small groups together**\
+✔️ **Handling missing values efficiently**\
+✔️ **Creating consistent factor levels across datasets**
+
+Working with factors is crucial when dealing with **biological classifications, categorical survey responses, or any grouped data**. Let’s explore the key functions in `{forcats}` and how they enhance data manipulation.
+
+------------------------------------------------------------------------
+
+## 📚 Key `forcats` Functions
+
+`forcats` provides multiple functions for handling categorical data efficiently. Below are the most commonly used ones, along with practical applications.
+
+| Function            | Purpose                                               |
+|------------------------------------------------|-------------------------|
+| `fct_reorder()`     | Reorder factor levels based on a numerical variable   |
+| `fct_rev()`         | Reverse the order of factor levels                    |
+| `fct_lump()`        | Group infrequent categories into "Other"              |
+| `fct_recode()`      | Rename factor levels                                  |
+| `fct_explicit_na()` | Make missing values explicit                          |
+| `fct_collapse()`    | Combine multiple factor levels into a single category |
+
+Let’s examine these functions in detail with real-world examples.
+
+------------------------------------------------------------------------
+
+## 🔄 **Reordering Factor Levels with `fct_reorder()`**
+
+By default, R **orders factor levels alphabetically**, which isn’t always meaningful. `fct_reorder()` allows us to **sort factors based on a numerical variable**.
+
+### 🔹 Example: Ordering Genes by Mean Expression
+
+Imagine we have **gene expression data**, and we want to order genes by expression level in a plot.
+
+#### **Dataset Before Reordering**
+
+| Gene  | Expression |
+|-------|------------|
+| TP53  | 12.3       |
+| BRCA1 | 8.9        |
+| EGFR  | 15.2       |
+
+#### **Reorder Genes by Expression Level**
+
+``` r
+library(dplyr)
+library(forcats)
+
+df <- df %>%
+  mutate(Gene = fct_reorder(Gene, Expression))
+```
+
+✅ Now, `ggplot2` will automatically order genes by their expression levels instead of alphabetically.
+
+#### **Before vs. After Reordering in a ggplot2 Visualization**
+
+``` r
+library(ggplot2)
+
+ggplot(df, aes(x = Gene, y = Expression)) +
+  geom_bar(stat = "identity")
+```
+
+Without reordering, bars would be plotted alphabetically. **With `fct_reorder()` applied, genes are sorted by expression level!**
+
+------------------------------------------------------------------------
+
+## 🔄 **Reversing Factor Levels with `fct_rev()`**
+
+Reversing the order of a factor is useful when **plotting ordered categories**.
+
+#### 🔹 Example: Reversing Treatment Groups
+
+``` r
+df <- df %>%
+  mutate(Treatment = fct_rev(Treatment))
+```
+
+This ensures that **“Control” appears at the top rather than the bottom in plots**.
+
+------------------------------------------------------------------------
+
+## 🔄 **Lumping Small Categories with `fct_lump()`**
+
+Often, datasets contain **many categories with very few observations**. `fct_lump()` allows us to **group infrequent categories into an "Other" category**, simplifying analysis.
+
+#### 🔹 Example: Merging Small Sample Groups
+
+``` r
+df <- df %>%
+  mutate(SampleType = fct_lump(SampleType, n = 3))
+```
+
+✅ This retains the **three most common categories** and groups the rest under "Other".
+
+#### **Before & After `fct_lump()` Application**
+
+| SampleType | Count |
+|------------|-------|
+| Control    | 150   |
+| Treated    | 120   |
+| Disease    | 80    |
+| Unknown1   | 10    |
+| Unknown2   | 5     |
+
+➡️ **After `fct_lump(n = 3)`:** \| SampleType \| Count \| \|-----------\|-------\| \| Control \| 150 \| \| Treated \| 120 \| \| Disease \| 80 \| \| Other \| 15 \|
+
+------------------------------------------------------------------------
+
+## 🔄 **Renaming Factor Levels with `fct_recode()`**
+
+Sometimes, category names are **too long or not informative**. `fct_recode()` allows us to rename them efficiently.
+
+#### 🔹 Example: Simplifying Condition Labels
+
+``` r
+df <- df %>%
+  mutate(Condition = fct_recode(Condition,
+                                "Ctrl" = "Control",
+                                "Trt" = "Treatment"))
+```
+
+✅ Now, `"Control"` becomes `"Ctrl"` and `"Treatment"` becomes `"Trt"`.
+
+------------------------------------------------------------------------
+
+## 🔄 **Making Missing Values Explicit with `fct_explicit_na()`**
+
+By default, R treats missing factor levels as `NA`. Sometimes, it’s useful to **explicitly label them**.
+
+#### 🔹 Example: Labeling Missing Values as "Unknown"
+
+``` r
+df <- df %>%
+  mutate(Condition = fct_explicit_na(Condition, na_level = "Unknown"))
+```
+
+✅ Now, `NA` values are replaced with `"Unknown"`.
+
+------------------------------------------------------------------------
+
+## 📈 **Complete Example: Using `forcats` in a Workflow**
+
+### **Scenario:** We have clinical trial data with patient conditions and treatment responses. We need to:
+
+✔️ Reorder conditions by severity\
+✔️ Lump minor conditions together\
+✔️ Rename conditions for clarity
+
+#### **Full Workflow**
+
+``` r
+library(dplyr)
+library(forcats)
+
+clinical_data <- clinical_data %>%
+  mutate(Condition = fct_reorder(Condition, SeverityScore),
+         Condition = fct_lump(Condition, n = 4),
+         Condition = fct_recode(Condition,
+                                "Mild" = "Low",
+                                "Severe" = "Critical"))
+```
+
+✅ **Now, the dataset is clean, structured, and ready for visualization!**
+
+------------------------------------------------------------------------
+
+## 📈 **Key Takeaways**
+
+✅ `{forcats}` makes working with categorical data **intuitive and flexible**\
+✅ `fct_reorder()` improves visualizations by ordering factors logically\
+✅ `fct_lump()` is useful for **handling rare categories**\
+✅ `fct_recode()` renames factors efficiently\
+✅ Handling missing values with `fct_explicit_na()` improves data clarity
+
+📌 **Next up: Importing & Handling Data Efficiently with `readr`!** Stay tuned! 🚀
+
+👇 **How do you manage categorical data in your analyses? Let’s discuss!**
+
+#Tidyverse #forcats #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology

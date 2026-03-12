@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A complete guide on efficiently importing and handling data in R using readr. Learn to load CSVs, TSVs, and other delimited files quickly, customize column types, and handle missing data.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 7: Importing & Handling Data Efficiently with readr">
+  <meta name="twitter:description" content="A complete guide on efficiently importing and handling data in R using readr. Learn to load CSVs, TSVs, and other delimited files quickly, customize column types, and handle missing data.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-readr/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 7: Importing & Handling Data Efficiently with readr">
+  <meta property="og:description" content="A complete guide on efficiently importing and handling data in R using readr. Learn to load CSVs, TSVs, and other delimited files quickly, customize column types, and handle missing data.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-26T10:50:00+00:00">
+    <meta property="article:modified_time" content="2025-02-26T10:50:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Data Import">
+    <meta property="article:tag" content="Readr">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="CSV Handling">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-readr/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-readr/">
+              Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-26T10:50:00Z">
+                February 26, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-import/">Data Import</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/readr/">Readr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/csv-handling/">CSV Handling</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/efficient-data-loading/">Efficient Data Loading</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-7-importing--handling-data-efficiently-with-readr">
+  🔬 Tidyverse Series &ndash; Post 7: Importing &amp; Handling Data Efficiently with <code>readr</code>
+  <a class="heading-link" href="#-tidyverse-series----post-7-importing--handling-data-efficiently-with-readr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-readr">
+  🛠 Why <code>{readr}</code>?
+  <a class="heading-link" href="#-why-readr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Loading data efficiently is the <strong>first step in any data analysis pipeline</strong>, and <code>{readr}</code> provides <strong>fast, flexible, and user-friendly</strong> functions for reading tabular data into R. Unlike base R&rsquo;s <a href="https://rdrr.io/r/utils/read.table.html"  class="external-link" target="_blank" rel="noopener"><code>read.table()</code></a> and <a href="https://rdrr.io/r/utils/read.table.html"  class="external-link" target="_blank" rel="noopener"><code>read.csv()</code></a>, <code>{readr}</code> is designed to:</p>
+<p>✔️ <strong>Load large files significantly faster</strong> 🚀<br>
+✔️ <strong>Automatically detect column types</strong> 🔍<br>
+✔️ <strong>Handle missing values smoothly</strong> 🛠️<br>
+✔️ <strong>Produce tibbles instead of base data frames</strong> 📊<br>
+✔️ <strong>Provide better error handling and reporting</strong> ⚠️</p>
+<p>If you&rsquo;re still using base R functions to import data, switching to <code>{readr}</code> will <strong>drastically improve your workflow efficiency</strong>.</p>
+<hr>
+<h2 id="-key-readr-functions-for-data-import">
+  📚 Key <code>{readr}</code> Functions for Data Import
+  <a class="heading-link" href="#-key-readr-functions-for-data-import">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>read_csv()</code></td>
+          <td>Read CSV (comma-separated) files</td>
+      </tr>
+      <tr>
+          <td><code>read_tsv()</code></td>
+          <td>Read TSV (tab-separated) files</td>
+      </tr>
+      <tr>
+          <td><code>read_delim()</code></td>
+          <td>Read files with custom delimiters</td>
+      </tr>
+      <tr>
+          <td><code>write_csv()</code></td>
+          <td>Write a dataframe to a CSV file</td>
+      </tr>
+      <tr>
+          <td><code>spec()</code></td>
+          <td>Inspect column data types</td>
+      </tr>
+      <tr>
+          <td><code>col_types</code></td>
+          <td>Manually specify column data types</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-example-loading-a-large-csv-file">
+  📊 <strong>Example: Loading a Large CSV File</strong>
+  <a class="heading-link" href="#-example-loading-a-large-csv-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Imagine we have <strong>gene expression data</strong> stored in a CSV file. Let&rsquo;s compare base R and <code>{readr}</code> approaches.</p>
+<h3 id="-base-r-approach">
+  <strong>➡️ Base R approach:</strong>
+  <a class="heading-link" href="#-base-r-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;expression_data.csv&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✔️ Requires <code>stringsAsFactors = FALSE</code> to prevent automatic factor conversion. ✔️ Reads large files <strong>slowly</strong>, especially those with millions of rows.</p>
+<h3 id="-readr-approach">
+  <strong>➡️ <code>{readr}</code> approach:</strong>
+  <a class="heading-link" href="#-readr-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;expression_data.csv&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>Significantly faster</strong> 🚀<br>
+✅ <strong>Automatically detects column types</strong> (no need for <code>stringsAsFactors = FALSE</code>)<br>
+✅ <strong>Returns a tibble</strong> (better printing and usability)</p>
+<hr>
+<h2 id="-reading-other-file-types">
+  🔄 <strong>Reading Other File Types</strong>
+  <a class="heading-link" href="#-reading-other-file-types">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="tab-separated-files-tsv">
+  <strong>Tab-Separated Files (<code>.tsv</code>)</strong>
+  <a class="heading-link" href="#tab-separated-files-tsv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If your file is <strong>tab-separated</strong>, use <code>read_tsv()</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_tsv</span><span class="p">(</span><span class="s">&#34;gene_expression.tsv&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ This loads <strong>TSV files efficiently</strong>, detecting column types automatically.</p>
+<h3 id="custom-delimited-files">
+  <strong>Custom-Delimited Files</strong>
+  <a class="heading-link" href="#custom-delimited-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For files with <strong>custom delimiters</strong> (e.g., <code>|</code> instead of <code>,</code>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_delim</span><span class="p">(</span><span class="s">&#34;data.txt&#34;</span><span class="p">,</span> <span class="n">delim</span> <span class="o">=</span> <span class="s">&#34;|&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ Works for any delimiter-based format!</p>
+<hr>
+<h2 id="-customizing-column-data-types">
+  📍 <strong>Customizing Column Data Types</strong>
+  <a class="heading-link" href="#-customizing-column-data-types">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Sometimes, <code>{readr}</code>&rsquo;s automatic detection may not work as expected. We can <strong>manually specify column types</strong> using <code>col_types</code>.</p>
+<h3 id="example-setting-specific-column-types">
+  <strong>Example: Setting Specific Column Types</strong>
+  <a class="heading-link" href="#example-setting-specific-column-types">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;patients.csv&#34;</span><span class="p">,</span> <span class="n">col_types</span> <span class="o">=</span> <span class="nf">cols</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ID</span> <span class="o">=</span> <span class="nf">col_character</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Age</span> <span class="o">=</span> <span class="nf">col_integer</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Diagnosis</span> <span class="o">=</span> <span class="nf">col_factor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">))</span>
+</span></span></code></pre></div><p>✔️ <strong>Forces ID to be treated as a character</strong> (instead of a number).<br>
+✔️ <strong>Ensures Age is always an integer</strong>.<br>
+✔️ <strong>Treats Diagnosis as a factor</strong> (useful for categorical variables).</p>
+<h3 id="inspecting-column-types-automatically">
+  <strong>Inspecting Column Types Automatically</strong>
+  <a class="heading-link" href="#inspecting-column-types-automatically">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To check how <code>{readr}</code> interprets your data, use <code>spec()</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">spec</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>prints a summary of detected column types</strong>.</p>
+<hr>
+<h2 id="-saving-data-with-readr">
+  📝 <strong>Saving Data with <code>{readr}</code></strong>
+  <a class="heading-link" href="#-saving-data-with-readr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Once your data is processed, you often need to <strong>export it back to a file</strong>.</p>
+<h3 id="saving-a-dataframe-as-csv">
+  <strong>Saving a Dataframe as CSV</strong>
+  <a class="heading-link" href="#saving-a-dataframe-as-csv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s">&#34;cleaned_data.csv&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>✔️ Unlike <a href="https://rdrr.io/r/utils/write.table.html"  class="external-link" target="_blank" rel="noopener"><code>write.csv()</code></a>, <code>{readr}</code>&rsquo;s <code>write_csv()</code> <strong>does not add row names by default</strong>, which avoids unwanted indexing issues.</p>
+<h3 id="saving-data-with-tab-separators-tsv">
+  <strong>Saving Data with Tab Separators (<code>.tsv</code>)</strong>
+  <a class="heading-link" href="#saving-data-with-tab-separators-tsv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">write_tsv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s">&#34;cleaned_data.tsv&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-handling-common-data-import-issues">
+  ⚠️ <strong>Handling Common Data Import Issues</strong>
+  <a class="heading-link" href="#-handling-common-data-import-issues">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Sometimes, imported data might not look right. Here&rsquo;s how to fix common issues:</p>
+<h3 id="1-missing-column-names">
+  <strong>1️⃣ Missing Column Names</strong>
+  <a class="heading-link" href="#1-missing-column-names">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If your file doesn&rsquo;t have headers, specify <code>col_names = FALSE</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;data.csv&#34;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ This prevents R from misinterpreting data as headers.</p>
+<h3 id="2-missing-or-extra-columns">
+  <strong>2️⃣ Missing or Extra Columns</strong>
+  <a class="heading-link" href="#2-missing-or-extra-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Check the number of expected columns:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">problems</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>Reports any parsing errors or incorrect column detection</strong>.</p>
+<h3 id="3-reading-only-a-subset-of-rows">
+  <strong>3️⃣ Reading Only a Subset of Rows</strong>
+  <a class="heading-link" href="#3-reading-only-a-subset-of-rows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>For large datasets, load only the first 1000 rows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;bigdata.csv&#34;</span><span class="p">,</span> <span class="n">n_max</span> <span class="o">=</span> <span class="m">1000</span><span class="p">)</span>
+</span></span></code></pre></div><p>✅ <strong>Useful for testing before loading massive files!</strong></p>
+<hr>
+<h2 id="-performance-comparison-readr-vsbase-r">
+  📈 <strong>Performance Comparison: <code>{readr}</code> vs. Base R</strong>
+  <a class="heading-link" href="#-performance-comparison-readr-vsbase-r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To highlight <code>{readr}</code>&rsquo;s speed, let&rsquo;s compare <code>{readr}</code> vs. base R for a <strong>large file (1 million rows)</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Time to Load (Seconds)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://rdrr.io/r/utils/read.table.html"  class="external-link" target="_blank" rel="noopener"><code>read.csv()</code></a></td>
+          <td>10.2 sec</td>
+      </tr>
+      <tr>
+          <td><code>read_csv()</code></td>
+          <td>1.8 sec</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>✅ <code>{readr}</code> is ~5x faster for large datasets!</strong> 🚀</p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 <strong>Key Takeaways</strong>
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>{readr}</code> provides a <strong>modern, fast, and intuitive</strong> way to import and save data in R.<br>
+✅ <code>read_csv()</code> <strong>outperforms</strong> base R&rsquo;s <a href="https://rdrr.io/r/utils/read.table.html"  class="external-link" target="_blank" rel="noopener"><code>read.csv()</code></a> in speed and usability.<br>
+✅ <code>col_types</code> <strong>allows precise control</strong> over data types.<br>
+✅ <strong>Error handling</strong> with <code>problems()</code> prevents data import mistakes.<br>
+✅ <strong>Exports</strong> with <code>write_csv()</code> avoid unwanted row indexing issues.</p>
+<p>📌 <strong>Next up: Handling Dates &amp; Times in R with <code>lubridate</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>What&rsquo;s your go-to method for loading data in R? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #readr #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

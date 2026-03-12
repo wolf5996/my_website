@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stringr on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/stringr/</link>
+    <description>Recent content in Stringr on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Mar 2025 07:10:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidyverse Series – Post 10: String Manipulation Made Easy with stringr</title>
+      <link>http://localhost:1313/posts/tidyverse-stringr/</link>
+      <pubDate>Tue, 04 Mar 2025 07:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-stringr/</guid>
+      <description>Master text processing in R with stringr. Learn efficient ways to detect, extract, replace, and manipulate text for data analysis.</description>
+    </item>
+  </channel>
+</rss>

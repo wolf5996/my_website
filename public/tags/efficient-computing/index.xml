@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Efficient Computing on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/efficient-computing/</link>
+    <description>Recent content in Efficient Computing on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Mar 2025 06:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/efficient-computing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidyverse Series – Post 12: Handling Big Data Efficiently with Arrow &amp; Parquet</title>
+      <link>http://localhost:1313/posts/tidyverse-arrow-parquet/</link>
+      <pubDate>Tue, 11 Mar 2025 06:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-arrow-parquet/</guid>
+      <description>Master big data handling in R with Arrow &amp;amp; Parquet. Learn how to optimize data storage, querying, and performance for large datasets.</description>
+    </item>
+  </channel>
+</rss>

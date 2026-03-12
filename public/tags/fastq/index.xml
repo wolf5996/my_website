@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FASTQ on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/fastq/</link>
+    <description>Recent content in FASTQ on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 22 May 2025 11:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fastq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Foundations of Genomic Data – Post 12: ShortRead</title>
+      <link>http://localhost:1313/posts/shortread/</link>
+      <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/shortread/</guid>
+      <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
+      <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
+      <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/data-visualization/</link>
+    <description>Recent content in Data Visualization on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Aug 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
+      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
+      <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
+      <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
+      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
+      <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
+      <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
+      <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
+    </item>
+  </channel>
+</rss>

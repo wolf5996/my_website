@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A complete guide to generating count matrices in RNA-Seq using featureCounts and HTSeq. Learn the key differences, commands, options, and how to ensure accurate read quantification.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts & HTSeq">
+  <meta name="twitter:description" content="A complete guide to generating count matrices in RNA-Seq using featureCounts and HTSeq. Learn the key differences, commands, options, and how to ensure accurate read quantification.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-count-matrix/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts & HTSeq">
+  <meta property="og:description" content="A complete guide to generating count matrices in RNA-Seq using featureCounts and HTSeq. Learn the key differences, commands, options, and how to ensure accurate read quantification.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-26T10:10:00+00:00">
+    <meta property="article:modified_time" content="2025-03-26T10:10:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="Count Matrix">
+    <meta property="article:tag" content="FeatureCounts">
+    <meta property="article:tag" content="HTSeq">
+    <meta property="article:tag" content="Read Quantification">
+    <meta property="article:tag" content="Computational Biology">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-count-matrix/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-count-matrix/">
+              Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-26T10:10:00Z">
+                March 26, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/count-matrix/">Count Matrix</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/featurecounts/">FeatureCounts</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/htseq/">HTSeq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/read-quantification/">Read Quantification</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-6-from-bam-to-count-matrices-with-featurecounts--htseq">
+  🔬 Bulk RNA-Seq Series &ndash; Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-6-from-bam-to-count-matrices-with-featurecounts--htseq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-counting-reads-matters">
+  🛠 Why Counting Reads Matters
+  <a class="heading-link" href="#-why-counting-reads-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After aligning your RNA-Seq reads to a reference genome, the next step is to <strong>quantify how many reads map to each gene</strong>. This generates the <strong>count matrix</strong> &mdash; a crucial input for differential expression tools such as <strong>DESeq2</strong>, <strong>edgeR</strong>, or <strong>limma-voom</strong>.</p>
+<p>The count matrix forms the core of RNA-Seq analysis: - 📊 Rows = Genes (features) - 📊 Columns = Samples - 📊 Values = Number of mapped reads per gene</p>
+<p>Let&rsquo;s explore the two most common tools for generating count matrices: <strong>featureCounts</strong> and <strong>HTSeq-count</strong>.</p>
+<hr>
+<h2 id="-featurecounts-fast--versatile">
+  🔧 featureCounts: Fast &amp; Versatile
+  <a class="heading-link" href="#-featurecounts-fast--versatile">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Developed as part of the <strong>Subread package</strong>, <code>featureCounts</code> is designed for efficient processing of large BAM files.</p>
+<h3 id="-why-use-featurecounts">
+  🔹 Why use featureCounts?
+  <a class="heading-link" href="#-why-use-featurecounts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ Extremely <strong>fast and memory-efficient</strong><br>
+✔️ Supports <strong>multi-threading</strong> for speed (<code>-T</code>)<br>
+✔️ Accepts <strong>GTF and GFF annotations</strong><br>
+✔️ Handles <strong>gene-level and exon-level</strong> counting<br>
+✔️ Easy integration into large pipelines</p>
+<h3 id="-example-command">
+  📘 Example Command:
+  <a class="heading-link" href="#-example-command">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">featureCounts -T <span class="m">8</span> -a genes.gtf -o counts.txt aligned.bam
+</span></span></code></pre></div><h3 id="-option-breakdown">
+  🔍 Option Breakdown
+  <a class="heading-link" href="#-option-breakdown">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Option</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>-T 8</code></td>
+          <td>Use 8 processing threads</td>
+      </tr>
+      <tr>
+          <td><code>-a genes.gtf</code></td>
+          <td>Input annotation file (GTF format)</td>
+      </tr>
+      <tr>
+          <td><code>-o counts.txt</code></td>
+          <td>Output file for count matrix</td>
+      </tr>
+      <tr>
+          <td><code>-s 1</code></td>
+          <td>Strand-specific mode (0 = unstranded, 1 = yes)</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ Outputs a tab-delimited file with <strong>gene IDs and raw counts</strong>.</p>
+<hr>
+<h2 id="-htseq-count-pythonic--reliable">
+  🐍 HTSeq-count: Pythonic &amp; Reliable
+  <a class="heading-link" href="#-htseq-count-pythonic--reliable">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><code>HTSeq-count</code> is part of the <strong>HTSeq Python package</strong> and offers simplicity and reproducibility for RNA-Seq quantification.</p>
+<h3 id="-why-use-htseq-count">
+  🔹 Why use HTSeq-count?
+  <a class="heading-link" href="#-why-use-htseq-count">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ Excellent compatibility with <strong>Ensembl annotations</strong><br>
+✔️ Reliable defaults and informative error messages<br>
+✔️ Ideal for scripting in <strong>custom workflows</strong><br>
+✔️ Handles strandedness and different sorting methods</p>
+<h3 id="-example-command-1">
+  📘 Example Command:
+  <a class="heading-link" href="#-example-command-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">htseq-count -f bam -r pos -s no -i gene_id aligned.bam genes.gtf &gt; counts.txt
+</span></span></code></pre></div><h3 id="-option-breakdown-1">
+  🔍 Option Breakdown
+  <a class="heading-link" href="#-option-breakdown-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Option</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>-f bam</code></td>
+          <td>Input format (BAM)</td>
+      </tr>
+      <tr>
+          <td><code>-r pos</code></td>
+          <td>Input sorted by position</td>
+      </tr>
+      <tr>
+          <td><code>-s no</code></td>
+          <td>No strand specificity (<code>yes</code> or <code>reverse</code> if needed)</td>
+      </tr>
+      <tr>
+          <td><code>-i gene_id</code></td>
+          <td>Attribute in GTF to use as gene ID</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ Outputs a gene-wise count table to standard output.</p>
+<hr>
+<h2 id="-key-considerations-before-counting">
+  📊 Key Considerations Before Counting
+  <a class="heading-link" href="#-key-considerations-before-counting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To ensure accurate read counting:</p>
+<ul>
+<li>✅ BAM files should be <strong>sorted by coordinate</strong></li>
+<li>✅ Annotations must match the genome version used during alignment</li>
+<li>✅ Select the correct <strong>strand mode</strong> (<code>-s</code>) based on your library prep</li>
+<li>✅ Inspect logs and output for <strong>warnings or read assignment failures</strong></li>
+</ul>
+<hr>
+<h2 id="-what-does-the-output-look-like">
+  🧮 What Does the Output Look Like?
+  <a class="heading-link" href="#-what-does-the-output-look-like">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Both tools produce a matrix like this:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Gene ID</th>
+          <th>Sample1</th>
+          <th>Sample2</th>
+          <th>Sample3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ENSG000001</td>
+          <td>2031</td>
+          <td>1987</td>
+          <td>2203</td>
+      </tr>
+      <tr>
+          <td>ENSG000002</td>
+          <td>412</td>
+          <td>398</td>
+          <td>441</td>
+      </tr>
+  </tbody>
+</table>
+<p>This <strong>raw count matrix</strong> is the essential input for DESeq2 normalization, variance stabilization, and modeling steps.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ <code>featureCounts</code> is optimized for <strong>speed and scale</strong>, ideal for large datasets<br>
+✔️ <code>HTSeq-count</code> is great for <strong>small-scale, scriptable analysis</strong><br>
+✔️ Proper sorting, strandedness, and annotation matching are critical<br>
+✔️ Always check count summaries for anomalies</p>
+<p>📌 <strong>Next up: Preprocessing Count Matrices for DESeq2! Stay tuned! 🚀</strong></p>
+<p>👇 Which counting tool do you prefer &mdash; featureCounts or HTSeq? Let&rsquo;s discuss!</p>
+<p>#RNASeq #featureCounts #HTSeq #CountMatrix #Transcriptomics #Genomics #Bioinformatics #ComputationalBiology #OpenScience #DataScience</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

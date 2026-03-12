@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master sample quality assessment with correlation and distance heatmaps in RNA-seq analysis. Learn to interpret sample relationships, identify outliers and batch effects, and validate experimental design through diagnostic visualization.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!">
+  <meta name="twitter:description" content="Master sample quality assessment with correlation and distance heatmaps in RNA-seq analysis. Learn to interpret sample relationships, identify outliers and batch effects, and validate experimental design through diagnostic visualization.">
+
+<meta property="og:url" content="http://localhost:1313/posts/qc-heatmaps-sample-quality/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!">
+  <meta property="og:description" content="Master sample quality assessment with correlation and distance heatmaps in RNA-seq analysis. Learn to interpret sample relationships, identify outliers and batch effects, and validate experimental design through diagnostic visualization.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T09:30:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T09:30:00+00:00">
+    <meta property="article:tag" content="Quality Control">
+    <meta property="article:tag" content="Sample Correlation">
+    <meta property="article:tag" content="Distance Heatmap">
+    <meta property="article:tag" content="DESeq2">
+    <meta property="article:tag" content="RNA-Seq">
+    <meta property="article:tag" content="Pheatmap">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/qc-heatmaps-sample-quality/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/qc-heatmaps-sample-quality/">
+              Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-29T09:30:00Z">
+                August 29, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/quality-control/">Quality Control</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-visualization/">Data Visualization</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/quality-control/">Quality Control</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sample-correlation/">Sample Correlation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/distance-heatmap/">Distance Heatmap</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/deseq2/">DESeq2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rna-seq/">RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pheatmap/">Pheatmap</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/vst/">VST</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sample-quality/">Sample Quality</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/diagnostic-plots/">Diagnostic Plots</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-mastering-bulk-rna-seq-analysis-in-r----post-12-qc-heatmaps-for-sample-quality">
+  🧬 Mastering Bulk RNA-seq Analysis in R &ndash; Post 12: QC Heatmaps for Sample Quality!
+  <a class="heading-link" href="#-mastering-bulk-rna-seq-analysis-in-r----post-12-qc-heatmaps-for-sample-quality">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-the-unsung-heroes-of-quality-control">
+  🔥 The Unsung Heroes of Quality Control
+  <a class="heading-link" href="#-the-unsung-heroes-of-quality-control">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After using PCA to get the big picture view of your data in Post 11, it&rsquo;s time to zoom in on the fine details. While PCA shows you overall patterns, quality control heatmaps reveal the precise relationships between every pair of samples in your dataset.</p>
+<p>These aren&rsquo;t the gene expression heatmaps we covered earlier - these are diagnostic tools that focus entirely on sample quality and relationships. Think of them as the detailed inspection that follows PCA&rsquo;s initial screening.</p>
+<hr>
+<h2 id="-the-two-qc-heatmap-champions">
+  🎯 The Two QC Heatmap Champions
+  <a class="heading-link" href="#-the-two-qc-heatmap-champions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-sample-correlation-heatmap">
+  🔥 Sample Correlation Heatmap
+  <a class="heading-link" href="#-sample-correlation-heatmap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What it shows</strong>: How similar each sample is to every other sample <strong>Values</strong>: Range from -1 to +1 (higher = more similar) <strong>Purpose</strong>: Reveals which samples have similar expression profiles</p>
+<h3 id="-sample-distance-heatmap">
+  📊 Sample Distance Heatmap
+  <a class="heading-link" href="#-sample-distance-heatmap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What it shows</strong>: Euclidean distances between samples in expression space <strong>Colors</strong>: Darker = more similar (counterintuitive but standard) <strong>Purpose</strong>: Shows clustering relationships and outliers</p>
+<p>Both heatmaps should tell the same story, just with different visual approaches.</p>
+<hr>
+<h2 id="-creating-your-qc-heatmaps">
+  💡 Creating Your QC Heatmaps
+  <a class="heading-link" href="#-creating-your-qc-heatmaps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="basic-implementation">
+  Basic Implementation
+  <a class="heading-link" href="#basic-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use transformed data (essential!)</span>
+</span></span><span class="line"><span class="cl"><span class="n">vst_data</span> <span class="o">&lt;-</span> <span class="nf">vst</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">blind</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sample correlation heatmap</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample_cor</span> <span class="o">&lt;-</span> <span class="nf">cor</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">vst_data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span><span class="n">sample_cor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">main</span> <span class="o">=</span> <span class="s">&#34;Sample Correlation Heatmap&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">annotation_col</span> <span class="o">=</span> <span class="nf">colData</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;condition&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sample distance heatmap</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample_distances</span> <span class="o">&lt;-</span> <span class="nf">dist</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">vst_data</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample_dist_matrix</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">sample_distances</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span><span class="n">sample_dist_matrix</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">main</span> <span class="o">=</span> <span class="s">&#34;Sample Distance Heatmap&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">annotation_col</span> <span class="o">=</span> <span class="nf">colData</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;condition&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-what-success-looks-like">
+  🌟 What Success Looks Like
+  <a class="heading-link" href="#-what-success-looks-like">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="sample-correlation-patterns">
+  Sample Correlation Patterns
+  <a class="heading-link" href="#sample-correlation-patterns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>High correlations within conditions</strong> (&gt;0.8-0.9)</p>
+<ul>
+<li>Biological replicates should correlate strongly</li>
+<li>Shows consistent sample preparation and biology</li>
+</ul>
+<p><strong>Lower correlations between conditions</strong> (&lt;0.7)</p>
+<ul>
+<li>Different treatments should be less similar</li>
+<li>Demonstrates your experimental manipulation worked</li>
+</ul>
+<p><strong>Clear block pattern</strong></p>
+<ul>
+<li>Visual blocks of high correlation matching your experimental design</li>
+<li>Clean separation between treatment groups</li>
+</ul>
+<h3 id="sample-distance-patterns">
+  Sample Distance Patterns
+  <a class="heading-link" href="#sample-distance-patterns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Dark squares within conditions</strong></p>
+<ul>
+<li>Samples from the same group cluster together</li>
+<li>Tight, consistent groupings</li>
+</ul>
+<p><strong>Light squares between conditions</strong></p>
+<ul>
+<li>Clear separation between different treatments</li>
+<li>Hierarchical clustering follows biological logic</li>
+</ul>
+<hr>
+<h2 id="-red-flags-and-troubleshooting">
+  🚩 Red Flags and Troubleshooting
+  <a class="heading-link" href="#-red-flags-and-troubleshooting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="major-warning-signs">
+  Major Warning Signs
+  <a class="heading-link" href="#major-warning-signs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Low correlations within replicates</strong> (&lt;0.7)</p>
+<ul>
+<li>Possible sample mix-ups or technical failures</li>
+<li>Investigate individual samples immediately</li>
+</ul>
+<p><strong>One sample correlates poorly with its group</strong></p>
+<ul>
+<li>Check for sample degradation or processing errors</li>
+<li>Consider removing if clearly problematic</li>
+</ul>
+<p><strong>Samples cluster by batch, not condition</strong></p>
+<ul>
+<li>Batch effects are stronger than biological effects</li>
+<li>Need to model batch in your DESeq2 design</li>
+</ul>
+<p><strong>No clear clustering pattern</strong></p>
+<ul>
+<li>Weak experimental effects or high technical noise</li>
+<li>May need more samples or stronger treatments</li>
+</ul>
+<h3 id="quick-diagnostic-steps">
+  Quick Diagnostic Steps
+  <a class="heading-link" href="#quick-diagnostic-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Identify problematic samples</span>
+</span></span><span class="line"><span class="cl"><span class="n">cor_matrix</span> <span class="o">&lt;-</span> <span class="nf">cor</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">vst_data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">min_correlations</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">cor_matrix</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">min</span><span class="p">(</span><span class="n">x[x</span> <span class="o">&lt;</span> <span class="m">1</span><span class="n">]</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">potential_outliers</span> <span class="o">&lt;-</span> <span class="nf">names</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">min_correlations</span> <span class="o">&lt;</span> <span class="m">0.6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Potential outlier samples:&#34;</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="n">potential_outliers</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;, &#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check batch effects</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pheatmap</span><span class="p">(</span><span class="n">sample_cor</span><span class="p">,</span> <span class="n">annotation_col</span> <span class="o">=</span> <span class="nf">colData</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;condition&#34;</span><span class="p">,</span> <span class="s">&#34;batch&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-real-world-interpretation-scenarios">
+  🔬 Real-World Interpretation Scenarios
+  <a class="heading-link" href="#-real-world-interpretation-scenarios">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-success-story">
+  The Success Story
+  <a class="heading-link" href="#the-success-story">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What you see</strong>: Beautiful blocks of high correlation (&gt;0.85) within each condition, clear separation between conditions, hierarchical clustering that perfectly matches your experimental design.</p>
+<p><strong>What this means</strong>: Your samples are high quality, your experimental conditions worked as intended, and your downstream analysis will be reliable.</p>
+<h3 id="the-investigation-needed">
+  The Investigation Needed
+  <a class="heading-link" href="#the-investigation-needed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What you see</strong>: One sample shows correlations of 0.6-0.7 with its supposed replicates but correlates well with a different condition.</p>
+<p><strong>What this means</strong>: Likely sample mix-up during processing. Check your sample tracking immediately and consider whether to reassign or remove the sample.</p>
+<h3 id="the-batch-effect-discovery">
+  The Batch Effect Discovery
+  <a class="heading-link" href="#the-batch-effect-discovery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What you see</strong>: Samples cluster perfectly by processing date rather than by treatment condition.</p>
+<p><strong>What this means</strong>: Technical variation is stronger than biological variation. You&rsquo;ll need to include batch in your DESeq2 model or use batch correction methods.</p>
+<hr>
+<h2 id="-pro-tips-for-success">
+  ⚡ Pro Tips for Success
+  <a class="heading-link" href="#-pro-tips-for-success">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="essential-technical-points">
+  Essential Technical Points
+  <a class="heading-link" href="#essential-technical-points">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Always use transformed data</strong>: VST or rlog, never raw counts</p>
+<ul>
+<li>Raw counts will be dominated by sequencing depth differences</li>
+<li>Transformation makes correlations meaningful</li>
+</ul>
+<p><strong>Remove low-expression genes</strong>: Filter before calculating correlations</p>
+<ul>
+<li>Low-expression genes add noise to correlation calculations</li>
+<li>Focus on genes that are actually detectable</li>
+</ul>
+<p><strong>Use meaningful sample names</strong>: Make interpretation easier</p>
+<ul>
+<li>Clear naming helps spot patterns and problems</li>
+<li>Include key experimental factors in names</li>
+</ul>
+<h3 id="interpretation-guidelines">
+  Interpretation Guidelines
+  <a class="heading-link" href="#interpretation-guidelines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Correlation values</strong>:</p>
+<ul>
+<li>
+<p>0.9: Excellent replication</p>
+</li>
+<li>
+<p>0.8-0.9: Good replication</p>
+</li>
+<li>
+<p>0.7-0.8: Acceptable but investigate</p>
+</li>
+<li>
+<p>&lt;0.7: Problematic, needs investigation</p>
+</li>
+</ul>
+<p><strong>Distance interpretation</strong>:</p>
+<ul>
+<li>Darker colors = more similar (yes, it&rsquo;s counterintuitive)</li>
+<li>Look for clear blocks matching your experimental design</li>
+<li>Outliers appear as lighter rows/columns</li>
+</ul>
+<hr>
+<h2 id="-integration-with-your-qc-workflow">
+  🎉 Integration with Your QC Workflow
+  <a class="heading-link" href="#-integration-with-your-qc-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-complete-quality-control-pipeline">
+  The Complete Quality Control Pipeline
+  <a class="heading-link" href="#the-complete-quality-control-pipeline">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>PCA plot</strong>: Overall patterns and major issues</li>
+<li><strong>Sample correlation heatmap</strong>: Detailed similarity relationships</li>
+<li><strong>Sample distance heatmap</strong>: Clustering validation</li>
+<li><strong>Decision point</strong>: Proceed or investigate problems</li>
+</ol>
+<h3 id="decision-framework">
+  Decision Framework
+  <a class="heading-link" href="#decision-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>If QC heatmaps look good</strong>:</p>
+<ul>
+<li>High within-group correlations (&gt;0.8)</li>
+<li>Clear between-group separation</li>
+<li>Clustering matches experimental design</li>
+<li>→ Proceed with differential expression analysis</li>
+</ul>
+<p><strong>If QC heatmaps show problems</strong>:</p>
+<ul>
+<li>Low correlations within groups</li>
+<li>Samples clustering by technical factors</li>
+<li>Clear outliers or batch effects</li>
+<li>→ Investigate and fix before continuing</li>
+</ul>
+<h3 id="quick-quality-assessment">
+  Quick Quality Assessment
+  <a class="heading-link" href="#quick-quality-assessment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Automated quality check</span>
+</span></span><span class="line"><span class="cl"><span class="n">assess_sample_quality</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">vst_data</span><span class="p">,</span> <span class="n">condition_column</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cor_matrix</span> <span class="o">&lt;-</span> <span class="nf">cor</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">vst_data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">conditions</span> <span class="o">&lt;-</span> <span class="nf">colData</span><span class="p">(</span><span class="n">vst_data</span><span class="p">)</span><span class="n">[[condition_column]]</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1"># Calculate within-group correlations</span>
+</span></span><span class="line"><span class="cl">  <span class="n">within_group_cors</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">for</span><span class="p">(</span><span class="n">cond</span> <span class="kr">in</span> <span class="nf">unique</span><span class="p">(</span><span class="n">conditions</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group_samples</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">conditions</span> <span class="o">==</span> <span class="n">cond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">group_samples</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">group_cors</span> <span class="o">&lt;-</span> <span class="n">cor_matrix[group_samples</span><span class="p">,</span> <span class="n">group_samples]</span>
+</span></span><span class="line"><span class="cl">      <span class="n">within_group_cors</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">within_group_cors</span><span class="p">,</span> <span class="n">group_cors</span><span class="nf">[upper.tri</span><span class="p">(</span><span class="n">group_cors</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="n">avg_within_cor</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">within_group_cors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">min_within_cor</span> <span class="o">&lt;-</span> <span class="nf">min</span><span class="p">(</span><span class="n">within_group_cors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Average within-group correlation:&#34;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">avg_within_cor</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Minimum within-group correlation:&#34;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">min_within_cor</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="kr">if</span><span class="p">(</span><span class="n">min_within_cor</span> <span class="o">&gt;</span> <span class="m">0.8</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Sample quality: EXCELLENT\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="n">min_within_cor</span> <span class="o">&gt;</span> <span class="m">0.7</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Sample quality: GOOD\n&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Sample quality: NEEDS INVESTIGATION\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">assess_sample_quality</span><span class="p">(</span><span class="n">vst_data</span><span class="p">,</span> <span class="s">&#34;condition&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-the-bottom-line">
+  🔍 The Bottom Line
+  <a class="heading-link" href="#-the-bottom-line">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>PCA shows the forest</strong> - overall patterns and major variation sources <strong>QC heatmaps show the trees</strong> - precise sample relationships and quality</p>
+<p>Together, they provide a comprehensive view of your data quality. These plots take 5 minutes to generate but can save you months of chasing artifacts or drawing conclusions from problematic data.</p>
+<p>Don&rsquo;t skip this step. Quality control heatmaps are your safety net against sample mix-ups, batch effects, and technical failures that could invalidate your entire analysis.</p>
+<hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Post 13: MA Plots and Dispersion Diagnostics</strong> will explore DESeq2&rsquo;s built-in diagnostic plots that help you understand how well the statistical model fits your data and identify potential issues with the differential expression analysis itself.</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>What sample quality issues have QC heatmaps helped you catch? Any tips for interpreting tricky correlation patterns?</p>
+<p>#RNAseq #QualityControl #DESeq2 #SampleCorrelation #DistanceHeatmap #DataVisualization #Bioinformatics #VST #DiagnosticPlots #GeneExpression #RStats</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

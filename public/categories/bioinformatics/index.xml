@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bioinformatics on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/bioinformatics/</link>
+    <description>Recent content in Bioinformatics on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 10: Superpowers - The Plugin That Changes Everything!</title>
+      <link>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</link>
+      <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</guid>
+      <description>Stop letting Claude dump unplanned, untested code! Superpowers enforces a complete software development methodology - brainstorm, plan, test-first implementation, and continuous review - transforming your AI coding workflow permanently.</description>
+    </item>
+    <item>
+      <title>Claude Series – Post 9: Plugins - The App Store Claude Code Was Missing!</title>
+      <link>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</link>
+      <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</guid>
+      <description>Stop configuring everything manually! Claude Code&amp;rsquo;s plugin ecosystem gives you 9,000+ one-command installs that bundle skills, agents, hooks, and MCP servers - from automated code review to real-time documentation injection.</description>
+    </item>
+    <item>
+      <title>Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!</title>
+      <link>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</link>
+      <pubDate>Fri, 06 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</guid>
+      <description>Stop working sequentially! Learn how Claude Code subagents let you spawn parallel AI specialists - each with its own context window and expertise - to explore, review, test, and document your bioinformatics code simultaneously.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways!</title>
+      <link>http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/</link>
+      <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/</guid>
+      <description>Transform overwhelming marker gene lists into clear biological narratives! Discover how pathway enrichment analysis works identically for single-cell and bulk RNA-seq, and why ORA is the perfect starting point for your scRNA-seq DEA results.</description>
+    </item>
+    <item>
+      <title>Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!</title>
+      <link>http://localhost:1313/posts/claude-mcp-connect-to-everything/</link>
+      <pubDate>Fri, 13 Feb 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-mcp-connect-to-everything/</guid>
+      <description>Stop copy-pasting between tools! Learn how MCP turns Claude into a fully connected research assistant that can search PubMed, manage GitHub repos, access Google Drive, and interact with your entire research ecosystem - all from one terminal.</description>
+    </item>
+    <item>
+      <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
+      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 14: DEA Tables Are Just the Beginning!</title>
+      <link>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</link>
+      <pubDate>Tue, 02 Dec 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</guid>
+      <description>From endless rows of numbers to biological insights - master volcano plots for targeted comparisons and heatmaps for comprehensive overviews in single-cell DEA.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
+      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 12: The DEA Strategy That Changes Everything!</title>
+      <link>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</link>
+      <pubDate>Wed, 19 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</guid>
+      <description>From generic housekeeping patterns to specific biomarkers - learn how your DEA strategy choice between FindMarkers and FindAllMarkers shapes biological discovery and publication impact.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 11: How to Actually Assess Clustering Quality!</title>
+      <link>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</link>
+      <pubDate>Fri, 14 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</guid>
+      <description>Beyond pretty UMAP plots - learn how clustering trees reveal cluster stability across resolutions and prove which algorithms deliver trustworthy, reproducible cell type assignments.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 10: Why Your Clustering Algorithm Choice Matters!</title>
+      <link>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</link>
+      <pubDate>Tue, 11 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</guid>
+      <description>Louvain vs Leiden clustering - why the newer algorithm escapes local optima to deliver cleaner cell type separation and more stable, reproducible clustering results.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 9.5: Not All UMAP Plots Are Created Equal!</title>
+      <link>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</link>
+      <pubDate>Fri, 07 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</guid>
+      <description>From basic defaults to publication masterpieces - learn how SCpubr, scplotter, and Seurat create dramatically different impressions with the same underlying data and analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 9: From 20 PCs to Beautiful 2D Maps!</title>
+      <link>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
+      <pubDate>Mon, 03 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
+      <description>From elbow plot decisions to stunning visualizations - learn how manifold learning algorithms compress high-dimensional PC space into interpretable 2D maps that reveal cellular relationships.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 8: Why PCA Plots Aren&#39;t Enough for Single-Cell!</title>
+      <link>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
+      <pubDate>Mon, 27 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
+      <description>From bulk simplicity to single-cell complexity - learn why you need 20+ principal components and how elbow plots guide the critical decision that determines everything downstream.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 7: PCA - From 20,000 Genes to Pure Signal!</title>
+      <link>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</link>
+      <pubDate>Thu, 23 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</guid>
+      <description>From 20,000 genes to clear cell types - learn how PCA and highly variable genes partnership transforms overwhelming dimensionality into biological insight that drives discovery.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 6: Why Raw Counts Will Ruin Your Analysis!</title>
+      <link>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</link>
+      <pubDate>Tue, 21 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</guid>
+      <description>Raw single-cell counts reflect technical noise, not biology. Learn the transformation steps that separate signal from noise and why skipping them destroys everything downstream.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 5: QC Metrics That Actually Matter!</title>
+      <link>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</link>
+      <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</guid>
+      <description>Learn to set quality control thresholds without throwing away good cells. Discover how histograms and scatter plots reveal your data&amp;rsquo;s unique characteristics for optimal filtering.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 4: Quality Control - The Make-or-Break Step!</title>
+      <link>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</link>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</guid>
+      <description>Why single-cell analysis lives or dies by quality control. Learn to spot the three villains that ruin downstream analysis and master the mindset shift that saves months of confusion.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!</title>
+      <link>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</link>
+      <pubDate>Sun, 12 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</guid>
+      <description>Why does &amp;lsquo;good enough&amp;rsquo; beat &amp;rsquo;technically perfect&amp;rsquo;? Explore the philosophical divide that shaped single-cell analysis and what it means for your learning journey.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!</title>
+      <link>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</link>
+      <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</guid>
+      <description>Skip the data hunting frustration! Learn how SeuratData provides curated, analysis-ready single-cell datasets from PBMC to brain tissue, letting you focus on mastering analysis techniques instead of debugging messy files.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
+      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!</title>
+      <link>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</link>
+      <pubDate>Sun, 21 Sep 2025 01:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</guid>
+      <description>Discover GSEA&amp;rsquo;s power to detect coordinated pathway changes using complete expression datasets. Learn advanced enrichment analysis techniques that reveal biological insights hidden from traditional ORA methods.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 15: Human-Curated Pathway Precision with Reactome!</title>
+      <link>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</link>
+      <pubDate>Sat, 13 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</guid>
+      <description>Master Reactome pathway analysis for human-focused research. Explore how expert-curated pathways provide clinical precision for disease studies, drug development, and precision medicine applications that GO and KEGG can&amp;rsquo;t match.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 14: From Gene Functions to Metabolic Maps with KEGG!</title>
+      <link>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</link>
+      <pubDate>Tue, 09 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</guid>
+      <description>Bridge the gap between individual gene functions and complete biological networks with KEGG pathway analysis. Discover how to visualize gene interactions, identify drug targets, and understand the molecular mechanisms underlying your experimental results.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!</title>
+      <link>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</link>
+      <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</guid>
+      <description>Bridge the gap between gene lists and biological understanding with GO enrichment analysis. Master the practical application of over-representation analysis to discover which biological processes are affected by your experimental treatments.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
+      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
+      <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
+      <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
+      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
+      <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
+      <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
+      <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
+      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
+      <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
+      <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 6: Data Transformations</title>
+      <link>http://localhost:1313/posts/data-transformations/</link>
+      <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-transformations/</guid>
+      <description>Discover why normalized counts still aren&amp;rsquo;t ready for PCA and clustering, and how VST and rlog transformations solve the variance problem. Learn to choose the right transformation method and integrate it properly into your RNA-seq workflow.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 5: Normalization Methods</title>
+      <link>http://localhost:1313/posts/normalization-methods/</link>
+      <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/normalization-methods/</guid>
+      <description>Discover how normalization transforms meaningless raw counts into biologically interpretable expression values. Explore DESeq2&amp;rsquo;s robust median-of-ratios method and learn to identify normalization issues that could derail your analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
+      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
+      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
+      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
+      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 13: SummarizedExperiment</title>
+      <link>http://localhost:1313/posts/summarizedexperiment/</link>
+      <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/summarizedexperiment/</guid>
+      <description>Discover how SummarizedExperiment serves as the culminating container of the Bioconductor ecosystem, elegantly combining GRanges, DataFrame, and assay matrices into a unified object that ensures synchronized, reproducible genomic analyses across diverse experimental types.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 12: ShortRead</title>
+      <link>http://localhost:1313/posts/shortread/</link>
+      <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/shortread/</guid>
+      <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 11: rtracklayer</title>
+      <link>http://localhost:1313/posts/rtracklayer/</link>
+      <pubDate>Tue, 20 May 2025 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rtracklayer/</guid>
+      <description>Discover how rtracklayer serves as the critical bridge between the diverse world of genomic file formats and Bioconductor&amp;rsquo;s analytical environment. Explore efficient techniques for importing, exporting, and converting between formats with a consistent interface that simplifies genomic workflows.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 10: plyranges</title>
+      <link>http://localhost:1313/posts/plyranges/</link>
+      <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 9: Biostrings</title>
+      <link>http://localhost:1313/posts/biostrings/</link>
+      <pubDate>Tue, 13 May 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/biostrings/</guid>
+      <description>Explore how Biostrings revolutionizes biological sequence analysis in R with 2-bit encoding for DNA/RNA, specialized pattern matching algorithms, and seamless integration with the Bioconductor ecosystem for everything from basic manipulations to complex genomic analyses.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 8: DataFrame</title>
+      <link>http://localhost:1313/posts/dataframe/</link>
+      <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
+      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 6: GRangesList</title>
+      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
+      <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
+      <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 5: GRanges</title>
+      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 4: IRanges</title>
+      <link>http://localhost:1313/posts/genomic-iranges/</link>
+      <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
+      <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
+      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
+    </item>
+    <item>
+      <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
+      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
+      <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
+      <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</link>
+      <pubDate>Tue, 08 Apr 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</guid>
+      <description>Understand how GTF and GFF files guide RNA-Seq read interpretation and enable accurate feature quantification. Discover practical use cases, including ERV annotation.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-alignment/</link>
+      <pubDate>Tue, 25 Mar 2025 05:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-alignment/</guid>
+      <description>Explore how to align RNA-Seq reads using STAR, HISAT2, and Minimap2. Understand the key features, commands, and strengths of each tool in transcriptomic workflows.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-trimming/</link>
+      <pubDate>Mon, 24 Mar 2025 06:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-trimming/</guid>
+      <description>Master read trimming in RNA-Seq using Trimmomatic. Discover essential options, command examples, and how trimming enhances read quality before alignment.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
+      <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
+      <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
+    </item>
+    <item>
+      <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
+      <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
+      <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 11: Working with Databases in the Tidyverse using dbplyr</title>
+      <link>http://localhost:1313/posts/tidyverse-dbplyr/</link>
+      <pubDate>Wed, 05 Mar 2025 09:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-dbplyr/</guid>
+      <description>Master database workflows in R with dbplyr. Learn to query, manipulate, and optimize large datasets in databases using Tidyverse syntax.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 10: String Manipulation Made Easy with stringr</title>
+      <link>http://localhost:1313/posts/tidyverse-stringr/</link>
+      <pubDate>Tue, 04 Mar 2025 07:10:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-stringr/</guid>
+      <description>Master text processing in R with stringr. Learn efficient ways to detect, extract, replace, and manipulate text for data analysis.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 9: Functional Programming in R with purrr</title>
+      <link>http://localhost:1313/posts/tidyverse-purrr/</link>
+      <pubDate>Mon, 03 Mar 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-purrr/</guid>
+      <description>Master functional programming in R with purrr. Learn to map, reduce, and iterate over data structures efficiently in the Tidyverse.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 8: Handling Dates &amp; Times with lubridate</title>
+      <link>http://localhost:1313/posts/tidyverse-lubridate/</link>
+      <pubDate>Fri, 28 Feb 2025 16:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-lubridate/</guid>
+      <description>Master date and time manipulation in R with lubridate. Learn how to efficiently parse, extract, and compute time-based calculations in the Tidyverse.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr</title>
+      <link>http://localhost:1313/posts/tidyverse-readr/</link>
+      <pubDate>Wed, 26 Feb 2025 10:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-readr/</guid>
+      <description>Master data import in R with readr. Learn to load, clean, and process large datasets efficiently using modern Tidyverse tools.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 6: Handling Categorical Data with forcats</title>
+      <link>http://localhost:1313/posts/tidyverse-forcats/</link>
+      <pubDate>Tue, 25 Feb 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-forcats/</guid>
+      <description>Master categorical data manipulation in R with forcats. Learn to reorder, lump, recode, and handle missing factor levels efficiently with real-world examples.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr</title>
+      <link>http://localhost:1313/posts/tidyverse-dplyr-joins/</link>
+      <pubDate>Wed, 19 Feb 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-dplyr-joins/</guid>
+      <description>Master dataset merging with dplyr joins in R. Learn about inner, left, right, full, semi, and anti joins, with practical examples and handling missing data.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 4: The Power of Tidy Data</title>
+      <link>http://localhost:1313/posts/tidyverse-tidy-data/</link>
+      <pubDate>Tue, 18 Feb 2025 07:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-tidy-data/</guid>
+      <description>Discover how tidy data simplifies data wrangling, visualization, and analysis in R with the Tidyverse. Learn how to reshape and clean data efficiently.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr</title>
+      <link>http://localhost:1313/posts/tidyverse-tidyr/</link>
+      <pubDate>Mon, 17 Feb 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-tidyr/</guid>
+      <description>Discover how tidyr makes data reshaping and cleaning in R simple, readable, and efficient with functions like pivot_longer, pivot_wider, separate, unite, and more.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr</title>
+      <link>http://localhost:1313/posts/tidyverse-dplyr/</link>
+      <pubDate>Wed, 12 Feb 2025 09:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-dplyr/</guid>
+      <description>Discover how dplyr makes data manipulation in R simple, readable, and efficient with five key verbs: select, filter, mutate, arrange, and summarize.</description>
+    </item>
+    <item>
+      <title>Tidyverse Series – Post 1: Why the Tidyverse is a Game-Changer for R</title>
+      <link>http://localhost:1313/posts/tidyverse-intro/</link>
+      <pubDate>Tue, 11 Feb 2025 08:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-intro/</guid>
+      <description>Discover why the Tidyverse is a game-changer for data science in R, simplifying data wrangling, visualization, and reproducibility.</description>
+    </item>
+    <item>
+      <title>Building Strong Foundations: From Command-Line Tools to the Tidyverse Transition</title>
+      <link>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</link>
+      <pubDate>Mon, 10 Feb 2025 17:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</guid>
+      <description>Discover how command-line tools, Git, Conda, and the Tidyverse form the foundation of reproducible bioinformatics workflows.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Capstone: Mastering Git for Reproducible Research</title>
+      <link>http://localhost:1313/posts/git-capstone-mastering/</link>
+      <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-capstone-mastering/</guid>
+      <description>Consolidate your Git knowledge with this capstone guide covering essential Git workflows, best practices, and key takeaways.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 7: Git Diff &amp; Log – Tracking Changes Like a Pro</title>
+      <link>http://localhost:1313/posts/git-diff-log-tracking/</link>
+      <pubDate>Tue, 04 Feb 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-diff-log-tracking/</guid>
+      <description>Master git diff and git log to track changes efficiently and enhance your version control workflow.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 6: Understanding .gitignore – Keeping Your Repo Clean</title>
+      <link>http://localhost:1313/posts/gitignore-best-practices/</link>
+      <pubDate>Mon, 03 Feb 2025 17:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gitignore-best-practices/</guid>
+      <description>Learn how to effectively use .gitignore to keep your Git repositories clean and manageable.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 5: Undoing Mistakes in Git</title>
+      <link>http://localhost:1313/posts/git-undo-mistakes/</link>
+      <pubDate>Thu, 30 Jan 2025 12:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-undo-mistakes/</guid>
+      <description>Learn how to undo mistakes in Git using reset, revert, and other rollback techniques.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 4: GitHub &amp; Collaboration</title>
+      <link>http://localhost:1313/posts/github-collaboration/</link>
+      <pubDate>Tue, 28 Jan 2025 06:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-collaboration/</guid>
+      <description>Learn how to collaborate effectively on GitHub using pull requests, forks, and branching workflows.</description>
+    </item>
+    <item>
+      <title>Version Control Series – Part 3: Branching &amp; Merging in Git</title>
+      <link>http://localhost:1313/posts/git-branching-merging/</link>
+      <pubDate>Mon, 27 Jan 2025 19:26:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-branching-merging/</guid>
+      <description>Understand Git branching and merging to work confidently without disrupting your main codebase.</description>
+    </item>
+    <item>
+      <title>Version Control Series - Part 2: Essential Git Commands You Should Know</title>
+      <link>http://localhost:1313/posts/git-basics-part2/</link>
+      <pubDate>Sat, 25 Jan 2025 17:39:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-basics-part2/</guid>
+      <description>Learn essential Git commands like &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;, and &lt;code&gt;pull&lt;/code&gt; to start mastering version control in bioinformatics.</description>
+    </item>
+    <item>
+      <title>Version Control Series - Part 1: Why Every Bioinformatician Needs Git</title>
+      <link>http://localhost:1313/posts/git-version-control-part1/</link>
+      <pubDate>Sat, 25 Jan 2025 17:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-version-control-part1/</guid>
+      <description>Discover why Git is a game-changer for bioinformatics, providing version control, reproducibility, and seamless collaboration.</description>
+    </item>
+  </channel>
+</rss>

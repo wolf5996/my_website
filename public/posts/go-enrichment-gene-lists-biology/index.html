@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Transform your differentially expressed gene lists into biological insights using Gene Ontology enrichment analysis. Learn to run, interpret, and visualize GO enrichment with clusterProfiler while avoiding common pitfalls.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!">
+  <meta name="twitter:description" content="Transform your differentially expressed gene lists into biological insights using Gene Ontology enrichment analysis. Learn to run, interpret, and visualize GO enrichment with clusterProfiler while avoiding common pitfalls.">
+
+<meta property="og:url" content="http://localhost:1313/posts/go-enrichment-gene-lists-biology/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!">
+  <meta property="og:description" content="Transform your differentially expressed gene lists into biological insights using Gene Ontology enrichment analysis. Learn to run, interpret, and visualize GO enrichment with clusterProfiler while avoiding common pitfalls.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-05T09:30:00+00:00">
+    <meta property="article:modified_time" content="2025-09-05T09:30:00+00:00">
+    <meta property="article:tag" content="Gene Ontology">
+    <meta property="article:tag" content="GO Enrichment">
+    <meta property="article:tag" content="ClusterProfiler">
+    <meta property="article:tag" content="Functional Analysis">
+    <meta property="article:tag" content="ORA">
+    <meta property="article:tag" content="Over-Representation Analysis">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/go-enrichment-gene-lists-biology/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/go-enrichment-gene-lists-biology/">
+              Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-05T09:30:00Z">
+                September 5, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/functional-analysis/">Functional Analysis</a>
+      <span class="separator">•</span>
+    <a href="/categories/gene-ontology/">Gene Ontology</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/gene-ontology/">Gene Ontology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/go-enrichment/">GO Enrichment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/clusterprofiler/">ClusterProfiler</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/functional-analysis/">Functional Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ora/">ORA</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/over-representation-analysis/">Over-Representation Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/deseq2/">DESeq2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pathway-analysis/">Pathway Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rna-seq/">RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/systems-biology/">Systems Biology</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-mastering-bulk-rna-seq-analysis-in-r--post-13-from-gene-lists-to-biology-with-go-enrichment">
+  🧬 Mastering Bulk RNA-seq Analysis in R – Post 13: From Gene Lists to Biology with GO Enrichment!
+  <a class="heading-link" href="#-mastering-bulk-rna-seq-analysis-in-r--post-13-from-gene-lists-to-biology-with-go-enrichment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-the-million-dollar-question-what-do-my-genes-actually-do">
+  🛤️ The Million-Dollar Question: What Do My Genes Actually DO?
+  <a class="heading-link" href="#-the-million-dollar-question-what-do-my-genes-actually-do">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Picture this: You&rsquo;ve just completed your DESeq2 analysis and proudly generated a spreadsheet with 500 differentially expressed genes. Your PI walks over, glances at your screen full of cryptic gene names like <code>ENSG00000139618</code> and <code>ENSG00000141510</code>, and asks the question that makes every bioinformatician&rsquo;s heart skip a beat:</p>
+<p><strong>&ldquo;So&hellip; what do these genes actually DO biologically?&rdquo;</strong></p>
+<p>Suddenly, your triumph feels hollow. You&rsquo;ve got the <em>what</em> (which genes changed), but you&rsquo;re missing the <em>why</em> (what biological processes are affected). This is where Gene Ontology (GO) enrichment analysis swoops in like a superhero, transforming your mysterious gene list into a coherent biological story.</p>
+<hr>
+<h2 id="-the-fishing-expedition-analogy">
+  🎯 The Fishing Expedition Analogy
+  <a class="heading-link" href="#-the-fishing-expedition-analogy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Think of GO enrichment analysis like the world&rsquo;s most sophisticated fishing expedition:</p>
+<h3 id="the-setup">
+  The Setup
+  <a class="heading-link" href="#the-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>The Lake</strong>: Your entire genome (~20,000 genes)</li>
+<li><strong>Your Catch</strong>: Your differentially expressed genes (let&rsquo;s say 200)</li>
+<li><strong>The Question</strong>: &ldquo;Did I catch more salmon than expected by random chance?&rdquo;</li>
+</ul>
+<h3 id="the-magic-moment">
+  The Magic Moment
+  <a class="heading-link" href="#the-magic-moment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Let&rsquo;s say salmon represent genes involved in &ldquo;immune response&rdquo;:</p>
+<ul>
+<li><strong>Total salmon in lake</strong>: 500 genes</li>
+<li><strong>Expected salmon in random catch</strong>: ~5 genes</li>
+<li><strong>Actual salmon you caught</strong>: 50 genes</li>
+<li><strong>The revelation</strong>: You caught <strong>10x more immune genes than expected!</strong></li>
+</ul>
+<p>This isn&rsquo;t luck—your experimental treatment specifically activated immune-related processes.</p>
+<hr>
+<h2 id="-gene-ontology-your-biological-dictionary">
+  💡 Gene Ontology: Your Biological Dictionary
+  <a class="heading-link" href="#-gene-ontology-your-biological-dictionary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>GO organizes the chaos of biological knowledge into three neat categories:</p>
+<h3 id="-biological-process">
+  🔬 Biological Process
+  <a class="heading-link" href="#-biological-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What cellular events the gene participates in</strong></p>
+<p>Examples: &ldquo;cell division&rdquo;, &ldquo;immune response&rdquo;, &ldquo;DNA repair&rdquo;</p>
+<h3 id="-molecular-function">
+  🧬 Molecular Function
+  <a class="heading-link" href="#-molecular-function">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>What the gene product does biochemically</strong></p>
+<p>Examples: &ldquo;DNA binding&rdquo;, &ldquo;kinase activity&rdquo;, &ldquo;transcription factor&rdquo;</p>
+<h3 id="-cellular-component">
+  📍 Cellular Component
+  <a class="heading-link" href="#-cellular-component">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Where in the cell the gene product hangs out</strong></p>
+<p>Examples: &ldquo;nucleus&rdquo;, &ldquo;mitochondria&rdquo;, &ldquo;cell membrane&rdquo;</p>
+<blockquote>
+<p><strong>Pro Tip</strong>: Start with Biological Process—it usually gives the most interpretable results for understanding your experiment&rsquo;s biological impact!</p>
+</blockquote>
+<hr>
+<h2 id="-hands-on-running-go-analysis-like-a-pro">
+  🚀 Hands-On: Running GO Analysis Like a Pro
+  <a class="heading-link" href="#-hands-on-running-go-analysis-like-a-pro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="step-1-setup-your-arsenal">
+  Step 1: Setup Your Arsenal
+  <a class="heading-link" href="#step-1-setup-your-arsenal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Load the heavy hitters</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">org.Hs.eg.db</span><span class="p">)</span>  <span class="c1"># Human gene annotations</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">enrichplot</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="step-2-prepare-your-gene-lists-the-critical-step">
+  Step 2: Prepare Your Gene Lists (The Critical Step!)
+  <a class="heading-link" href="#step-2-prepare-your-gene-lists-the-critical-step">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># ALWAYS separate up and down-regulated genes!</span>
+</span></span><span class="line"><span class="cl"><span class="n">upregulated_genes</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">results[results</span><span class="o">$</span><span class="n">log2FoldChange</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="o">&amp;</span> 
+</span></span><span class="line"><span class="cl">                                    <span class="n">results</span><span class="o">$</span><span class="n">padj</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">downregulated_genes</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">results[results</span><span class="o">$</span><span class="n">log2FoldChange</span> <span class="o">&lt;</span> <span class="m">-1</span> <span class="o">&amp;</span> 
+</span></span><span class="line"><span class="cl">                                      <span class="n">results</span><span class="o">$</span><span class="n">padj</span> <span class="o">&lt;</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check your lists</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Upregulated genes:&#34;</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">upregulated_genes</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Downregulated genes:&#34;</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">downregulated_genes</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="step-3-run-the-analysis">
+  Step 3: Run the Analysis
+  <a class="heading-link" href="#step-3-run-the-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># GO enrichment for upregulated genes</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_up</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="n">upregulated_genes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="p">,</span>  <span class="c1"># Biological Process</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">pAdjustMethod</span> <span class="o">=</span> <span class="s">&#34;BH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">readable</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Quick peek at results</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">go_up</span><span class="o">@</span><span class="n">result</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="step-4-create-stunning-visualizations">
+  Step 4: Create Stunning Visualizations
+  <a class="heading-link" href="#step-4-create-stunning-visualizations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># The publication-ready dotplot</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dotplot</span><span class="p">(</span><span class="n">go_up</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">20</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;Upregulated Genes: GO Enrichment&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clean barplot for presentations</span>
+</span></span><span class="line"><span class="cl"><span class="nf">barplot</span><span class="p">(</span><span class="n">go_up</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">15</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">12</span><span class="p">))</span>
+</span></span></code></pre></div><hr>
+<h2 id="-decoding-your-results-the-detectives-guide">
+  📊 Decoding Your Results: The Detective&rsquo;s Guide
+  <a class="heading-link" href="#-decoding-your-results-the-detectives-guide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-essential-columns">
+  The Essential Columns
+  <a class="heading-link" href="#the-essential-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Column</th>
+          <th>What It Means</th>
+          <th>What You Want</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Description</strong></td>
+          <td>The biological process name</td>
+          <td>Specific, interpretable terms</td>
+      </tr>
+      <tr>
+          <td><strong>p.adjust</strong></td>
+          <td>Corrected p-value</td>
+          <td>&lt; 0.05 (this is what matters!)</td>
+      </tr>
+      <tr>
+          <td><strong>Count</strong></td>
+          <td>Your genes in this category</td>
+          <td>5-50 genes (sweet spot)</td>
+      </tr>
+      <tr>
+          <td><strong>GeneRatio</strong></td>
+          <td>Fraction of your genes</td>
+          <td>Shows enrichment strength</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-real-results-interpretation">
+  🔥 Real Results Interpretation
+  <a class="heading-link" href="#-real-results-interpretation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Example results that make you smile</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    Description              p.adjust  Count  GeneRatio</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1  immune response          1.2e-08   45     45/200</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2  T cell activation        3.4e-06   23     23/200  </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3  cell cycle regulation    8.9e-05   18     18/200</span>
+</span></span></code></pre></div><p><strong>Translation into English</strong>:
+&ldquo;Your treatment triggered a massive immune response, specifically activating T cells, while also affecting cell proliferation. This looks like a classic inflammatory response with cellular activation!&rdquo;</p>
+<hr>
+<h2 id="-red-flags-and-rookie-mistakes">
+  ⚠️ Red Flags and Rookie Mistakes
+  <a class="heading-link" href="#-red-flags-and-rookie-mistakes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-warning-signs-in-your-results">
+  🚩 Warning Signs in Your Results
+  <a class="heading-link" href="#-warning-signs-in-your-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Super-generic terms dominating</strong></p>
+<ul>
+<li>&ldquo;metabolic process&rdquo; or &ldquo;cellular process&rdquo;</li>
+<li>These are too broad to be useful—dig deeper!</li>
+</ul>
+<p><strong>Thousands of &ldquo;significant&rdquo; terms</strong></p>
+<ul>
+<li>Your cutoffs are too lenient</li>
+<li>Tighten your p-value or fold-change thresholds</li>
+</ul>
+<p><strong>No significant enrichment at all</strong></p>
+<ul>
+<li>Weak biological signal or overly strict cutoffs</li>
+<li>Check if your gene IDs are converting properly</li>
+</ul>
+<p><strong>Results that contradict known biology</strong></p>
+<ul>
+<li>Time to double-check your experimental setup</li>
+<li>Verify your gene lists and sample labels</li>
+</ul>
+<h3 id="-common-mistakes-that-kill-analyses">
+  😅 Common Mistakes That Kill Analyses
+  <a class="heading-link" href="#-common-mistakes-that-kill-analyses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Mixing up and down-regulated genes</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># DON&#39;T do this</span>
+</span></span><span class="line"><span class="cl"><span class="n">all_de_genes</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">upregulated_genes</span><span class="p">,</span> <span class="n">downregulated_genes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># DO this instead</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_up</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">upregulated_genes</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_down</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">downregulated_genes</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Ignoring fold-change magnitude</strong></p>
+<ul>
+<li>Don&rsquo;t just use p-value cutoffs</li>
+<li>Include meaningful effect sizes (|log2FC| &gt; 1)</li>
+</ul>
+<p><strong>Trusting gene ID conversion blindly</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Always check conversion success</span>
+</span></span><span class="line"><span class="cl"><span class="n">converted</span> <span class="o">&lt;-</span> <span class="nf">bitr</span><span class="p">(</span><span class="n">your_genes</span><span class="p">,</span> <span class="n">fromType</span> <span class="o">=</span> <span class="s">&#34;ENSEMBL&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                 <span class="n">toType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span> <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">conversion_rate</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">converted</span><span class="p">)</span> <span class="o">/</span> <span class="nf">length</span><span class="p">(</span><span class="n">your_genes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Conversion success:&#34;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">conversion_rate</span> <span class="o">*</span> <span class="m">100</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="s">&#34;%\n&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-visualization-showdown-which-plot-when">
+  🎨 Visualization Showdown: Which Plot When?
+  <a class="heading-link" href="#-visualization-showdown-which-plot-when">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-for-publications-dotplot">
+  🏆 For Publications: Dotplot
+  <a class="heading-link" href="#-for-publications-dotplot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">dotplot</span><span class="p">(</span><span class="n">go_results</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">font.size</span> <span class="o">=</span> <span class="m">12</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_color_gradient</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_minimal</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>Why it wins</strong>: Shows both significance (color) and gene count (dot size) elegantly</p>
+<h3 id="-for-presentations-barplot">
+  📊 For Presentations: Barplot
+  <a class="heading-link" href="#-for-presentations-barplot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">barplot</span><span class="p">(</span><span class="n">go_results</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">coord_flip</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">12</span><span class="p">))</span>
+</span></span></code></pre></div><p><strong>Why it works</strong>: Clean, readable from the back of the room</p>
+<h3 id="-for-exploration-network-plot">
+  🕸️ For Exploration: Network Plot
+  <a class="heading-link" href="#-for-exploration-network-plot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">cnetplot</span><span class="p">(</span><span class="n">go_results</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">circular</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Why it&rsquo;s cool</strong>: Shows which genes belong to which processes</p>
+<hr>
+<h2 id="-quality-control-the-sanity-checks">
+  🧪 Quality Control: The Sanity Checks
+  <a class="heading-link" href="#-quality-control-the-sanity-checks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-the-four-essential-tests">
+  ✅ The Four Essential Tests
+  <a class="heading-link" href="#-the-four-essential-tests">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>1. Biological Sense Test</strong></p>
+<ul>
+<li>Do enriched processes match your experimental hypothesis?</li>
+<li>Can you explain the results to your grandmother?</li>
+</ul>
+<p><strong>2. Specificity Test</strong></p>
+<ul>
+<li>Are terms specific enough to generate testable hypotheses?</li>
+<li>&ldquo;T cell activation&rdquo; &gt; &ldquo;immune response&rdquo; &gt; &ldquo;biological process&rdquo;</li>
+</ul>
+<p><strong>3. Literature Test</strong></p>
+<ul>
+<li>Do similar experiments show related processes?</li>
+<li>Time for a quick PubMed search!</li>
+</ul>
+<p><strong>4. Gene-Level Validation</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Check specific genes in enriched pathways</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_genes</span> <span class="o">&lt;-</span> <span class="n">go_results</span><span class="o">@</span><span class="n">result</span><span class="o">$</span><span class="n">geneID[1]</span>  <span class="c1"># Top pathway</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cat</span><span class="p">(</span><span class="s">&#34;Genes in top pathway:&#34;</span><span class="p">,</span> <span class="n">go_genes</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-the-ultimate-reality-check">
+  🎯 The Ultimate Reality Check
+  <a class="heading-link" href="#-the-ultimate-reality-check">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Your GO enrichment should transform your story from:</p>
+<h3 id="before-the-gene-list-dump">
+  Before: The Gene List Dump
+  <a class="heading-link" href="#before-the-gene-list-dump">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><em>&ldquo;We identified 347 differentially expressed genes, including ENSG00000139618, ENSG00000141510, ENSG00000157764, and 344 others (Supplementary Table 1)&hellip;&rdquo;</em></p>
+<h3 id="after-the-biological-narrative">
+  After: The Biological Narrative
+  <a class="heading-link" href="#after-the-biological-narrative">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><em>&ldquo;Our treatment specifically activated immune response pathways, particularly T cell activation and inflammatory signaling (adjusted p &lt; 1e-6), while simultaneously upregulating cell cycle processes, suggesting a coordinated cellular response involving both immune activation and proliferative signaling.&rdquo;</em></p>
+<p><strong>That&rsquo;s the difference between data and discovery!</strong></p>
+<hr>
+<h2 id="-advanced-pro-tips">
+  💪 Advanced Pro Tips
+  <a class="heading-link" href="#-advanced-pro-tips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="separate-analysis-strategy">
+  Separate Analysis Strategy
+  <a class="heading-link" href="#separate-analysis-strategy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Get more nuanced insights</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_up_specific</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">upregulated_genes</span><span class="p">,</span> <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                          <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">)</span>  <span class="c1"># Stricter</span>
+</span></span><span class="line"><span class="cl"><span class="n">go_down_specific</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span><span class="n">downregulated_genes</span><span class="p">,</span> <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;BP&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                            <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compare and contrast</span>
+</span></span><span class="line"><span class="cl"><span class="nf">compareCluster</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">Up</span> <span class="o">=</span> <span class="n">upregulated_genes</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                   <span class="n">Down</span> <span class="o">=</span> <span class="n">downregulated_genes</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">               <span class="n">fun</span> <span class="o">=</span> <span class="s">&#34;enrichGO&#34;</span><span class="p">,</span> <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="custom-visualization-tricks">
+  Custom Visualization Tricks
+  <a class="heading-link" href="#custom-visualization-tricks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Make it publication-pretty</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dotplot</span><span class="p">(</span><span class="n">go_up</span><span class="p">,</span> <span class="n">showCategory</span> <span class="o">=</span> <span class="m">20</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_size_continuous</span><span class="p">(</span><span class="n">range</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scale_color_gradient</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="s">&#34;#3182bd&#34;</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="s">&#34;#de2d26&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">theme</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">11</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">14</span><span class="p">,</span> <span class="n">face</span> <span class="o">=</span> <span class="s">&#34;bold&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&#34;GO Enrichment: Upregulated Genes&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="n">x</span> <span class="o">=</span> <span class="s">&#34;Gene Ratio&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">y</span> <span class="o">=</span> <span class="s">&#34;GO Terms&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Post 14: KEGG Pathway Analysis</strong> will take your functional analysis to the next level! We&rsquo;ll explore how to map your genes onto specific biochemical pathways and understand the molecular mechanisms driving your biological processes.</p>
+<p>Ready to dive deeper into metabolic and signaling pathways? Let&rsquo;s connect the dots between genes and mechanisms!</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>What&rsquo;s the most surprising biological process you&rsquo;ve discovered through GO enrichment? Any horror stories about misinterpreting results? Drop your experiences below! 👇</p>
+<p>#RNAseq #GeneOntology #ClusterProfiler #EnrichmentAnalysis #ORA #FunctionalAnnotation #DESeq2 #Bioinformatics #RStats #SystemsBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

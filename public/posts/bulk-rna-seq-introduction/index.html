@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="An introduction to bulk RNA-Seq analysis, covering the key steps from raw sequencing reads to biological insights. Learn about quality control, alignment, quantification, and differential expression analysis.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis">
+  <meta name="twitter:description" content="An introduction to bulk RNA-Seq analysis, covering the key steps from raw sequencing reads to biological insights. Learn about quality control, alignment, quantification, and differential expression analysis.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-introduction/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis">
+  <meta property="og:description" content="An introduction to bulk RNA-Seq analysis, covering the key steps from raw sequencing reads to biological insights. Learn about quality control, alignment, quantification, and differential expression analysis.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-18T05:30:00+00:00">
+    <meta property="article:modified_time" content="2025-03-18T05:30:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="Gene Expression">
+    <meta property="article:tag" content="Differential Expression">
+    <meta property="article:tag" content="DESeq2">
+    <meta property="article:tag" content="Genomic Analysis">
+    <meta property="article:tag" content="Computational Biology">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-introduction/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-introduction/">
+              Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-18T05:30:00Z">
+                March 18, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gene-expression/">Gene Expression</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/differential-expression/">Differential Expression</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/deseq2/">DESeq2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/genomic-analysis/">Genomic Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/biostatistics/">Biostatistics</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-1-introduction-to-bulk-rna-seq-analysis">
+  🔬 Bulk RNA-Seq Series &ndash; Post 1: Introduction to Bulk RNA-Seq Analysis
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-1-introduction-to-bulk-rna-seq-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-bulk-rna-seq">
+  🛠 Why Bulk RNA-Seq?
+  <a class="heading-link" href="#-why-bulk-rna-seq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Bulk RNA sequencing (RNA-Seq) is a <strong>fundamental technique</strong> used to measure gene expression levels across different conditions, offering insights into <strong>disease mechanisms, cellular functions, and therapeutic responses</strong>.</p>
+<h3 id="-key-benefits-of-bulk-rna-seq">
+  🔹 Key Benefits of Bulk RNA-Seq:
+  <a class="heading-link" href="#-key-benefits-of-bulk-rna-seq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>Quantifies thousands of genes simultaneously</strong><br>
+✔️ <strong>Identifies differentially expressed genes (DEGs) between conditions</strong><br>
+✔️ <strong>Enables pathway &amp; functional enrichment analysis</strong><br>
+✔️ <strong>Facilitates comparisons between experimental conditions or patient groups</strong></p>
+<p>Unlike <strong>single-cell RNA-Seq</strong>, which captures <strong>cell-to-cell variation</strong>, bulk RNA-Seq provides an <strong>aggregate gene expression profile</strong> across a <strong>population of cells</strong>. This makes it particularly powerful for studying <strong>tissue-wide expression patterns</strong> and conducting <strong>large-scale transcriptomic analyses</strong>.</p>
+<hr>
+<h2 id="-the-bulk-rna-seq-workflow-from-reads-to-biological-insights">
+  📚 The Bulk RNA-Seq Workflow: From Reads to Biological Insights
+  <a class="heading-link" href="#-the-bulk-rna-seq-workflow-from-reads-to-biological-insights">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A typical <strong>bulk RNA-Seq pipeline</strong> consists of two major phases:</p>
+<h3 id="-phase-1-from-raw-reads-to-count-matrices">
+  <strong>➡️ Phase 1: From Raw Reads to Count Matrices</strong>
+  <a class="heading-link" href="#-phase-1-from-raw-reads-to-count-matrices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>1️⃣ <strong>Quality Control (FastQC, MultiQC)</strong> &ndash; Assessing sequencing read quality to ensure reliable data.<br>
+2️⃣ <strong>Trimming &amp; Filtering (Trimmomatic, Cutadapt)</strong> &ndash; Removing adapters, low-quality bases, and contaminant sequences.<br>
+3️⃣ <strong>Read Alignment (STAR, HISAT2, Salmon)</strong> &ndash; Mapping reads to a reference genome or transcriptome.<br>
+4️⃣ <strong>Quantification (featureCounts, HTSeq, Salmon)</strong> &ndash; Generating gene expression count matrices.</p>
+<h3 id="-phase-2-from-count-matrices-to-insights">
+  <strong>➡️ Phase 2: From Count Matrices to Insights</strong>
+  <a class="heading-link" href="#-phase-2-from-count-matrices-to-insights">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>5️⃣ <strong>Normalization &amp; Transformation</strong> &ndash; Preparing data for statistical analysis using methods like <code>DESeq2</code> and <code>edgeR</code>.<br>
+6️⃣ <strong>Differential Expression Analysis (DESeq2, limma-voom)</strong> &ndash; Identifying genes that are significantly up- or downregulated.<br>
+7️⃣ <strong>Visualization &amp; Data Exploration (PCA, Heatmaps, Volcano Plots)</strong> &ndash; Summarizing expression changes and clustering patterns.<br>
+8️⃣ <strong>Pathway &amp; Functional Enrichment (GO, KEGG, GSEA)</strong> &ndash; Linking differentially expressed genes to biological pathways.</p>
+<p>Each of these steps will be <strong>covered in depth throughout this series</strong>, providing a <strong>hands-on guide to processing, analyzing, and interpreting bulk RNA-Seq data</strong>.</p>
+<hr>
+<h2 id="-what-youll-learn-in-this-series">
+  📈 What You&rsquo;ll Learn in This Series
+  <a class="heading-link" href="#-what-youll-learn-in-this-series">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <strong>How to process raw sequencing data</strong> from <strong>FASTQ files to count matrices</strong>.<br>
+✅ <strong>How to perform differential gene expression analysis</strong> with <strong>DESeq2</strong> and best practices for statistical modeling.<br>
+✅ <strong>How to visualize gene expression patterns</strong> using PCA, heatmaps, volcano plots, and hierarchical clustering.<br>
+✅ <strong>How to interpret biological meaning</strong> by performing <strong>functional enrichment analysis</strong>.<br>
+✅ <strong>Common pitfalls, batch effects, and reproducibility strategies</strong> for robust RNA-Seq analysis.</p>
+<hr>
+<h2 id="-why-this-series-matters-for-bioinformatics--genomics-research">
+  🚀 Why This Series Matters for Bioinformatics &amp; Genomics Research
+  <a class="heading-link" href="#-why-this-series-matters-for-bioinformatics--genomics-research">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Bulk RNA-Seq remains a <strong>gold-standard method for transcriptomics research</strong>, widely applied in: ✔️ <strong>Cancer genomics</strong> &ndash; Identifying gene expression changes in tumors vs. normal tissue.<br>
+✔️ <strong>Drug discovery</strong> &ndash; Understanding transcriptomic responses to treatments.<br>
+✔️ <strong>Developmental biology</strong> &ndash; Studying gene expression dynamics over time.<br>
+✔️ <strong>Immunology &amp; infectious diseases</strong> &ndash; Profiling immune responses to pathogens.</p>
+<p>By mastering <strong>bulk RNA-Seq analysis</strong>, you&rsquo;ll gain essential <strong>bioinformatics skills</strong> that are highly valuable in <strong>academic research, biotechnology, and precision medicine</strong>.</p>
+<hr>
+<h2 id="-next-up-understanding-rna-seq-reads--fastq-files-stay-tuned-">
+  📌 Next up: Understanding RNA-Seq Reads &amp; FASTQ Files! Stay tuned! 🚀
+  <a class="heading-link" href="#-next-up-understanding-rna-seq-reads--fastq-files-stay-tuned-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>👇 <strong>Are you currently working with bulk RNA-Seq data? Let&rsquo;s discuss your workflow!</strong></p>
+<p>#RNASeq #Bioinformatics #Transcriptomics #RStats #Genomics #ComputationalBiology #DataScience #OpenScience</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 3: S4 Objects · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Dive into the S4 object system in R — the formal infrastructure behind Bioconductor, Seurat, and structured genomic data analysis. Learn how S4 slots, inheritance, and multiple dispatch power reproducible workflows.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 3: S4 Objects">
+  <meta name="twitter:description" content="Dive into the S4 object system in R — the formal infrastructure behind Bioconductor, Seurat, and structured genomic data analysis. Learn how S4 slots, inheritance, and multiple dispatch power reproducible workflows.">
+
+<meta property="og:url" content="http://localhost:1313/posts/genomic-s4-objects/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 3: S4 Objects">
+  <meta property="og:description" content="Dive into the S4 object system in R — the formal infrastructure behind Bioconductor, Seurat, and structured genomic data analysis. Learn how S4 slots, inheritance, and multiple dispatch power reproducible workflows.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-21T17:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-21T17:00:00+00:00">
+    <meta property="article:tag" content="S4">
+    <meta property="article:tag" content="IRanges">
+    <meta property="article:tag" content="GRanges">
+    <meta property="article:tag" content="SummarizedExperiment">
+    <meta property="article:tag" content="Seurat">
+    <meta property="article:tag" content="Bioconductor">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/genomic-s4-objects/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/genomic-s4-objects/">
+              Foundations of Genomic Data – Post 3: S4 Objects
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-04-21T17:00:00Z">
+                April 21, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/s4/">S4</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/iranges/">IRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/granges/">GRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/summarizedexperiment/">SummarizedExperiment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seurat/">Seurat</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/transcriptomics/">Transcriptomics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-3-s4-objects">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 3: S4 Objects
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-3-s4-objects">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-what-makes-bioconductor-objects-so-unique">
+  📦 What Makes Bioconductor Objects So Unique?
+  <a class="heading-link" href="#-what-makes-bioconductor-objects-so-unique">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>If you&rsquo;ve worked with Bioconductor, you&rsquo;ve probably noticed something different about the way it structures data. Whether you&rsquo;re dealing with <code>GRanges</code>, <code>SummarizedExperiment</code>, or even <code>Seurat</code> objects &mdash; they&rsquo;re not your usual R lists or data frames.</p>
+<p>The secret behind this power and structure? <strong>S4 objects</strong>.</p>
+<hr>
+<h2 id="-what-is-the-s4-object-system">
+  🏗️ What Is the S4 Object System?
+  <a class="heading-link" href="#-what-is-the-s4-object-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>S4 is R&rsquo;s <strong>formal class system</strong>, introduced to address the limitations of the older, more flexible (but less rigorous) S3 system. It provides strict definitions and guarantees about the shape, type, and behavior of objects.</p>
+<h3 id="-key-features-of-s4">
+  💡 Key Features of S4:
+  <a class="heading-link" href="#-key-features-of-s4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Formal class definitions</strong> with named <strong>slots</strong> (think columns in a database schema)</li>
+<li><strong>Explicit data types</strong> per slot</li>
+<li><strong>Inheritance</strong>: Classes can build upon each other</li>
+<li><strong>Multiple dispatch</strong>: Methods can be defined based on <strong>multiple arguments</strong>, not just the first</li>
+</ul>
+<p>This rigor allows Bioconductor to build <strong>complex yet robust</strong> data structures that scale to genome-wide data.</p>
+<hr>
+<h2 id="-defining-and-using-s4-objects-in-r">
+  🔧 Defining and Using S4 Objects in R
+  <a class="heading-link" href="#-defining-and-using-s4-objects-in-r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s a basic example to get a feel for how S4 classes are defined and instantiated:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Define a simple S4 class</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setClass</span><span class="p">(</span><span class="s">&#34;Protein&#34;</span><span class="p">,</span> <span class="n">slots</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;character&#34;</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="s">&#34;numeric&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create an instance</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">new</span><span class="p">(</span><span class="s">&#34;Protein&#34;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;p53&#34;</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">393</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access a slot</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">@</span><span class="n">name</span>  <span class="c1"># Output: &#34;p53&#34;</span>
+</span></span></code></pre></div><h3 id="-inspecting-an-s4-object">
+  🔍 Inspecting an S4 Object
+  <a class="heading-link" href="#-inspecting-an-s4-object">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">slotNames</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># Shows: &#34;name&#34;, &#34;length&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>        <span class="c1"># Full structure</span>
+</span></span><span class="line"><span class="cl"><span class="nf">isS4</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>       <span class="c1"># TRUE</span>
+</span></span></code></pre></div><p>S4 classes behave differently than standard R lists or S3 objects &mdash; they are <strong>more constrained but much more predictable</strong>.</p>
+<hr>
+<h2 id="-where-s4-shines-in-bioinformatics">
+  🔬 Where S4 Shines in Bioinformatics
+  <a class="heading-link" href="#-where-s4-shines-in-bioinformatics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-core-bioconductor-classes">
+  🧱 Core Bioconductor Classes
+  <a class="heading-link" href="#-core-bioconductor-classes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><code>IRanges</code>: Represents integer intervals &mdash; core building blocks for things like coverage or feature ranges.</li>
+<li><code>GRanges</code>: Extends <code>IRanges</code> with genomic coordinates (chromosome, strand, etc.).</li>
+<li><code>SummarizedExperiment</code>: Bundles expression data with metadata (e.g., genes, samples).</li>
+<li><code>DESeqDataSet</code>, <code>SingleCellExperiment</code>: Built on top of <code>SummarizedExperiment</code>, adapted for DE and single-cell workflows respectively.</li>
+</ul>
+<p>These aren&rsquo;t just data holders &mdash; they come with <strong>custom methods</strong>, <strong>validations</strong>, and <strong>pipeline integration</strong>.</p>
+<hr>
+<h2 id="-how-seurat-uses-s4-----bridging-bioconductor-and-single-cell-analysis">
+  🔗 How Seurat Uses S4 &mdash; Bridging Bioconductor and Single-Cell Analysis
+  <a class="heading-link" href="#-how-seurat-uses-s4-----bridging-bioconductor-and-single-cell-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The popular <strong>Seurat</strong> package uses an S4 object system under the hood as well. The <code>Seurat</code> object is a structured, multi-slot container that stores:</p>
+<ul>
+<li>Expression matrices</li>
+<li>Cell metadata</li>
+<li>Feature annotations</li>
+<li>Dimensionality reductions</li>
+<li>Clustering results and more</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">slotNames</span><span class="p">(</span><span class="n">seurat_object</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Examples: &#34;assays&#34;, &#34;meta.data&#34;, &#34;reductions&#34;, &#34;graphs&#34;, etc.</span>
+</span></span></code></pre></div><p>Even though Seurat is not formally a Bioconductor package, its architecture reflects the same <strong>modularity and structure</strong> that S4 provides &mdash; allowing consistent access and manipulation across massive single-cell datasets.</p>
+<hr>
+<h2 id="-why-s4-matters">
+  🎯 Why S4 Matters
+  <a class="heading-link" href="#-why-s4-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>✅ Ensures your objects are <strong>structured and validated</strong></li>
+<li>✅ Enables <strong>clean integration</strong> with other Bioconductor packages</li>
+<li>✅ Facilitates <strong>type-safe pipelines</strong></li>
+<li>✅ Reduces errors and increases reproducibility</li>
+</ul>
+<p>S4 is not just a programming paradigm &mdash; it&rsquo;s a philosophy that enforces <strong>biological logic</strong> into your code.</p>
+<blockquote>
+<p>If you&rsquo;re serious about scalable, structured genomics in R, learning S4 is non-negotiable.</p>
+</blockquote>
+<hr>
+<h2 id="-coming-up-next">
+  🧬 Coming Up Next
+  <a class="heading-link" href="#-coming-up-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Next in the series: <strong>IRanges</strong> &mdash; the fundamental data structure for working with genomic intervals. Understanding this is the key to all position-based operations in genomics.</p>
+<p>Stay tuned! 🚀</p>
+<hr>
+<h2 id="-have-you-explored-s4-in-your-projects">
+  💬 Have You Explored S4 in Your Projects?
+  <a class="heading-link" href="#-have-you-explored-s4-in-your-projects">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Whether you&rsquo;re building custom classes or working with complex data containers, drop your experience below 👇<br>
+What tripped you up at first? How did it change your workflow?</p>
+<p>#Bioinformatics #RStats #S4 #Bioconductor #GenomicData #IRanges #ComputationalBiology #Transcriptomics #NGS #DataStructures #RProgramming #GeneExpression #Seurat</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

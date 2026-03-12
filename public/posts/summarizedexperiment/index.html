@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 13: SummarizedExperiment · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master SummarizedExperiment, the masterpiece container that unifies all Bioconductor genomic data structures. Learn how this elegant three-part architecture brings together assays, genomic coordinates, and metadata into the standard for experimental genomics.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 13: SummarizedExperiment">
+  <meta name="twitter:description" content="Master SummarizedExperiment, the masterpiece container that unifies all Bioconductor genomic data structures. Learn how this elegant three-part architecture brings together assays, genomic coordinates, and metadata into the standard for experimental genomics.">
+
+<meta property="og:url" content="http://localhost:1313/posts/summarizedexperiment/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 13: SummarizedExperiment">
+  <meta property="og:description" content="Master SummarizedExperiment, the masterpiece container that unifies all Bioconductor genomic data structures. Learn how this elegant three-part architecture brings together assays, genomic coordinates, and metadata into the standard for experimental genomics.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-05T09:30:00+00:00">
+    <meta property="article:modified_time" content="2025-06-05T09:30:00+00:00">
+    <meta property="article:tag" content="SummarizedExperiment">
+    <meta property="article:tag" content="GenomicRanges">
+    <meta property="article:tag" content="DataFrame">
+    <meta property="article:tag" content="RNA-Seq">
+    <meta property="article:tag" content="ChIP-Seq">
+    <meta property="article:tag" content="Bioconductor">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/summarizedexperiment/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/summarizedexperiment/">
+              Foundations of Genomic Data – Post 13: SummarizedExperiment
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-06-05T09:30:00Z">
+                June 5, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a>
+      <span class="separator">•</span>
+    <a href="/categories/experimental-design/">Experimental Design</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/summarizedexperiment/">SummarizedExperiment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/genomicranges/">GenomicRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/dataframe/">DataFrame</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rna-seq/">RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/chip-seq/">ChIP-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/assays/">Assays</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rowranges/">RowRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/coldata/">ColData</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/experimental-genomics/">Experimental Genomics</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-13-summarizedexperiment">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 13: SummarizedExperiment
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-13-summarizedexperiment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-the-masterpiece-container">
+  🚀 The Masterpiece Container
+  <a class="heading-link" href="#-the-masterpiece-container">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After our journey through the foundational components of Bioconductor&mdash;from <strong>GRanges</strong> and <strong>DataFrame</strong> to <strong>plyranges</strong> and <strong>rtracklayer</strong>&mdash;we arrive at the masterpiece that brings it all together: <strong>SummarizedExperiment</strong>. This isn&rsquo;t just another data structure; it&rsquo;s the culmination of thoughtful design that unifies genomic coordinates, experimental measurements, and metadata into a single, powerful object.</p>
+<p>SummarizedExperiment represents the standard container for RNA-seq, ChIP-seq, ATAC-seq, and virtually every experimental genomics workflow in Bioconductor. It elegantly solves the fundamental challenge of keeping experimental data, genomic coordinates, and sample information synchronized&mdash;preventing the nightmare of mismatched annotations that plague many genomic analyses.</p>
+<p>Think of SummarizedExperiment as the Swiss Army knife of experimental genomics: it contains everything you need in one unified, well-organized package.</p>
+<hr>
+<h2 id="-the-elegant-three-part-architecture">
+  🔧 The Elegant Three-Part Architecture
+  <a class="heading-link" href="#-the-elegant-three-part-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>SummarizedExperiment is built around three core components that should feel familiar from our series:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Install if needed</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;SummarizedExperiment&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load libraries</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">SummarizedExperiment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a basic SummarizedExperiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">&lt;-</span> <span class="nf">SummarizedExperiment</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">assays</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="n">count_matrix</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">rowRanges</span> <span class="o">=</span> <span class="n">gene_granges</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span> <span class="o">=</span> <span class="n">sample_metadata</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>Let&rsquo;s create a concrete example to illustrate each component:</p>
+<h3 id="1-assays-the-experimental-measurements">
+  1. Assays: The Experimental Measurements
+  <a class="heading-link" href="#1-assays-the-experimental-measurements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create a count matrix (genes x samples)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">count_matrix</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">rpois</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="m">10</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">dimnames</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;gene&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;sample&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Multiple assays are common (raw counts, normalized, etc.)</span>
+</span></span><span class="line"><span class="cl"><span class="n">normalized_matrix</span> <span class="o">&lt;-</span> <span class="nf">log2</span><span class="p">(</span><span class="n">count_matrix</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="2-rowranges-genomic-coordinates-our-granges-foundation">
+  2. rowRanges: Genomic Coordinates (Our GRanges Foundation!)
+  <a class="heading-link" href="#2-rowranges-genomic-coordinates-our-granges-foundation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create genomic ranges for our features</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_ranges</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;chr1&#34;</span><span class="p">,</span> <span class="s">&#34;chr2&#34;</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span> <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span> <span class="m">5000</span><span class="p">,</span> <span class="m">10000</span><span class="p">,</span> <span class="m">2000</span><span class="p">,</span> <span class="m">8000</span><span class="p">,</span> <span class="m">15000</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">width</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2000</span><span class="p">,</span> <span class="m">1500</span><span class="p">,</span> <span class="m">3000</span><span class="p">,</span> <span class="m">1800</span><span class="p">,</span> <span class="m">2200</span><span class="p">,</span> <span class="m">2500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;+&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">gene_id</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;gene&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">symbol</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;SYMBOL&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">biotype</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;protein_coding&#34;</span><span class="p">,</span> <span class="s">&#34;lncRNA&#34;</span><span class="p">),</span> <span class="m">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="3-coldata-sample-information-our-dataframe-structures">
+  3. colData: Sample Information (Our DataFrame Structures!)
+  <a class="heading-link" href="#3-coldata-sample-information-our-dataframe-structures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Create sample metadata</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample_info</span> <span class="o">&lt;-</span> <span class="nf">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sample_id</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;sample&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">condition</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;control&#34;</span><span class="p">,</span> <span class="s">&#34;treatment&#34;</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">5</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">batch</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sex</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;Male&#34;</span><span class="p">,</span> <span class="s">&#34;Female&#34;</span><span class="p">),</span> <span class="m">10</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">age</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="m">25</span><span class="o">:</span><span class="m">65</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>Now we can create our complete SummarizedExperiment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Combine everything</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">&lt;-</span> <span class="nf">SummarizedExperiment</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">assays</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">counts</span> <span class="o">=</span> <span class="n">count_matrix</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logcounts</span> <span class="o">=</span> <span class="n">normalized_matrix</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">rowRanges</span> <span class="o">=</span> <span class="n">gene_ranges</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span> <span class="o">=</span> <span class="n">sample_info</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Examine the object</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>class: SummarizedExperiment 
+dim: 6 10 
+assays(2): counts logcounts
+rownames(6): gene1 gene2 gene3 gene4 gene5 gene6
+rowData names(3): gene_id symbol biotype
+colnames(10): sample1 sample2 ... sample9 sample10
+colData names(5): sample_id condition batch sex age
+</code></pre>
+<hr>
+<h2 id="-accessing-and-manipulating-data">
+  🔍 Accessing and Manipulating Data
+  <a class="heading-link" href="#-accessing-and-manipulating-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>SummarizedExperiment provides intuitive accessors that connect to everything we&rsquo;ve learned:</p>
+<h3 id="accessing-components">
+  Accessing Components
+  <a class="heading-link" href="#accessing-components">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Access assay data</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assay</span><span class="p">(</span><span class="n">se</span><span class="p">,</span> <span class="s">&#34;counts&#34;</span><span class="p">)</span>           <span class="c1"># First assay</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assay</span><span class="p">(</span><span class="n">se</span><span class="p">,</span> <span class="s">&#34;logcounts&#34;</span><span class="p">)</span>        <span class="c1"># Named assay</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assays</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>                    <span class="c1"># All assays</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access genomic coordinates (our GRanges!)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access sample information (our DataFrame!)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access feature metadata</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>  <span class="c1"># Same as mcols(rowRanges(se))</span>
+</span></span></code></pre></div><h3 id="elegant-subsetting">
+  Elegant Subsetting
+  <a class="heading-link" href="#elegant-subsetting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The real power comes from synchronized subsetting:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Subset by genomic location</span>
+</span></span><span class="line"><span class="cl"><span class="n">chr1_genes</span> <span class="o">&lt;-</span> <span class="n">se</span><span class="nf">[seqnames</span><span class="p">(</span><span class="n">se</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#34;chr1&#34;</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Subset by feature properties</span>
+</span></span><span class="line"><span class="cl"><span class="n">protein_coding</span> <span class="o">&lt;-</span> <span class="n">se</span><span class="nf">[rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">biotype</span> <span class="o">==</span> <span class="s">&#34;protein_coding&#34;</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Subset by sample characteristics</span>
+</span></span><span class="line"><span class="cl"><span class="n">treated_samples</span> <span class="o">&lt;-</span> <span class="n">se[</span><span class="p">,</span> <span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">condition</span> <span class="o">==</span> <span class="s">&#34;treatment&#34;</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Complex combined subsetting</span>
+</span></span><span class="line"><span class="cl"><span class="n">filtered</span> <span class="o">&lt;-</span> <span class="n">se[</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">biotype</span> <span class="o">==</span> <span class="s">&#34;protein_coding&#34;</span> <span class="o">&amp;</span> <span class="nf">width</span><span class="p">(</span><span class="n">se</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">2000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">condition</span> <span class="o">==</span> <span class="s">&#34;treatment&#34;</span> <span class="o">&amp;</span> <span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">age</span> <span class="o">&gt;</span> <span class="m">40</span>
+</span></span><span class="line"><span class="cl"><span class="n">]</span>
+</span></span></code></pre></div><p>Notice how the rows and columns are automatically synchronized&mdash;no risk of mismatched annotations!</p>
+<hr>
+<h2 id="-integration-with-our-foundational-series">
+  ⚡ Integration with Our Foundational Series
+  <a class="heading-link" href="#-integration-with-our-foundational-series">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s see how SummarizedExperiment integrates with all the packages we&rsquo;ve explored:</p>
+<h3 id="1-plyranges-integration">
+  1. plyranges Integration
+  <a class="heading-link" href="#1-plyranges-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">plyranges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use plyranges syntax on SummarizedExperiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">==</span> <span class="s">&#34;chr1&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">mean_expression</span> <span class="o">=</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">.,</span> <span class="s">&#34;counts&#34;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">gene_id</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">mean_expression</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="2-rtracklayer-integration">
+  2. rtracklayer Integration
+  <a class="heading-link" href="#2-rtracklayer-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Export feature ranges</span>
+</span></span><span class="line"><span class="cl"><span class="nf">export</span><span class="p">(</span><span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">),</span> <span class="s">&#34;features.bed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import additional annotations and add to the object</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_annotations</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#34;additional_features.gtf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="nf">[findOverlaps</span><span class="p">(</span><span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">),</span> <span class="n">new_annotations</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s">&#34;first&#34;</span><span class="p">)</span><span class="n">]</span>
+</span></span></code></pre></div><h3 id="3-genomicalignments-connection">
+  3. GenomicAlignments Connection
+  <a class="heading-link" href="#3-genomicalignments-connection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># SummarizedExperiment often created from alignment summaries</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Count reads in features (typical RNA-seq workflow)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bam_files</span> <span class="o">&lt;-</span> <span class="nf">BamFileList</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;sample1.bam&#34;</span><span class="p">,</span> <span class="s">&#34;sample2.bam&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_counts</span> <span class="o">&lt;-</span> <span class="nf">summarizeOverlaps</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">features</span> <span class="o">=</span> <span class="n">gene_ranges</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">reads</span> <span class="o">=</span> <span class="n">bam_files</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mode</span> <span class="o">=</span> <span class="s">&#34;Union&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># gene_counts is already a SummarizedExperiment!</span>
+</span></span></code></pre></div><hr>
+<h2 id="-real-world-applications">
+  💯 Real-World Applications
+  <a class="heading-link" href="#-real-world-applications">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-rna-seq-analysis-workflow">
+  1. RNA-seq Analysis Workflow
+  <a class="heading-link" href="#1-rna-seq-analysis-workflow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Complete RNA-seq analysis setup</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># SummarizedExperiment flows directly into DESeq2</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="nf">DESeqDataSet</span><span class="p">(</span><span class="n">se</span><span class="p">,</span> <span class="n">design</span> <span class="o">=</span> <span class="o">~</span> <span class="n">condition</span> <span class="o">+</span> <span class="n">batch</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter low-count genes using genomic information</span>
+</span></span><span class="line"><span class="cl"><span class="n">keep</span> <span class="o">&lt;-</span> <span class="nf">rowSums</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="m">10</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="m">3</span> <span class="o">&amp;</span> <span class="nf">width</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">500</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds_filtered</span> <span class="o">&lt;-</span> <span class="n">dds[keep</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run differential expression</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds_analyzed</span> <span class="o">&lt;-</span> <span class="nf">DESeq</span><span class="p">(</span><span class="n">dds_filtered</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Results include genomic coordinates automatically</span>
+</span></span><span class="line"><span class="cl"><span class="n">results_df</span> <span class="o">&lt;-</span> <span class="nf">results</span><span class="p">(</span><span class="n">dds_analyzed</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">as.data.frame</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">cbind</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">rowRanges</span><span class="p">(</span><span class="n">dds_analyzed</span><span class="p">)))</span>
+</span></span></code></pre></div><h3 id="2-multi-assay-integration">
+  2. Multi-Assay Integration
+  <a class="heading-link" href="#2-multi-assay-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Adding multiple data types to the same experiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">se_multi</span> <span class="o">&lt;-</span> <span class="n">se</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add protein abundance data</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assay</span><span class="p">(</span><span class="n">se_multi</span><span class="p">,</span> <span class="s">&#34;protein&#34;</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">runif</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">100</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">dimnames</span> <span class="o">=</span> <span class="nf">dimnames</span><span class="p">(</span><span class="n">count_matrix</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add ChIP-seq signal</span>
+</span></span><span class="line"><span class="cl"><span class="nf">assay</span><span class="p">(</span><span class="n">se_multi</span><span class="p">,</span> <span class="s">&#34;h3k4me3&#34;</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">runif</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">dimnames</span> <span class="o">=</span> <span class="nf">dimnames</span><span class="p">(</span><span class="n">count_matrix</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Now we can analyze relationships between data types</span>
+</span></span><span class="line"><span class="cl"><span class="nf">cor</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">se_multi</span><span class="p">,</span> <span class="s">&#34;counts&#34;</span><span class="p">)</span><span class="n">[1</span><span class="p">,</span> <span class="n">]</span><span class="p">,</span> <span class="nf">assay</span><span class="p">(</span><span class="n">se_multi</span><span class="p">,</span> <span class="s">&#34;protein&#34;</span><span class="p">)</span><span class="n">[1</span><span class="p">,</span> <span class="n">]</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="3-genomic-context-analysis">
+  3. Genomic Context Analysis
+  <a class="heading-link" href="#3-genomic-context-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Use genomic coordinates for context analysis</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get promoter regions</span>
+</span></span><span class="line"><span class="cl"><span class="n">promoters</span> <span class="o">&lt;-</span> <span class="nf">promoters</span><span class="p">(</span><span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find genes with promoter overlap</span>
+</span></span><span class="line"><span class="cl"><span class="n">promoter_overlaps</span> <span class="o">&lt;-</span> <span class="nf">findOverlaps</span><span class="p">(</span><span class="nf">rowRanges</span><span class="p">(</span><span class="n">se</span><span class="p">),</span> <span class="n">promoters</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add promoter information</span>
+</span></span><span class="line"><span class="cl"><span class="nf">rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">has_promoter</span> <span class="o">&lt;-</span> <span class="nf">seq_len</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">se</span><span class="p">))</span> <span class="o">%in%</span> <span class="nf">queryHits</span><span class="p">(</span><span class="n">promoter_overlaps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Analyze expression by genomic context</span>
+</span></span><span class="line"><span class="cl"><span class="nf">boxplot</span><span class="p">(</span><span class="nf">rowMeans</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">se</span><span class="p">,</span> <span class="s">&#34;counts&#34;</span><span class="p">))</span> <span class="o">~</span> <span class="nf">rowData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span><span class="o">$</span><span class="n">has_promoter</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ylab</span> <span class="o">=</span> <span class="s">&#34;Mean Expression&#34;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&#34;Has Promoter Overlap&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-the-complete-integration-story">
+  🎯 The Complete Integration Story
+  <a class="heading-link" href="#-the-complete-integration-story">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s trace the complete data flow that brings together our entire series:</p>
+<h3 id="1-data-generation-and-quality-control">
+  1. Data Generation and Quality Control
+  <a class="heading-link" href="#1-data-generation-and-quality-control">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Start with raw sequencing data (ShortRead)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ShortRead</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw_reads</span> <span class="o">&lt;-</span> <span class="nf">readFastq</span><span class="p">(</span><span class="s">&#34;sample.fastq&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">clean_reads</span> <span class="o">&lt;-</span> <span class="n">raw_reads</span><span class="nf">[quality_filter</span><span class="p">(</span><span class="n">raw_reads</span><span class="p">)</span><span class="n">]</span>
+</span></span></code></pre></div><h3 id="2-sequence-processing">
+  2. Sequence Processing
+  <a class="heading-link" href="#2-sequence-processing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Extract and manipulate sequences (Biostrings)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sequences</span> <span class="o">&lt;-</span> <span class="nf">sread</span><span class="p">(</span><span class="n">clean_reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gc_content</span> <span class="o">&lt;-</span> <span class="nf">letterFrequency</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="s">&#34;GC&#34;</span><span class="p">,</span> <span class="n">as.prob</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="3-alignment-and-counting">
+  3. Alignment and Counting
+  <a class="heading-link" href="#3-alignment-and-counting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Align reads and count (GenomicAlignments)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aligned_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;aligned.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gene_counts</span> <span class="o">&lt;-</span> <span class="nf">summarizeOverlaps</span><span class="p">(</span><span class="n">gene_ranges</span><span class="p">,</span> <span class="n">aligned_reads</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="4-annotation-import">
+  4. Annotation Import
+  <a class="heading-link" href="#4-annotation-import">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Import additional annotations (rtracklayer)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">additional_features</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#34;annotations.gtf&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="5-unified-container-creation">
+  5. Unified Container Creation
+  <a class="heading-link" href="#5-unified-container-creation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Combine into SummarizedExperiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">final_se</span> <span class="o">&lt;-</span> <span class="nf">SummarizedExperiment</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">assays</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">counts</span> <span class="o">=</span> <span class="nf">assay</span><span class="p">(</span><span class="n">gene_counts</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">rowRanges</span> <span class="o">=</span> <span class="nf">rowRanges</span><span class="p">(</span><span class="n">gene_counts</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span> <span class="o">=</span> <span class="nf">DataFrame</span><span class="p">(</span><span class="n">sample_metadata</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="6-elegant-analysis">
+  6. Elegant Analysis
+  <a class="heading-link" href="#6-elegant-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Manipulate with plyranges</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">plyranges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">&lt;-</span> <span class="n">final_se</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">==</span> <span class="s">&#34;chr1&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">mean_expr</span> <span class="o">=</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">.,</span> <span class="s">&#34;counts&#34;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">mean_expr</span><span class="p">))</span>
+</span></span></code></pre></div><hr>
+<h2 id="-why-this-design-is-brilliant">
+  🧠 Why This Design is Brilliant
+  <a class="heading-link" href="#-why-this-design-is-brilliant">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>SummarizedExperiment represents more than just a container&mdash;it embodies software engineering principles that solve real problems:</p>
+<h3 id="1-enforced-best-practices">
+  1. Enforced Best Practices
+  <a class="heading-link" href="#1-enforced-best-practices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The structure prevents common errors: - No mismatched sample orders - Automatic synchronization of metadata - Type safety for different data components</p>
+<h3 id="2-scalability">
+  2. Scalability
+  <a class="heading-link" href="#2-scalability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Works seamlessly from simple experiments to complex multi-omics studies: - Single assay to dozens of assays - Few samples to thousands of samples - Simple metadata to complex experimental designs</p>
+<h3 id="3-ecosystem-integration">
+  3. Ecosystem Integration
+  <a class="heading-link" href="#3-ecosystem-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Serves as the common currency for Bioconductor: - 100+ packages accept SummarizedExperiment objects - Consistent interface across different analysis types - Enables package interoperability</p>
+<h3 id="4-reproducibility">
+  4. Reproducibility
+  <a class="heading-link" href="#4-reproducibility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Encourages reproducible research through: - Self-documenting data structures - Version-controlled metadata - Explicit experimental design representation</p>
+<hr>
+<h2 id="-the-foundation-complete">
+  🌟 The Foundation Complete
+  <a class="heading-link" href="#-the-foundation-complete">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>SummarizedExperiment represents the culmination of everything we&rsquo;ve learned in this series. It demonstrates how thoughtful data structures enable powerful, reproducible genomic research by:</p>
+<ul>
+<li><strong>Unifying diverse data types</strong> into a coherent framework</li>
+<li><strong>Leveraging specialized components</strong> (GRanges, DataFrame, etc.) for their strengths</li>
+<li><strong>Enforcing good practices</strong> through structural constraints</li>
+<li><strong>Enabling elegant analysis</strong> through consistent interfaces</li>
+<li><strong>Supporting the entire research lifecycle</strong> from raw data to publication</li>
+</ul>
+<p>Our journey through the foundations of genomic data handling is complete. We&rsquo;ve seen how each component&mdash;from the basic IRanges to the comprehensive SummarizedExperiment&mdash;contributes to a powerful, integrated ecosystem for genomic research.</p>
+<p>The beauty of Bioconductor lies not just in individual packages, but in how they work together to create something greater than the sum of their parts. SummarizedExperiment is the perfect embodiment of this philosophy.</p>
+<hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>While our foundational series is complete, the journey into specialized genomic analyses has just begun! Future posts will explore domain-specific packages that build upon these foundations for RNA-seq, ChIP-seq, single-cell analysis, and beyond! 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How has this series changed your approach to genomic data analysis? Which package has been most transformative for your work? Drop a comment below! 👇</p>
+<p>#Bioinformatics #RStats #SummarizedExperiment #Bioconductor #RNAseq #ChIPseq #GenomicRanges #DataFrame #ExperimentalGenomics #DataScience #ComputationalBiology #Genomics</p>
+<p><img src="/images/SummarizedExperiment_post_image.png" alt="SummarizedExperiment Schematic"></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A detailed guide on trimming and filtering RNA-Seq reads with Trimmomatic. Learn about adapter removal, quality thresholds, command structure, and best practices for preprocessing.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 4: Read Trimming & Filtering with Trimmomatic">
+  <meta name="twitter:description" content="A detailed guide on trimming and filtering RNA-Seq reads with Trimmomatic. Learn about adapter removal, quality thresholds, command structure, and best practices for preprocessing.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-trimming/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 4: Read Trimming & Filtering with Trimmomatic">
+  <meta property="og:description" content="A detailed guide on trimming and filtering RNA-Seq reads with Trimmomatic. Learn about adapter removal, quality thresholds, command structure, and best practices for preprocessing.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-24T06:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-24T06:00:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="Trimmomatic">
+    <meta property="article:tag" content="Cutadapt">
+    <meta property="article:tag" content="Quality Control">
+    <meta property="article:tag" content="Read Trimming">
+    <meta property="article:tag" content="Preprocessing">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-trimming/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-trimming/">
+              Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-24T06:00:00Z">
+                March 24, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/trimmomatic/">Trimmomatic</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cutadapt/">Cutadapt</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/quality-control/">Quality Control</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/read-trimming/">Read Trimming</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/preprocessing/">Preprocessing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-4-read-trimming--filtering-with-trimmomatic">
+  🔬 Bulk RNA-Seq Series &ndash; Post 4: Read Trimming &amp; Filtering with Trimmomatic
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-4-read-trimming--filtering-with-trimmomatic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-trimming-matters-in-rna-seq">
+  🛠 Why Trimming Matters in RNA-Seq
+  <a class="heading-link" href="#-why-trimming-matters-in-rna-seq">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After running <strong>FastQC</strong> and <strong>MultiQC</strong>, it&rsquo;s clear that raw sequencing reads often contain:</p>
+<p>✔️ Adapter contamination<br>
+✔️ Low-quality ends<br>
+✔️ Short or poor-quality reads</p>
+<p>These issues can <strong>significantly compromise read alignment</strong>, inflate error rates, and introduce bias into differential expression analysis.</p>
+<p><strong>Trimming and filtering</strong> your reads is a critical preprocessing step to ensure that downstream analysis is based on <strong>reliable, high-confidence data</strong>.</p>
+<hr>
+<h2 id="-a-brief-history-of-trimming-tools">
+  🧪 A Brief History of Trimming Tools
+  <a class="heading-link" href="#-a-brief-history-of-trimming-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-cutadapt-the-trailblazer">
+  🔹 <strong>Cutadapt: The Trailblazer</strong>
+  <a class="heading-link" href="#-cutadapt-the-trailblazer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cutadapt, written in Python, was one of the <strong>first adapter trimming tools</strong> widely adopted in the bioinformatics community. It&rsquo;s praised for:</p>
+<ul>
+<li>Simplicity in syntax</li>
+<li>Excellent adapter matching capabilities</li>
+<li>Compatibility with custom adapter sequences</li>
+</ul>
+<p>While still used in many workflows, Cutadapt is primarily focused on <strong>adapter removal</strong> and <strong>requires additional tools</strong> for quality trimming and filtering.</p>
+<hr>
+<h3 id="-trimmomatic-the-versatile-standard">
+  🔧 <strong>Trimmomatic: The Versatile Standard</strong>
+  <a class="heading-link" href="#-trimmomatic-the-versatile-standard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Trimmomatic, developed by the <strong>Usadel Lab</strong>, has become the <strong>standard tool</strong> for comprehensive read trimming in RNA-Seq workflows.</p>
+<p>✔️ Written in Java &ndash; runs on most platforms with Java installed<br>
+✔️ Supports both <strong>single-end</strong> and <strong>paired-end</strong> reads<br>
+✔️ Performs adapter clipping, quality trimming, and length filtering in one command<br>
+✔️ Highly customizable and script-friendly</p>
+<p>It&rsquo;s especially valued in <strong>automated pipelines</strong> and high-throughput analysis environments.</p>
+<hr>
+<h2 id="-typical-trimmomatic-command-paired-end-example">
+  🚀 Typical Trimmomatic Command (Paired-End Example)
+  <a class="heading-link" href="#-typical-trimmomatic-command-paired-end-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java -jar trimmomatic.jar PE <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R1.fastq.gz sample_R2.fastq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R1_paired.fq.gz sample_R1_unpaired.fq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R2_paired.fq.gz sample_R2_unpaired.fq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ILLUMINACLIP:adapters.fa:2:30:10 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  LEADING:3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  TRAILING:3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  SLIDINGWINDOW:4:20 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  MINLEN:36
+</span></span></code></pre></div><h3 id="-what-each-option-does">
+  🔍 What Each Option Does:
+  <a class="heading-link" href="#-what-each-option-does">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><code>ILLUMINACLIP:adapters.fa:2:30:10</code> &ndash; Detects and removes adapter contamination</li>
+<li><code>LEADING:3</code> &ndash; Removes bases from the start of a read if below quality 3</li>
+<li><code>TRAILING:3</code> &ndash; Removes bases from the end of a read if below quality 3</li>
+<li><code>SLIDINGWINDOW:4:20</code> &ndash; Performs sliding window trimming; trims when average quality within a 4-base window falls below 20</li>
+<li><code>MINLEN:36</code> &ndash; Discards reads shorter than 36 bases after trimming</li>
+</ul>
+<p>These settings represent a <strong>balanced, commonly used configuration</strong> for general RNA-Seq quality filtering.</p>
+<hr>
+<h2 id="-other-common-options-in-trimmomatic">
+  📘 Other Common Options in Trimmomatic
+  <a class="heading-link" href="#-other-common-options-in-trimmomatic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Option</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>CROP:&lt;length&gt;</code></td>
+          <td>Cuts the read to a maximum length from the start</td>
+      </tr>
+      <tr>
+          <td><code>HEADCROP:&lt;length&gt;</code></td>
+          <td>Removes a set number of bases from the start of each read</td>
+      </tr>
+      <tr>
+          <td><code>AVGQUAL:&lt;threshold&gt;</code></td>
+          <td>Discards reads with average quality below a given threshold</td>
+      </tr>
+      <tr>
+          <td><code>TOPHRED33</code> or <code>TOPHRED64</code></td>
+          <td>Ensures Phred quality scores are in the desired encoding</td>
+      </tr>
+  </tbody>
+</table>
+<p>These options are useful for <strong>fine-tuning your pipeline</strong> to specific sequencing platforms or QC requirements.</p>
+<hr>
+<h2 id="-best-practices-for-trimming">
+  📄 Best Practices for Trimming
+  <a class="heading-link" href="#-best-practices-for-trimming">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ Always use the correct adapter file for your library prep kit (e.g. Illumina TruSeq, Nextera)<br>
+✅ Re-run <strong>FastQC</strong> post-trimming to verify improvements<br>
+✅ Maintain paired/unpaired file integrity &ndash; important for aligners like <strong>STAR</strong> and <strong>HISAT2</strong><br>
+✅ Adjust <code>MINLEN</code> to avoid discarding valuable short transcripts, especially in degraded RNA samples</p>
+<hr>
+<h2 id="-when-to-use-cutadapt-instead">
+  🔄 When to Use Cutadapt Instead
+  <a class="heading-link" href="#-when-to-use-cutadapt-instead">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>While Trimmomatic is the go-to tool for many workflows, <strong>Cutadapt</strong> is preferable when: - You need precise control over adapter trimming - You&rsquo;re working with non-standard adapter sequences - You want a simpler syntax for small-scale projects</p>
+<p>Cutadapt also integrates well with modern wrappers like <strong>Trim Galore!</strong> and <strong>fastp</strong>.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ Trimming removes unwanted adapter sequences and improves data quality<br>
+✔️ Trimmomatic is a robust, flexible tool that handles both SE and PE reads<br>
+✔️ Proper configuration of trimming parameters improves mapping and downstream results<br>
+✔️ Post-trimming quality checks are essential for validating preprocessing effectiveness</p>
+<p>📌 <strong>Next up: Read Alignment with STAR &amp; HISAT2! Stay tuned! 🚀</strong></p>
+<p>👇 <strong>What trimming strategies have worked best for your RNA-Seq projects? Let&rsquo;s discuss!</strong></p>
+<p>#RNASeq #Trimmomatic #Cutadapt #Bioinformatics #Transcriptomics #Genomics #ComputationalBiology #DataScience #OpenScience</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

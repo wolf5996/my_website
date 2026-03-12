@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A deep dive into RNA-Seq reads and the FASTQ file format, covering sequencing technologies, quality scores, paired-end vs. single-end reads, and best practices for preprocessing.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads & FASTQ Files">
+  <meta name="twitter:description" content="A deep dive into RNA-Seq reads and the FASTQ file format, covering sequencing technologies, quality scores, paired-end vs. single-end reads, and best practices for preprocessing.">
+
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-fastq/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads & FASTQ Files">
+  <meta property="og:description" content="A deep dive into RNA-Seq reads and the FASTQ file format, covering sequencing technologies, quality scores, paired-end vs. single-end reads, and best practices for preprocessing.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-19T11:45:00+00:00">
+    <meta property="article:modified_time" content="2025-03-19T11:45:00+00:00">
+    <meta property="article:tag" content="Bulk RNA-Seq">
+    <meta property="article:tag" content="FASTQ">
+    <meta property="article:tag" content="Sequencing Reads">
+    <meta property="article:tag" content="Quality Control">
+    <meta property="article:tag" content="Preprocessing">
+    <meta property="article:tag" content="Computational Biology">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-fastq/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-fastq/">
+              Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-19T11:45:00Z">
+                March 19, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/rna-seq/">RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/transcriptomics/">Transcriptomics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/bulk-rna-seq/">Bulk RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/fastq/">FASTQ</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sequencing-reads/">Sequencing Reads</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/quality-control/">Quality Control</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/preprocessing/">Preprocessing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-bulk-rna-seq-series----post-2-understanding-rna-seq-reads--fastq-files">
+  🔬 Bulk RNA-Seq Series &ndash; Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files
+  <a class="heading-link" href="#-bulk-rna-seq-series----post-2-understanding-rna-seq-reads--fastq-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-what-are-rna-seq-reads">
+  🛠 What Are RNA-Seq Reads?
+  <a class="heading-link" href="#-what-are-rna-seq-reads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>RNA sequencing (RNA-Seq) generates <strong>millions of short reads</strong> that represent fragments of transcribed RNA molecules. These reads provide <strong>valuable insights</strong> into gene expression, alternative splicing, transcript abundance, and novel transcript discovery.</p>
+<p>✔️ Each read is a <strong>short fragment</strong> of cDNA generated during sequencing<br>
+✔️ Reads can be <strong>single-end (SE) or paired-end (PE)</strong><br>
+✔️ Sequencing technologies generate raw reads in the <strong>FASTQ format</strong>, which we will explore in detail</p>
+<p>Understanding RNA-Seq reads and their storage format is <strong>crucial</strong> for preprocessing and downstream analysis.</p>
+<hr>
+<h2 id="-the-fastq-format----storing-sequencing-reads">
+  📚 The FASTQ Format &ndash; Storing Sequencing Reads
+  <a class="heading-link" href="#-the-fastq-format----storing-sequencing-reads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>FASTQ file</strong> is the standard format for storing <strong>raw sequencing reads</strong>. It contains both the <strong>nucleotide sequences</strong> and <strong>quality scores</strong> for each read.</p>
+<p>Each read in a FASTQ file consists of <strong>four lines</strong>:</p>
+<p>1️⃣ <strong>Read Identifier</strong> &ndash; The unique read name, usually from the sequencer<br>
+2️⃣ <strong>Sequence</strong> &ndash; The actual nucleotide sequence (A, T, G, C)<br>
+3️⃣ <strong>Separator (<code>+</code>)</strong> &ndash; A separator line, sometimes repeating the identifier<br>
+4️⃣ <strong>Quality Scores</strong> &ndash; ASCII-encoded Phred scores indicating the confidence in each base call</p>
+<h3 id="example-fastq-entry">
+  <strong>Example FASTQ Entry:</strong>
+  <a class="heading-link" href="#example-fastq-entry">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">@SEQ_ID
+</span></span><span class="line"><span class="cl">GATTTGGGGTTCAAAGCAGTATCGATCAAAGGGTGCCCGATAG
+</span></span><span class="line"><span class="cl">+
+</span></span><span class="line"><span class="cl">!<span class="s1">&#39;&#39;</span>*<span class="o">((((</span>***+<span class="o">))</span>%%%++<span class="o">)(</span>%%%%<span class="o">)</span>.1***-+*<span class="s1">&#39;&#39;</span><span class="o">))</span>**55CCF
+</span></span></code></pre></div><p>🔹 <strong>Identifier (<code>@SEQ_ID</code>)</strong> &ndash; Read ID generated by the sequencer<br>
+🔹 <strong>Sequence (<code>GATTTGGGGTT...</code>)</strong> &ndash; The actual RNA-derived sequence<br>
+🔹 <strong>Separator (<code>+</code>)</strong> &ndash; Marks the beginning of the quality score line<br>
+🔹 <strong>Quality Scores (<code>!''*((...</code>)</strong> &ndash; ASCII-encoded Phred scores indicating confidence per base</p>
+<p>These quality scores help determine <strong>which reads are reliable</strong> and should be retained for analysis.</p>
+<hr>
+<h2 id="-single-end-vspaired-end-reads----whats-the-difference">
+  📊 Single-End vs. Paired-End Reads &ndash; What&rsquo;s the Difference?
+  <a class="heading-link" href="#-single-end-vspaired-end-reads----whats-the-difference">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>RNA-Seq reads can be generated in two different formats: <strong>Single-End (SE) or Paired-End (PE)</strong>.</p>
+<h3 id="-single-end-se-reads">
+  <strong>🔹 Single-End (SE) Reads:</strong>
+  <a class="heading-link" href="#-single-end-se-reads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ Only <strong>one read per fragment</strong> is sequenced<br>
+✔️ Faster and cheaper sequencing<br>
+✔️ Suitable for <strong>gene expression quantification</strong><br>
+✔️ Less accurate for transcript assembly or alternative splicing studies</p>
+<h3 id="-paired-end-pe-reads">
+  <strong>🔹 Paired-End (PE) Reads:</strong>
+  <a class="heading-link" href="#-paired-end-pe-reads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>Two reads per fragment (forward &amp; reverse strand)</strong><br>
+✔️ Improved <strong>alignment accuracy</strong> due to extra information<br>
+✔️ Essential for <strong>alternative splicing detection</strong> and transcript assembly<br>
+✔️ <strong>More expensive &amp; computationally intensive</strong></p>
+<p>💡 <strong>Choosing Between SE &amp; PE Reads:</strong> If your goal is simple <strong>gene expression analysis</strong>, single-end reads might be sufficient. However, for <strong>isoform discovery and structural variation detection</strong>, paired-end sequencing is <strong>highly recommended</strong>.</p>
+<hr>
+<h2 id="-quality-control----ensuring-high-quality-reads">
+  📈 Quality Control &ndash; Ensuring High-Quality Reads
+  <a class="heading-link" href="#-quality-control----ensuring-high-quality-reads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Before aligning reads to a reference genome, it&rsquo;s crucial to check sequencing quality. Poor-quality reads introduce <strong>errors, misalignments, and biases</strong> in downstream analyses.</p>
+<h3 id="-quality-control-tools">
+  <strong>🛠 Quality Control Tools</strong>
+  <a class="heading-link" href="#-quality-control-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>FastQC</strong> &ndash; Generates per-sample <strong>quality control reports</strong></p>
+<p>✔️ <strong>MultiQC</strong> &ndash; Aggregates QC reports from multiple samples into a single summary</p>
+<p>✔️ <strong>Trimmomatic &amp; Cutadapt</strong> &ndash; Removes <strong>adapter sequences</strong> and low-quality bases</p>
+<h3 id="-what-does-fastqc-check">
+  <strong>🔹 What Does FastQC Check?</strong>
+  <a class="heading-link" href="#-what-does-fastqc-check">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>Per-base sequence quality</strong> &ndash; Detects low-quality regions in reads<br>
+✔️ <strong>Adapter contamination</strong> &ndash; Identifies non-biological adapter sequences<br>
+✔️ <strong>Overrepresented sequences</strong> &ndash; Flags possible technical artifacts<br>
+✔️ <strong>GC content distribution</strong> &ndash; Checks for biases in nucleotide composition</p>
+<h3 id="-running-fastqc-on-a-fastq-file">
+  <strong>🔹 Running FastQC on a FASTQ File:</strong>
+  <a class="heading-link" href="#-running-fastqc-on-a-fastq-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fastqc sample_1.fastq.gz -o qc_reports/
+</span></span></code></pre></div><p>✅ This generates an HTML report with detailed QC metrics.</p>
+<hr>
+<h2 id="-preprocessing-fastq-files----cleaning-your-data">
+  🔄 <strong>Preprocessing FASTQ Files &ndash; Cleaning Your Data</strong>
+  <a class="heading-link" href="#-preprocessing-fastq-files----cleaning-your-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After quality assessment, the next step is <strong>trimming and filtering</strong> the reads. This removes <strong>low-quality bases, adapters, and contaminants</strong>, ensuring only <strong>high-quality reads</strong> proceed to alignment.</p>
+<h3 id="-trimming-adapters-with-cutadapt">
+  <strong>🔹 Trimming Adapters with Cutadapt:</strong>
+  <a class="heading-link" href="#-trimming-adapters-with-cutadapt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cutadapt -a AGATCGGAAGAGC -o sample_trimmed.fastq.gz sample_1.fastq.gz
+</span></span></code></pre></div><p>✅ This command removes Illumina adapters and outputs a <strong>cleaned FASTQ file</strong>.</p>
+<h3 id="-trimming-low-quality-bases-with-trimmomatic">
+  <strong>🔹 Trimming Low-Quality Bases with Trimmomatic:</strong>
+  <a class="heading-link" href="#-trimming-low-quality-bases-with-trimmomatic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">trimmomatic SE -phred33 sample_1.fastq.gz sample_clean.fastq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+</span></span></code></pre></div><p>✅ This <strong>removes low-quality bases</strong> while ensuring that only reads longer than <strong>36 bases</strong> are retained.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📌 <strong>Key Takeaways</strong>
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✔️ <strong>RNA-Seq reads are stored in FASTQ files</strong>, containing both sequences and quality scores.<br>
+✔️ <strong>Paired-end reads</strong> provide better alignment accuracy and are essential for transcript assembly.<br>
+✔️ <strong>Quality control (FastQC, MultiQC)</strong> ensures that poor-quality reads do not interfere with downstream analysis.<br>
+✔️ <strong>Preprocessing (Cutadapt, Trimmomatic)</strong> removes adapter sequences and improves read quality before alignment.</p>
+<p>📌 <strong>Next up: Quality Control with FastQC &amp; MultiQC! Stay tuned! 🚀</strong></p>
+<p>👇 <strong>How do you handle FASTQ quality control in your workflow? Let&rsquo;s discuss!</strong></p>
+<p>#RNASeq #Bioinformatics #FASTQ #Genomics #ComputationalBiology #Transcriptomics #DataScience #OpenScience</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

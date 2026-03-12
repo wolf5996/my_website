@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Essential CLI Tools You Should Know - Part 2: zoxide &amp; ouch · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A deep dive into two essential CLI tools, `zoxide` and `ouch`, that will enhance your workflow.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Essential CLI Tools You Should Know - Part 2: zoxide & ouch">
+  <meta name="twitter:description" content="A deep dive into two essential CLI tools, `zoxide` and `ouch`, that will enhance your workflow.">
+
+<meta property="og:url" content="http://localhost:1313/posts/cli-tools-zoxide-ouch/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Essential CLI Tools You Should Know - Part 2: zoxide & ouch">
+  <meta property="og:description" content="A deep dive into two essential CLI tools, `zoxide` and `ouch`, that will enhance your workflow.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-18T00:00:00+00:00">
+    <meta property="article:tag" content="CLI">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="SysAdmin">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Automation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/cli-tools-zoxide-ouch/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/cli-tools-zoxide-ouch/">
+              Essential CLI Tools You Should Know - Part 2: zoxide &amp; ouch
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-12-18T00:00:00Z">
+                December 18, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/cli-tools/">CLI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/linux/">Linux</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/cli/">CLI</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/linux/">Linux</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sysadmin/">SysAdmin</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/devops/">DevOps</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-essential-cli-tools-you-should-know---part-2-zoxide--ouch">
+  🛠️ Essential CLI Tools You Should Know - Part 2: <code>zoxide</code> &amp; <code>ouch</code>
+  <a class="heading-link" href="#-essential-cli-tools-you-should-know---part-2-zoxide--ouch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>The command line is <strong>powerful</strong>, but it can also be <strong>tedious</strong>. Navigating deep directory structures or handling compressed files can slow down even the best workflows. Fortunately, two <strong>modern CLI tools</strong> solve these pain points:</p>
+<ul>
+<li><strong><code>zoxide</code></strong> → A smarter, faster way to <code>cd</code></li>
+<li><strong><code>ouch</code></strong> → The easiest way to compress &amp; extract files</li>
+</ul>
+<hr>
+<h2 id="-zoxide----a-smarter-cd">
+  🌟 <code>zoxide</code> &ndash; A Smarter <code>cd</code>
+  <a class="heading-link" href="#-zoxide----a-smarter-cd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Tired of typing long, repetitive paths? <code>zoxide</code> <strong>learns your most-used directories</strong> and lets you jump to them instantly. No more <code>cd ../../../../some/deep/folder</code> nonsense!</p>
+<h3 id="-why-zoxide">
+  🔹 Why <code>zoxide</code>?
+  <a class="heading-link" href="#-why-zoxide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✅ <strong>Learns your habits</strong> &ndash; The more you use it, the smarter it gets<br>
+✅ <strong>Fuzzy matching</strong> &ndash; Jump to directories without typing the full path<br>
+✅ <strong>Integrates with all shells</strong> &ndash; Works with Bash, Zsh, Fish, and more<br>
+✅ <strong>Super fast</strong> &ndash; Finds directories instantly</p>
+<h3 id="-quick-start">
+  ⚡ Quick Start
+  <a class="heading-link" href="#-quick-start">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="-install">
+  📥 Install:
+  <a class="heading-link" href="#-install">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Ubuntu/Debian:</strong> <code>cargo install zoxide</code></li>
+<li><strong>MacOS:</strong> <code>brew install zoxide</code></li>
+</ul>
+<h4 id="-common-usage">
+  💡 Common Usage:
+  <a class="heading-link" href="#-common-usage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Replace `cd` with `z`</span>
+</span></span><span class="line"><span class="cl">zoxide init bash <span class="p">|</span> <span class="nb">source</span>  <span class="c1"># Or `zoxide init zsh | source`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Jump to frequently used directories</span>
+</span></span><span class="line"><span class="cl">z project  <span class="c1"># Navigates to ~/Documents/project if used frequently</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># List most-used directories</span>
+</span></span><span class="line"><span class="cl">zoxide query
+</span></span></code></pre></div><p>🔥 <strong>Why use it?</strong> <code>zoxide</code> <strong>remembers your habits</strong>, making navigation effortless!</p>
+<hr>
+<h2 id="-ouch----the-ultimate-compression--extraction-tool">
+  🌟 <code>ouch</code> &ndash; The Ultimate Compression &amp; Extraction Tool
+  <a class="heading-link" href="#-ouch----the-ultimate-compression--extraction-tool">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Dealing with compressed files shouldn&rsquo;t require memorizing dozens of flags. <code>ouch</code> simplifies <strong>archiving and extracting</strong> into a single, intuitive command.</p>
+<h3 id="-why-ouch">
+  🔹 Why <code>ouch</code>?
+  <a class="heading-link" href="#-why-ouch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✅ <strong>Universal syntax</strong> &ndash; One command for all archive formats<br>
+✅ <strong>Multi-file compression</strong> &ndash; Compress multiple files at once<br>
+✅ <strong>Auto-detects formats</strong> &ndash; No need to specify <code>.tar.gz</code>, <code>.zip</code>, <code>.7z</code> manually<br>
+✅ <strong>Works everywhere</strong> &ndash; Cross-platform and written in Rust</p>
+<h3 id="-quick-start-1">
+  ⚡ Quick Start
+  <a class="heading-link" href="#-quick-start-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="-install-1">
+  📥 Install:
+  <a class="heading-link" href="#-install-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Ubuntu/Debian:</strong> <code>cargo install ouch</code></li>
+<li><strong>MacOS:</strong> <code>brew install ouch</code></li>
+</ul>
+<h4 id="-common-usage-1">
+  💡 Common Usage:
+  <a class="heading-link" href="#-common-usage-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Extract any compressed file</span>
+</span></span><span class="line"><span class="cl">ouch x archive.zip  <span class="c1"># Extracts `archive.zip`, detecting format automatically</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Compress multiple files</span>
+</span></span><span class="line"><span class="cl">ouch c file1.txt file2.txt archive.tar.gz  <span class="c1"># Creates `archive.tar.gz`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># List archive contents</span>
+</span></span><span class="line"><span class="cl">ouch l archive.zip
+</span></span></code></pre></div><p>🔥 <strong>Why use it?</strong> No more juggling <code>tar</code>, <code>gzip</code>, <code>unzip</code>, or <code>7z</code>&mdash;<code>ouch</code> <strong>does it all</strong>!</p>
+<hr>
+<h2 id="-final-thoughts">
+  ✅ Final Thoughts
+  <a class="heading-link" href="#-final-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Both <code>zoxide</code> and <code>ouch</code> <strong>simplify everyday terminal tasks</strong>, making CLI life much easier.</p>
+<h3 id="-pro-tips">
+  🔥 Pro Tips:
+  <a class="heading-link" href="#-pro-tips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>🔸 <strong>Make <code>zoxide</code> the default <code>cd</code></strong> by adding this to <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cd</span><span class="o">=</span><span class="s2">&#34;z&#34;</span>
+</span></span></code></pre></div><p>🔸 <strong>Use <code>ouch</code> for quick file transfers</strong> &ndash; No need to manually extract archives first!</p>
+<p>🚀 <strong>These tools will save you countless keystrokes and headaches!</strong></p>
+<hr>
+<h3 id="-want-more">
+  📢 Want more?
+  <a class="heading-link" href="#-want-more">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>🔗 Check out my <strong>full blog here</strong>: <a href="https://badran-elshenawy.netlify.app/posts/"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app/posts</a></p>
+<p>#CLI #Linux #Productivity #SysAdmin #DevOps #Automation</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

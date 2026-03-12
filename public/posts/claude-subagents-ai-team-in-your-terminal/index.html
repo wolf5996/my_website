@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master Claude Code subagents - spawn parallel AI specialists that explore, test, review, and document your code simultaneously. Learn built-in agents, custom creation, and real bioinformatics workflows.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!">
+  <meta name="twitter:description" content="Master Claude Code subagents - spawn parallel AI specialists that explore, test, review, and document your code simultaneously. Learn built-in agents, custom creation, and real bioinformatics workflows.">
+
+<meta property="og:url" content="http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!">
+  <meta property="og:description" content="Master Claude Code subagents - spawn parallel AI specialists that explore, test, review, and document your code simultaneously. Learn built-in agents, custom creation, and real bioinformatics workflows.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-06T09:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-06T09:00:00+00:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Subagents">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Parallel Processing">
+    <meta property="article:tag" content="Custom Agents">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/">
+              Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-03-06T09:00:00Z">
+                March 6, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/ai-tools/">AI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a>
+      <span class="separator">•</span>
+    <a href="/categories/claude/">Claude</a>
+      <span class="separator">•</span>
+    <a href="/categories/research-tools/">Research Tools</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/claude/">Claude</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/claude-code/">Claude Code</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/subagents/">Subagents</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-agents/">AI Agents</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/parallel-processing/">Parallel Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/custom-agents/">Custom Agents</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-workflow/">AI Workflow</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/automation/">Automation</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/research-productivity/">Research Productivity</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/agent-teams/">Agent Teams</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>What if one Claude wasn&rsquo;t enough? 🤯</p>
+<p>In Post 7, we gave Claude the ability to talk to the outside world through MCPs - databases, APIs, PubMed, GitHub, you name it! 🌍</p>
+<p>Now we&rsquo;re going even further. Claude can talk to ITSELF - spawning specialized copies that work on different parts of your problem AT THE SAME TIME! ⚡</p>
+<p>Welcome to subagents - the feature that turns your terminal into a full AI research team! 🧑‍🔬🧑‍🔬🧑‍🔬</p>
+<h2 id="what-are-subagents-">
+  WHAT ARE SUBAGENTS? 🎯
+  <a class="heading-link" href="#what-are-subagents-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Subagents are specialized AI assistants that your main Claude session can spawn to handle specific tasks! 🧬</p>
+<p>Each subagent gets:</p>
+<ul>
+<li>Its own context window (completely separate from your main conversation!)</li>
+<li>A custom system prompt (specialized instructions for its job!)</li>
+<li>Specific tool access (you control what it can and can&rsquo;t do!)</li>
+<li>Independent permissions (read-only, full access, whatever you need!)</li>
+</ul>
+<p>Think of it like a lab PI delegating to postdocs! 🏛️</p>
+<p>You&rsquo;re the PI talking to Claude (the lab manager). Claude then assigns specific tasks to specialized subagents (the postdocs) who each go off, do their focused work, and come back with results!</p>
+<p>The key insight: subagents work INDEPENDENTLY and return results to your main session. They don&rsquo;t clutter your main conversation with all the intermediate work! 🧹</p>
+<h2 id="why-not-just-ask-claude-directly-">
+  WHY NOT JUST ASK CLAUDE DIRECTLY? 🔬
+  <a class="heading-link" href="#why-not-just-ask-claude-directly-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This is the question everyone asks - and the answer is beautifully simple!</p>
+<p><strong>Context window preservation</strong> is the number one reason! 💡</p>
+<p>Every file Claude reads, every search it runs, every error message it processes - all of that eats into your conversation&rsquo;s context window. Do enough exploration and your main session starts forgetting earlier instructions! 😰</p>
+<p>Subagents solve this completely! They do all the heavy reading, searching, and processing in THEIR OWN context window and return ONLY the distilled summary you actually need! 🎯</p>
+<p>Here&rsquo;s the difference in practice:</p>
+<p><strong>Without subagents:</strong></p>
+<pre><code>You: &quot;Explore my codebase and then refactor the pipeline&quot;
+Claude: *reads 50 files, context window fills up*
+Claude: *starts forgetting your refactoring preferences halfway through*
+</code></pre>
+<p><strong>With subagents:</strong></p>
+<pre><code>You: &quot;Explore my codebase and then refactor the pipeline&quot;
+Claude: *spawns Explore subagent*
+Explore subagent: *reads 50 files in its own context*
+Explore subagent: *returns 20-line summary of relevant architecture*
+Claude: *uses summary to refactor with FULL context window available*
+</code></pre>
+<p>Same task. Dramatically better results! 🚀</p>
+<h2 id="built-in-subagents-you-already-have-">
+  BUILT-IN SUBAGENTS YOU ALREADY HAVE 🤖
+  <a class="heading-link" href="#built-in-subagents-you-already-have-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Claude Code ships with three built-in subagents that it uses automatically - you don&rsquo;t even need to set them up!</p>
+<p><strong>Explore</strong> 🧊</p>
+<p>The read-only specialist. When Claude needs to search or understand your codebase without making changes, it delegates to Explore! This keeps all those file reads and grep results out of your main conversation!</p>
+<p>Claude specifies a thoroughness level when invoking Explore: quick for targeted lookups, medium for balanced exploration, or very thorough for comprehensive analysis!</p>
+<p><strong>Plan</strong> 🌊</p>
+<p>The research agent for plan mode. When you ask Claude to plan something and it needs to understand your project first, Plan goes out and gathers all the context! It prevents infinite nesting (subagents can&rsquo;t spawn other subagents) while still doing thorough research!</p>
+<p><strong>General-purpose</strong> 🕵️</p>
+<p>The heavy lifter. When a task needs both exploration AND modification, complex reasoning to interpret results, or multiple dependent steps - General-purpose handles it! This is the subagent that takes on multi-step operations that would be too complex for a quick explore!</p>
+<p>The beautiful part? Claude auto-delegates to these based on what your task needs! You just describe what you want and Claude picks the right specialist! ✨</p>
+<h2 id="creating-custom-subagents---build-your-dream-team-">
+  CREATING CUSTOM SUBAGENTS - BUILD YOUR DREAM TEAM 💪
+  <a class="heading-link" href="#creating-custom-subagents---build-your-dream-team-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This is where it gets REALLY powerful for researchers! 🔬</p>
+<p><strong>The quick way - /agents command:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># In Claude Code, just type:</span>
+</span></span><span class="line"><span class="cl">/agents
+</span></span><span class="line"><span class="cl"><span class="c1"># Select &#34;Create new agent&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Choose User-level (all projects) or Project-level (this repo only)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Select &#34;Generate with Claude&#34; and describe what you want!</span>
+</span></span></code></pre></div><p>Claude will generate the system prompt, suggest tool permissions, and even let you pick a color to visually distinguish your subagent! 🎨</p>
+<p><strong>The manual way - markdown files:</strong></p>
+<p>Subagents are defined as markdown files with YAML frontmatter. Drop them in:</p>
+<ul>
+<li><code>.claude/agents/</code> - project-level (shared with your team via git!)</li>
+<li><code>~/.claude/agents/</code> - user-level (available in ALL your projects!)</li>
+</ul>
+<p>Here&rsquo;s what a custom subagent file looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">name: qc-reviewer
+</span></span><span class="line"><span class="cl">description: Reviews single-cell RNA-seq QC decisions including
+</span></span><span class="line"><span class="cl">  filtering thresholds, normalization choices, and batch effects.
+</span></span><span class="line"><span class="cl">  Use when validating analysis parameters.
+</span></span><span class="line"><span class="cl">tools:
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Read
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Grep
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Glob
+</span></span><span class="line"><span class="cl">model: sonnet
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">You are a single-cell RNA-seq quality control specialist.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Review the analysis code and evaluate:
+</span></span><span class="line"><span class="cl"><span class="k">-</span> nFeature_RNA and nCount_RNA filtering thresholds
+</span></span><span class="line"><span class="cl"><span class="k">-</span> Mitochondrial percentage cutoffs
+</span></span><span class="line"><span class="cl"><span class="k">-</span> Doublet detection parameters
+</span></span><span class="line"><span class="cl"><span class="k">-</span> Normalization method appropriateness
+</span></span><span class="line"><span class="cl"><span class="k">-</span> Batch correction decisions
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Flag any thresholds that seem too aggressive or too lenient
+</span></span><span class="line"><span class="cl">based on the dataset characteristics. Always explain your
+</span></span><span class="line"><span class="cl">reasoning with reference to established best practices.
+</span></span></code></pre></div><p>That&rsquo;s it! Save it and Claude will automatically delegate QC review tasks to this specialist! 🧪</p>
+<h2 id="the-bioinformatics-dream-team-">
+  THE BIOINFORMATICS DREAM TEAM 🧬
+  <a class="heading-link" href="#the-bioinformatics-dream-team-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s where I get excited. Imagine having these subagents ready to go for every project:</p>
+<p><strong>🧪 QC-Reviewer</strong></p>
+<p>Validates your scRNA-seq filtering thresholds, checks normalization choices, flags suspicious batch effects. Runs on Haiku for speed since it&rsquo;s read-only analysis!</p>
+<p><strong>📊 Stats-Checker</strong></p>
+<p>Reviews your DESeq2 model design matrices, checks for confounding variables, validates your contrast specifications. Catches the statistical mistakes that ruin publications!</p>
+<p><strong>🎨 Figure-Formatter</strong></p>
+<p>Enforces journal-specific figure requirements - DPI, dimensions, font sizes, color palettes. No more rejection emails over figure formatting!</p>
+<p><strong>📝 Methods-Writer</strong></p>
+<p>Reads your analysis code and drafts methods sections. Knows the difference between how you&rsquo;d write methods for Nature vs Bioinformatics vs a preprint!</p>
+<p><strong>🔍 Literature-Scout</strong> (combine with MCPs from Post 7!)</p>
+<p>Searches PubMed for relevant references using the PubMed MCP, then summarizes findings. Your own automated literature review assistant!</p>
+<p>The real power? Run them ALL in parallel on the same project! ⚡</p>
+<pre><code>You: &quot;Review my scRNA-seq pipeline - check QC, stats, figures, 
+      and draft the methods section&quot;
+
+Claude spawns:
+  → QC-Reviewer (checking filtering thresholds)
+  → Stats-Checker (validating DESeq2 design)  
+  → Figure-Formatter (checking plot specifications)
+  → Methods-Writer (drafting from code)
+
+All four working SIMULTANEOUSLY! ⏱️
+Results back in minutes instead of running each sequentially!
+</code></pre>
+<h2 id="parallel-execution---the-speed-multiplier-">
+  PARALLEL EXECUTION - THE SPEED MULTIPLIER 🏎️
+  <a class="heading-link" href="#parallel-execution---the-speed-multiplier-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Claude Code can run up to 7 subagents simultaneously! Here&rsquo;s how to trigger parallel execution:</p>
+<pre><code>&quot;Use 4 parallel tasks to explore my project:
+ 1. Scan the R scripts for package dependencies
+ 2. Check the Snakemake workflow for bottlenecks
+ 3. Review the output figures for consistency
+ 4. Summarize the README and documentation status&quot;
+</code></pre>
+<p>Each task gets its own subagent, its own context window, and runs independently! The results come back as they finish!</p>
+<p>For a large bioinformatics project with dozens of scripts, this turns a 20-minute sequential review into a 5-minute parallel sweep! 🚀</p>
+<h2 id="subagents-vs-skills-vs-claudemd---the-complete-picture-">
+  SUBAGENTS VS SKILLS VS CLAUDE.MD - THE COMPLETE PICTURE 🗺️
+  <a class="heading-link" href="#subagents-vs-skills-vs-claudemd---the-complete-picture-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>With Posts 5-8 complete, here&rsquo;s how everything fits together:</p>
+<p><strong>CLAUDE.md (Post 5)</strong> = Your project&rsquo;s memory! 📋</p>
+<p>Tells Claude about your project, coding standards, and architecture. Loads automatically every session!</p>
+<p><strong>Skills (Post 6)</strong> = Reusable instruction packages! 📦</p>
+<p>Teaches Claude HOW to do specific tasks. Runs in your main conversation so you can iterate live!</p>
+<p><strong>MCPs (Post 7)</strong> = External connections! 🔌</p>
+<p>Plugs Claude into databases, APIs, and tools. Expands WHAT Claude can access!</p>
+<p><strong>Subagents (Post 8)</strong> = Parallel specialists! 🧑‍🔬</p>
+<p>Spawns focused helpers with their own context. Multiplies HOW MUCH Claude can do at once!</p>
+<p>Together they form the complete Claude Code power stack:</p>
+<p>CLAUDE.md provides context → Skills provide expertise → MCPs provide connectivity → Subagents provide parallelism! 🏗️</p>
+<h2 id="pro-tips-for-effective-subagents-">
+  PRO TIPS FOR EFFECTIVE SUBAGENTS ⚡
+  <a class="heading-link" href="#pro-tips-for-effective-subagents-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>1. Match the model to the task!</strong></p>
+<p>Set <code>model: haiku</code> for simple read-only tasks (fast and cheap!) and keep <code>model: opus</code> for complex reasoning. A QC check doesn&rsquo;t need Opus - but a statistical review might!</p>
+<p><strong>2. Restrict tools deliberately!</strong></p>
+<p>A code reviewer should be read-only. A refactoring agent needs write access. Think about what each specialist SHOULD and SHOULDN&rsquo;T do!</p>
+<p><strong>3. Write clear descriptions!</strong></p>
+<p>Claude uses the description field to decide when to delegate. &ldquo;A helpful agent&rdquo; tells Claude nothing. &ldquo;Reviews DESeq2 model design for confounding variables and contrast specifications&rdquo; is crystal clear!</p>
+<p><strong>4. Keep subagent output concise!</strong></p>
+<p>Subagent results come back into your main context. If they return massive outputs, you lose the context-saving benefit! Instruct them to return summaries, not raw data!</p>
+<p><strong>5. Remember: subagents can&rsquo;t spawn subagents!</strong></p>
+<p>One level of delegation only. Plan your task decomposition accordingly!</p>
+<p><strong>6. Version control your agents!</strong></p>
+<p>Store project-level agents in <code>.claude/agents/</code> and commit them to git. Your whole lab gets the same specialist team!</p>
+<h2 id="getting-started-checklist-">
+  GETTING STARTED CHECKLIST ✅
+  <a class="heading-link" href="#getting-started-checklist-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ready to build your AI team? Here&rsquo;s your action plan:</p>
+<ol>
+<li>
+<p><strong>Try the built-ins first</strong> - Ask Claude to explore your codebase and watch it auto-delegate to the Explore subagent!</p>
+</li>
+<li>
+<p><strong>Create your first custom agent</strong> - Run <code>/agents</code> in Claude Code and build a simple code reviewer!</p>
+</li>
+<li>
+<p><strong>Go parallel</strong> - Ask Claude to use multiple tasks simultaneously on a real project!</p>
+</li>
+<li>
+<p><strong>Build domain specialists</strong> - Create agents tailored to YOUR bioinformatics workflow!</p>
+</li>
+<li>
+<p><strong>Share with your team</strong> - Commit <code>.claude/agents/</code> to your repo so everyone benefits!</p>
+</li>
+</ol>
+<h2 id="whats-next-">
+  WHAT&rsquo;S NEXT? 🔮
+  <a class="heading-link" href="#whats-next-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Over the past 8 posts, we&rsquo;ve gone from &ldquo;What even IS Claude?&rdquo; to building parallel AI research teams in your terminal! 🚀</p>
+<p>The Claude Code ecosystem is evolving fast - Agent Teams (experimental!) take this even further by letting subagents communicate WITH EACH OTHER instead of just reporting back to the main session!</p>
+<p>Keep experimenting, keep building, and keep pushing what&rsquo;s possible with AI in research! 🧬</p>
+<p>The full series lives at <a href="https://badran-elshenawy.netlify.app"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app</a> 🌐</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

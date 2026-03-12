@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UMAP on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/umap/</link>
+    <description>Recent content in UMAP on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Nov 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/umap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 9: From 20 PCs to Beautiful 2D Maps!</title>
+      <link>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
+      <pubDate>Mon, 03 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
+      <description>From elbow plot decisions to stunning visualizations - learn how manifold learning algorithms compress high-dimensional PC space into interpretable 2D maps that reveal cellular relationships.</description>
+    </item>
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 8: Why PCA Plots Aren&#39;t Enough for Single-Cell!</title>
+      <link>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
+      <pubDate>Mon, 27 Oct 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
+      <description>From bulk simplicity to single-cell complexity - learn why you need 20+ principal components and how elbow plots guide the critical decision that determines everything downstream.</description>
+    </item>
+  </channel>
+</rss>

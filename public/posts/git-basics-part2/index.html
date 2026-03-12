@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Version Control Series - Part 2: Essential Git Commands You Should Know · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="An in-depth guide to essential Git commands every bioinformatician should know for better collaboration and reproducibility.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Version Control Series - Part 2: Essential Git Commands You Should Know">
+  <meta name="twitter:description" content="An in-depth guide to essential Git commands every bioinformatician should know for better collaboration and reproducibility.">
+
+<meta property="og:url" content="http://localhost:1313/posts/git-basics-part2/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Version Control Series - Part 2: Essential Git Commands You Should Know">
+  <meta property="og:description" content="An in-depth guide to essential Git commands every bioinformatician should know for better collaboration and reproducibility.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-25T17:39:00+00:00">
+    <meta property="article:modified_time" content="2025-01-25T17:39:00+00:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Version Control">
+    <meta property="article:tag" content="Bioinformatics">
+    <meta property="article:tag" content="Collaboration">
+    <meta property="article:tag" content="Reproducibility">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/git-basics-part2/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/git-basics-part2/">
+              Version Control Series - Part 2: Essential Git Commands You Should Know
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-01-25T17:39:00Z">
+                January 25, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/version-control/">Version Control</a>
+      <span class="separator">•</span>
+    <a href="/categories/git/">Git</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/git/">Git</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/version-control/">Version Control</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/collaboration/">Collaboration</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/reproducibility/">Reproducibility</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-version-control-series----part-2-essential-git-commands-you-should-know">
+  🛠️ Version Control Series &ndash; Part 2: Essential Git Commands You Should Know
+  <a class="heading-link" href="#-version-control-series----part-2-essential-git-commands-you-should-know">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>In <strong>Part 1</strong>, we covered <strong>why Git is crucial</strong> for bioinformatics. Now, let&rsquo;s dive into the <strong>practical side</strong>: mastering the <strong>core Git commands</strong>. Whether you&rsquo;re starting a new project or collaborating with a team, these commands form the foundation of <strong>version control</strong>.</p>
+<hr>
+<h2 id="-getting-started-the-basics">
+  🌟 <strong>Getting Started: The Basics</strong>
+  <a class="heading-link" href="#-getting-started-the-basics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-initialize-a-repository">
+  ✅ Initialize a Repository
+  <a class="heading-link" href="#-initialize-a-repository">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Start tracking changes in your project directory by creating a <strong>Git repository</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span></code></pre></div><p>This sets up a <code>.git</code> folder in your directory to track changes.\</p>
+<p>This sets up a <code>.git</code> folder in your directory to track changes.</p>
+<hr>
+<h3 id="-add-files-to-the-staging-area">
+  ✅ Add Files to the Staging Area
+  <a class="heading-link" href="#-add-files-to-the-staging-area">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Stage files to include them in the next commit:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add filename      <span class="c1"># Add a specific file</span>
+</span></span><span class="line"><span class="cl">git add .             <span class="c1"># Add all files in the current directory`</span>
+</span></span></code></pre></div><p>🔥 <strong>Why?</strong> This allows you to choose which changes to include in a commit.</p>
+<hr>
+<h3 id="-commit-changes">
+  ✅ Commit Changes
+  <a class="heading-link" href="#-commit-changes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Save your changes to the repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Your commit message here&#34;</span>
+</span></span></code></pre></div><p>🔥 <strong>Pro Tip:</strong> Write <strong>meaningful commit messages</strong> like:<br>
+<code>&quot;Added feature X to improve analysis pipeline&quot;</code></p>
+<hr>
+<h2 id="-working-with-remote-repositories">
+  🌟 <strong>Working with Remote Repositories</strong>
+  <a class="heading-link" href="#-working-with-remote-repositories">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-connect-to-a-remote-repository">
+  ✅ Connect to a Remote Repository
+  <a class="heading-link" href="#-connect-to-a-remote-repository">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Link your local repository to a remote one (e.g., GitHub):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add origin https://github.com/username/repository.git
+</span></span></code></pre></div><hr>
+<h3 id="-push-changes">
+  ✅ Push Changes
+  <a class="heading-link" href="#-push-changes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Send your local commits to the remote repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></div><p>🔥 <strong>Why?</strong> This shares your work with collaborators or backs it up online.</p>
+<hr>
+<h3 id="-pull-updates">
+  ✅ Pull Updates
+  <a class="heading-link" href="#-pull-updates">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Retrieve the latest changes from the remote repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin main
+</span></span></code></pre></div><hr>
+<h2 id="-tracking-and-managing-changes">
+  🌟 <strong>Tracking and Managing Changes</strong>
+  <a class="heading-link" href="#-tracking-and-managing-changes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-check-repository-status">
+  ✅ Check Repository Status
+  <a class="heading-link" href="#-check-repository-status">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>View the status of your working directory:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git status
+</span></span></code></pre></div><p>🔥 <strong>Pro Tip:</strong> Use this command often to see what&rsquo;s staged, unstaged, or untracked.</p>
+<hr>
+<h3 id="-view-commit-history">
+  ✅ View Commit History
+  <a class="heading-link" href="#-view-commit-history">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>See a log of all commits:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
+</span></span></code></pre></div><p>Use <code>git log --oneline</code> for a concise view.</p>
+<hr>
+<h3 id="-undo-changes">
+  ✅ Undo Changes
+  <a class="heading-link" href="#-undo-changes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Accidentally modified a file? Revert it to the last commit:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git restore filename
+</span></span></code></pre></div><p>To unstage a file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git restore --staged filename
+</span></span></code></pre></div><hr>
+<h2 id="-collaboration-essentials">
+  🌟 <strong>Collaboration Essentials</strong>
+  <a class="heading-link" href="#-collaboration-essentials">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-clone-a-repository">
+  ✅ Clone a Repository
+  <a class="heading-link" href="#-clone-a-repository">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Copy an existing repository to your local machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/username/repository.git
+</span></span></code></pre></div><hr>
+<h3 id="-resolve-merge-conflicts">
+  ✅ Resolve Merge Conflicts
+  <a class="heading-link" href="#-resolve-merge-conflicts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Conflicts occur when multiple changes affect the same line of a file. Git will prompt you to resolve them:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git merge branch-name
+</span></span></code></pre></div><p>Open the conflicting file, resolve the issue, and stage the file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add filename git commit -m <span class="s2">&#34;Resolved merge conflict in filename&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="-git-cheat-sheet">
+  📌 <strong>Git Cheat Sheet</strong>
+  <a class="heading-link" href="#-git-cheat-sheet">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Keep this handy for quick reference:<br>
+📄 <a href="https://education.github.com/git-cheat-sheet-education.pdf"  class="external-link" target="_blank" rel="noopener">Git Cheat Sheet - GitHub Education</a></p>
+<hr>
+<h2 id="-final-thoughts">
+  💡 Final Thoughts
+  <a class="heading-link" href="#-final-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>By mastering these commands, you&rsquo;ll have a strong foundation in Git. These skills will help you:</p>
+<p>✅ <strong>Collaborate seamlessly</strong> with your team<br>
+✅ <strong>Maintain reproducibility</strong> in your workflows<br>
+✅ <strong>Recover from mistakes</strong> with ease</p>
+<p>🚀 In the next part of the series, we&rsquo;ll explore <strong>branching workflows</strong> for managing complex projects. Stay tuned!</p>
+<p>This <strong>expanded version</strong> includes a structured guide to the <strong>essential Git commands</strong>, with practical tips for bioinformatics workflows. Let me know if you&rsquo;d like to refine it further! 🚀💪</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

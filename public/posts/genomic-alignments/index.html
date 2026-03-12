@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 7: GenomicAlignments · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master GenomicAlignments for handling sequence alignment data in R. Learn how to import, manipulate, and analyze BAM/SAM files efficiently within the Bioconductor ecosystem.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 7: GenomicAlignments">
+  <meta name="twitter:description" content="Master GenomicAlignments for handling sequence alignment data in R. Learn how to import, manipulate, and analyze BAM/SAM files efficiently within the Bioconductor ecosystem.">
+
+<meta property="og:url" content="http://localhost:1313/posts/genomic-alignments/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 7: GenomicAlignments">
+  <meta property="og:description" content="Master GenomicAlignments for handling sequence alignment data in R. Learn how to import, manipulate, and analyze BAM/SAM files efficiently within the Bioconductor ecosystem.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-07T11:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-07T11:00:00+00:00">
+    <meta property="article:tag" content="GenomicAlignments">
+    <meta property="article:tag" content="BAM">
+    <meta property="article:tag" content="SAM">
+    <meta property="article:tag" content="NGS">
+    <meta property="article:tag" content="RNA-Seq">
+    <meta property="article:tag" content="ChIP-Seq">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/genomic-alignments/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/genomic-alignments/">
+              Foundations of Genomic Data – Post 7: GenomicAlignments
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-05-07T11:00:00Z">
+                May 7, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/genomicalignments/">GenomicAlignments</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bam/">BAM</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sam/">SAM</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ngs/">NGS</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rna-seq/">RNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/chip-seq/">ChIP-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rsamtools/">Rsamtools</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/summarizedexperiment/">SummarizedExperiment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sequence-analysis/">Sequence Analysis</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-7-genomicalignments">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 7: GenomicAlignments
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-7-genomicalignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-genomicalignments">
+  🚀 Why GenomicAlignments?
+  <a class="heading-link" href="#-why-genomicalignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After mastering <strong>GRanges</strong> and <strong>GRangesList</strong> to represent genomic intervals, we often need to work with sequence alignment data&mdash;the foundation of most next-generation sequencing analyses. The <strong>GenomicAlignments</strong> package serves as the critical bridge between raw alignment files (BAM/SAM) and meaningful genomic analyses in R, enabling you to extract biological insights from ChIP-seq, RNA-seq, and other NGS data where reads map to a reference genome.</p>
+<p><strong>GenomicAlignments</strong> builds upon the solid foundation of the IRanges/GenomicRanges infrastructure, adding specialized classes and methods for working with aligned reads from high-throughput sequencing experiments. This integration allows for seamless transitions between alignment data and other genomic analyses within the Bioconductor ecosystem.</p>
+<hr>
+<h2 id="-getting-started-with-genomicalignments">
+  🔧 Getting Started with GenomicAlignments
+  <a class="heading-link" href="#-getting-started-with-genomicalignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>First, install and load the required packages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Install if needed</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;GenomicAlignments&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Rsamtools&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load libraries</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Rsamtools</span><span class="p">)</span>
+</span></span></code></pre></div><p>The GenomicAlignments package works hand-in-hand with the Rsamtools package, which provides the low-level functionality for reading BAM/SAM files.</p>
+<hr>
+<h2 id="-key-classes-in-genomicalignments">
+  🔍 Key Classes in GenomicAlignments
+  <a class="heading-link" href="#-key-classes-in-genomicalignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>GenomicAlignments introduces several specialized classes that represent different types of alignment data:</p>
+<h3 id="galignments---single-end-read-alignments">
+  GAlignments - Single-end read alignments
+  <a class="heading-link" href="#galignments---single-end-read-alignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Reading single-end alignments from a BAM file</span>
+</span></span><span class="line"><span class="cl"><span class="n">bamfile</span> <span class="o">&lt;-</span> <span class="nf">BamFile</span><span class="p">(</span><span class="s">&#34;path/to/your/aligned_reads.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="n">bamfile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Basic structure of a GAlignments object</span>
+</span></span><span class="line"><span class="cl"><span class="n">reads</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>GAlignments object with 10000 alignments and 0 metadata columns:
+           seqnames strand       cigar    qwidth  start    end  width  njunc
+              &lt;Rle&gt;  &lt;Rle&gt; &lt;character&gt; &lt;integer&gt;  &lt;integer&gt;  &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;
+      [1]     chr1      -     75M        75    3901  3975     75      0
+      [2]     chr1      +     75M        75    4401  4475     75      0
+      [3]     chr1      +     75M        75    4501  4575     75      0
+      ...      ...    ...      ...       ...     ...   ...    ...    ...
+  [10000]    chr22      +     75M        75  51222511 51222585     75      0
+  -------
+  seqinfo: 93 sequences from an unspecified genome
+</code></pre>
+<p>The GAlignments class stores: - <strong>seqnames</strong>: Chromosome or contig name - <strong>strand</strong>: Read orientation (+ forward, - reverse) - <strong>cigar</strong>: CIGAR string encoding matching/mismatching positions - <strong>qwidth</strong>: Original read length - <strong>start/end/width</strong>: Genomic coordinates of the alignment - <strong>njunc</strong>: Number of &ldquo;junctions&rdquo; (gaps in the alignment)</p>
+<h3 id="galignmentpairs---paired-end-read-alignments">
+  GAlignmentPairs - Paired-end read alignments
+  <a class="heading-link" href="#galignmentpairs---paired-end-read-alignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Reading paired-end alignments</span>
+</span></span><span class="line"><span class="cl"><span class="n">paired_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignmentPairs</span><span class="p">(</span><span class="n">bamfile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Structure</span>
+</span></span><span class="line"><span class="cl"><span class="n">paired_reads</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>GAlignmentPairs object with 5000 pairs and 0 metadata columns:
+        seqnames strand: first       last    width: first     last
+           &lt;Rle&gt;   &lt;Rle&gt;:&lt;Rle&gt;      &lt;Rle&gt; &lt;integer&gt;:&lt;integer&gt; &lt;integer&gt;
+    [1]    chr1       +:+           +          75         75
+    [2]    chr1       +:+           +          75         75
+    ...     ...      ...:...        ...        ...        ...
+ [5000]   chr22       -:-           -          75         75
+  -------
+  seqinfo: 93 sequences from an unspecified genome
+</code></pre>
+<p>GAlignmentPairs represents paired-end reads, linking the first and second reads of each pair.</p>
+<h3 id="galignmentslist---groups-of-alignments">
+  GAlignmentsList - Groups of alignments
+  <a class="heading-link" href="#galignmentslist---groups-of-alignments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Creating from a list of GAlignments</span>
+</span></span><span class="line"><span class="cl"><span class="n">gal1</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="nf">ScanBamParam</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="s">&#34;qname&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">gal2</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="n">bamfile2</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="nf">ScanBamParam</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="s">&#34;qname&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">galist</span> <span class="o">&lt;-</span> <span class="nf">GAlignmentsList</span><span class="p">(</span><span class="n">sample1</span><span class="o">=</span><span class="n">gal1</span><span class="p">,</span> <span class="n">sample2</span><span class="o">=</span><span class="n">gal2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Or from split operation</span>
+</span></span><span class="line"><span class="cl"><span class="n">by_gene</span> <span class="o">&lt;-</span> <span class="nf">split</span><span class="p">(</span><span class="n">gal1</span><span class="p">,</span> <span class="nf">mcols</span><span class="p">(</span><span class="n">gal1</span><span class="p">)</span><span class="o">$</span><span class="n">gene_id</span><span class="p">)</span>
+</span></span></code></pre></div><p>GAlignmentsList stores multiple GAlignments objects, useful for organizing alignments by gene, sample, or other groupings.</p>
+<hr>
+<h2 id="-powerful-functions-for-alignment-analysis">
+  ⚡ Powerful Functions for Alignment Analysis
+  <a class="heading-link" href="#-powerful-functions-for-alignment-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="counting-reads-in-genomic-features">
+  Counting reads in genomic features
+  <a class="heading-link" href="#counting-reads-in-genomic-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get gene annotations</span>
+</span></span><span class="line"><span class="cl"><span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">TxDb.Hsapiens.UCSC.hg19.knownGene</span>
+</span></span><span class="line"><span class="cl"><span class="n">genes</span> <span class="o">&lt;-</span> <span class="nf">genes</span><span class="p">(</span><span class="n">txdb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Count reads overlapping genes</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">summarizeOverlaps</span><span class="p">(</span><span class="n">features</span> <span class="o">=</span> <span class="n">genes</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                           <span class="n">reads</span> <span class="o">=</span> <span class="n">reads</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">mode</span> <span class="o">=</span> <span class="s">&#34;Union&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># View the counts table</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>                 sample1
+ENSG00000000003      158
+ENSG00000000005        0
+ENSG00000000419      520
+ENSG00000000457      106
+ENSG00000000460       78
+ENSG00000000938       14
+</code></pre>
+<h3 id="finding-overlaps-between-reads-and-features">
+  Finding overlaps between reads and features
+  <a class="heading-link" href="#finding-overlaps-between-reads-and-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Find which reads overlap which genes</span>
+</span></span><span class="line"><span class="cl"><span class="n">overlaps</span> <span class="o">&lt;-</span> <span class="nf">findOverlaps</span><span class="p">(</span><span class="n">reads</span><span class="p">,</span> <span class="n">genes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Count overlaps per gene</span>
+</span></span><span class="line"><span class="cl"><span class="n">overlap_counts</span> <span class="o">&lt;-</span> <span class="nf">countOverlaps</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span> <span class="n">reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Which genes have reads?</span>
+</span></span><span class="line"><span class="cl"><span class="n">genes_with_data</span> <span class="o">&lt;-</span> <span class="n">genes[overlap_counts</span> <span class="o">&gt;</span> <span class="m">0</span><span class="n">]</span>
+</span></span></code></pre></div><h3 id="computing-genome-wide-coverage">
+  Computing genome-wide coverage
+  <a class="heading-link" href="#computing-genome-wide-coverage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Compute coverage</span>
+</span></span><span class="line"><span class="cl"><span class="n">cov</span> <span class="o">&lt;-</span> <span class="nf">coverage</span><span class="p">(</span><span class="n">reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Visualize coverage on chromosome 1</span>
+</span></span><span class="line"><span class="cl"><span class="nf">plot</span><span class="p">(</span><span class="n">cov</span><span class="o">$</span><span class="n">chr1[1</span><span class="o">:</span><span class="m">10000</span><span class="n">]</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;l&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;Genomic position&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;Coverage&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Export as BigWig for visualization in genome browsers</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">export</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="s">&#34;coverage.bw&#34;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;bigWig&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="extracting-junction-information">
+  Extracting junction information
+  <a class="heading-link" href="#extracting-junction-information">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Extract junctions from spliced reads</span>
+</span></span><span class="line"><span class="cl"><span class="n">junctions</span> <span class="o">&lt;-</span> <span class="nf">summarizeJunctions</span><span class="p">(</span><span class="n">reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot distribution of junction widths (intron sizes)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">hist</span><span class="p">(</span><span class="nf">width</span><span class="p">(</span><span class="n">junctions</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="m">50</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">main</span><span class="o">=</span><span class="s">&#34;Intron Size Distribution&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;Intron size (bp)&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="extracting-cigar-operations-and-aligned-sequences">
+  Extracting CIGAR operations and aligned sequences
+  <a class="heading-link" href="#extracting-cigar-operations-and-aligned-sequences">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Extract aligned sequences</span>
+</span></span><span class="line"><span class="cl"><span class="n">alignedSeqs</span> <span class="o">&lt;-</span> <span class="nf">extractAlignedSeqs</span><span class="p">(</span><span class="n">reads</span><span class="p">,</span> <span class="n">Hsapiens</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Analyze mismatches from CIGAR strings</span>
+</span></span><span class="line"><span class="cl"><span class="n">cigar_ops</span> <span class="o">&lt;-</span> <span class="nf">cigarOpTable</span><span class="p">(</span><span class="nf">cigar</span><span class="p">(</span><span class="n">reads</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">cigar_ops</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>     M     I     D     N     S     H     P     =     X
+123456   234   567  1234  5678    12     0     0     0
+</code></pre>
+<hr>
+<h2 id="-real-world-applications-with-code-examples">
+  🧫 Real-World Applications with Code Examples
+  <a class="heading-link" href="#-real-world-applications-with-code-examples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="rna-seq-expression-quantification">
+  RNA-seq Expression Quantification
+  <a class="heading-link" href="#rna-seq-expression-quantification">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Rsamtools</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a BamFileList for multiple samples</span>
+</span></span><span class="line"><span class="cl"><span class="n">bam_files</span> <span class="o">&lt;-</span> <span class="nf">BamFileList</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;sample1.bam&#34;</span><span class="p">,</span> <span class="s">&#34;sample2.bam&#34;</span><span class="p">,</span> <span class="s">&#34;sample3.bam&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get exons by gene</span>
+</span></span><span class="line"><span class="cl"><span class="n">txdb</span> <span class="o">&lt;-</span> <span class="nf">makeTxDbFromGFF</span><span class="p">(</span><span class="s">&#34;gencode.v38.annotation.gtf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exons_by_gene</span> <span class="o">&lt;-</span> <span class="nf">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s">&#34;gene&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Count reads in genes with standard RNA-seq parameters</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">&lt;-</span> <span class="nf">summarizeOverlaps</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">features</span> <span class="o">=</span> <span class="n">exons_by_gene</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">reads</span> <span class="o">=</span> <span class="n">bam_files</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mode</span> <span class="o">=</span> <span class="s">&#34;Union&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">singleEnd</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ignore.strand</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fragments</span> <span class="o">=</span> <span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Normalized counts for visualization</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="nf">DESeqDataSet</span><span class="p">(</span><span class="n">se</span><span class="p">,</span> <span class="n">design</span> <span class="o">=</span> <span class="o">~</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">normalized_counts</span> <span class="o">&lt;-</span> <span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="chip-seq-peak-analysis">
+  ChIP-seq Peak Analysis
+  <a class="heading-link" href="#chip-seq-peak-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Import peak regions</span>
+</span></span><span class="line"><span class="cl"><span class="n">peaks</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#34;peaks.bed&#34;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;BED&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read ChIP-seq alignments</span>
+</span></span><span class="line"><span class="cl"><span class="n">chip_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;chip.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">input_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;input.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculate signal in peaks</span>
+</span></span><span class="line"><span class="cl"><span class="n">chip_cov</span> <span class="o">&lt;-</span> <span class="nf">coverage</span><span class="p">(</span><span class="n">chip_reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">input_cov</span> <span class="o">&lt;-</span> <span class="nf">coverage</span><span class="p">(</span><span class="n">input_reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculate enrichment</span>
+</span></span><span class="line"><span class="cl"><span class="n">enrichment</span> <span class="o">&lt;-</span> <span class="n">chip_cov</span> <span class="o">/</span> <span class="p">(</span><span class="n">input_cov</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get mean signal in each peak</span>
+</span></span><span class="line"><span class="cl"><span class="n">peak_signal</span> <span class="o">&lt;-</span> <span class="nf">vector</span><span class="p">(</span><span class="s">&#34;numeric&#34;</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">peaks</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">seq_along</span><span class="p">(</span><span class="n">peaks</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">peak_range</span> <span class="o">&lt;-</span> <span class="n">peaks[i]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">peak_signal[i]</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">enrichment</span><span class="nf">[seqnames</span><span class="p">(</span><span class="n">peak_range</span><span class="p">)</span><span class="n">]</span><span class="nf">[start</span><span class="p">(</span><span class="n">peak_range</span><span class="p">)</span><span class="o">:</span><span class="nf">end</span><span class="p">(</span><span class="n">peak_range</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="splice-junction-analysis">
+  Splice Junction Analysis
+  <a class="heading-link" href="#splice-junction-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Read spliced alignments</span>
+</span></span><span class="line"><span class="cl"><span class="n">rna_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;rna_seq.bam&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract junctions</span>
+</span></span><span class="line"><span class="cl"><span class="n">junctions</span> <span class="o">&lt;-</span> <span class="nf">junctions</span><span class="p">(</span><span class="n">rna_reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get junction counts</span>
+</span></span><span class="line"><span class="cl"><span class="n">junction_counts</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="nf">mcols</span><span class="p">(</span><span class="n">junctions</span><span class="p">)</span><span class="o">$</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter for novel junctions not in annotation</span>
+</span></span><span class="line"><span class="cl"><span class="n">txdb_junctions</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">transcriptsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s">&#34;intron&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">known_junctions</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nf">start</span><span class="p">(</span><span class="n">txdb_junctions</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="nf">end</span><span class="p">(</span><span class="n">txdb_junctions</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">novel_junctions</span> <span class="o">&lt;-</span> <span class="n">junctions[</span><span class="o">!</span><span class="nf">overlapsAny</span><span class="p">(</span><span class="n">junctions</span><span class="p">,</span> <span class="n">known_junctions</span><span class="p">)</span><span class="n">]</span>
+</span></span></code></pre></div><hr>
+<h2 id="-performance-considerations-and-best-practices">
+  💯 Performance Considerations and Best Practices
+  <a class="heading-link" href="#-performance-considerations-and-best-practices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>GenomicAlignments is designed to handle large datasets efficiently, but there are strategies to optimize performance:</p>
+<h3 id="use-parameter-settings-to-reduce-memory-usage">
+  Use parameter settings to reduce memory usage
+  <a class="heading-link" href="#use-parameter-settings-to-reduce-memory-usage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Only load what you need</span>
+</span></span><span class="line"><span class="cl"><span class="n">param</span> <span class="o">&lt;-</span> <span class="nf">ScanBamParam</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">what</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;qname&#34;</span><span class="p">,</span> <span class="s">&#34;flag&#34;</span><span class="p">,</span> <span class="s">&#34;mapq&#34;</span><span class="p">),</span>  <span class="c1"># Only these fields</span>
+</span></span><span class="line"><span class="cl">  <span class="n">which</span> <span class="o">=</span> <span class="nf">GRanges</span><span class="p">(</span><span class="s">&#34;chr1&#34;</span><span class="p">,</span> <span class="nf">IRanges</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10000000</span><span class="p">)),</span>  <span class="c1"># Only this region</span>
+</span></span><span class="line"><span class="cl">  <span class="n">tag</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;NH&#34;</span><span class="p">,</span> <span class="s">&#34;MD&#34;</span><span class="p">)</span>  <span class="c1"># Only these tags</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;sample.bam&#34;</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">param</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="process-files-in-chunks-for-very-large-datasets">
+  Process files in chunks for very large datasets
+  <a class="heading-link" href="#process-files-in-chunks-for-very-large-datasets">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Define chunks by chromosome</span>
+</span></span><span class="line"><span class="cl"><span class="n">chroms</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;chr1&#34;</span><span class="p">,</span> <span class="s">&#34;chr2&#34;</span><span class="p">,</span> <span class="s">&#34;chr3&#34;</span><span class="p">,</span> <span class="s">&#34;chr4&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Process each chunk</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">chr</span> <span class="kr">in</span> <span class="n">chroms</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">param</span> <span class="o">&lt;-</span> <span class="nf">ScanBamParam</span><span class="p">(</span><span class="n">which</span> <span class="o">=</span> <span class="nf">GRanges</span><span class="p">(</span><span class="n">chr</span><span class="p">,</span> <span class="nf">IRanges</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">500000000</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">chunk_reads</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="s">&#34;huge.bam&#34;</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">param</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1"># Process this chunk</span>
+</span></span><span class="line"><span class="cl">  <span class="n">results[[chr]]</span> <span class="o">&lt;-</span> <span class="nf">processChunk</span><span class="p">(</span><span class="n">chunk_reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Combine results</span>
+</span></span><span class="line"><span class="cl"><span class="n">final_result</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="use-streaming-for-very-large-files">
+  Use streaming for very large files
+  <a class="heading-link" href="#use-streaming-for-very-large-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Open BAM file</span>
+</span></span><span class="line"><span class="cl"><span class="n">bf</span> <span class="o">&lt;-</span> <span class="nf">BamFile</span><span class="p">(</span><span class="s">&#34;massive.bam&#34;</span><span class="p">,</span> <span class="n">yieldSize</span> <span class="o">=</span> <span class="m">100000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">open</span><span class="p">(</span><span class="n">bf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Process in chunks</span>
+</span></span><span class="line"><span class="cl"><span class="kr">while</span> <span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">chunk</span> <span class="o">&lt;-</span> <span class="nf">readGAlignments</span><span class="p">(</span><span class="n">bf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">if</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="kr">break</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1"># Process chunk</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">processChunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">close</span><span class="p">(</span><span class="n">bf</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-integration-with-bioconductor-ecosystem">
+  🔗 Integration with Bioconductor Ecosystem
+  <a class="heading-link" href="#-integration-with-bioconductor-ecosystem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>GenomicAlignments is designed to integrate seamlessly with the broader Bioconductor ecosystem:</p>
+<h3 id="integration-with-summarizedexperiment">
+  Integration with SummarizedExperiment
+  <a class="heading-link" href="#integration-with-summarizedexperiment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># From readGAlignments to SummarizedExperiment</span>
+</span></span><span class="line"><span class="cl"><span class="n">se</span> <span class="o">&lt;-</span> <span class="nf">summarizeOverlaps</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">reads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>  <span class="c1"># &#34;RangedSummarizedExperiment&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access count data</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="nf">assay</span><span class="p">(</span><span class="n">se</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access feature information</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="nf">rowData</span><span class="p">(</span><span class="n">se</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Access sample information</span>
+</span></span><span class="line"><span class="cl"><span class="nf">colData</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="integration-with-rtracklayer-for-visualization">
+  Integration with rtracklayer for visualization
+  <a class="heading-link" href="#integration-with-rtracklayer-for-visualization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Export coverage for genome browser visualization</span>
+</span></span><span class="line"><span class="cl"><span class="nf">export</span><span class="p">(</span><span class="nf">coverage</span><span class="p">(</span><span class="n">reads</span><span class="p">),</span> <span class="s">&#34;coverage.bigWig&#34;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;bigWig&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Export junctions in BED format</span>
+</span></span><span class="line"><span class="cl"><span class="nf">export</span><span class="p">(</span><span class="nf">junctions</span><span class="p">(</span><span class="n">reads</span><span class="p">),</span> <span class="s">&#34;junctions.bed&#34;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;BED&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="integration-with-bsgenome-for-sequence-extraction">
+  Integration with BSgenome for sequence extraction
+  <a class="heading-link" href="#integration-with-bsgenome-for-sequence-extraction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">BSgenome.Hsapiens.UCSC.hg19</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract sequences at alignment positions</span>
+</span></span><span class="line"><span class="cl"><span class="n">seqs</span> <span class="o">&lt;-</span> <span class="nf">extractAlignedSeqs</span><span class="p">(</span><span class="n">reads</span><span class="p">,</span> <span class="n">BSgenome.Hsapiens.UCSC.hg19</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">letterFrequency</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="kc">letters</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="s">&#34;G&#34;</span><span class="p">,</span> <span class="s">&#34;T&#34;</span><span class="p">),</span> <span class="n">as.prob</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-why-genomicalignments-is-a-game-changer">
+  🚀 Why GenomicAlignments is a Game-Changer
+  <a class="heading-link" href="#-why-genomicalignments-is-a-game-changer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Efficient BAM/SAM handling</strong>: Processes millions of reads with reasonable memory usage</li>
+<li><strong>Bioconductor integration</strong>: Works seamlessly with other packages in the ecosystem</li>
+<li><strong>Range-based approach</strong>: Leverages the powerful GenomicRanges infrastructure</li>
+<li><strong>Biological context</strong>: Maintains biological meaning throughout analyses</li>
+<li><strong>Reproducibility</strong>: Enables fully R-based NGS analysis workflows</li>
+<li><strong>Scalability</strong>: Handles datasets from small pilot studies to large-scale projects</li>
+</ul>
+<p>GenomicAlignments transforms raw sequence alignments into biologically meaningful insights, serving as the essential bridge between sequencers and discoveries.</p>
+<hr>
+<h2 id="-resources-and-further-learning">
+  🧬 Resources and Further Learning
+  <a class="heading-link" href="#-resources-and-further-learning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Official documentation</strong>: <a href="https://bioconductor.org/packages/release/bioc/html/GenomicAlignments.html"  class="external-link" target="_blank" rel="noopener">GenomicAlignments Bioconductor page</a></li>
+<li><strong>GitHub repository</strong>: <a href="https://github.com/Bioconductor/GenomicAlignments"  class="external-link" target="_blank" rel="noopener">https://github.com/Bioconductor/GenomicAlignments</a></li>
+<li><strong>Vignette</strong>: <code>browseVignettes(&quot;GenomicAlignments&quot;)</code> for comprehensive examples</li>
+<li><strong>Bioconductor support forum</strong>: <a href="https://support.bioconductor.org/"  class="external-link" target="_blank" rel="noopener">https://support.bioconductor.org/</a></li>
+</ul>
+<p>To install the development version directly from GitHub:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Bioconductor/GenomicAlignments&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="-whats-next">
+  🧪 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Coming up: <strong>Rsamtools</strong> &mdash; the powerful engine for reading and manipulating BAM files directly, providing low-level access to alignment data and enabling advanced filtering and processing capabilities. 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How are you using GenomicAlignments in your NGS analysis workflows? Any cool tricks for optimizing performance with large datasets? Drop a comment below! 👇</p>
+<p>#Bioinformatics #RStats #GenomicAlignments #NGS #Bioconductor #RNAseq #ChIPseq #BAMfiles #SequenceAnalysis #DataScience #GeneExpression #Genomics #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

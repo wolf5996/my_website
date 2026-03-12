@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggplot2 on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/ggplot2/</link>
+    <description>Recent content in Ggplot2 on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
+      <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
+    </item>
+  </channel>
+</rss>

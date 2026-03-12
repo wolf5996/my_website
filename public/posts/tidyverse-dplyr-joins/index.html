@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A comprehensive guide on merging datasets in R using dplyr joins. Learn about different types of joins, their applications, and how to handle missing data efficiently.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 5: Data Joins & Merging with dplyr">
+  <meta name="twitter:description" content="A comprehensive guide on merging datasets in R using dplyr joins. Learn about different types of joins, their applications, and how to handle missing data efficiently.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-dplyr-joins/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 5: Data Joins & Merging with dplyr">
+  <meta property="og:description" content="A comprehensive guide on merging datasets in R using dplyr joins. Learn about different types of joins, their applications, and how to handle missing data efficiently.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-19T10:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-19T10:00:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Data Wrangling">
+    <meta property="article:tag" content="Dplyr">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Data Merging">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-dplyr-joins/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-dplyr-joins/">
+              Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-19T10:00:00Z">
+                February 19, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-wrangling/">Data Wrangling</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/dplyr/">Dplyr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-merging/">Data Merging</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/joins/">Joins</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-5-data-joins--merging-with-dplyr">
+  🔬 Tidyverse Series &ndash; Post 5: Data Joins &amp; Merging with <code>dplyr</code>
+  <a class="heading-link" href="#-tidyverse-series----post-5-data-joins--merging-with-dplyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-do-we-need-joins">
+  🛠 Why Do We Need Joins?
+  <a class="heading-link" href="#-why-do-we-need-joins">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In real-world data analysis, information is often <strong>spread across multiple datasets</strong>. <code>{dplyr}</code> provides intuitive functions to <strong>combine datasets efficiently</strong>, whether you&rsquo;re linking experimental results to metadata or merging multi-omics data.</p>
+<h3 id="-why-use-dplyr-joins">
+  🔹 Why Use <code>dplyr</code> Joins?
+  <a class="heading-link" href="#-why-use-dplyr-joins">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>✔️ <strong>Easier than base R&rsquo;s <a href="https://rdrr.io/r/base/merge.html"  class="external-link" target="_blank" rel="noopener"><code>merge()</code></a> function</strong><br>
+✔️ <strong>Consistent, readable syntax for different join types</strong><br>
+✔️ <strong>Optimized for performance with large datasets</strong></p>
+<hr>
+<h2 id="-essential-dplyr-joins">
+  📚 Essential <code>dplyr</code> Joins
+  <a class="heading-link" href="#-essential-dplyr-joins">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><code>dplyr</code> provides <strong>six types of joins</strong> to help merge data effectively. Each serves a specific purpose:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Join Type</th>
+          <th>Keeps Rows From</th>
+          <th>Matches Needed?</th>
+          <th>Missing Data Handling</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>inner_join()</code></td>
+          <td>Both datasets</td>
+          <td>Yes</td>
+          <td>Only keeps matching rows</td>
+      </tr>
+      <tr>
+          <td><code>left_join()</code></td>
+          <td>First dataset</td>
+          <td>No</td>
+          <td>Keeps all rows from the first dataset, fills <code>NA</code> for unmatched rows</td>
+      </tr>
+      <tr>
+          <td><code>right_join()</code></td>
+          <td>Second dataset</td>
+          <td>No</td>
+          <td>Keeps all rows from the second dataset, fills <code>NA</code> for unmatched rows</td>
+      </tr>
+      <tr>
+          <td><code>full_join()</code></td>
+          <td>Both datasets</td>
+          <td>No</td>
+          <td>Combines all rows from both datasets, filling <code>NA</code> where needed</td>
+      </tr>
+      <tr>
+          <td><code>semi_join()</code></td>
+          <td>First dataset</td>
+          <td>Yes</td>
+          <td>Keeps only rows in the first dataset that have a match in the second dataset</td>
+      </tr>
+      <tr>
+          <td><code>anti_join()</code></td>
+          <td>First dataset</td>
+          <td>No</td>
+          <td>Keeps only rows in the first dataset that <strong>don&rsquo;t</strong> have a match in the second dataset</td>
+      </tr>
+  </tbody>
+</table>
+<p>Let&rsquo;s break these down with <strong>real-world examples</strong> using <strong>gene expression data</strong> and <strong>metadata tables</strong>.</p>
+<hr>
+<h2 id="-example-merging-experimental-data-with-metadata">
+  📊 Example: Merging Experimental Data with Metadata
+  <a class="heading-link" href="#-example-merging-experimental-data-with-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Imagine we have <strong>gene expression data</strong> and a <strong>metadata table</strong> linking samples to conditions.</p>
+<h3 id="-gene-expression-data-df_expression">
+  ➡️ <strong>Gene Expression Data (<code>df_expression</code>)</strong>
+  <a class="heading-link" href="#-gene-expression-data-df_expression">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>TP53</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>BRCA1</td>
+          <td>8.9</td>
+      </tr>
+      <tr>
+          <td>S3</td>
+          <td>EGFR</td>
+          <td>15.2</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-metadata-table-df_metadata">
+  ➡️ <strong>Metadata Table (<code>df_metadata</code>)</strong>
+  <a class="heading-link" href="#-metadata-table-df_metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Condition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>Control</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>Treatment</td>
+      </tr>
+      <tr>
+          <td>S4</td>
+          <td>Treatment</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-performing-different-joins-in-dplyr">
+  🔄 Performing Different Joins in <code>dplyr</code>
+  <a class="heading-link" href="#-performing-different-joins-in-dplyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-left-join-keep-all-expression-data-add-metadata">
+  <strong>1️⃣ Left Join: Keep all expression data, add metadata</strong>
+  <a class="heading-link" href="#1-left-join-keep-all-expression-data-add-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_expression</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">left_join</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="-result">
+  🔹 <strong>Result:</strong>
+  <a class="heading-link" href="#-result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+          <th>Condition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>TP53</td>
+          <td>12.3</td>
+          <td>Control</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>BRCA1</td>
+          <td>8.9</td>
+          <td>Treatment</td>
+      </tr>
+      <tr>
+          <td>S3</td>
+          <td>EGFR</td>
+          <td>15.2</td>
+          <td>NA</td>
+      </tr>
+  </tbody>
+</table>
+<p>✔️ <code>S3</code> is missing in the metadata, so <strong>the Condition column is <code>NA</code></strong>.</p>
+<h3 id="2-inner-join-keep-only-matching-samples">
+  <strong>2️⃣ Inner Join: Keep only matching samples</strong>
+  <a class="heading-link" href="#2-inner-join-keep-only-matching-samples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_expression</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">inner_join</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="-result-1">
+  🔹 <strong>Result:</strong>
+  <a class="heading-link" href="#-result-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+          <th>Condition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>TP53</td>
+          <td>12.3</td>
+          <td>Control</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>BRCA1</td>
+          <td>8.9</td>
+          <td>Treatment</td>
+      </tr>
+  </tbody>
+</table>
+<p>✔️ Only <code>S1</code> and <code>S2</code> are kept because <code>S3</code> was <strong>not found in <code>df_metadata</code></strong>.</p>
+<h3 id="3-full-join-retain-all-records-from-both-tables">
+  <strong>3️⃣ Full Join: Retain all records from both tables</strong>
+  <a class="heading-link" href="#3-full-join-retain-all-records-from-both-tables">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_expression</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">full_join</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="-result-2">
+  🔹 <strong>Result:</strong>
+  <a class="heading-link" href="#-result-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+          <th>Condition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>TP53</td>
+          <td>12.3</td>
+          <td>Control</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>BRCA1</td>
+          <td>8.9</td>
+          <td>Treatment</td>
+      </tr>
+      <tr>
+          <td>S3</td>
+          <td>EGFR</td>
+          <td>15.2</td>
+          <td>NA</td>
+      </tr>
+      <tr>
+          <td>S4</td>
+          <td>NA</td>
+          <td>NA</td>
+          <td>Treatment</td>
+      </tr>
+  </tbody>
+</table>
+<p>✔️ <code>S3</code> (missing metadata) and <code>S4</code> (missing expression data) are both included, <strong>filling <code>NA</code> where necessary</strong>.</p>
+<h3 id="4-semi-join-keep-only-expression-records-with-matching-metadata">
+  <strong>4️⃣ Semi Join: Keep only expression records with matching metadata</strong>
+  <a class="heading-link" href="#4-semi-join-keep-only-expression-records-with-matching-metadata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_expression</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">semi_join</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="-result-3">
+  🔹 <strong>Result:</strong>
+  <a class="heading-link" href="#-result-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S1</td>
+          <td>TP53</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>S2</td>
+          <td>BRCA1</td>
+          <td>8.9</td>
+      </tr>
+  </tbody>
+</table>
+<p>✔️ Keeps only <strong>samples that have matching metadata</strong>, discarding <code>S3</code>.</p>
+<h3 id="5-anti-join-find-missing-metadata-records">
+  <strong>5️⃣ Anti Join: Find missing metadata records</strong>
+  <a class="heading-link" href="#5-anti-join-find-missing-metadata-records">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_expression</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">anti_join</span><span class="p">(</span><span class="n">df_metadata</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="-result-4">
+  🔹 <strong>Result:</strong>
+  <a class="heading-link" href="#-result-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Sample</th>
+          <th>Gene</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S3</td>
+          <td>EGFR</td>
+          <td>15.2</td>
+      </tr>
+  </tbody>
+</table>
+<p>✔️ Only <code>S3</code> is kept, as it <strong>was missing in the metadata table</strong>.</p>
+<hr>
+<h2 id="-handling-missing-data-after-joins">
+  📉 Handling Missing Data After Joins
+  <a class="heading-link" href="#-handling-missing-data-after-joins">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After performing joins, you may encounter <code>NA</code> values. Here&rsquo;s how to handle them effectively:</p>
+<h3 id="1-replace-missing-values-with-defaults">
+  <strong>1️⃣ Replace Missing Values with Defaults</strong>
+  <a class="heading-link" href="#1-replace-missing-values-with-defaults">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_joined</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Condition</span> <span class="o">=</span> <span class="nf">replace_na</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="s">&#34;Unknown&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ <strong>Fills <code>NA</code> values in <code>Condition</code> with <code>&quot;Unknown&quot;</code></strong>.</p>
+<h3 id="2-remove-rows-with-missing-data">
+  <strong>2️⃣ Remove Rows with Missing Data</strong>
+  <a class="heading-link" href="#2-remove-rows-with-missing-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_joined</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">drop_na</span><span class="p">()</span>
+</span></span></code></pre></div><p>✅ <strong>Removes all rows where any column contains <code>NA</code></strong>.</p>
+<h3 id="3-filter-only-complete-cases">
+  <strong>3️⃣ Filter Only Complete Cases</strong>
+  <a class="heading-link" href="#3-filter-only-complete-cases">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_joined</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">Condition</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ <strong>Keeps only rows where <code>Condition</code> is NOT <code>NA</code></strong>.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📈 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>{dplyr}</code> joins make dataset merging <strong>intuitive and efficient</strong>.<br>
+✅ <strong>Different joins serve different purposes</strong>&mdash;choose wisely!<br>
+✅ <strong>Handling missing data after joins</strong> is crucial for accurate analysis.<br>
+✅ <strong>Functions like <code>replace_na()</code>, <code>drop_na()</code>, and <a href="https://rdrr.io/r/stats/filter.html"  class="external-link" target="_blank" rel="noopener"><code>filter()</code></a> help clean merged datasets.</strong></p>
+<p>📌 <strong>Next up: Handling Categorical Data in R with <code>forcats</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>How do you handle merging datasets in your workflow? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #dplyr #Joins #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,113 @@
+---
+title: "Essential CLI Tools You Should Know - Part 1: dust & lsd"
+author: "Badran Elshenawy"
+date: 2024-12-17
+categories: ["CLI Tools", "Linux", "Productivity"]
+tags: ["CLI", "Linux", "SysAdmin", "DevOps", "Automation"]
+description: "A deep dive into two essential CLI tools, `dust` and `lsd`, that will enhance your workflow."
+slug: "cli-tools-dust-lsd"
+draft: false
+output: hugodown::md_document
+aliases:
+  - /posts/CL_series_part_1/
+summary: "Explore `dust`, a better `du`, and `lsd`, a modern `ls` replacement to improve your Linux workflow."
+featured: true
+rmd_hash: 8dc65c31891e991a
+
+---
+
+# 🛠️ Essential CLI Tools You Should Know - Part 1: `dust` & `lsd`
+
+The command line is an **unstoppable force** when used correctly. With the right tools, you can **work faster, navigate smarter, and automate efficiently**.
+
+In this post, I'll introduce **two modern replacements** for old Unix commands that **massively improve disk usage analysis and file listing**:
+
+-   **`dust`** → A better `du`
+
+-   **`lsd`** → A better `ls`
+
+------------------------------------------------------------------------
+
+## 🌟 `dust` -- A Smarter Alternative to `du`
+
+Need to check disk usage but tired of manually parsing `du -sh` output? `dust` makes this **fast, readable, and intuitive**.
+
+### 🔹 Why `dust`?
+
+✅ **Human-readable output** (sizes in MB/GB, no cryptic blocks) ✅ **Graphical tree view** 📊 ✅ **Parallel execution** -- it's **much faster** than `du` ✅ **Ignores `.gitignore` files** (no clutter)
+
+### ⚡ Quick Start
+
+#### 📥 Install:
+
+-   **Ubuntu/Debian:** `cargo install du-dust`
+
+-   **MacOS:** `brew install dust`
+
+#### 💡 Common Usage:
+
+``` bash
+dust        # Show disk usage in current directory  
+dust -d 2   # Show 2 levels deep  
+dust -r     # Reverse order (largest first)  
+```
+
+🔥 **Why use it?** Instead of running `du -sh * | sort -h`, `dust` **does it all in one go**.
+
+------------------------------------------------------------------------
+
+## 🌟 `lsd` -- The `ls` You Always Wanted
+
+The standard `ls` is **functional but ugly**. `lsd` (**LS Deluxe**) brings: ✅ **Color-coded output** 🎨 ✅ **Tree view support** 🌲 ✅ **Icons for files & directories** 📂 ✅ **Git status indicators**
+
+### ⚡ Quick Start
+
+#### 📥 Install:
+
+-   **Ubuntu/Debian:** `sudo apt install lsd`
+
+-   **MacOS:** `brew install lsd`
+
+#### 💡 Common Usage:
+
+``` bash
+lsd         # Beautiful, colorful `ls`  
+lsd -l      # Detailed list view  
+lsd --tree  # Show directory structure as a tree
+```
+
+🔥 **Why use it?** Instant **visual improvements** while keeping everything familiar.
+
+------------------------------------------------------------------------
+
+## ✅ Final Thoughts
+
+Both `dust` and `lsd` are **drop-in replacements** for `du` and `ls`. They work **out of the box**, and **you'll never want to go back**.
+
+### 🔥 Pro Tip:
+
+Make them your **default** by adding these aliases to `~/.bashrc` or `~/.zshrc`:
+
+``` bash
+alias du="dust"
+alias ls="lsd"
+```
+
+Now every time you type `ls` or `du`, you get the **superior** versions. 🚀
+
+------------------------------------------------------------------------
+
+## 💡 What's Next?
+
+This is **just the start** of a **CLI revolution**! In the next post, I'll introduce: 📂 **`zoxide`** -- A smarter way to `cd` 🗃️ **`ouch`** -- The easiest way to compress & extract files
+
+What are your **favorite CLI tools**? Drop them in the comments! 👇
+
+------------------------------------------------------------------------
+
+### 📢 Want more?
+
+🔗 Check out my **full blog here**: [badran-elshenawy.netlify.app/posts](https://badran-elshenawy.netlify.app/posts/)
+
+#CLI #Linux #Productivity #SysAdmin #DevOps #Automation
+

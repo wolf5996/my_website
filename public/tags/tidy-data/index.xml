@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tidy Data on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/tidy-data/</link>
+    <description>Recent content in Tidy Data on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Feb 2025 07:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tidy-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidyverse Series – Post 4: The Power of Tidy Data</title>
+      <link>http://localhost:1313/posts/tidyverse-tidy-data/</link>
+      <pubDate>Tue, 18 Feb 2025 07:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-tidy-data/</guid>
+      <description>Discover how tidy data simplifies data wrangling, visualization, and analysis in R with the Tidyverse. Learn how to reshape and clean data efficiently.</description>
+    </item>
+  </channel>
+</rss>

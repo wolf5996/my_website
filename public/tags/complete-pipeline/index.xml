@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Complete Pipeline on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/complete-pipeline/</link>
+    <description>Recent content in Complete Pipeline on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Sep 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/complete-pipeline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
+      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
+    </item>
+  </channel>
+</rss>

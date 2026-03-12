@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Discover SeuratData - the curated collection of analysis-ready single-cell datasets that eliminates preprocessing headaches and accelerates your scRNA-seq learning journey with real, publication-quality data.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!">
+  <meta name="twitter:description" content="Discover SeuratData - the curated collection of analysis-ready single-cell datasets that eliminates preprocessing headaches and accelerates your scRNA-seq learning journey with real, publication-quality data.">
+
+<meta property="og:url" content="http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!">
+  <meta property="og:description" content="Discover SeuratData - the curated collection of analysis-ready single-cell datasets that eliminates preprocessing headaches and accelerates your scRNA-seq learning journey with real, publication-quality data.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-10T09:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-10T09:00:00+00:00">
+    <meta property="article:tag" content="ScRNA-Seq">
+    <meta property="article:tag" content="SeuratData">
+    <meta property="article:tag" content="Seurat">
+    <meta property="article:tag" content="Single-Cell Analysis">
+    <meta property="article:tag" content="Practice Datasets">
+    <meta property="article:tag" content="PBMC Data">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/">
+              Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-10T09:00:00Z">
+                October 10, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/single-cell-rna-seq/">Single-Cell RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-analysis/">Data Analysis</a>
+      <span class="separator">•</span>
+    <a href="/categories/systems-biology/">Systems Biology</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/scrna-seq/">ScRNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seuratdata/">SeuratData</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seurat/">Seurat</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/single-cell-analysis/">Single-Cell Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/practice-datasets/">Practice Datasets</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pbmc-data/">PBMC Data</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics-tutorial/">Bioinformatics Tutorial</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r-programming/">R Programming</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cell-biology/">Cell Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="mastering-single-cell-rna-seq-analysis-in-r---post-2-meet-your-practice-playground---seuratdata">
+  Mastering Single-Cell RNA-Seq Analysis in R - Post 2: Meet Your Practice Playground - SeuratData!
+  <a class="heading-link" href="#mastering-single-cell-rna-seq-analysis-in-r---post-2-meet-your-practice-playground---seuratdata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Ever struggled to find quality single-cell datasets to practice on? After introducing you to the single-cell revolution in <a href="https://www.linkedin.com/posts/badran-m-e-65414b113_scrnaseq-singlecell-bioinformatics-activity-7382085021312036864-hhZK?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABxRzeABIgOKysvRF_yEXAzSBVEzHn5iEZM"  class="external-link" target="_blank" rel="noopener">Post 1</a>, it&rsquo;s time to solve the biggest learning barrier: finding good practice data!</p>
+<p>Today we&rsquo;re diving into <strong>SeuratData</strong> - your curated collection of real, analysis-ready datasets that eliminates all the preprocessing headaches.</p>
+<h2 id="-the-dataset-discovery-problem">
+  🎯 The Dataset Discovery Problem
+  <a class="heading-link" href="#-the-dataset-discovery-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Learning single-cell RNA-seq analysis shouldn&rsquo;t start with data archaeology. Too often, aspiring bioinformaticians spend more time wrestling with data than actually analyzing it:</p>
+<ul>
+<li>🔍 <strong>Hours hunting datasets</strong> - Browsing through hundreds of GEO entries</li>
+<li>🧹 <strong>Cleaning messy data</strong> - Dealing with inconsistent file formats</li>
+<li>🔧 <strong>Debugging file imports</strong> - Wrestling with corrupted downloads</li>
+<li>📝 <strong>Deciphering metadata</strong> - Guessing what experimental conditions mean</li>
+</ul>
+<p>This is where SeuratData completely transforms your learning experience!</p>
+<h2 id="-what-is-seuratdata">
+  🚀 What Is SeuratData?
+  <a class="heading-link" href="#-what-is-seuratdata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Think of SeuratData as the <strong>&ldquo;Netflix of single-cell datasets&rdquo;</strong> - a carefully curated collection of high-quality, analysis-ready scRNA-seq data.</p>
+<p>Instead of hunting through databases for hours, you can install publication-quality datasets with a single command and start analyzing immediately!</p>
+<h3 id="quick-installation">
+  Quick Installation
+  <a class="heading-link" href="#quick-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Install SeuratData</span>
+</span></span><span class="line"><span class="cl"><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#39;satijalab/seurat-data&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load and explore available datasets</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">SeuratData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Seurat</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">AvailableData</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>Essential Links:</strong></p>
+<p>📦 <a href="https://github.com/satijalab/seurat-data"  class="external-link" target="_blank" rel="noopener">SeuratData GitHub</a></p>
+<p>📚 <a href="https://satijalab.org/seurat/"  class="external-link" target="_blank" rel="noopener">Seurat Documentation</a></p>
+<h2 id="-why-these-datasets-rock-for-learning">
+  🔬 Why These Datasets Rock for Learning
+  <a class="heading-link" href="#-why-these-datasets-rock-for-learning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="pre-processed-and-quality-controlled">
+  Pre-processed and Quality Controlled
+  <a class="heading-link" href="#pre-processed-and-quality-controlled">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Every dataset has been through rigorous quality control - no surprise batch effects, no missing metadata, no debugging nightmares. Just clean, reliable data that lets you focus on learning analysis techniques.</p>
+<h3 id="analysis-ready-format">
+  Analysis-Ready Format
+  <a class="heading-link" href="#analysis-ready-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>All datasets come as Seurat objects with proper gene annotations, rich metadata, and consistent organization. No more guessing what your data means!</p>
+<h2 id="-your-essential-dataset-collection">
+  💪 Your Essential Dataset Collection
+  <a class="heading-link" href="#-your-essential-dataset-collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="pbmc-datasets---the-learning-gold-standard">
+  PBMC Datasets - The Learning Gold Standard
+  <a class="heading-link" href="#pbmc-datasets---the-learning-gold-standard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Install and load the classic PBMC 3K dataset</span>
+</span></span><span class="line"><span class="cl"><span class="nf">InstallData</span><span class="p">(</span><span class="s">&#34;pbmc3k&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;pbmc3k&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Quick exploration</span>
+</span></span><span class="line"><span class="cl"><span class="n">pbmc3k</span>  <span class="c1"># 13,714 features across 2,700 samples</span>
+</span></span><span class="line"><span class="cl"><span class="nf">head</span><span class="p">(</span><span class="n">pbmc3k</span><span class="o">@</span><span class="n">meta.data</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Perfect for beginners because:</strong></p>
+<p>🩸<strong>Well-characterized cell types</strong> - Easy to validate your clustering</p>
+<p>📖 <strong>Extensive documentation</strong> - Every cell type is well-studied</p>
+<p>🎯 <strong>Benchmark standard</strong> - Compare your results to published analyses</p>
+<h3 id="brain-tissue-samples---complex-cell-hierarchies">
+  Brain Tissue Samples - Complex Cell Hierarchies
+  <a class="heading-link" href="#brain-tissue-samples---complex-cell-hierarchies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># For advanced learners</span>
+</span></span><span class="line"><span class="cl"><span class="nf">InstallData</span><span class="p">(</span><span class="s">&#34;allen_brain&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;allen_brain&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">allen_brain</span><span class="o">$</span><span class="n">class</span><span class="p">)</span>     <span class="c1"># Major cell classes</span>
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">allen_brain</span><span class="o">$</span><span class="n">subclass</span><span class="p">)</span>  <span class="c1"># Finer cell types</span>
+</span></span></code></pre></div><p>Ideal for exploring complex cell type hierarchies and spatial organization patterns.</p>
+<h3 id="pancreatic-islet-cells---disease-models">
+  Pancreatic Islet Cells - Disease Models
+  <a class="heading-link" href="#pancreatic-islet-cells---disease-models">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Disease research practice</span>
+</span></span><span class="line"><span class="cl"><span class="nf">InstallData</span><span class="p">(</span><span class="s">&#34;panc8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;panc8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">panc8</span><span class="o">$</span><span class="n">tech</span><span class="p">)</span>      <span class="c1"># Different sequencing technologies</span>
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">panc8</span><span class="o">$</span><span class="n">celltype</span><span class="p">)</span>  <span class="c1"># Pancreatic cell types</span>
+</span></span></code></pre></div><p>Perfect for studying disease mechanisms and learning to handle batch effects from multiple studies.</p>
+<h3 id="interferon-stimulated-cells---treatment-responses">
+  Interferon-Stimulated Cells - Treatment Responses
+  <a class="heading-link" href="#interferon-stimulated-cells---treatment-responses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Treatment response analysis</span>
+</span></span><span class="line"><span class="cl"><span class="nf">InstallData</span><span class="p">(</span><span class="s">&#34;ifnb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">data</span><span class="p">(</span><span class="s">&#34;ifnb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="n">ifnb</span><span class="o">$</span><span class="n">stim</span><span class="p">)</span>  <span class="c1"># Control vs stimulated conditions</span>
+</span></span></code></pre></div><p>Learn how cells respond to treatments and analyze temporal dynamics.</p>
+<h2 id="-the-learning-advantage-jump-straight-to-analysis">
+  🎉 The Learning Advantage: Jump Straight to Analysis
+  <a class="heading-link" href="#-the-learning-advantage-jump-straight-to-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Instead of spending days cleaning data, you immediately dive into:</p>
+<h3 id="quality-control-exploration">
+  Quality Control Exploration
+  <a class="heading-link" href="#quality-control-exploration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Instant QC metrics</span>
+</span></span><span class="line"><span class="cl"><span class="n">pbmc3k</span><span class="o">$</span><span class="n">percent.mt</span> <span class="o">&lt;-</span> <span class="nf">PercentageFeatureSet</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">,</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">&#34;^MT-&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">VlnPlot</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;nFeature_RNA&#34;</span><span class="p">,</span> <span class="s">&#34;nCount_RNA&#34;</span><span class="p">,</span> <span class="s">&#34;percent.mt&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="normalization-and-clustering">
+  Normalization and Clustering
+  <a class="heading-link" href="#normalization-and-clustering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Test different approaches instantly</span>
+</span></span><span class="line"><span class="cl"><span class="n">pbmc3k</span> <span class="o">&lt;-</span> <span class="nf">NormalizeData</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">FindVariableFeatures</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">ScaleData</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">RunPCA</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">FindNeighbors</span><span class="p">()</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">FindClusters</span><span class="p">(</span><span class="n">resolution</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">RunUMAP</span><span class="p">(</span><span class="n">dims</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">DimPlot</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">,</span> <span class="n">reduction</span> <span class="o">=</span> <span class="s">&#34;umap&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="biological-interpretation">
+  Biological Interpretation
+  <a class="heading-link" href="#biological-interpretation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Find cell type markers</span>
+</span></span><span class="line"><span class="cl"><span class="n">cluster_markers</span> <span class="o">&lt;-</span> <span class="nf">FindAllMarkers</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">,</span> <span class="n">only.pos</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">top_markers</span> <span class="o">&lt;-</span> <span class="n">cluster_markers</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">top_n</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">avg_log2FC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Visualize key markers</span>
+</span></span><span class="line"><span class="cl"><span class="nf">FeaturePlot</span><span class="p">(</span><span class="n">pbmc3k</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;CD3D&#34;</span><span class="p">,</span> <span class="s">&#34;CD14&#34;</span><span class="p">,</span> <span class="s">&#34;CD19&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><h2 id="-pro-tips-for-maximum-learning">
+  🔥 Pro Tips for Maximum Learning
+  <a class="heading-link" href="#-pro-tips-for-maximum-learning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="start-simple-scale-up">
+  Start Simple, Scale Up
+  <a class="heading-link" href="#start-simple-scale-up">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Begin with PBMC 3K</strong> - Master the basics on manageable data</li>
+<li><strong>Progress to brain data</strong> - Tackle cell type complexity</li>
+<li><strong>Try integration</strong> - Combine multiple datasets to learn batch correction</li>
+</ul>
+<h3 id="practice-core-workflows">
+  Practice Core Workflows
+  <a class="heading-link" href="#practice-core-workflows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Standard analysis pipeline practice</span>
+</span></span><span class="line"><span class="cl"><span class="n">datasets</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;pbmc3k&#34;</span><span class="p">,</span> <span class="s">&#34;pbmc8k&#34;</span><span class="p">,</span> <span class="s">&#34;panc8&#34;</span><span class="p">,</span> <span class="s">&#34;ifnb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">for</span><span class="p">(</span><span class="n">dataset</span> <span class="kr">in</span> <span class="n">datasets</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">InstallData</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Practice the same workflow on different data</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Compare results across tissue types</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="validate-your-methods">
+  Validate Your Methods
+  <a class="heading-link" href="#validate-your-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Use the well-characterized PBMC datasets to test new analysis approaches. If your clustering doesn&rsquo;t identify the expected immune cell types, you know something needs adjustment!</p>
+<h2 id="-ready-to-start-your-single-cell-journey">
+  🚀 Ready to Start Your Single-Cell Journey?
+  <a class="heading-link" href="#-ready-to-start-your-single-cell-journey">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>SeuratData gives you the same datasets published researchers use - but packaged for easy learning. No data wrangling headaches, no format conversion nightmares. Just pure single-cell analysis practice!</p>
+<p><strong>Your next steps:</strong></p>
+<ol>
+<li>Install SeuratData and explore available datasets</li>
+<li>Start with PBMC 3K for basic workflow mastery</li>
+<li>Progress to more complex datasets as your skills grow</li>
+<li>Use these clean datasets to validate new methods</li>
+</ol>
+<p>Next up in <strong>Post 3</strong>: Quality Control Fundamentals - What to look for in sparse single-cell data and how to separate signal from noise!</p>
+<p><em>Ready to dive into real single-cell data? The playground is set up and waiting for you!</em> 🧬</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

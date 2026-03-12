@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code Readability on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/code-readability/</link>
+    <description>Recent content in Code Readability on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 May 2025 00:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/code-readability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Foundations of Genomic Data – Post 10: plyranges</title>
+      <link>http://localhost:1313/posts/plyranges/</link>
+      <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
+    </item>
+  </channel>
+</rss>

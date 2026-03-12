@@ -1,0 +1,215 @@
+---
+title: "Tidyverse Series – Post 5: Data Joins & Merging with dplyr"
+author: "Badran Elshenawy"
+date: 2025-02-19T10:00:00Z
+categories:
+  - "Data Science"
+  - "R"
+  - "Tidyverse"
+  - "Bioinformatics"
+tags:
+  - "Tidyverse"
+  - "Data Wrangling"
+  - "dplyr"
+  - "R"
+  - "Bioconductor"
+  - "Data Merging"
+  - "Joins"
+description: "A comprehensive guide on merging datasets in R using dplyr joins. Learn about different types of joins, their applications, and how to handle missing data efficiently."
+slug: "tidyverse-dplyr-joins"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/tidyverse_dplyr_joins/"
+summary: "Master dataset merging with dplyr joins in R. Learn about inner, left, right, full, semi, and anti joins, with practical examples and handling missing data."
+featured: true
+rmd_hash: 962b96b20220829b
+
+---
+
+# 🔬 Tidyverse Series -- Post 5: Data Joins & Merging with `dplyr`
+
+## 🛠 Why Do We Need Joins?
+
+In real-world data analysis, information is often **spread across multiple datasets**. `{dplyr}` provides intuitive functions to **combine datasets efficiently**, whether you're linking experimental results to metadata or merging multi-omics data.
+
+### 🔹 Why Use `dplyr` Joins?
+
+✔️ **Easier than base R's [`merge()`](https://rdrr.io/r/base/merge.html) function**  
+✔️ **Consistent, readable syntax for different join types**  
+✔️ **Optimized for performance with large datasets**
+
+------------------------------------------------------------------------
+
+## 📚 Essential `dplyr` Joins
+
+`dplyr` provides **six types of joins** to help merge data effectively. Each serves a specific purpose:
+
+| Join Type      | Keeps Rows From | Matches Needed? | Missing Data Handling                                                                  |
+|-----------------|-----------------|-----------------|----------------------|
+| `inner_join()` | Both datasets   | Yes             | Only keeps matching rows                                                               |
+| `left_join()`  | First dataset   | No              | Keeps all rows from the first dataset, fills `NA` for unmatched rows                   |
+| `right_join()` | Second dataset  | No              | Keeps all rows from the second dataset, fills `NA` for unmatched rows                  |
+| `full_join()`  | Both datasets   | No              | Combines all rows from both datasets, filling `NA` where needed                        |
+| `semi_join()`  | First dataset   | Yes             | Keeps only rows in the first dataset that have a match in the second dataset           |
+| `anti_join()`  | First dataset   | No              | Keeps only rows in the first dataset that **don't** have a match in the second dataset |
+
+Let's break these down with **real-world examples** using **gene expression data** and **metadata tables**.
+
+------------------------------------------------------------------------
+
+## 📊 Example: Merging Experimental Data with Metadata
+
+Imagine we have **gene expression data** and a **metadata table** linking samples to conditions.
+
+### ➡️ **Gene Expression Data (`df_expression`)**
+
+| Sample | Gene  | Expression |
+|--------|-------|------------|
+| S1     | TP53  | 12.3       |
+| S2     | BRCA1 | 8.9        |
+| S3     | EGFR  | 15.2       |
+
+### ➡️ **Metadata Table (`df_metadata`)**
+
+| Sample | Condition |
+|--------|-----------|
+| S1     | Control   |
+| S2     | Treatment |
+| S4     | Treatment |
+
+------------------------------------------------------------------------
+
+## 🔄 Performing Different Joins in `dplyr`
+
+### **1️⃣ Left Join: Keep all expression data, add metadata**
+
+``` r
+library(dplyr)
+df_expression %>%
+  left_join(df_metadata, by = "Sample")
+```
+
+#### 🔹 **Result:**
+
+| Sample | Gene  | Expression | Condition |
+|--------|-------|------------|-----------|
+| S1     | TP53  | 12.3       | Control   |
+| S2     | BRCA1 | 8.9        | Treatment |
+| S3     | EGFR  | 15.2       | NA        |
+
+✔️ `S3` is missing in the metadata, so **the Condition column is `NA`**.
+
+### **2️⃣ Inner Join: Keep only matching samples**
+
+``` r
+df_expression %>%
+  inner_join(df_metadata, by = "Sample")
+```
+
+#### 🔹 **Result:**
+
+| Sample | Gene  | Expression | Condition |
+|--------|-------|------------|-----------|
+| S1     | TP53  | 12.3       | Control   |
+| S2     | BRCA1 | 8.9        | Treatment |
+
+✔️ Only `S1` and `S2` are kept because `S3` was **not found in `df_metadata`**.
+
+### **3️⃣ Full Join: Retain all records from both tables**
+
+``` r
+df_expression %>%
+  full_join(df_metadata, by = "Sample")
+```
+
+#### 🔹 **Result:**
+
+| Sample | Gene  | Expression | Condition |
+|--------|-------|------------|-----------|
+| S1     | TP53  | 12.3       | Control   |
+| S2     | BRCA1 | 8.9        | Treatment |
+| S3     | EGFR  | 15.2       | NA        |
+| S4     | NA    | NA         | Treatment |
+
+✔️ `S3` (missing metadata) and `S4` (missing expression data) are both included, **filling `NA` where necessary**.
+
+### **4️⃣ Semi Join: Keep only expression records with matching metadata**
+
+``` r
+df_expression %>%
+  semi_join(df_metadata, by = "Sample")
+```
+
+#### 🔹 **Result:**
+
+| Sample | Gene  | Expression |
+|--------|-------|------------|
+| S1     | TP53  | 12.3       |
+| S2     | BRCA1 | 8.9        |
+
+✔️ Keeps only **samples that have matching metadata**, discarding `S3`.
+
+### **5️⃣ Anti Join: Find missing metadata records**
+
+``` r
+df_expression %>%
+  anti_join(df_metadata, by = "Sample")
+```
+
+#### 🔹 **Result:**
+
+| Sample | Gene | Expression |
+|--------|------|------------|
+| S3     | EGFR | 15.2       |
+
+✔️ Only `S3` is kept, as it **was missing in the metadata table**.
+
+------------------------------------------------------------------------
+
+## 📉 Handling Missing Data After Joins
+
+After performing joins, you may encounter `NA` values. Here's how to handle them effectively:
+
+### **1️⃣ Replace Missing Values with Defaults**
+
+``` r
+df_joined %>%
+  mutate(Condition = replace_na(Condition, "Unknown"))
+```
+
+✅ **Fills `NA` values in `Condition` with `"Unknown"`**.
+
+### **2️⃣ Remove Rows with Missing Data**
+
+``` r
+df_joined %>%
+  drop_na()
+```
+
+✅ **Removes all rows where any column contains `NA`**.
+
+### **3️⃣ Filter Only Complete Cases**
+
+``` r
+df_joined %>%
+  filter(!is.na(Condition))
+```
+
+✅ **Keeps only rows where `Condition` is NOT `NA`**.
+
+------------------------------------------------------------------------
+
+## 📈 Key Takeaways
+
+✅ `{dplyr}` joins make dataset merging **intuitive and efficient**.  
+✅ **Different joins serve different purposes**---choose wisely!  
+✅ **Handling missing data after joins** is crucial for accurate analysis.  
+✅ **Functions like `replace_na()`, `drop_na()`, and [`filter()`](https://rdrr.io/r/stats/filter.html) help clean merged datasets.**
+
+📌 **Next up: Handling Categorical Data in R with `forcats`!** Stay tuned! 🚀
+
+👇 **How do you handle merging datasets in your workflow? Let's discuss!**
+
+#Tidyverse #dplyr #Joins #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology
+

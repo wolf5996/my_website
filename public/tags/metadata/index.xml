@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Metadata on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/metadata/</link>
+    <description>Recent content in Metadata on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 12 May 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/metadata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Foundations of Genomic Data – Post 8: DataFrame</title>
+      <link>http://localhost:1313/posts/dataframe/</link>
+      <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
+    </item>
+  </channel>
+</rss>

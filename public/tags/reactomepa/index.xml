@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ReactomePA on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/reactomepa/</link>
+    <description>Recent content in ReactomePA on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 13 Sep 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/reactomepa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 15: Human-Curated Pathway Precision with Reactome!</title>
+      <link>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</link>
+      <pubDate>Sat, 13 Sep 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</guid>
+      <description>Master Reactome pathway analysis for human-focused research. Explore how expert-curated pathways provide clinical precision for disease studies, drug development, and precision medicine applications that GO and KEGG can&amp;rsquo;t match.</description>
+    </item>
+  </channel>
+</rss>

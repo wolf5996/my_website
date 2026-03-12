@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scplotter on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/scplotter/</link>
+    <description>Recent content in Scplotter on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Nov 2025 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/scplotter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Single-Cell RNA-Seq Analysis – Post 9.5: Not All UMAP Plots Are Created Equal!</title>
+      <link>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</link>
+      <pubDate>Fri, 07 Nov 2025 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</guid>
+      <description>From basic defaults to publication masterpieces - learn how SCpubr, scplotter, and Seurat create dramatically different impressions with the same underlying data and analysis.</description>
+    </item>
+  </channel>
+</rss>

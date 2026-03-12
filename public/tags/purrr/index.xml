@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Purrr on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/purrr/</link>
+    <description>Recent content in Purrr on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Mar 2025 12:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/purrr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidyverse Series – Post 9: Functional Programming in R with purrr</title>
+      <link>http://localhost:1313/posts/tidyverse-purrr/</link>
+      <pubDate>Mon, 03 Mar 2025 12:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidyverse-purrr/</guid>
+      <description>Master functional programming in R with purrr. Learn to map, reduce, and iterate over data structures efficiently in the Tidyverse.</description>
+    </item>
+  </channel>
+</rss>

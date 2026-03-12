@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minimap2 on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/minimap2/</link>
+    <description>Recent content in Minimap2 on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Mar 2025 05:20:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/minimap2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2</title>
+      <link>http://localhost:1313/posts/bulk-rna-seq-alignment/</link>
+      <pubDate>Tue, 25 Mar 2025 05:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-alignment/</guid>
+      <description>Explore how to align RNA-Seq reads using STAR, HISAT2, and Minimap2. Understand the key features, commands, and strengths of each tool in transcriptomic workflows.</description>
+    </item>
+  </channel>
+</rss>

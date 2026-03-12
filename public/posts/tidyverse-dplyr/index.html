@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A comprehensive guide to mastering data manipulation with dplyr in R. Learn about filtering, selecting, mutating, arranging, and summarizing data efficiently.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr">
+  <meta name="twitter:description" content="A comprehensive guide to mastering data manipulation with dplyr in R. Learn about filtering, selecting, mutating, arranging, and summarizing data efficiently.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-dplyr/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr">
+  <meta property="og:description" content="A comprehensive guide to mastering data manipulation with dplyr in R. Learn about filtering, selecting, mutating, arranging, and summarizing data efficiently.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-12T09:20:00+00:00">
+    <meta property="article:modified_time" content="2025-02-12T09:20:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Data Wrangling">
+    <meta property="article:tag" content="Dplyr">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Data Manipulation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-dplyr/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-dplyr/">
+              Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-12T09:20:00Z">
+                February 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-wrangling/">Data Wrangling</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/dplyr/">Dplyr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-manipulation/">Data Manipulation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-2-mastering-data-manipulation-with-dplyr">
+  🔬 Tidyverse Series &ndash; Post 2: Mastering Data Manipulation with <code>dplyr</code>
+  <a class="heading-link" href="#-tidyverse-series----post-2-mastering-data-manipulation-with-dplyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-dplyr">
+  🛠 Why <code>dplyr</code>?
+  <a class="heading-link" href="#-why-dplyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Data manipulation is at the core of every analysis, and <code>dplyr</code> makes it <strong>fast, readable, and efficient</strong>. Instead of struggling with base R syntax, <code>dplyr</code> provides <strong>intuitive functions</strong> that simplify data filtering, transformation, and summarization.</p>
+<h3 id="-why-use-dplyr">
+  ✔️ Why Use <code>dplyr</code>?
+  <a class="heading-link" href="#-why-use-dplyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Concise syntax</strong> &ndash; No need for complex nested functions.</li>
+<li><strong>Pipe-friendly</strong> &ndash; Chain operations together seamlessly.</li>
+<li><strong>Optimized performance</strong> &ndash; Handles large datasets efficiently.</li>
+<li><strong>Consistent grammar</strong> &ndash; Each function has a clear purpose and complements the others.</li>
+</ul>
+<p>Let&rsquo;s dive deep into the <strong>five core verbs</strong> of <code>dplyr</code> with <strong>detailed explanations and real-world examples</strong>!</p>
+<hr>
+<h2 id="-the-5-key-dplyr-verbs">
+  📚 The 5 Key <code>dplyr</code> Verbs
+  <a class="heading-link" href="#-the-5-key-dplyr-verbs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-select-pick-specific-columns">
+  ➡️ <code>select()</code>: Pick Specific Columns
+  <a class="heading-link" href="#-select-pick-specific-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When working with large datasets, you often don&rsquo;t need all columns. <code>select()</code> helps you focus on the ones that matter.</p>
+<h4 id="example-selecting-relevant-variables">
+  Example: Selecting Relevant Variables
+  <a class="heading-link" href="#example-selecting-relevant-variables">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="n">gene_id</span><span class="p">,</span> <span class="n">expression_level</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
+</span></span></code></pre></div><p>Here, we <strong>select only the <code>gene_id</code>, <code>expression_level</code>, and <code>condition</code></strong> columns, excluding unnecessary ones.</p>
+<h4 id="advanced-selecting-columns-by-pattern">
+  Advanced: Selecting Columns by Pattern
+  <a class="heading-link" href="#advanced-selecting-columns-by-pattern">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Use <strong>helper functions</strong> to select columns dynamically:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">select</span><span class="p">(</span><span class="nf">starts_with</span><span class="p">(</span><span class="s">&#34;gene&#34;</span><span class="p">))</span>  <span class="c1"># Select all columns that start with &#39;gene&#39;</span>
+</span></span></code></pre></div><hr>
+<h3 id="-filter-subset-rows-based-on-conditions">
+  ➡️ <code>filter()</code>: Subset Rows Based on Conditions
+  <a class="heading-link" href="#-filter-subset-rows-based-on-conditions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://rdrr.io/r/stats/filter.html"  class="external-link" target="_blank" rel="noopener"><code>filter()</code></a> is used to <strong>extract specific rows</strong> that meet given conditions.</p>
+<h4 id="example-filtering-for-highly-expressed-genes">
+  Example: Filtering for Highly Expressed Genes
+  <a class="heading-link" href="#example-filtering-for-highly-expressed-genes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">100</span><span class="p">)</span>
+</span></span></code></pre></div><p>This filters the dataset to <strong>keep only genes with expression levels above 100</strong>.</p>
+<h4 id="multiple-conditions-filtering-by-multiple-variables">
+  Multiple Conditions: Filtering by Multiple Variables
+  <a class="heading-link" href="#multiple-conditions-filtering-by-multiple-variables">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">100</span><span class="p">,</span> <span class="n">condition</span> <span class="o">==</span> <span class="s">&#34;treated&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>filters for genes that are highly expressed AND belong to the treated condition</strong>.</p>
+<h4 id="using-logical-operators">
+  Using Logical Operators
+  <a class="heading-link" href="#using-logical-operators">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">100</span> <span class="o">|</span> <span class="n">condition</span> <span class="o">==</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>keeps rows where expression is high OR the gene belongs to the control group</strong>.</p>
+<hr>
+<h3 id="-mutate-create-new-columns">
+  ➡️ <code>mutate()</code>: Create New Columns
+  <a class="heading-link" href="#-mutate-create-new-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><code>mutate()</code> is used to <strong>add new variables</strong> or modify existing ones.</p>
+<h4 id="example-calculating-fold-change">
+  Example: Calculating Fold Change
+  <a class="heading-link" href="#example-calculating-fold-change">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">fold_change</span> <span class="o">=</span> <span class="n">expression_level</span> <span class="o">/</span> <span class="n">baseline_expression</span><span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>creates a new column <code>fold_change</code></strong> based on the ratio of expression level to baseline expression.</p>
+<h4 id="conditional-mutations-with-ifelse">
+  Conditional Mutations with <code>ifelse()</code>
+  <a class="heading-link" href="#conditional-mutations-with-ifelse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">high_expression</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">100</span><span class="p">,</span> <span class="s">&#34;High&#34;</span><span class="p">,</span> <span class="s">&#34;Low&#34;</span><span class="p">))</span>
+</span></span></code></pre></div><p>This <strong>classifies genes into &ldquo;High&rdquo; or &ldquo;Low&rdquo; expression categories</strong>.</p>
+<hr>
+<h3 id="-arrange-sort-rows">
+  ➡️ <code>arrange()</code>: Sort Rows
+  <a class="heading-link" href="#-arrange-sort-rows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Sorting data is crucial for ranking and prioritizing values. <code>arrange()</code> <strong>sorts rows based on one or more variables</strong>.</p>
+<h4 id="example-sorting-genes-by-expression-level">
+  Example: Sorting Genes by Expression Level
+  <a class="heading-link" href="#example-sorting-genes-by-expression-level">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">expression_level</span><span class="p">))</span>
+</span></span></code></pre></div><p>This <strong>sorts genes from highest to lowest expression levels</strong>.</p>
+<h4 id="multi-level-sorting">
+  Multi-Level Sorting
+  <a class="heading-link" href="#multi-level-sorting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">expression_level</span><span class="p">),</span> <span class="n">condition</span><span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>sorts first by expression level (descending), then by condition (alphabetically)</strong>.</p>
+<hr>
+<h3 id="-summarize--group_by-aggregate-data">
+  ➡️ <code>summarize()</code> + <code>group_by()</code>: Aggregate Data
+  <a class="heading-link" href="#-summarize--group_by-aggregate-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Summarizing data is essential for calculating statistics across groups.</p>
+<h4 id="example-calculating-mean-expression-per-condition">
+  Example: Calculating Mean Expression per Condition
+  <a class="heading-link" href="#example-calculating-mean-expression-per-condition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_expression</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">expression_level</span><span class="p">))</span>
+</span></span></code></pre></div><p>This <strong>groups data by condition</strong> and computes the <strong>mean expression level for each group</strong>.</p>
+<h4 id="multiple-summaries">
+  Multiple Summaries
+  <a class="heading-link" href="#multiple-summaries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">data</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean_exp</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">expression_level</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_exp</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">expression_level</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">min_exp</span> <span class="o">=</span> <span class="nf">min</span><span class="p">(</span><span class="n">expression_level</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span></code></pre></div><p>This <strong>computes multiple summaries at once</strong>, making analysis more efficient.</p>
+<hr>
+<h2 id="-complete-example-filtering--summarizing-gene-expression-data">
+  📊 Complete Example: Filtering &amp; Summarizing Gene Expression Data
+  <a class="heading-link" href="#-complete-example-filtering--summarizing-gene-expression-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Imagine we have a dataset of <strong>gene expression levels</strong>. We want to: 1. <strong>Filter for highly expressed genes</strong>. 2. <strong>Compute the mean expression per condition</strong>.</p>
+<h3 id="-base-r-approach">
+  ➡️ Base R Approach
+  <a class="heading-link" href="#-base-r-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_high</span> <span class="o">&lt;-</span> <span class="n">df[df</span><span class="o">$</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">10</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">mean_exp</span> <span class="o">&lt;-</span> <span class="nf">tapply</span><span class="p">(</span><span class="n">df_high</span><span class="o">$</span><span class="n">expression_level</span><span class="p">,</span> <span class="n">df_high</span><span class="o">$</span><span class="n">condition</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</span></span></code></pre></div><p>This approach works, but it&rsquo;s <strong>clunky and less readable</strong>.</p>
+<h3 id="-tidyverse-approach">
+  ➡️ Tidyverse Approach
+  <a class="heading-link" href="#-tidyverse-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">filter</span><span class="p">(</span><span class="n">expression_level</span> <span class="o">&gt;</span> <span class="m">10</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_expression</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">expression_level</span><span class="p">))</span>
+</span></span></code></pre></div><p>✔️ <strong>Cleaner</strong><br>
+✔️ <strong>More readable</strong><br>
+✔️ <strong>Easier to debug and extend</strong></p>
+<hr>
+<h2 id="-key-takeaways">
+  📈 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>dplyr</code> simplifies <strong>complex data manipulation tasks</strong>.<br>
+✅ Its <strong>verbs make code easier to read and maintain</strong>.<br>
+✅ Works seamlessly with <code>%&gt;%</code> for a <strong>logical and efficient workflow</strong>.<br>
+✅ <strong>Tidyverse methods are faster, scalable, and more intuitive</strong> compared to base R.</p>
+<p>📌 <strong>Next up: Advanced <code>dplyr</code> &ndash; Joins, Window Functions, and More!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>How has <code>dplyr</code> improved your workflow? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #dplyr #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

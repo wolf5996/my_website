@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Foundations of Genomic Data – Post 6: GRangesList · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Master GRangesList for handling grouped genomic ranges in R. Learn how to structure, manipulate, and analyze collections of GRanges objects efficiently in Bioconductor workflows.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foundations of Genomic Data – Post 6: GRangesList">
+  <meta name="twitter:description" content="Master GRangesList for handling grouped genomic ranges in R. Learn how to structure, manipulate, and analyze collections of GRanges objects efficiently in Bioconductor workflows.">
+
+<meta property="og:url" content="http://localhost:1313/posts/genomic-grangeslist/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Foundations of Genomic Data – Post 6: GRangesList">
+  <meta property="og:description" content="Master GRangesList for handling grouped genomic ranges in R. Learn how to structure, manipulate, and analyze collections of GRanges objects efficiently in Bioconductor workflows.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-06T11:54:00+00:00">
+    <meta property="article:modified_time" content="2025-05-06T11:54:00+00:00">
+    <meta property="article:tag" content="GRangesList">
+    <meta property="article:tag" content="GRanges">
+    <meta property="article:tag" content="IRanges">
+    <meta property="article:tag" content="Rle">
+    <meta property="article:tag" content="Grouped Data">
+    <meta property="article:tag" content="Bioconductor">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/genomic-grangeslist/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/genomic-grangeslist/">
+              Foundations of Genomic Data – Post 6: GRangesList
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-05-06T11:54:00Z">
+                May 6, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/genomics/">Genomics</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structures/">Data Structures</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/grangeslist/">GRangesList</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/granges/">GRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/iranges/">IRanges</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rle/">Rle</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/grouped-data/">Grouped Data</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/transcriptomics/">Transcriptomics</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-foundations-of-genomic-data-handling-in-r----post-6-grangeslist">
+  🧬 Foundations of Genomic Data Handling in R &ndash; Post 6: GRangesList
+  <a class="heading-link" href="#-foundations-of-genomic-data-handling-in-r----post-6-grangeslist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-grangeslist">
+  🚀 Why GRangesList?
+  <a class="heading-link" href="#-why-grangeslist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After mastering <strong>GRanges</strong> to represent single sets of genomic intervals with biological context, you often need to handle <strong>groups</strong> of such ranges&mdash;in exons grouped by transcript, peaks grouped by sample, or variants grouped by chromosome. Enter <strong>GRangesList</strong>, the list-like container that preserves both the structure and metadata of each GRanges element.</p>
+<p>A <strong>GRangesList</strong> holds multiple <strong>GRanges</strong> objects, each identified by a name (e.g., transcript ID, sample name). This enables modular, grouped analyses at scale.</p>
+<hr>
+<h2 id="-creating-a-grangeslist-object">
+  🔧 Creating a GRangesList Object
+  <a class="heading-link" href="#-creating-a-grangeslist-object">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># First, create individual GRanges objects</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr1</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="s">&#34;chr1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span>   <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">30</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span>   <span class="o">=</span> <span class="s">&#34;+&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">gr2</span> <span class="o">&lt;-</span> <span class="nf">GRanges</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">seqnames</span> <span class="o">=</span> <span class="s">&#34;chr2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ranges</span>   <span class="o">=</span> <span class="nf">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">150</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">120</span><span class="p">,</span> <span class="m">170</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">strand</span>   <span class="o">=</span> <span class="s">&#34;-&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Combine into a GRangesList, naming each element</span>
+</span></span><span class="line"><span class="cl"><span class="n">grl</span> <span class="o">&lt;-</span> <span class="nf">GRangesList</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">transcript1</span> <span class="o">=</span> <span class="n">gr1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">transcript2</span> <span class="o">=</span> <span class="n">gr2</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Inspect</span>
+</span></span><span class="line"><span class="cl"><span class="n">grl</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre><code>GRangesList object of length 2:
+$transcript1
+GRanges object with 2 ranges and 0 metadata columns:
+      seqnames    ranges strand
+         &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;
+  [1]     chr1       1-10      +
+  [2]     chr1      20-30      +
+
+$transcript2
+GRanges object with 2 ranges and 0 metadata columns:
+      seqnames    ranges strand
+         &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;
+  [1]     chr2     100-120      -
+  [2]     chr2     150-170      -
+</code></pre>
+<hr>
+<h2 id="-accessor-functions">
+  🔍 Accessor Functions
+  <a class="heading-link" href="#-accessor-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">length</span><span class="p">(</span><span class="n">grl</span><span class="p">)</span>     <span class="c1"># Number of GRanges elements (here, 2)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">grl</span><span class="p">)</span>      <span class="c1"># Element names: &#34;transcript1&#34;, &#34;transcript2&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grlist[[1]]</span>    <span class="c1"># Extract the first GRanges</span>
+</span></span><span class="line"><span class="cl"><span class="nf">unlist</span><span class="p">(</span><span class="n">grl</span><span class="p">)</span>     <span class="c1"># Flatten to a single GRanges with grouping info</span>
+</span></span></code></pre></div><ul>
+<li><strong><code>length(grl)</code></strong> returns how many groups you have.</li>
+<li><strong><code>names(grl)</code></strong> returns the group identifiers.</li>
+<li><strong><code>[[ ]]</code></strong> indexing accesses individual GRanges elements.</li>
+<li><strong><a href="https://rdrr.io/r/base/unlist.html"  class="external-link" target="_blank" rel="noopener"><code>unlist()</code></a></strong> flattens the list into one big GRanges, embedding a <strong><code>group</code></strong> metadata column via an <strong><code>Rle</code></strong> under the hood.</li>
+</ul>
+<hr>
+<h2 id="-integration-iranges--rle--grangeslist">
+  🔗 Integration: IRanges + Rle + GRangesList
+  <a class="heading-link" href="#-integration-iranges--rle--grangeslist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>IRanges</strong> powers interval logic inside each GRanges.</li>
+<li><strong>Rle</strong> compresses repeated metadata (e.g., group names) when you unlist.</li>
+<li><strong>GRangesList</strong> organizes multiple GRanges into a coherent, nested structure.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># After unlisting, check the group Rle</span>
+</span></span><span class="line"><span class="cl"><span class="n">flat</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="n">grl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mcols</span><span class="p">(</span><span class="n">flat</span><span class="p">)</span><span class="o">$</span><span class="n">group</span>  <span class="c1"># An Rle vector of length(flat) identifying each original GRanges</span>
+</span></span><span class="line"><span class="cl"><span class="nf">runLength</span><span class="p">(</span><span class="nf">mcols</span><span class="p">(</span><span class="n">flat</span><span class="p">)</span><span class="o">$</span><span class="n">group</span><span class="p">)</span>  <span class="c1"># Shows run lengths per group</span>
+</span></span></code></pre></div><p>This combination yields <strong>efficient storage</strong> and <strong>fast operations</strong> on millions of intervals across groups.</p>
+<hr>
+<h2 id="-core-uses-of-grangeslist">
+  🛠 Core Uses of GRangesList
+  <a class="heading-link" href="#-core-uses-of-grangeslist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Exons by transcript</strong>: Extract exon ranges per transcript and calculate transcript coverage.</li>
+<li><strong>Peaks by sample</strong>: Store ChIP-Seq or ATAC-Seq peak sets for each sample in one object.</li>
+<li><strong>Variants by chromosome</strong>: Group variant calls by chromosome or sample.</li>
+<li><strong>Temporal or condition grouping</strong>: Organize time-series or treatment groups for multi-sample analyses.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Example: compute per-transcript coverage</span>
+</span></span><span class="line"><span class="cl"><span class="n">cov_list</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">grl</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">coverage</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># cov_list is now a list of Rle coverage vectors per transcript</span>
+</span></span></code></pre></div><hr>
+<h2 id="-real-world-example-alternative-splicing-analysis">
+  📈 Real-World Example: Alternative Splicing Analysis
+  <a class="heading-link" href="#-real-world-example-alternative-splicing-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>
+<p><strong>Extract exons</strong> grouped by transcript from a <code>TxDb</code> object:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">txdb</span> <span class="o">&lt;-</span> <span class="nf">makeTxDbFromGFF</span><span class="p">(</span><span class="s">&#34;annotation.gtf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">exons_by_tx</span> <span class="o">&lt;-</span> <span class="nf">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;tx&#34;</span><span class="p">)</span>  <span class="c1"># returns GRangesList</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Filter transcripts</strong> based on exon counts or lengths:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">exon_counts</span> <span class="o">&lt;-</span> <span class="nf">elementNROWS</span><span class="p">(</span><span class="n">exons_by_tx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">filtered</span> <span class="o">&lt;-</span> <span class="n">exons_by_tx[exon_counts</span> <span class="o">&gt;</span> <span class="m">3</span><span class="n">]</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Compute coverage</strong> per transcript:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">cov_tx</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">width</span><span class="p">(</span><span class="n">tx</span><span class="p">)))</span>  <span class="c1"># total exon length per transcript</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>This workflow uses <strong>GRangesList</strong> to maintain transcript-level structure, enabling targeted isoform analyses.</p>
+<hr>
+<h2 id="-why-grangeslist-matters">
+  🚀 Why GRangesList Matters
+  <a class="heading-link" href="#-why-grangeslist-matters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Preserves <strong>biological grouping</strong> in your data model.</li>
+<li>Enables <strong>group-wise operations</strong> without losing context.</li>
+<li>Integrates seamlessly into <strong>SummarizedExperiment</strong> for multi-assay experiments.</li>
+<li>Supports <strong>large-scale</strong> and <strong>nested</strong> genomic workflows.</li>
+</ul>
+<p>Mastering GRangesList equips you to handle complex genomic groupings&mdash;essential for transcriptomics, epigenomics, and beyond.</p>
+<hr>
+<h2 id="-whats-next">
+  🧬 What&rsquo;s Next?
+  <a class="heading-link" href="#-whats-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Coming up: <strong>TxDb &amp; GenomicFeatures</strong> &mdash; the bridge between annotation files and GRanges/GRangesList objects, empowering automated gene model extraction and feature annotation. 🎯</p>
+<hr>
+<h2 id="-share-your-thoughts">
+  💬 Share Your Thoughts!
+  <a class="heading-link" href="#-share-your-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>How are you leveraging GRangesList in your pipelines? Any tips or tricks to share? Drop a comment below! 👇</p>
+<p>#Bioinformatics #RStats #GRangesList #GenomicData #Bioconductor #IRanges #Rle #Transcriptomics #ComputationalBiology #AlternativeSplicing #NGS #Genomics #GroupedData #Isoforms #TxDb</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

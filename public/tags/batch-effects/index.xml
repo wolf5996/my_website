@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Batch Effects on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/batch-effects/</link>
+    <description>Recent content in Batch Effects on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Aug 2025 09:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/batch-effects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
+    </item>
+    <item>
+      <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
+      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
+    </item>
+  </channel>
+</rss>

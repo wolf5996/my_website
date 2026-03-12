@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Discover why Seurat dominates single-cell analysis despite Bioconductor&#39;s technical superiority - the fascinating battle between elegant design and practical usability.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!">
+  <meta name="twitter:description" content="Discover why Seurat dominates single-cell analysis despite Bioconductor&#39;s technical superiority - the fascinating battle between elegant design and practical usability.">
+
+<meta property="og:url" content="http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!">
+  <meta property="og:description" content="Discover why Seurat dominates single-cell analysis despite Bioconductor&#39;s technical superiority - the fascinating battle between elegant design and practical usability.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-12T09:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-12T09:00:00+00:00">
+    <meta property="article:tag" content="ScRNA-Seq">
+    <meta property="article:tag" content="Seurat">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Package Design">
+    <meta property="article:tag" content="Software Philosophy">
+    <meta property="article:tag" content="Tool Comparison">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/">
+              Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-12T09:00:00Z">
+                October 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/single-cell-rna-seq/">Single-Cell RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-analysis/">Data Analysis</a>
+      <span class="separator">•</span>
+    <a href="/categories/systems-biology/">Systems Biology</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/scrna-seq/">ScRNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seurat/">Seurat</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/package-design/">Package Design</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/software-philosophy/">Software Philosophy</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tool-comparison/">Tool Comparison</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics-tutorial/">Bioinformatics Tutorial</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r-programming/">R Programming</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/user-experience/">User Experience</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/singlecellexperiment/">SingleCellExperiment</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="mastering-single-cell-rna-seq-analysis-in-r---post-3-seurat-vs-bioconductor---the-great-single-cell-divide">
+  Mastering Single-Cell RNA-Seq Analysis in R - Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!
+  <a class="heading-link" href="#mastering-single-cell-rna-seq-analysis-in-r---post-3-seurat-vs-bioconductor---the-great-single-cell-divide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Ever wondered why Seurat dominates single-cell analysis when Bioconductor packages are technically superior? After setting up your practice datasets with <a href="https://badran-elshenawy.netlify.app/posts/"  class="external-link" target="_blank" rel="noopener">SeuratData in Post 2</a>, it&rsquo;s time to understand the fascinating battle between elegant design and practical usability.</p>
+<p>Today we&rsquo;re diving into why sometimes &ldquo;good enough&rdquo; wins over &ldquo;technically perfect&rdquo; - and what this means for your single-cell analysis journey!</p>
+<h2 id="-the-fundamental-philosophical-divide">
+  🎯 The Fundamental Philosophical Divide
+  <a class="heading-link" href="#-the-fundamental-philosophical-divide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The single-cell RNA-seq world represents one of the most interesting case studies in software adoption versus technical excellence. Two completely different philosophies emerged to solve the same problem, and the &ldquo;winner&rdquo; might surprise you from a pure computer science perspective.</p>
+<h2 id="-the-bioconductor-approach---elegant-architecture-fragmented-experience">
+  🔬 The Bioconductor Approach - Elegant Architecture, Fragmented Experience
+  <a class="heading-link" href="#-the-bioconductor-approach---elegant-architecture-fragmented-experience">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-unix-philosophy-applied-to-biology">
+  The Unix Philosophy Applied to Biology
+  <a class="heading-link" href="#the-unix-philosophy-applied-to-biology">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Bioconductor embodies the classic Unix principle: &ldquo;Do one thing and do it well.&rdquo; The ecosystem is built around carefully designed, modular components that can be combined in sophisticated ways.</p>
+<p><strong>The Bioconductor Philosophy:</strong> - <strong>SingleCellExperiment</strong> provides the foundational data structure with proper S4 object-oriented design - <strong>scater</strong> handles quality control and basic visualization with scientific rigor - <strong>scran</strong> implements sophisticated normalization methods based on cutting-edge research</p>
+<ul>
+<li><strong>Each package excels at its specific domain</strong> with deep, well-validated functionality</li>
+</ul>
+<p><strong>Links:</strong> <a href="https://bioconductor.org/packages/SingleCellExperiment"  class="external-link" target="_blank" rel="noopener">SingleCellExperiment</a> | <a href="https://bioconductor.org/packages/scater"  class="external-link" target="_blank" rel="noopener">scater</a> | <a href="https://bioconductor.org/packages/scran"  class="external-link" target="_blank" rel="noopener">scran</a></p>
+<p>From a software engineering perspective, this approach is absolutely brilliant. The interfaces are clean, the separation of concerns is textbook perfect, and the underlying algorithms are often more sophisticated than their Seurat counterparts. Each package represents years of careful development by domain experts who understand both the biology and the computational challenges.</p>
+<h3 id="the-excellence-tax">
+  The Excellence Tax
+  <a class="heading-link" href="#the-excellence-tax">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>But this architectural elegance comes with what we might call an &ldquo;excellence tax.&rdquo; To accomplish a basic single-cell analysis, you need to:</p>
+<ul>
+<li><strong>Master multiple package philosophies</strong> - Each package has its own approach to function naming, parameter handling, and object structure</li>
+<li><strong>Understand the theoretical underpinnings</strong> - The modular design assumes you know when and why to use each component</li>
+<li><strong>Handle integration complexity</strong> - Moving data and results between packages requires understanding how they interconnect</li>
+<li><strong>Navigate documentation scattered</strong> across multiple package vignettes and papers</li>
+</ul>
+<p>The Bioconductor approach assumes you want to become an expert in single-cell analysis methodology. It&rsquo;s designed for users who will take the time to understand the nuances of normalization strategies, the theoretical basis of different clustering approaches, and the statistical assumptions underlying each method.</p>
+<h2 id="-the-seurat-revolution---user-experience-over-technical-purity">
+  🚀 The Seurat Revolution - User Experience Over Technical Purity
+  <a class="heading-link" href="#-the-seurat-revolution---user-experience-over-technical-purity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-pragmatic-question">
+  The Pragmatic Question
+  <a class="heading-link" href="#the-pragmatic-question">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Seurat&rsquo;s creators asked a fundamentally different question: &ldquo;What do 90% of users actually need to accomplish?&rdquo; Instead of building the most theoretically elegant system, they focused on solving the most common real-world problems with minimal friction.</p>
+<p><strong>The Seurat Philosophy:</strong> - <strong>One package, complete workflow</strong> - From raw counts to publication figures without switching contexts - <strong>Designed FOR biologists, not BY computer scientists</strong> - Function names that make intuitive sense to domain experts - <strong>Opinionated defaults</strong> - Reasonable parameter choices that work well for most datasets - <strong>Integrated visualization</strong> - No need to learn multiple plotting systems</p>
+<p><strong>Links:</strong> <a href="https://satijalab.org/seurat/"  class="external-link" target="_blank" rel="noopener">Seurat Website</a> | <a href="https://github.com/satijalab/seurat"  class="external-link" target="_blank" rel="noopener">Seurat GitHub</a></p>
+<p>Seurat made a crucial insight: most computational biologists don&rsquo;t want to become single-cell methodology experts. They want to ask biological questions and get reliable answers quickly. The package design reflects this priority ruthlessly.</p>
+<h3 id="the-all-in-one-advantage">
+  The All-in-One Advantage
+  <a class="heading-link" href="#the-all-in-one-advantage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Seurat&rsquo;s integrated approach creates several powerful advantages:</p>
+<p><strong>Cognitive Load Reduction:</strong> Once you learn Seurat&rsquo;s syntax and philosophy, you can apply it consistently across the entire analysis workflow. No context switching between different package paradigms.</p>
+<p><strong>Faster Time to Insight:</strong> The optimized workflow lets researchers go from raw data to interpretable results in hours rather than days. This speed advantage compounds over multiple projects.</p>
+<p><strong>Lower Barrier to Entry:</strong> New users can become productive immediately rather than spending weeks learning the theoretical foundations of each analysis step.</p>
+<p><strong>Consistent User Experience:</strong> All visualization functions follow similar patterns, all data manipulation uses consistent conventions, and error messages are designed for domain experts rather than R programmers.</p>
+<h2 id="-why-seurat-won-the-adoption-war">
+  🧠 Why Seurat Won the Adoption War
+  <a class="heading-link" href="#-why-seurat-won-the-adoption-war">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-network-effect-of-simplicity">
+  The Network Effect of Simplicity
+  <a class="heading-link" href="#the-network-effect-of-simplicity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Seurat&rsquo;s dominance isn&rsquo;t just about technical features - it&rsquo;s about how tools spread through scientific communities. Several factors created a powerful adoption cycle:</p>
+<p><strong>Tutorial Ecosystem:</strong> It&rsquo;s much easier to write a comprehensive single-cell tutorial when everything uses one package with consistent syntax. The proliferation of Seurat tutorials created a virtuous cycle of adoption.</p>
+<p><strong>Reproducibility by Default:</strong> When most of your analysis uses a single package with well-documented default parameters, your code is inherently more reproducible and shareable.</p>
+<p><strong>Collaboration Friction:</strong> As Seurat became more popular, collaborating with other researchers became easier. Shared analysis scripts just work without dependency management nightmares.</p>
+<p><strong>Teaching Efficiency:</strong> Computational biology courses can cover the entire single-cell workflow without students needing to master multiple package ecosystems.</p>
+<h3 id="the-real-world-workflow-reality">
+  The Real-World Workflow Reality
+  <a class="heading-link" href="#the-real-world-workflow-reality">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Most computational biologists follow a predictable analysis pattern:</p>
+<ol>
+<li><strong>Standard quality control</strong> - Remove low-quality cells and genes</li>
+<li><strong>Normalization and scaling</strong> - Make expression values comparable</li>
+<li><strong>Dimensionality reduction</strong> - Find structure in high-dimensional data</li>
+<li><strong>Clustering and cell type identification</strong> - Group similar cells together</li>
+<li><strong>Publication-ready visualization</strong> - Create figures for papers</li>
+<li><strong>Custom analysis</strong> - Dive deeper into specific biological questions</li>
+</ol>
+<p>Seurat handles steps 1-5 seamlessly with sensible defaults and integrated workflows. Bioconductor requires you to become an expert in each step individually before you can connect them effectively.</p>
+<h2 id="-the-deeper-lesson-about-software-adoption">
+  🔥 The Deeper Lesson About Software Adoption
+  <a class="heading-link" href="#-the-deeper-lesson-about-software-adoption">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="technical-excellence-vs-user-experience">
+  Technical Excellence vs User Experience
+  <a class="heading-link" href="#technical-excellence-vs-user-experience">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Seurat vs Bioconductor divide illustrates a fundamental tension in scientific software development. From a pure computer science perspective, Bioconductor&rsquo;s modular, well-architected approach is clearly superior. The algorithms are often more sophisticated, the statistical foundations are more rigorous, and the flexibility is unmatched.</p>
+<p>But adoption isn&rsquo;t determined by technical merit alone. Users choose tools based on:</p>
+<p><strong>Immediate Problem Solving:</strong> Can I get reliable results for my current project quickly?<br>
+<strong>Learning Investment:</strong> How much time do I need to invest before becoming productive?<br>
+<strong>Community Support:</strong> Where can I find help when things go wrong?<br>
+<strong>Collaboration Ease:</strong> What tools are my colleagues and collaborators using?</p>
+<h3 id="the-good-enough-principle">
+  The &ldquo;Good Enough&rdquo; Principle
+  <a class="heading-link" href="#the-good-enough-principle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Seurat demonstrates that &ldquo;good enough&rdquo; often beats &ldquo;technically optimal&rdquo; in real-world adoption. This isn&rsquo;t a failure of the scientific community to appreciate quality - it&rsquo;s a rational response to the constraints of research timelines, funding pressures, and the need to focus cognitive energy on biological insights rather than computational methodology.</p>
+<p>The Seurat algorithms might not be the most sophisticated available, but they&rsquo;re sophisticated enough for most research questions. The visualization might not have every possible customization option, but it produces publication-quality figures with minimal effort.</p>
+<h2 id="-what-this-means-for-your-learning-journey">
+  🎉 What This Means for Your Learning Journey
+  <a class="heading-link" href="#-what-this-means-for-your-learning-journey">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-strategic-approach">
+  The Strategic Approach
+  <a class="heading-link" href="#the-strategic-approach">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Understanding this divide helps you make strategic decisions about your single-cell analysis education:</p>
+<p><strong>Start with Seurat</strong> - It covers 90% of common workflows and gets you productive immediately. Master the integrated workflow before diving into specialized methods.</p>
+<p><strong>Understand the Bioconductor Foundation</strong> - When you need specialized normalization methods, advanced statistical models, or edge-case handling, the Bioconductor ecosystem provides unmatched depth.</p>
+<p><strong>Appreciate Both Approaches</strong> - They serve different needs and represent different trade-offs. Neither is &ldquo;wrong&rdquo; - they optimize for different priorities.</p>
+<h3 id="the-hybrid-strategy">
+  The Hybrid Strategy
+  <a class="heading-link" href="#the-hybrid-strategy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The most effective approach often combines both ecosystems:</p>
+<ul>
+<li>Use Seurat for standard workflows, rapid prototyping, and initial exploration</li>
+<li>Switch to specialized Bioconductor packages when you need specific algorithms or statistical methods</li>
+<li>Leverage Seurat&rsquo;s visualization capabilities even when using Bioconductor for analysis</li>
+<li>Understand both well enough to choose the right tool for each specific task</li>
+</ul>
+<h2 id="-looking-forward">
+  🚀 Looking Forward
+  <a class="heading-link" href="#-looking-forward">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The Seurat vs Bioconductor story isn&rsquo;t over. Both ecosystems continue evolving, learning from each other&rsquo;s strengths. Seurat has added more sophisticated statistical methods over time, while Bioconductor packages have focused on improving user experience and integration.</p>
+<p>As a learner, you benefit from this competition. You get to choose the approach that matches your needs, timeline, and preferences - or combine the best of both worlds.</p>
+<p>Ready to master the tool that actually gets used in practice? In our next post, we&rsquo;ll dive into loading your first dataset and running your initial quality control analysis with Seurat!</p>
+<p><strong>Next up in Post 4:</strong> Loading Your First Dataset - From SeuratData to analysis-ready objects! 📊</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

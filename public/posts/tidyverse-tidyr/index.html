@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="A comprehensive guide to mastering data reshaping and cleaning with tidyr in R. Learn about pivoting, separating, uniting, and handling missing values efficiently.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tidyverse Series – Post 3: Reshaping & Cleaning Data with tidyr">
+  <meta name="twitter:description" content="A comprehensive guide to mastering data reshaping and cleaning with tidyr in R. Learn about pivoting, separating, uniting, and handling missing values efficiently.">
+
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-tidyr/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Tidyverse Series – Post 3: Reshaping & Cleaning Data with tidyr">
+  <meta property="og:description" content="A comprehensive guide to mastering data reshaping and cleaning with tidyr in R. Learn about pivoting, separating, uniting, and handling missing values efficiently.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-17T11:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-17T11:00:00+00:00">
+    <meta property="article:tag" content="Tidyverse">
+    <meta property="article:tag" content="Data Wrangling">
+    <meta property="article:tag" content="Tidyr">
+    <meta property="article:tag" content="R">
+    <meta property="article:tag" content="Bioconductor">
+    <meta property="article:tag" content="Data Cleaning">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-tidyr/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-tidyr/">
+              Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-02-17T11:00:00Z">
+                February 17, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/data-science/">Data Science</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/tidyverse/">Tidyverse</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/tidyverse/">Tidyverse</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-wrangling/">Data Wrangling</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/tidyr/">Tidyr</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r/">R</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioconductor/">Bioconductor</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-cleaning/">Data Cleaning</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-tidyverse-series----post-3-reshaping--cleaning-data-with-tidyr">
+  🔬 Tidyverse Series &ndash; Post 3: Reshaping &amp; Cleaning Data with <code>tidyr</code>
+  <a class="heading-link" href="#-tidyverse-series----post-3-reshaping--cleaning-data-with-tidyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="-why-tidyr">
+  🛠 Why <code>tidyr</code>?
+  <a class="heading-link" href="#-why-tidyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Data often comes in <strong>messy, inconsistent, or improperly structured formats</strong>. <code>tidyr</code> is designed to <strong>reshape, clean, and structure data</strong> into a tidy format that&rsquo;s easy to analyze and visualize. Whether you need to <strong>pivot, separate, unite, or handle missing values</strong>, <code>tidyr</code> makes it seamless.</p>
+<h3 id="-why-use-tidyr">
+  ✔️ Why Use <code>tidyr</code>?
+  <a class="heading-link" href="#-why-use-tidyr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Transforms messy data into structured formats</strong></li>
+<li><strong>Works perfectly with <code>dplyr</code></strong> for smooth data wrangling</li>
+<li><strong>Simplifies complex reshaping tasks</strong></li>
+</ul>
+<p>Let&rsquo;s explore the <strong>key functions in <code>tidyr</code></strong>, with <strong>detailed explanations, code examples, and expected outputs</strong>!</p>
+<hr>
+<h2 id="-essential-tidyr-functions">
+  📚 Essential <code>tidyr</code> Functions
+  <a class="heading-link" href="#-essential-tidyr-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="-pivot_longer-convert-wide-data-to-long-format">
+  ➡️ <code>pivot_longer()</code>: Convert Wide Data to Long Format
+  <a class="heading-link" href="#-pivot_longer-convert-wide-data-to-long-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In many datasets, values are stored in <strong>wide format</strong>, making them difficult to analyze. <code>pivot_longer()</code> <strong>reshapes wide data into long format</strong>, making it easier to <strong>filter, summarize, and visualize</strong>.</p>
+<h4 id="-example-reshaping-gene-expression-data">
+  🔹 Example: Reshaping Gene Expression Data
+  <a class="heading-link" href="#-example-reshaping-gene-expression-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h4 id="before-wide-format">
+  <strong>Before (<code>wide format</code>)</strong>
+  <a class="heading-link" href="#before-wide-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample_1</th>
+          <th>Sample_2</th>
+          <th>Sample_3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>12.3</td>
+          <td>10.5</td>
+          <td>14.2</td>
+      </tr>
+      <tr>
+          <td>BRCA1</td>
+          <td>8.9</td>
+          <td>9.2</td>
+          <td>10.1</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="using-pivot_longer">
+  <strong>Using <code>pivot_longer()</code></strong>
+  <a class="heading-link" href="#using-pivot_longer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df_long</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="nf">starts_with</span><span class="p">(</span><span class="s">&#34;Sample&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">               <span class="n">names_to</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">values_to</span> <span class="o">=</span> <span class="s">&#34;Expression&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="after-long-format">
+  <strong>After (<code>long format</code>)</strong>
+  <a class="heading-link" href="#after-long-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_1</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_2</td>
+          <td>10.5</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Sample_3</td>
+          <td>14.2</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ Now, this structure allows for easy filtering and statistical analysis!</p>
+<hr>
+<h3 id="-pivot_wider-convert-long-data-to-wide-format">
+  ➡️ <code>pivot_wider()</code>: Convert Long Data to Wide Format
+  <a class="heading-link" href="#-pivot_wider-convert-long-data-to-wide-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Sometimes, data stored in <strong>long format</strong> needs to be expanded <strong>back into wide format</strong>.</p>
+<h4 id="example-converting-long-format-back-to-wide">
+  <strong>Example: Converting Long Format Back to Wide</strong>
+  <a class="heading-link" href="#example-converting-long-format-back-to-wide">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_wide</span> <span class="o">&lt;-</span> <span class="n">df_long</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">pivot_wider</span><span class="p">(</span><span class="n">names_from</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">values_from</span> <span class="o">=</span> <span class="s">&#34;Expression&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>📌 This will <strong>recreate the original wide format</strong>, reversing the <code>pivot_longer()</code> operation.</p>
+<hr>
+<h3 id="-separate-splitting-one-column-into-multiple-columns">
+  ➡️ <code>separate()</code>: Splitting One Column into Multiple Columns
+  <a class="heading-link" href="#-separate-splitting-one-column-into-multiple-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Often, a single column contains <strong>multiple pieces of information</strong> that should be <strong>split into separate columns</strong>.</p>
+<h4 id="example-splitting-sample-names-into-condition--replicate">
+  <strong>Example: Splitting Sample Names into Condition &amp; Replicate</strong>
+  <a class="heading-link" href="#example-splitting-sample-names-into-condition--replicate">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_separated</span> <span class="o">&lt;-</span> <span class="n">df_long</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">separate</span><span class="p">(</span><span class="n">Sample</span><span class="p">,</span> <span class="n">into</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Condition&#34;</span><span class="p">,</span> <span class="s">&#34;Replicate&#34;</span><span class="p">),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;_&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="before">
+  <strong>Before</strong>
+  <a class="heading-link" href="#before">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Control_1</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Control_2</td>
+          <td>10.5</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="after">
+  <strong>After</strong>
+  <a class="heading-link" href="#after">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Condition</th>
+          <th>Replicate</th>
+          <th>Expression</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Control</td>
+          <td>1</td>
+          <td>12.3</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Control</td>
+          <td>2</td>
+          <td>10.5</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ Now, <strong>Condition</strong> and <strong>Replicate</strong> are separate columns, making analysis easier.</p>
+<hr>
+<h3 id="-unite-combining-multiple-columns-into-one">
+  ➡️ <code>unite()</code>: Combining Multiple Columns into One
+  <a class="heading-link" href="#-unite-combining-multiple-columns-into-one">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><code>unite()</code> is the opposite of <code>separate()</code>. It <strong>merges multiple columns into a single column</strong>, with a specified separator.</p>
+<h4 id="example-creating-a-unique-identifier-from-multiple-columns">
+  <strong>Example: Creating a Unique Identifier from Multiple Columns</strong>
+  <a class="heading-link" href="#example-creating-a-unique-identifier-from-multiple-columns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_united</span> <span class="o">&lt;-</span> <span class="n">df_separated</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">unite</span><span class="p">(</span><span class="s">&#34;Sample_ID&#34;</span><span class="p">,</span> <span class="n">Condition</span><span class="p">,</span> <span class="n">Replicate</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;_&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="before-1">
+  <strong>Before</strong>
+  <a class="heading-link" href="#before-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Condition</th>
+          <th>Replicate</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Control</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Control</td>
+          <td>2</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="after-1">
+  <strong>After</strong>
+  <a class="heading-link" href="#after-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Gene</th>
+          <th>Sample_ID</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TP53</td>
+          <td>Control_1</td>
+      </tr>
+      <tr>
+          <td>TP53</td>
+          <td>Control_2</td>
+      </tr>
+  </tbody>
+</table>
+<p>✅ Now, the <strong>Condition and Replicate columns are combined into a single Sample_ID column</strong>.</p>
+<hr>
+<h3 id="-drop_na-removing-missing-values">
+  ➡️ <code>drop_na()</code>: Removing Missing Values
+  <a class="heading-link" href="#-drop_na-removing-missing-values">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Handling missing values is essential to <strong>ensure clean data</strong>.</p>
+<h4 id="example-removing-rows-with-missing-values">
+  <strong>Example: Removing Rows with Missing Values</strong>
+  <a class="heading-link" href="#example-removing-rows-with-missing-values">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_clean</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">drop_na</span><span class="p">()</span>
+</span></span></code></pre></div><p>✅ This <strong>removes all rows that contain missing (<code>NA</code>) values</strong>.</p>
+<hr>
+<h3 id="-replace_na-replacing-missing-values">
+  ➡️ <code>replace_na()</code>: Replacing Missing Values
+  <a class="heading-link" href="#-replace_na-replacing-missing-values">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Instead of removing missing values, you might want to <strong>replace them with a default value</strong>.</p>
+<h4 id="example-replacing-missing-values-with-zero">
+  <strong>Example: Replacing Missing Values with Zero</strong>
+  <a class="heading-link" href="#example-replacing-missing-values-with-zero">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df_filled</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">replace_na</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">Expression</span> <span class="o">=</span> <span class="m">0</span><span class="p">))</span>
+</span></span></code></pre></div><p>✅ This <strong>replaces all <code>NA</code> values in the <code>Expression</code> column with <code>0</code></strong>.</p>
+<hr>
+<h2 id="-complete-workflow-cleaning--reshaping-data">
+  📊 Complete Workflow: Cleaning &amp; Reshaping Data
+  <a class="heading-link" href="#-complete-workflow-cleaning--reshaping-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let&rsquo;s go through a <strong>complete example</strong>, from <strong>messy data</strong> to <strong>clean, structured data</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sample messy dataset</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Gene</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;TP53&#34;</span><span class="p">,</span> <span class="s">&#34;BRCA1&#34;</span><span class="p">,</span> <span class="s">&#34;EGFR&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Control_1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">12.3</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">7.8</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Control_2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10.5</span><span class="p">,</span> <span class="m">9.2</span><span class="p">,</span> <span class="m">8.9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reshape &amp; clean</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_cleaned</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="nf">starts_with</span><span class="p">(</span><span class="s">&#34;Control&#34;</span><span class="p">),</span> <span class="n">names_to</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">,</span> <span class="n">values_to</span> <span class="o">=</span> <span class="s">&#34;Expression&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">separate</span><span class="p">(</span><span class="n">Sample</span><span class="p">,</span> <span class="n">into</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Condition&#34;</span><span class="p">,</span> <span class="s">&#34;Replicate&#34;</span><span class="p">),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;_&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">drop_na</span><span class="p">()</span>
+</span></span></code></pre></div><p>✅ This pipeline <strong>reshapes, cleans, and structures the dataset</strong>, making it easier to analyze.</p>
+<hr>
+<h2 id="-key-takeaways">
+  📈 Key Takeaways
+  <a class="heading-link" href="#-key-takeaways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>✅ <code>tidyr</code> is essential for <strong>reshaping and cleaning data</strong>.<br>
+✅ <code>pivot_longer()</code> and <code>pivot_wider()</code> make restructuring <strong>seamless</strong>.<br>
+✅ <code>separate()</code> and <code>unite()</code> allow flexible column manipulation.<br>
+✅ Handling missing values is easy with <code>drop_na()</code> and <code>replace_na()</code>.<br>
+✅ Works perfectly alongside <code>dplyr</code> for <strong>efficient data workflows</strong>.</p>
+<p>📌 <strong>Next up: Combining Data Efficiently &ndash; Joins &amp; Merging with <code>dplyr</code>!</strong> Stay tuned! 🚀</p>
+<p>👇 <strong>How often do you reshape data in your analysis? Let&rsquo;s discuss!</strong></p>
+<p>#Tidyverse #tidyr #RStats #DataScience #Bioinformatics #OpenScience #ComputationalBiology</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="Bridge the gap from marker gene lists to biological understanding with pathway enrichment analysis. Learn why ORA is the ideal starting point for single-cell data and how the same principles from bulk RNA-seq apply at single-cell resolution.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways!">
+  <meta name="twitter:description" content="Bridge the gap from marker gene lists to biological understanding with pathway enrichment analysis. Learn why ORA is the ideal starting point for single-cell data and how the same principles from bulk RNA-seq apply at single-cell resolution.">
+
+<meta property="og:url" content="http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways!">
+  <meta property="og:description" content="Bridge the gap from marker gene lists to biological understanding with pathway enrichment analysis. Learn why ORA is the ideal starting point for single-cell data and how the same principles from bulk RNA-seq apply at single-cell resolution.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-25T08:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-25T08:00:00+00:00">
+    <meta property="article:tag" content="ScRNA-Seq">
+    <meta property="article:tag" content="Pathway Enrichment">
+    <meta property="article:tag" content="ORA">
+    <meta property="article:tag" content="Over-Representation Analysis">
+    <meta property="article:tag" content="Gene Ontology">
+    <meta property="article:tag" content="ClusterProfiler">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/">
+              Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-02-25T08:00:00Z">
+                February 25, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/r/">R</a>
+      <span class="separator">•</span>
+    <a href="/categories/single-cell-rna-seq/">Single-Cell RNA-Seq</a>
+      <span class="separator">•</span>
+    <a href="/categories/pathway-analysis/">Pathway Analysis</a>
+      <span class="separator">•</span>
+    <a href="/categories/systems-biology/">Systems Biology</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/scrna-seq/">ScRNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pathway-enrichment/">Pathway Enrichment</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ora/">ORA</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/over-representation-analysis/">Over-Representation Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gene-ontology/">Gene Ontology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/clusterprofiler/">ClusterProfiler</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gsea/">GSEA</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics-tutorial/">Bioinformatics Tutorial</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/data-science/">Data Science</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r-programming/">R Programming</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seurat/">Seurat</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="mastering-single-cell-rna-seq-analysis-in-r----post-15-from-marker-genes-to-biological-pathways">
+  Mastering Single-Cell RNA-Seq Analysis in R &ndash; Post 15: From Marker Genes to Biological Pathways!
+  <a class="heading-link" href="#mastering-single-cell-rna-seq-analysis-in-r----post-15-from-marker-genes-to-biological-pathways">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>The single-cell series is back! It&rsquo;s been a while, but we&rsquo;re picking up right where we left off. In <a href="https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/"  class="external-link" target="_blank" rel="noopener">Post 14</a>, we transformed overwhelming DEA tables into crystal-clear volcano plots and heatmaps &mdash; visualizations that let your eyes do the pattern recognition instead of drowning in endless rows of numbers.</p>
+<p>But here&rsquo;s the thing: even the most beautiful volcano plot still leaves you with a fundamental question. You can see NKG7 and GZMB lighting up like fireworks in your NK cell comparison &mdash; but what do these genes actually <em>do together</em>? What biological story are they telling as a group?</p>
+<p>That&rsquo;s exactly what pathway enrichment analysis answers. Today we&rsquo;re bridging the gap from individual marker genes to biological mechanisms &mdash; and the best part? If you followed our bulk RNA-seq series, you already know how this works!</p>
+<hr>
+<h2 id="the-gene-list-problem">
+  The Gene List Problem
+  <a class="heading-link" href="#the-gene-list-problem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>After running <code>FindMarkers()</code> or <code>FindAllMarkers()</code>, you end up with a list of differentially expressed genes. For NK cells compared to B cells in our IFNB dataset, you might see something like:</p>
+<ul>
+<li><strong>NKG7</strong> &mdash; avg_log2FC: 8.2, p_adj: 1e-50</li>
+<li><strong>GZMB</strong> &mdash; avg_log2FC: 7.1, p_adj: 2e-45</li>
+<li><strong>PRF1</strong> &mdash; avg_log2FC: 6.8, p_adj: 5e-40</li>
+<li><strong>CD247</strong> &mdash; avg_log2FC: 5.9, p_adj: 3e-38</li>
+<li><strong>KLRB1</strong> &mdash; avg_log2FC: 5.2, p_adj: 1e-35</li>
+</ul>
+<p>Impressive numbers. But what&rsquo;s the collective biological function these genes represent? Are they all part of the same process? Are there unexpected pathways hiding in your marker list?</p>
+<p>This is the &ldquo;so what?&rdquo; moment that pathway enrichment analysis resolves. It takes you from a molecular inventory to a biological narrative &mdash; from &ldquo;these 47 genes are upregulated&rdquo; to &ldquo;this cell type is specialized for cytotoxic immune response and viral defense.&rdquo;</p>
+<hr>
+<h2 id="what-is-pathway-enrichment-analysis">
+  What Is Pathway Enrichment Analysis?
+  <a class="heading-link" href="#what-is-pathway-enrichment-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Pathway Enrichment Analysis (PEA) asks a deceptively simple question: <strong>Are my differentially expressed genes involved in specific biological processes more than expected by chance?</strong></p>
+<p>The concept is intuitive. Imagine you&rsquo;ve caught 200 fish from a lake containing 20,000 fish. You notice that 50 of your fish are salmon &mdash; but salmon only make up 5% of the lake. You&rsquo;d expect about 10 salmon by chance, yet you caught 50. That&rsquo;s a 5-fold enrichment, and it&rsquo;s statistically significant. Something about your fishing method is specifically attracting salmon.</p>
+<p>Replace &ldquo;fish&rdquo; with &ldquo;genes&rdquo; and &ldquo;salmon&rdquo; with &ldquo;immune response genes,&rdquo; and you have Over-Representation Analysis (ORA) &mdash; the foundational method of pathway enrichment.</p>
+<p>The math boils down to a hypergeometric test:</p>
+<ul>
+<li><strong>Your gene list</strong>: Differentially expressed genes from DEA</li>
+<li><strong>A pathway</strong>: A curated set of genes known to work together (e.g., &ldquo;Natural Killer Cell Mediated Cytotoxicity&rdquo;)</li>
+<li><strong>The question</strong>: Are more of your DEA genes in this pathway than random chance would predict?</li>
+</ul>
+<p>When the answer is yes, you&rsquo;ve found an enriched pathway &mdash; and that pathway tells you what your cell type is actually <em>doing</em>.</p>
+<hr>
+<h2 id="the-beautiful-truth-single-cell-pea--bulk-pea">
+  The Beautiful Truth: Single-Cell PEA = Bulk PEA
+  <a class="heading-link" href="#the-beautiful-truth-single-cell-pea--bulk-pea">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s something that makes this topic much less intimidating: <strong>pathway enrichment analysis works identically for single-cell and bulk RNA-seq data</strong>.</p>
+<p>Why? Because both approaches take DEA results as input. Whether your differentially expressed genes came from DESeq2 on bulk data or from <code>FindMarkers()</code> on single-cell clusters, the downstream enrichment analysis is the same. The biology hasn&rsquo;t changed &mdash; just the resolution at which you discovered those genes.</p>
+<p>If you followed our bulk RNA-seq series, you&rsquo;ve already mastered these concepts:</p>
+<ul>
+<li><a href="https://badran-elshenawy.netlify.app/posts/rna-seq-go-enrichment-analysis/"  class="external-link" target="_blank" rel="noopener"><strong>Post 13: GO Enrichment</strong></a> &mdash; the fishing expedition analogy and Over-Representation Analysis with Gene Ontology</li>
+<li><a href="https://badran-elshenawy.netlify.app/posts/rna-seq-kegg-pathway-analysis/"  class="external-link" target="_blank" rel="noopener"><strong>Post 14: KEGG Pathways</strong></a> &mdash; mapping genes to metabolic and signaling pathway maps</li>
+<li><a href="https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/"  class="external-link" target="_blank" rel="noopener"><strong>Post 15: Reactome</strong></a> &mdash; human-curated pathways for disease and clinical research</li>
+<li><a href="https://badran-elshenawy.netlify.app/posts/rna-seq-gsea-when-gene-lists-arent-enough/"  class="external-link" target="_blank" rel="noopener"><strong>Post 16: GSEA</strong></a> &mdash; Gene Set Enrichment Analysis for coordinated pathway changes</li>
+</ul>
+<p>Every principle, every tool, every interpretation strategy from those posts applies directly to your single-cell markers. The only difference is where your gene list came from.</p>
+<hr>
+<h2 id="ora-vs-gsea-why-we-start-with-ora">
+  ORA vs GSEA: Why We Start with ORA
+  <a class="heading-link" href="#ora-vs-gsea-why-we-start-with-ora">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>There are two major approaches to pathway enrichment, and choosing the right one matters:</p>
+<p><strong>ORA (Over-Representation Analysis)</strong> asks: &ldquo;Are my <em>significant</em> genes enriched in this pathway?&rdquo; It takes a simple gene list &mdash; your DEGs that pass a significance and fold-change threshold &mdash; and tests for enrichment against curated databases.</p>
+<p><strong>GSEA (Gene Set Enrichment Analysis)</strong> asks: &ldquo;Is this pathway <em>trending</em> across ALL my genes?&rdquo; It uses a ranked list of every gene (not just significant ones) and looks for coordinated shifts in pathway gene sets.</p>
+<p>For single-cell analysis, ORA is the natural starting point for several reasons:</p>
+<ul>
+<li><strong>It works directly with FindMarkers output.</strong> Filter for significance and fold change, extract gene names, and you&rsquo;re ready to go.</li>
+<li><strong>No ranking complexity.</strong> GSEA requires a meaningful ranked gene list, which gets tricky with <code>FindAllMarkers()</code> where you&rsquo;re comparing one cluster against all others simultaneously.</li>
+<li><strong>Clear, interpretable results.</strong> ORA gives you a straightforward answer: these pathways are enriched in your cell type markers.</li>
+</ul>
+<p>We&rsquo;ll tackle GSEA in a later post &mdash; including ssGSEA with the <code>escape</code> package, which works directly on expression matrices rather than DEA results. That opens up an entirely different analytical approach for single-cell data. But ORA first!</p>
+<hr>
+<h2 id="the-three-databases-you-need-to-know">
+  The Three Databases You Need to Know
+  <a class="heading-link" href="#the-three-databases-you-need-to-know">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>ORA tests your gene list against curated pathway databases. The three major ones each offer a different lens on your biology:</p>
+<p><strong>Gene Ontology (GO)</strong> organizes biological knowledge into three sub-ontologies:</p>
+<ul>
+<li><strong>Biological Process (BP)</strong>: What cells <em>do</em> &mdash; e.g., &ldquo;immune effector process,&rdquo; &ldquo;cell killing&rdquo;</li>
+<li><strong>Cellular Component (CC)</strong>: <em>Where</em> things happen &mdash; e.g., &ldquo;cytoplasmic granule,&rdquo; &ldquo;cell surface&rdquo;</li>
+<li><strong>Molecular Function (MF)</strong>: <em>How</em> genes work &mdash; e.g., &ldquo;serine-type endopeptidase activity&rdquo;</li>
+</ul>
+<p><strong>KEGG</strong> provides hand-drawn pathway maps showing how genes interact in metabolic and signaling cascades. Think of KEGG as a GPS for cellular processes &mdash; it doesn&rsquo;t just tell you which genes are involved, it shows you how they connect.</p>
+<p><strong>Reactome</strong> offers expertly curated human pathways with a focus on disease mechanisms and clinical relevance. It&rsquo;s the gold standard when your research has translational implications.</p>
+<p>Start with GO (specifically BP) for the broadest biological picture, then layer in KEGG and Reactome for mechanistic and clinical depth.</p>
+<hr>
+<h2 id="what-good-results-look-like">
+  What Good Results Look Like
+  <a class="heading-link" href="#what-good-results-look-like">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>When ORA works well on your single-cell markers, you should see:</p>
+<ul>
+<li><strong>Biologically coherent terms</strong> &mdash; NK cell markers should enrich for cytotoxicity and immune defense, not random metabolic processes</li>
+<li><strong>Significant p-values after correction</strong> &mdash; look for adjusted p-values below 0.05 using Benjamini-Hochberg correction</li>
+<li><strong>Reasonable gene ratios</strong> &mdash; pathways with 5-50 genes in your list are most informative; very large or very small overlaps can be misleading</li>
+<li><strong>Consistent story across databases</strong> &mdash; if GO says &ldquo;immune response&rdquo; and KEGG says &ldquo;Natural Killer Cell Mediated Cytotoxicity,&rdquo; you&rsquo;re on solid ground</li>
+</ul>
+<p>Red flags include only very broad terms (like &ldquo;biological regulation&rdquo;), contradictory results between databases, or no significant enrichment at all &mdash; which may indicate your DEA thresholds need adjusting.</p>
+<hr>
+<h2 id="coming-up-next">
+  Coming Up Next
+  <a class="heading-link" href="#coming-up-next">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Now that you understand the theory behind pathway enrichment analysis, it&rsquo;s time to write some code! In <strong>Post 16</strong>, we&rsquo;ll walk through a complete ORA workflow using <code>clusterProfiler</code> on our IFNB NK cell markers &mdash; from preparing your gene list to interpreting dotplots. Every step, every parameter, every visualization explained.</p>
+<p>Ready to transform your marker gene lists into biological stories? Let&rsquo;s do it!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
