@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="How I built five custom Claude Code Skills for my bioinformatics workflow — covering R coding, project scaffolding, Quarto notebooks, lab documentation, and R package development — and why I open-sourced them.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!">
+  <meta name="twitter:description" content="How I built five custom Claude Code Skills for my bioinformatics workflow — covering R coding, project scaffolding, Quarto notebooks, lab documentation, and R package development — and why I open-sourced them.">
+
+<meta property="og:url" content="http://localhost:1313/posts/claude-skills-bioinformatics-open-source/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!">
+  <meta property="og:description" content="How I built five custom Claude Code Skills for my bioinformatics workflow — covering R coding, project scaffolding, Quarto notebooks, lab documentation, and R package development — and why I open-sourced them.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-16T09:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-16T09:00:00+00:00">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Skills">
+    <meta property="article:tag" content="SKILL.md">
+    <meta property="article:tag" content="ScRNA-Seq">
+    <meta property="article:tag" content="Seurat">
+    <meta property="article:tag" content="BadranSeq">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/claude-skills-bioinformatics-open-source/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/claude-skills-bioinformatics-open-source/">
+              Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-03-16T09:00:00Z">
+                March 16, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/ai-tools/">AI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/bioinformatics/">Bioinformatics</a>
+      <span class="separator">•</span>
+    <a href="/categories/claude/">Claude</a>
+      <span class="separator">•</span>
+    <a href="/categories/r-programming/">R Programming</a>
+      <span class="separator">•</span>
+    <a href="/categories/open-source/">Open Source</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/claude-code/">Claude Code</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/skills/">Skills</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/skill.md/">SKILL.md</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/scrna-seq/">ScRNA-Seq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/seurat/">Seurat</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/badranseq/">BadranSeq</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/quarto/">Quarto</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/r-packages/">R Packages</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computational-biology/">Computational Biology</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/reproducibility/">Reproducibility</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-workflow/">AI Workflow</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="from-concept-to-practice-building-claude-code-skills-for-bioinformatics">
+  From Concept to Practice: Building Claude Code Skills for Bioinformatics
+  <a class="heading-link" href="#from-concept-to-practice-building-claude-code-skills-for-bioinformatics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Back in Post 6, I introduced Claude Code Skills &mdash; the idea that you can package domain-specific instructions into reusable <code>SKILL.md</code> files that Claude automatically loads when relevant. That post was about the <em>what</em> and the <em>why</em>.</p>
+<p>This post is about the <em>how</em>. Specifically, how I built five custom Skills that cover my entire bioinformatics research workflow &mdash; and why I&rsquo;m open-sourcing them for the community to fork and adapt.</p>
+<p>The repository lives here: <a href="https://github.com/wolf5996/claude-skills"  class="external-link" target="_blank" rel="noopener">github.com/wolf5996/claude-skills</a></p>
+<h2 id="why-build-custom-skills-">
+  WHY BUILD CUSTOM SKILLS? 🎯
+  <a class="heading-link" href="#why-build-custom-skills-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>If you&rsquo;ve been following this series, you know the progression. CLAUDE.md (Post 5) gives Claude project-level context. Skills (Post 6) teach Claude <em>how</em> to do specific tasks. MCPs (Post 7) let Claude reach external tools. Subagents (Post 8) let Claude parallelise work.</p>
+<p>But here&rsquo;s the thing &mdash; all of that machinery is generic. It doesn&rsquo;t know that your lab uses a specific directory layout. It doesn&rsquo;t know that you prefer tidyverse over base R. It doesn&rsquo;t know that every code chunk in your Quarto notebooks should be self-contained and independently runnable.</p>
+<p>Custom Skills are where generic AI tooling becomes <em>yours</em>. You&rsquo;re encoding the conventions, patterns, and quality standards that you&rsquo;ve spent years developing &mdash; and handing them to Claude as executable documentation.</p>
+<p>The key insight: <strong>Skills aren&rsquo;t prompts you type repeatedly. They&rsquo;re institutional knowledge that persists across every session.</strong></p>
+<h2 id="the-five-skills-">
+  THE FIVE SKILLS 🔬
+  <a class="heading-link" href="#the-five-skills-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Let me walk through each one and why it exists.</p>
+<h3 id="1-creating-analysis-projects-">
+  1. creating-analysis-projects 🧪
+  <a class="heading-link" href="#1-creating-analysis-projects-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>The problem:</strong> Every bioinformatics project starts the same way &mdash; you need a directory structure that separates raw data from code from intermediate outputs from final results. And you need that separation to be <em>strict</em>, because raw data should never be git-tracked while your analysis scripts absolutely should be.</p>
+<p><strong>What the Skill enforces:</strong></p>
+<ul>
+<li>A <code>read/</code> → <code>scripts/</code> → <code>checkpoints/</code> → <code>write/</code> directory architecture</li>
+<li>Raw data lives in <code>read/</code> and stays out of version control</li>
+<li>Intermediate objects get saved as <code>.rds</code> checkpoints &mdash; making every analysis step independently resumable</li>
+<li>Final outputs land in <code>write/</code> for clean export</li>
+</ul>
+<p><strong>Why it matters:</strong> When Claude scaffolds a new project, it doesn&rsquo;t just create folders. It creates the <em>right</em> folders with the <em>right</em> <code>.gitignore</code> patterns and the <em>right</em> README templates. Every project starts clean and stays reproducible.</p>
+<h3 id="2-writing-r-code-">
+  2. writing-r-code 💻
+  <a class="heading-link" href="#2-writing-r-code-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This is the most detailed Skill in the collection, and it reflects years of opinions about what good R code looks like in a bioinformatics context.</p>
+<p><strong>Core conventions:</strong></p>
+<ul>
+<li><strong>Tidyverse-first:</strong> Pipes, <code>dplyr</code> verbs, <code>ggplot2</code> &mdash; not base R equivalents</li>
+<li><strong>Self-contained chunks:</strong> Every code chunk follows a strict <code>Libraries → Inputs → Processing → Outputs</code> structure. Each chunk loads its own data from a checkpoint file rather than depending on in-memory state from previous chunks. This makes chunks independently runnable and debuggable</li>
+<li><strong>Seurat v5 patterns:</strong> Layer-based operations, SCTransform v2, the modern API &mdash; not the Seurat v3 patterns that LLMs love to hallucinate</li>
+</ul>
+<p><strong>The BadranSeq visualization layer:</strong> This Skill enforces a strict visualization fallback chain: BadranSeq → SCpubr → Seurat. If you&rsquo;re not familiar with BadranSeq &mdash; I built it (<a href="https://github.com/wolf5996/BadranSeq"  class="external-link" target="_blank" rel="noopener">github.com/wolf5996/BadranSeq</a>) because I got tired of spending more time styling Seurat plots than doing actual biology.</p>
+<p>The core problem is that Seurat&rsquo;s default plots aren&rsquo;t publication-ready. PCA plots don&rsquo;t show variance explained on the axes. Cells in dense clusters blend together with no borders. Split comparisons via faceting lose spatial context because you only see cells in each subset &mdash; not where they sit relative to the full dataset.</p>
+<p>BadranSeq fixes all of this with native ggplot2 wrappers:</p>
+<ul>
+<li><code>do_PcaPlot()</code> automatically calculates and displays variance explained percentages on axes &mdash; no more manually computing <code>(stdev^2 / sum(stdev^2)) * 100</code></li>
+<li><code>do_UmapPlot()</code> adds black cell borders for clarity and shows cluster labels by default</li>
+<li><code>do_FeaturePlot()</code> uses viridis color scales (perceptually uniform, colorblind-friendly) with expression cutoff support</li>
+<li>Split comparisons render grey silhouettes of all cells as background context, so you never lose the spatial reference</li>
+</ul>
+<p>The aesthetic approach is inspired by SCpubr, but BadranSeq is deliberately lightweight &mdash; pure ggplot2, no heavy dependencies. If you need SCpubr&rsquo;s full feature set with dozens of specialized plot types, use SCpubr. If you want the core aesthetics with minimal overhead, BadranSeq is the answer.</p>
+<p>By baking BadranSeq into the <code>writing-r-code</code> Skill as the first choice, every scRNA-seq figure Claude generates comes out publication-ready by default. No more post-hoc styling. No more &ldquo;I&rsquo;ll make it pretty later.&rdquo; It&rsquo;s pretty from the first render.</p>
+<p><strong>The Context7 integration:</strong> This Skill mandates that Claude verifies function signatures against live documentation via the Context7 MCP for 17+ R and Bioconductor packages before writing code. No more deprecated function calls. No more hallucinated arguments. If Context7 says the function doesn&rsquo;t take that parameter, Claude doesn&rsquo;t write it.</p>
+<p>This single convention alone has saved me more debugging time than everything else combined.</p>
+<h3 id="3-writing-qmd-scientific-">
+  3. writing-qmd-scientific 📝
+  <a class="heading-link" href="#3-writing-qmd-scientific-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>The controversial rule:</strong> All explanatory prose in Quarto notebooks must be bullet points. No paragraphs. Ever.</p>
+<p>This sounds extreme, but there&rsquo;s a reason. Scientific Quarto notebooks aren&rsquo;t essays &mdash; they&rsquo;re structured records of what you did, why you did it, and what happened. Bullet points force clarity. They prevent the wandering prose that makes notebooks unreadable six months later.</p>
+<p><strong>Other conventions:</strong></p>
+<ul>
+<li>Hashpipe (<code>#|</code>) comment formatting for all chunk options &mdash; the modern Quarto way, not the old knitr <code>{r, echo=FALSE}</code> syntax</li>
+<li>No numbered headings (Quarto&rsquo;s table of contents handles navigation)</li>
+<li>Cross-references and figure captions follow Quarto&rsquo;s native citation system</li>
+</ul>
+<h3 id="4-writing-labarchive-entries-">
+  4. writing-labarchive-entries 📓
+  <a class="heading-link" href="#4-writing-labarchive-entries-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This Skill targets LabArchives &mdash; the electronic lab notebook platform many labs use for formal documentation.</p>
+<p><strong>Four entry types, each with its own template:</strong></p>
+<ul>
+<li><strong>Reference Datasets:</strong> Where the data came from, how it was processed, what QC was applied</li>
+<li><strong>Analysis Pipelines:</strong> Step-by-step records of computational workflows</li>
+<li><strong>Tool Evaluations:</strong> Structured assessments of new tools or packages</li>
+<li><strong>Educational Notes:</strong> Learning records for new methods or concepts</li>
+</ul>
+<p><strong>The PubMed integration:</strong> This Skill uses the PubMed MCP to look up citations automatically. When Claude writes a lab entry referencing a method, it pulls the actual citation &mdash; PMID, authors, journal, year &mdash; rather than hallucinating a plausible-sounding reference.</p>
+<h3 id="5-developing-r-packages-">
+  5. developing-r-packages 📦
+  <a class="heading-link" href="#5-developing-r-packages-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This Skill follows Wickham &amp; Bryan&rsquo;s <em>R Packages</em> (2nd edition) as the authoritative reference. It covers the full lifecycle:</p>
+<ul>
+<li>Package structure with <code>usethis</code> scaffolding</li>
+<li><code>roxygen2</code> documentation with proper <code>@param</code>, <code>@return</code>, <code>@export</code> tags</li>
+<li><code>testthat</code> testing with meaningful test names and edge case coverage</li>
+<li>Semantic versioning (MAJOR.MINOR.PATCH)</li>
+<li>GitHub Actions CI/CD for <code>R CMD check</code></li>
+<li><code>pkgdown</code> sites for documentation hosting</li>
+</ul>
+<p>This is the Skill I used when developing <a href="https://github.com/wolf5996/BadranSeq"  class="external-link" target="_blank" rel="noopener">BadranSeq</a>. Having Claude follow these conventions from the start meant the package was properly documented and tested from day one &mdash; not retroactively patched months later.</p>
+<h2 id="the-dependency-graph-">
+  THE DEPENDENCY GRAPH 🔗
+  <a class="heading-link" href="#the-dependency-graph-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>One thing I&rsquo;m particularly proud of is how these Skills reference and build on each other:</p>
+<pre><code>creating-analysis-projects
+├── writing-r-code          (code chunk conventions)
+└── writing-qmd-scientific  (document structure)
+    └── writing-r-code      (inline code patterns)
+
+writing-labarchive-entries  (standalone — references PubMed MCP)
+developing-r-packages       (standalone — R package conventions)
+</code></pre>
+<p>When Claude loads <code>creating-analysis-projects</code>, it automatically picks up the code conventions from <code>writing-r-code</code> and the document structure from <code>writing-qmd-scientific</code>. You don&rsquo;t configure this manually &mdash; the Skills reference each other, and Claude follows the chain.</p>
+<p>This means one unified system rather than five disconnected instruction sets. Change a convention in <code>writing-r-code</code> and it propagates everywhere that Skill is referenced.</p>
+<h2 id="fork-and-make-them-yours-">
+  FORK AND MAKE THEM YOURS 🛠️
+  <a class="heading-link" href="#fork-and-make-them-yours-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>These Skills are deliberately opinionated. They reflect <em>my</em> workflow, <em>my</em> conventions, <em>my</em> preferred packages. That&rsquo;s the point &mdash; generic Skills produce generic output.</p>
+<p>But your workflow is different. Maybe you use <code>dittoSeq</code> instead of BadranSeq. Maybe your lab uses a different directory layout. Maybe you work with spatial transcriptomics instead of scRNA-seq.</p>
+<p><strong>To make them yours:</strong></p>
+<ul>
+<li>Fork the repository</li>
+<li>Swap the author name and preferred packages</li>
+<li>Adjust the directory conventions to match your lab</li>
+<li>Modify the Context7 package list to cover your stack</li>
+</ul>
+<p>The README has a full &ldquo;Fork &amp; Customize&rdquo; section with specific instructions for each change.</p>
+<h2 id="whats-next-">
+  WHAT&rsquo;S NEXT 🚀
+  <a class="heading-link" href="#whats-next-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>These five Skills are a starting point. As workflows mature, new Skills get added. I&rsquo;m actively working on Skills for spatial transcriptomics analysis, automated figure generation, and manuscript preparation.</p>
+<p>If you build something useful on top of these, I&rsquo;d love to hear about it. Open an issue, submit a PR, or just fork and go your own way. That&rsquo;s the beauty of open-sourcing institutional knowledge &mdash; it compounds.</p>
+<p>The full Claude series lives at <a href="https://badran-elshenawy.netlify.app"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app</a> 🌐</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -6,8 +6,15 @@
     <description>Recent content in Quarto on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jan 2025 04:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/quarto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!</title>
+      <link>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</guid>
+      <description>Post 12 in the Claude series. Moving from the concept of Skills (Post 6) to a real implementation — five opinionated, interconnected Skills for R, scRNA-seq, and scientific documentation, with BadranSeq baked in as the default visualization layer.</description>
+    </item>
     <item>
       <title>From R Markdown to Quarto: Why Visual Mode in VS Code is a Game Changer</title>
       <link>http://localhost:1313/posts/quarto-vscode/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source on Badran Elshenawy</title>
+    <link>http://localhost:1313/categories/open-source/</link>
+    <description>Recent content in Open Source on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!</title>
+      <link>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</guid>
+      <description>Post 12 in the Claude series. Moving from the concept of Skills (Post 6) to a real implementation — five opinionated, interconnected Skills for R, scRNA-seq, and scientific documentation, with BadranSeq baked in as the default visualization layer.</description>
+    </item>
+  </channel>
+</rss>

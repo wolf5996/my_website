@@ -38,7 +38,7 @@ No tutorial. No step-by-step guide. Just an honest opinion about the Claude Code
 I'm talking about git and gh integration - and how Claude Code turned version control from the thing I dreaded most into something I actively enjoy! 🤯
 
 
-## MY DIRTY SECRET 🙈
+## The Uncomfortable Truth About My Git Habits 🙈
 
 Let me be real for a second.
 
@@ -51,7 +51,7 @@ I'd go days without committing. I'd avoid branching because merging felt risky. 
 I'm willing to bet most researchers reading this are in the same boat. We learned git grudgingly - just enough `add`, `commit`, `push` to get by - and treated everything else as overhead that slowed down the REAL work! 🏃‍♂️
 
 
-## THE FRICTION PROBLEM 🎯
+## The Friction Problem 🎯
 
 Here's what I've realized: the problem was never git itself!
 
@@ -70,7 +70,7 @@ By step 3, your brain has fully context-switched from "biology" to "git syntax" 
 Multiply this across every commit, every branch, every PR, every merge conflict - and you get researchers who know they SHOULD use version control well but consistently don't because the friction adds up! 📈
 
 
-## WHAT CLAUDE CODE ACTUALLY CHANGED 🔬
+## What Claude Code Actually Changed 🔬
 
 Claude Code didn't teach me new git commands. I already knew they existed!
 
@@ -109,7 +109,7 @@ Claude analyzes every commit on the branch, writes a PR title, a description, a 
 Claude looks at both sides, understands the INTENT of each change (not just the text diff), and suggests a resolution that preserves what both branches were trying to achieve. This alone has saved me hours! 🤝
 
 
-## THE GH INTEGRATION - THIS IS THE REAL GAME CHANGER 💡
+## The GH Integration - The Real Game Changer 💡
 
 If Claude Code's git integration is excellent, the GitHub CLI integration is where it becomes truly transformative! 👨‍🍳
 
@@ -160,7 +160,7 @@ This is what a typical session looks like for me now:
 Branch creation → development → clean commit history → descriptive PR. All without leaving my terminal. All in natural language. All with contextually aware messages that my collaborators can actually understand! 🏗️
 
 
-## WHY THIS MATTERS FOR RESEARCH REPRODUCIBILITY 🧬
+## Why This Matters for Research Reproducibility 🧬
 
 Here's where this stops being a "nice developer experience" story and becomes something genuinely important for science!
 
@@ -183,7 +183,7 @@ The result for me has been transformative. My commit history is now a readable n
 This is the reproducibility improvement that nobody talks about because it doesn't come from a new tool or method - it comes from removing the friction that prevented researchers from using the tools they already had! 💡
 
 
-## THE SMALL THINGS THAT ADD UP ⚡
+## The Small Things That Add Up ⚡
 
 Beyond the big features, there are small touches that compound into a completely different experience:
 
@@ -224,7 +224,7 @@ Add your commit conventions to your project's CLAUDE.md:
 Now Claude follows YOUR team's standards automatically. Every team member, every commit, consistent formatting! 📋
 
 
-## MY HONEST TAKE 🔥
+## My Honest Take 🔥
 
 I want to be clear about what I'm NOT saying:
 
@@ -237,7 +237,7 @@ I branch for everything. I commit frequently with descriptive messages. I write 
 The best tool isn't the most powerful one - it's the one you actually use. Claude Code made git that tool for me, and I think it can do the same for every researcher who knows they SHOULD be doing version control better but hasn't because the friction was too high! 🚀
 
 
-## TO EVERY RESEARCHER WHO DREADS GIT 🤝
+## To Every Researcher Who Dreads Git 🤝
 
 If you're reading this and you recognized yourself in the "fixed stuff" commit messages and the pushing to main because branches feel like overkill - I was you six months ago!
 
