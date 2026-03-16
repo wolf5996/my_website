@@ -1,0 +1,94 @@
+---
+title: "Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!"
+author: "Badran Elshenawy"
+date: 2026-03-17T09:00:00Z
+categories:
+  - "AI Tools"
+  - "Claude"
+  - "Productivity"
+  - "Developer Tools"
+  - "Open Source"
+tags:
+  - "Claude Code"
+  - "claude-mem"
+  - "Persistent Memory"
+  - "Plugins"
+  - "Context Engineering"
+  - "Progressive Disclosure"
+  - "MCP Tools"
+  - "SQLite"
+  - "Bioinformatics"
+  - "AI Workflow"
+  - "Session Memory"
+  - "Developer Productivity"
+description: "How claude-mem gives Claude Code persistent memory across sessions — automatically capturing observations, compressing them with AI, and injecting relevant context back into future sessions."
+slug: "claude-mem-persistent-memory-claude-code"
+draft: false
+output: hugodown::md_document
+aliases:
+  - "/posts/claude_mem_persistent_memory_claude_code/"
+summary: "Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search."
+featured: true
+---
+
+---
+NOTE: YAML header printed separately — paste this at the top of your .qmd file
+---
+
+# Give Claude Code a Brain That Remembers: claude-mem
+
+If you've been following this series, you've seen how Claude Code can be extended with Skills (Post 6, Post 12), MCPs (Post 7), Subagents (Post 8), and Plugins (Post 9). But there's one fundamental frustration that none of those solve:
+
+Every new session starts from zero.
+
+Your last session figured out your project architecture, debugged a tricky issue, mapped out your codebase — and then the session ends. Next time you open Claude Code? Blank slate. All that context is gone.
+
+For anyone working on projects that span days or weeks — especially bioinformatics analysis pipelines where you're iteratively tuning parameters and building on previous results — this isn't just annoying. It's a real productivity killer.
+
+
+## Enter claude-mem 🧠
+
+[claude-mem](https://github.com/thedotmack/claude-mem) is a Claude Code plugin by Alex Newman that gives Claude persistent memory across sessions. It's one of the most popular tools in the Claude Code ecosystem — 18k GitHub stars, 1.2k forks, 174 releases, and a very active community.
+
+The pitch is simple: claude-mem automatically captures what Claude does during your sessions, compresses it with AI, and injects relevant context back into future sessions. No manual note-taking. No copy-pasting context from old conversations. It just works in the background.
+
+
+## The basic idea 🎯
+
+Think of it like this. Without claude-mem, every Claude Code session is a stranger walking into your project for the first time. With claude-mem, it's more like a colleague who was there yesterday and remembers what you worked on.
+
+Under the hood, claude-mem uses lifecycle hooks — automatic triggers that fire at key moments like session start, after tool use, and session end. These hooks capture observations about what's happening, compress them into summaries, and store them in a local database. When your next session starts, the relevant memories get loaded automatically.
+
+The search system is worth mentioning even in an introductory post: it uses a progressive disclosure approach where Claude first gets a lightweight index of past observations, then selectively fetches full details only for what's actually relevant. This keeps token usage efficient rather than flooding the context window with everything from every past session.
+
+
+## Getting started 💻
+
+Installation is genuinely two commands:
+
+```
+/plugin marketplace add thedotmack/claude-mem
+/plugin install claude-mem
+```
+
+Restart Claude Code and you're done. There's no config file to edit, no API keys to set up. claude-mem handles its own dependencies and starts working immediately.
+
+There's also a web viewer at `http://localhost:37777` where you can see what claude-mem is capturing in real time — useful for getting a feel for how it works and what it's storing.
+
+One nice touch: anything wrapped in `<private>` tags is excluded from storage. Important when you're working with sensitive data paths or credentials.
+
+
+## Why I think this matters for researchers 🧬
+
+For the bioinformatics community specifically, persistent memory changes the game. Our projects aren't quick one-off scripts — they're multi-day, iterative workflows where decisions compound. Which normalization method you chose on Monday affects your clustering on Tuesday, which affects your differential expression on Wednesday.
+
+Having Claude remember that context — instead of you re-explaining it every session — is the difference between Claude as a tool you use and Claude as a collaborator you work with.
+
+
+## Worth exploring 🚀
+
+I'm not going to pretend this is a comprehensive guide — claude-mem has extensive documentation covering its architecture, configuration options, and beta features like "Endless Mode" for extended sessions. Check out the [full docs](https://github.com/thedotmack/claude-mem/blob/main/docs) if you want to go deeper.
+
+For now, if you use Claude Code regularly and you haven't tried claude-mem, give it those two commands. Your next session will thank your last one.
+
+The full Claude series lives at [badran-elshenawy.netlify.app](https://badran-elshenawy.netlify.app) 🌐

@@ -37,10 +37,59 @@
       <description></description>
     </item>
     <item>
+      <title>Claude-Mem</title>
+      <link>http://localhost:1313/tags/claude-mem/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/claude-mem/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Computational Biology</title>
       <link>http://localhost:1313/tags/computational-biology/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/computational-biology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context Engineering</title>
+      <link>http://localhost:1313/tags/context-engineering/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/context-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer Productivity</title>
+      <link>http://localhost:1313/tags/developer-productivity/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/developer-productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MCP Tools</title>
+      <link>http://localhost:1313/tags/mcp-tools/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mcp-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Persistent Memory</title>
+      <link>http://localhost:1313/tags/persistent-memory/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/persistent-memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plugins</title>
+      <link>http://localhost:1313/tags/plugins/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/plugins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Progressive Disclosure</title>
+      <link>http://localhost:1313/tags/progressive-disclosure/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/progressive-disclosure/</guid>
       <description></description>
     </item>
     <item>
@@ -72,6 +121,13 @@
       <description></description>
     </item>
     <item>
+      <title>Session Memory</title>
+      <link>http://localhost:1313/tags/session-memory/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/session-memory/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Seurat</title>
       <link>http://localhost:1313/tags/seurat/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
@@ -90,6 +146,13 @@
       <link>http://localhost:1313/tags/skills/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/skills/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQLite</title>
+      <link>http://localhost:1313/tags/sqlite/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sqlite/</guid>
       <description></description>
     </item>
     <item>
@@ -216,13 +279,6 @@
       <link>http://localhost:1313/tags/plugin-marketplace/</link>
       <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/plugin-marketplace/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Plugins</title>
-      <link>http://localhost:1313/tags/plugins/</link>
-      <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/plugins/</guid>
       <description></description>
     </item>
     <item>

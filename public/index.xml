@@ -23,6 +23,13 @@
       <description>Post 12 in the Claude series. Moving from the concept of Skills (Post 6) to a real implementation — five opinionated, interconnected Skills for R, scRNA-seq, and scientific documentation, with BadranSeq baked in as the default visualization layer.</description>
     </item>
     <item>
+      <title>Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!</title>
+      <link>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</link>
+      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</guid>
+      <description>Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search.</description>
+    </item>
+    <item>
       <title>Claude Series – Post 11: How Claude Code Made Me Actually Love Version Control!</title>
       <link>http://localhost:1313/posts/claude-code-made-me-love-version-control/</link>
       <pubDate>Thu, 12 Mar 2026 09:00:00 +0000</pubDate>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers! · Badran Elshenawy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Badran Elshenawy">
+<meta name="description" content="How claude-mem gives Claude Code persistent memory across sessions — automatically capturing observations, compressing them with AI, and injecting relevant context back into future sessions.">
+<meta name="keywords" content="[bioinformatics data science linux command-line HPC automation]">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!">
+  <meta name="twitter:description" content="How claude-mem gives Claude Code persistent memory across sessions — automatically capturing observations, compressing them with AI, and injecting relevant context back into future sessions.">
+
+<meta property="og:url" content="http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/">
+  <meta property="og:site_name" content="Badran Elshenawy">
+  <meta property="og:title" content="Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!">
+  <meta property="og:description" content="How claude-mem gives Claude Code persistent memory across sessions — automatically capturing observations, compressing them with AI, and injecting relevant context back into future sessions.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-16T09:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-16T09:00:00+00:00">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Claude-Mem">
+    <meta property="article:tag" content="Persistent Memory">
+    <meta property="article:tag" content="Plugins">
+    <meta property="article:tag" content="Context Engineering">
+    <meta property="article:tag" content="Progressive Disclosure">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Badran Elshenawy
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/">
+              Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-03-16T09:00:00Z">
+                March 16, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/ai-tools/">AI Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/claude/">Claude</a>
+      <span class="separator">•</span>
+    <a href="/categories/productivity/">Productivity</a>
+      <span class="separator">•</span>
+    <a href="/categories/developer-tools/">Developer Tools</a>
+      <span class="separator">•</span>
+    <a href="/categories/open-source/">Open Source</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/claude-code/">Claude Code</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/claude-mem/">Claude-Mem</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/persistent-memory/">Persistent Memory</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/plugins/">Plugins</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/context-engineering/">Context Engineering</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/progressive-disclosure/">Progressive Disclosure</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/mcp-tools/">MCP Tools</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/sqlite/">SQLite</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bioinformatics/">Bioinformatics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ai-workflow/">AI Workflow</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/session-memory/">Session Memory</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/developer-productivity/">Developer Productivity</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="give-claude-code-a-brain-that-remembers-claude-mem">
+  Give Claude Code a Brain That Remembers: claude-mem
+  <a class="heading-link" href="#give-claude-code-a-brain-that-remembers-claude-mem">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>If you&rsquo;ve been following this series, you&rsquo;ve seen how Claude Code can be extended with Skills (Post 6, Post 12), MCPs (Post 7), Subagents (Post 8), and Plugins (Post 9). But there&rsquo;s one fundamental frustration that none of those solve:</p>
+<p>Every new session starts from zero.</p>
+<p>Your last session figured out your project architecture, debugged a tricky issue, mapped out your codebase &mdash; and then the session ends. Next time you open Claude Code? Blank slate. All that context is gone.</p>
+<p>For anyone working on projects that span days or weeks &mdash; especially bioinformatics analysis pipelines where you&rsquo;re iteratively tuning parameters and building on previous results &mdash; this isn&rsquo;t just annoying. It&rsquo;s a real productivity killer.</p>
+<h2 id="enter-claude-mem-">
+  Enter claude-mem 🧠
+  <a class="heading-link" href="#enter-claude-mem-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://github.com/thedotmack/claude-mem"  class="external-link" target="_blank" rel="noopener">claude-mem</a> is a Claude Code plugin by Alex Newman that gives Claude persistent memory across sessions. It&rsquo;s one of the most popular tools in the Claude Code ecosystem &mdash; 18k GitHub stars, 1.2k forks, 174 releases, and a very active community.</p>
+<p>The pitch is simple: claude-mem automatically captures what Claude does during your sessions, compresses it with AI, and injects relevant context back into future sessions. No manual note-taking. No copy-pasting context from old conversations. It just works in the background.</p>
+<h2 id="the-basic-idea-">
+  The basic idea 🎯
+  <a class="heading-link" href="#the-basic-idea-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Think of it like this. Without claude-mem, every Claude Code session is a stranger walking into your project for the first time. With claude-mem, it&rsquo;s more like a colleague who was there yesterday and remembers what you worked on.</p>
+<p>Under the hood, claude-mem uses lifecycle hooks &mdash; automatic triggers that fire at key moments like session start, after tool use, and session end. These hooks capture observations about what&rsquo;s happening, compress them into summaries, and store them in a local database. When your next session starts, the relevant memories get loaded automatically.</p>
+<p>The search system is worth mentioning even in an introductory post: it uses a progressive disclosure approach where Claude first gets a lightweight index of past observations, then selectively fetches full details only for what&rsquo;s actually relevant. This keeps token usage efficient rather than flooding the context window with everything from every past session.</p>
+<h2 id="getting-started-">
+  Getting started 💻
+  <a class="heading-link" href="#getting-started-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Installation is genuinely two commands:</p>
+<pre><code>/plugin marketplace add thedotmack/claude-mem
+/plugin install claude-mem
+</code></pre>
+<p>Restart Claude Code and you&rsquo;re done. There&rsquo;s no config file to edit, no API keys to set up. claude-mem handles its own dependencies and starts working immediately.</p>
+<p>There&rsquo;s also a web viewer at <code>http://localhost:37777</code> where you can see what claude-mem is capturing in real time &mdash; useful for getting a feel for how it works and what it&rsquo;s storing.</p>
+<p>One nice touch: anything wrapped in <code>&lt;private&gt;</code> tags is excluded from storage. Important when you&rsquo;re working with sensitive data paths or credentials.</p>
+<h2 id="why-i-think-this-matters-for-researchers-">
+  Why I think this matters for researchers 🧬
+  <a class="heading-link" href="#why-i-think-this-matters-for-researchers-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>For the bioinformatics community specifically, persistent memory changes the game. Our projects aren&rsquo;t quick one-off scripts &mdash; they&rsquo;re multi-day, iterative workflows where decisions compound. Which normalization method you chose on Monday affects your clustering on Tuesday, which affects your differential expression on Wednesday.</p>
+<p>Having Claude remember that context &mdash; instead of you re-explaining it every session &mdash; is the difference between Claude as a tool you use and Claude as a collaborator you work with.</p>
+<h2 id="worth-exploring-">
+  Worth exploring 🚀
+  <a class="heading-link" href="#worth-exploring-">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I&rsquo;m not going to pretend this is a comprehensive guide &mdash; claude-mem has extensive documentation covering its architecture, configuration options, and beta features like &ldquo;Endless Mode&rdquo; for extended sessions. Check out the <a href="https://github.com/thedotmack/claude-mem/blob/main/docs"  class="external-link" target="_blank" rel="noopener">full docs</a> if you want to go deeper.</p>
+<p>For now, if you use Claude Code regularly and you haven&rsquo;t tried claude-mem, give it those two commands. Your next session will thank your last one.</p>
+<p>The full Claude series lives at <a href="https://badran-elshenawy.netlify.app"  class="external-link" target="_blank" rel="noopener">badran-elshenawy.netlify.app</a> 🌐</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2025 -
+    
+    2026
+     Badran Elshenawy 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

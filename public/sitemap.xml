@@ -34,13 +34,43 @@
     <loc>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/claude-mem/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/computational-biology/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/context-engineering/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/developer-productivity/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/developer-tools/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mcp-tools/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/open-source/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/persistent-memory/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/plugins/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/productivity/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/progressive-disclosure/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/quarto/</loc>
@@ -58,6 +88,9 @@
     <loc>http://localhost:1313/tags/scrna-seq/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/session-memory/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/seurat/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
@@ -65,6 +98,9 @@
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/skills/</loc>
+    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sqlite/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -92,9 +128,6 @@
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/opinion/</loc>
-    <lastmod>2026-03-12T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/productivity/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/research-workflow/</loc>
@@ -140,9 +173,6 @@
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/plugin-marketplace/</loc>
-    <lastmod>2026-03-09T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/plugins/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/research-productivity/</loc>
