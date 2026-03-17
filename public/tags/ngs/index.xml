@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NGS on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/ngs/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/ngs/</link>
     <description>Recent content in NGS on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 22 May 2025 11:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 12: ShortRead</title>
-      <link>http://localhost:1313/posts/shortread/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/shortread/</link>
       <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/shortread/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/shortread/</guid>
       <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</guid>
       <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
     </item>
   </channel>

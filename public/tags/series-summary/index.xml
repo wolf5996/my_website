@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series Summary on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/series-summary/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/series-summary/</link>
     <description>Recent content in Series Summary on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 28 Sep 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/series-summary/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/series-summary/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
   </channel>

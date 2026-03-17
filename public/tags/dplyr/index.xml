@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dplyr on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/dplyr/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/dplyr/</link>
     <description>Recent content in Dplyr on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 19 May 2025 00:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 10: plyranges</title>
-      <link>http://localhost:1313/posts/plyranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/plyranges/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/plyranges/</guid>
       <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 14: Bringing It All Together – A Full Tidyverse Workflow</title>
-      <link>http://localhost:1313/posts/tidyverse-full-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-full-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</guid>
       <description>Master the power of combining Tidyverse packages for a complete data analysis workflow. Learn how dplyr, tidyr, ggplot2, and more work together for seamless analysis.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr-joins/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</link>
       <pubDate>Wed, 19 Feb 2025 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr-joins/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</guid>
       <description>Master dataset merging with dplyr joins in R. Learn about inner, left, right, full, semi, and anti joins, with practical examples and handling missing data.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</link>
       <pubDate>Wed, 12 Feb 2025 09:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</guid>
       <description>Discover how dplyr makes data manipulation in R simple, readable, and efficient with five key verbs: select, filter, mutate, arrange, and summarize.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 1: Why the Tidyverse is a Game-Changer for R</title>
-      <link>http://localhost:1313/posts/tidyverse-intro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</link>
       <pubDate>Tue, 11 Feb 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-intro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</guid>
       <description>Discover why the Tidyverse is a game-changer for data science in R, simplifying data wrangling, visualization, and reproducibility.</description>
     </item>
   </channel>

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tidyr on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/tidyr/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/tidyr/</link>
     <description>Recent content in Tidyr on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 13 Mar 2025 16:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tidyr/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/tidyr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tidyverse Series – Post 14: Bringing It All Together – A Full Tidyverse Workflow</title>
-      <link>http://localhost:1313/posts/tidyverse-full-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-full-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</guid>
       <description>Master the power of combining Tidyverse packages for a complete data analysis workflow. Learn how dplyr, tidyr, ggplot2, and more work together for seamless analysis.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr</title>
-      <link>http://localhost:1313/posts/tidyverse-tidyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</link>
       <pubDate>Mon, 17 Feb 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-tidyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</guid>
       <description>Discover how tidyr makes data reshaping and cleaning in R simple, readable, and efficient with functions like pivot_longer, pivot_wider, separate, unite, and more.</description>
     </item>
   </channel>

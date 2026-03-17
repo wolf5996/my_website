@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Version Control on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/version-control/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/version-control/</link>
     <description>Recent content in Version Control on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 12 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 11: How Claude Code Made Me Actually Love Version Control!</title>
-      <link>http://localhost:1313/posts/claude-code-made-me-love-version-control/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</link>
       <pubDate>Thu, 12 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-code-made-me-love-version-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</guid>
       <description>Version control was always the part of research coding I avoided doing well. Claude Code&amp;rsquo;s natural language git and gh integration removed every point of friction - and the impact on my reproducibility practices has been transformative.</description>
     </item>
     <item>
       <title>Version Control Series – Capstone: Mastering Git for Reproducible Research</title>
-      <link>http://localhost:1313/posts/git-capstone-mastering/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-capstone-mastering/</link>
       <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-capstone-mastering/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-capstone-mastering/</guid>
       <description>Consolidate your Git knowledge with this capstone guide covering essential Git workflows, best practices, and key takeaways.</description>
     </item>
     <item>
       <title>Version Control Series – Part 7: Git Diff &amp; Log – Tracking Changes Like a Pro</title>
-      <link>http://localhost:1313/posts/git-diff-log-tracking/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-diff-log-tracking/</link>
       <pubDate>Tue, 04 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-diff-log-tracking/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-diff-log-tracking/</guid>
       <description>Master git diff and git log to track changes efficiently and enhance your version control workflow.</description>
     </item>
     <item>
       <title>Version Control Series – Part 6: Understanding .gitignore – Keeping Your Repo Clean</title>
-      <link>http://localhost:1313/posts/gitignore-best-practices/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/gitignore-best-practices/</link>
       <pubDate>Mon, 03 Feb 2025 17:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/gitignore-best-practices/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/gitignore-best-practices/</guid>
       <description>Learn how to effectively use .gitignore to keep your Git repositories clean and manageable.</description>
     </item>
     <item>
       <title>Version Control Series – Part 5: Undoing Mistakes in Git</title>
-      <link>http://localhost:1313/posts/git-undo-mistakes/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-undo-mistakes/</link>
       <pubDate>Thu, 30 Jan 2025 12:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-undo-mistakes/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-undo-mistakes/</guid>
       <description>Learn how to undo mistakes in Git using reset, revert, and other rollback techniques.</description>
     </item>
     <item>
       <title>Version Control Series – Part 4: GitHub &amp; Collaboration</title>
-      <link>http://localhost:1313/posts/github-collaboration/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/github-collaboration/</link>
       <pubDate>Tue, 28 Jan 2025 06:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github-collaboration/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/github-collaboration/</guid>
       <description>Learn how to collaborate effectively on GitHub using pull requests, forks, and branching workflows.</description>
     </item>
     <item>
       <title>Version Control Series – Part 3: Branching &amp; Merging in Git</title>
-      <link>http://localhost:1313/posts/git-branching-merging/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-branching-merging/</link>
       <pubDate>Mon, 27 Jan 2025 19:26:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-branching-merging/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-branching-merging/</guid>
       <description>Understand Git branching and merging to work confidently without disrupting your main codebase.</description>
     </item>
     <item>
       <title>Version Control Series - Part 2: Essential Git Commands You Should Know</title>
-      <link>http://localhost:1313/posts/git-basics-part2/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-basics-part2/</link>
       <pubDate>Sat, 25 Jan 2025 17:39:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-basics-part2/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-basics-part2/</guid>
       <description>Learn essential Git commands like &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;, and &lt;code&gt;pull&lt;/code&gt; to start mastering version control in bioinformatics.</description>
     </item>
     <item>
       <title>Version Control Series - Part 1: Why Every Bioinformatician Needs Git</title>
-      <link>http://localhost:1313/posts/git-version-control-part1/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/git-version-control-part1/</link>
       <pubDate>Sat, 25 Jan 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/git-version-control-part1/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/git-version-control-part1/</guid>
       <description>Discover why Git is a game-changer for bioinformatics, providing version control, reproducibility, and seamless collaboration.</description>
     </item>
   </channel>

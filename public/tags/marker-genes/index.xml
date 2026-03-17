@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marker Genes on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/marker-genes/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/marker-genes/</link>
     <description>Recent content in Marker Genes on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/marker-genes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/marker-genes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
-      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</link>
       <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</guid>
       <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
     </item>
   </channel>

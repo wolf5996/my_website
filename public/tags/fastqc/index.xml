@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FastQC on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/fastqc/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/fastqc/</link>
     <description>Recent content in FastQC on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 20 Mar 2025 12:10:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/fastqc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/fastqc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</link>
       <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</guid>
       <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
     </item>
   </channel>

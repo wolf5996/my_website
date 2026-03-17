@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistical Modeling on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/statistical-modeling/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/statistical-modeling/</link>
     <description>Recent content in Statistical Modeling on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 31 Jul 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/statistical-modeling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/statistical-modeling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
-      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</link>
       <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</guid>
       <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technical Noise on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/technical-noise/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/technical-noise/</link>
     <description>Recent content in Technical Noise on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 21 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/technical-noise/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/technical-noise/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 6: Why Raw Counts Will Ruin Your Analysis!</title>
-      <link>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-why-raw-counts-ruin-analysis/</link>
       <pubDate>Tue, 21 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-why-raw-counts-ruin-analysis/</guid>
       <description>Raw single-cell counts reflect technical noise, not biology. Learn the transformation steps that separate signal from noise and why skipping them destroys everything downstream.</description>
     </item>
   </channel>

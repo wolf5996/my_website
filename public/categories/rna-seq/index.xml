@@ -2,199 +2,199 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RNA-Seq on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/rna-seq/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/rna-seq/</link>
     <description>Recent content in RNA-Seq on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 28 Sep 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/rna-seq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/rna-seq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!</title>
-      <link>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</link>
       <pubDate>Sun, 21 Sep 2025 01:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</guid>
       <description>Discover GSEA&amp;rsquo;s power to detect coordinated pathway changes using complete expression datasets. Learn advanced enrichment analysis techniques that reveal biological insights hidden from traditional ORA methods.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 15: Human-Curated Pathway Precision with Reactome!</title>
-      <link>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</link>
       <pubDate>Sat, 13 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</guid>
       <description>Master Reactome pathway analysis for human-focused research. Explore how expert-curated pathways provide clinical precision for disease studies, drug development, and precision medicine applications that GO and KEGG can&amp;rsquo;t match.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 14: From Gene Functions to Metabolic Maps with KEGG!</title>
-      <link>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/kegg-metabolic-maps-pathway-analysis/</link>
       <pubDate>Tue, 09 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/kegg-metabolic-maps-pathway-analysis/</guid>
       <description>Bridge the gap between individual gene functions and complete biological networks with KEGG pathway analysis. Discover how to visualize gene interactions, identify drug targets, and understand the molecular mechanisms underlying your experimental results.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!</title>
-      <link>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/go-enrichment-gene-lists-biology/</link>
       <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/go-enrichment-gene-lists-biology/</guid>
       <description>Bridge the gap between gene lists and biological understanding with GO enrichment analysis. Master the practical application of over-representation analysis to discover which biological processes are affected by your experimental treatments.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
-      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/qc-heatmaps-sample-quality/</link>
       <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/qc-heatmaps-sample-quality/</guid>
       <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
-      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/pca-diagnostic-hero/</link>
       <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/pca-diagnostic-hero/</guid>
       <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
-      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</link>
       <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</guid>
       <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
-      <link>http://localhost:1313/posts/heatmaps-power/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/heatmaps-power/</link>
       <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/heatmaps-power/</guid>
       <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
-      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</guid>
       <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
-      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</guid>
       <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 6: Data Transformations</title>
-      <link>http://localhost:1313/posts/data-transformations/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/data-transformations/</link>
       <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/data-transformations/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/data-transformations/</guid>
       <description>Discover why normalized counts still aren&amp;rsquo;t ready for PCA and clustering, and how VST and rlog transformations solve the variance problem. Learn to choose the right transformation method and integrate it properly into your RNA-seq workflow.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 5: Normalization Methods</title>
-      <link>http://localhost:1313/posts/normalization-methods/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/normalization-methods/</link>
       <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/normalization-methods/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/normalization-methods/</guid>
       <description>Discover how normalization transforms meaningless raw counts into biologically interpretable expression values. Explore DESeq2&amp;rsquo;s robust median-of-ratios method and learn to identify normalization issues that could derail your analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
-      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</link>
       <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</guid>
       <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
-      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</guid>
       <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
-      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</link>
       <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</guid>
       <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</guid>
       <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</link>
       <pubDate>Tue, 08 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</guid>
       <description>Understand how GTF and GFF files guide RNA-Seq read interpretation and enable accurate feature quantification. Discover practical use cases, including ERV annotation.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</guid>
       <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</link>
       <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
       <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</link>
       <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</guid>
       <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-alignment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</link>
       <pubDate>Tue, 25 Mar 2025 05:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-alignment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</guid>
       <description>Explore how to align RNA-Seq reads using STAR, HISAT2, and Minimap2. Understand the key features, commands, and strengths of each tool in transcriptomic workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-trimming/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</link>
       <pubDate>Mon, 24 Mar 2025 06:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-trimming/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</guid>
       <description>Master read trimming in RNA-Seq using Trimmomatic. Discover essential options, command examples, and how trimming enhances read quality before alignment.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</link>
       <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</guid>
       <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</link>
       <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</guid>
       <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</link>
       <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</guid>
       <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
     </item>
   </channel>

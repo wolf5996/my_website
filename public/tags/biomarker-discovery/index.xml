@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Biomarker Discovery on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/biomarker-discovery/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/biomarker-discovery/</link>
     <description>Recent content in Biomarker Discovery on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/biomarker-discovery/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/biomarker-discovery/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
-      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</link>
       <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</guid>
       <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 12: The DEA Strategy That Changes Everything!</title>
-      <link>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</link>
       <pubDate>Wed, 19 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</guid>
       <description>From generic housekeeping patterns to specific biomarkers - learn how your DEA strategy choice between FindMarkers and FindAllMarkers shapes biological discovery and publication impact.</description>
     </item>
   </channel>

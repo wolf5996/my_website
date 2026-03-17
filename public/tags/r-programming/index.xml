@@ -2,122 +2,122 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Programming on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/r-programming/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/r-programming/</link>
     <description>Recent content in R Programming on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Feb 2026 08:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/r-programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/r-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 15: From Marker Genes to Biological Pathways!</title>
-      <link>http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-marker-genes-to-biological-pathways/</link>
       <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-marker-genes-to-biological-pathways/</guid>
       <description>Transform overwhelming marker gene lists into clear biological narratives! Discover how pathway enrichment analysis works identically for single-cell and bulk RNA-seq, and why ORA is the perfect starting point for your scRNA-seq DEA results.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 14: DEA Tables Are Just the Beginning!</title>
-      <link>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</link>
       <pubDate>Tue, 02 Dec 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</guid>
       <description>From endless rows of numbers to biological insights - master volcano plots for targeted comparisons and heatmaps for comprehensive overviews in single-cell DEA.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
-      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</link>
       <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</guid>
       <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 12: The DEA Strategy That Changes Everything!</title>
-      <link>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</link>
       <pubDate>Wed, 19 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</guid>
       <description>From generic housekeeping patterns to specific biomarkers - learn how your DEA strategy choice between FindMarkers and FindAllMarkers shapes biological discovery and publication impact.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 11: How to Actually Assess Clustering Quality!</title>
-      <link>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-assess-clustering-quality-trees/</link>
       <pubDate>Fri, 14 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-assess-clustering-quality-trees/</guid>
       <description>Beyond pretty UMAP plots - learn how clustering trees reveal cluster stability across resolutions and prove which algorithms deliver trustworthy, reproducible cell type assignments.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 10: Why Your Clustering Algorithm Choice Matters!</title>
-      <link>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-clustering-algorithm-choice-matters/</link>
       <pubDate>Tue, 11 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-clustering-algorithm-choice-matters/</guid>
       <description>Louvain vs Leiden clustering - why the newer algorithm escapes local optima to deliver cleaner cell type separation and more stable, reproducible clustering results.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 9.5: Not All UMAP Plots Are Created Equal!</title>
-      <link>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-plots-not-created-equal/</link>
       <pubDate>Fri, 07 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-plots-not-created-equal/</guid>
       <description>From basic defaults to publication masterpieces - learn how SCpubr, scplotter, and Seurat create dramatically different impressions with the same underlying data and analysis.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 9: From 20 PCs to Beautiful 2D Maps!</title>
-      <link>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
       <pubDate>Mon, 03 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
       <description>From elbow plot decisions to stunning visualizations - learn how manifold learning algorithms compress high-dimensional PC space into interpretable 2D maps that reveal cellular relationships.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 8: Why PCA Plots Aren&#39;t Enough for Single-Cell!</title>
-      <link>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
       <pubDate>Mon, 27 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
       <description>From bulk simplicity to single-cell complexity - learn why you need 20+ principal components and how elbow plots guide the critical decision that determines everything downstream.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 7: PCA - From 20,000 Genes to Pure Signal!</title>
-      <link>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</link>
       <pubDate>Thu, 23 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</guid>
       <description>From 20,000 genes to clear cell types - learn how PCA and highly variable genes partnership transforms overwhelming dimensionality into biological insight that drives discovery.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 6: Why Raw Counts Will Ruin Your Analysis!</title>
-      <link>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-why-raw-counts-ruin-analysis/</link>
       <pubDate>Tue, 21 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-why-raw-counts-ruin-analysis/</guid>
       <description>Raw single-cell counts reflect technical noise, not biology. Learn the transformation steps that separate signal from noise and why skipping them destroys everything downstream.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 5: QC Metrics That Actually Matter!</title>
-      <link>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-qc-metrics-that-matter/</link>
       <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-qc-metrics-that-matter/</guid>
       <description>Learn to set quality control thresholds without throwing away good cells. Discover how histograms and scatter plots reveal your data&amp;rsquo;s unique characteristics for optimal filtering.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 4: Quality Control - The Make-or-Break Step!</title>
-      <link>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</link>
       <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</guid>
       <description>Why single-cell analysis lives or dies by quality control. Learn to spot the three villains that ruin downstream analysis and master the mindset shift that saves months of confusion.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!</title>
-      <link>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</link>
       <pubDate>Sun, 12 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</guid>
       <description>Why does &amp;lsquo;good enough&amp;rsquo; beat &amp;rsquo;technically perfect&amp;rsquo;? Explore the philosophical divide that shaped single-cell analysis and what it means for your learning journey.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!</title>
-      <link>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</link>
       <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</guid>
       <description>Skip the data hunting frustration! Learn how SeuratData provides curated, analysis-ready single-cell datasets from PBMC to brain tissue, letting you focus on mastering analysis techniques instead of debugging messy files.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
   </channel>

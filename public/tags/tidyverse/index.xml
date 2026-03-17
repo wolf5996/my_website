@@ -2,122 +2,122 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tidyverse on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/tidyverse/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/tidyverse/</link>
     <description>Recent content in Tidyverse on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 19 May 2025 00:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 10: plyranges</title>
-      <link>http://localhost:1313/posts/plyranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/plyranges/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/plyranges/</guid>
       <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 14: Bringing It All Together – A Full Tidyverse Workflow</title>
-      <link>http://localhost:1313/posts/tidyverse-full-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-full-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</guid>
       <description>Master the power of combining Tidyverse packages for a complete data analysis workflow. Learn how dplyr, tidyr, ggplot2, and more work together for seamless analysis.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 13: The Power of Piping</title>
-      <link>http://localhost:1313/posts/tidyverse-piping/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-piping/</link>
       <pubDate>Wed, 12 Mar 2025 11:40:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-piping/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-piping/</guid>
       <description>Master piping in the Tidyverse with %&amp;gt;% and the new native |&amp;gt; operator in R. Learn how to streamline data wrangling and visualization workflows.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 12: Handling Big Data Efficiently with Arrow &amp; Parquet</title>
-      <link>http://localhost:1313/posts/tidyverse-arrow-parquet/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-arrow-parquet/</link>
       <pubDate>Tue, 11 Mar 2025 06:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-arrow-parquet/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-arrow-parquet/</guid>
       <description>Master big data handling in R with Arrow &amp;amp; Parquet. Learn how to optimize data storage, querying, and performance for large datasets.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 11: Working with Databases in the Tidyverse using dbplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dbplyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dbplyr/</link>
       <pubDate>Wed, 05 Mar 2025 09:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dbplyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dbplyr/</guid>
       <description>Master database workflows in R with dbplyr. Learn to query, manipulate, and optimize large datasets in databases using Tidyverse syntax.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 10: String Manipulation Made Easy with stringr</title>
-      <link>http://localhost:1313/posts/tidyverse-stringr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-stringr/</link>
       <pubDate>Tue, 04 Mar 2025 07:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-stringr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-stringr/</guid>
       <description>Master text processing in R with stringr. Learn efficient ways to detect, extract, replace, and manipulate text for data analysis.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 9: Functional Programming in R with purrr</title>
-      <link>http://localhost:1313/posts/tidyverse-purrr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-purrr/</link>
       <pubDate>Mon, 03 Mar 2025 12:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-purrr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-purrr/</guid>
       <description>Master functional programming in R with purrr. Learn to map, reduce, and iterate over data structures efficiently in the Tidyverse.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 8: Handling Dates &amp; Times with lubridate</title>
-      <link>http://localhost:1313/posts/tidyverse-lubridate/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-lubridate/</link>
       <pubDate>Fri, 28 Feb 2025 16:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-lubridate/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-lubridate/</guid>
       <description>Master date and time manipulation in R with lubridate. Learn how to efficiently parse, extract, and compute time-based calculations in the Tidyverse.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr</title>
-      <link>http://localhost:1313/posts/tidyverse-readr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-readr/</link>
       <pubDate>Wed, 26 Feb 2025 10:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-readr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-readr/</guid>
       <description>Master data import in R with readr. Learn to load, clean, and process large datasets efficiently using modern Tidyverse tools.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 6: Handling Categorical Data with forcats</title>
-      <link>http://localhost:1313/posts/tidyverse-forcats/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/</link>
       <pubDate>Tue, 25 Feb 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-forcats/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/</guid>
       <description>Master categorical data manipulation in R with forcats. Learn to reorder, lump, recode, and handle missing factor levels efficiently with real-world examples.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr-joins/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</link>
       <pubDate>Wed, 19 Feb 2025 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr-joins/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</guid>
       <description>Master dataset merging with dplyr joins in R. Learn about inner, left, right, full, semi, and anti joins, with practical examples and handling missing data.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 4: The Power of Tidy Data</title>
-      <link>http://localhost:1313/posts/tidyverse-tidy-data/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</link>
       <pubDate>Tue, 18 Feb 2025 07:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-tidy-data/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</guid>
       <description>Discover how tidy data simplifies data wrangling, visualization, and analysis in R with the Tidyverse. Learn how to reshape and clean data efficiently.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr</title>
-      <link>http://localhost:1313/posts/tidyverse-tidyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</link>
       <pubDate>Mon, 17 Feb 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-tidyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</guid>
       <description>Discover how tidyr makes data reshaping and cleaning in R simple, readable, and efficient with functions like pivot_longer, pivot_wider, separate, unite, and more.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</link>
       <pubDate>Wed, 12 Feb 2025 09:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</guid>
       <description>Discover how dplyr makes data manipulation in R simple, readable, and efficient with five key verbs: select, filter, mutate, arrange, and summarize.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 1: Why the Tidyverse is a Game-Changer for R</title>
-      <link>http://localhost:1313/posts/tidyverse-intro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</link>
       <pubDate>Tue, 11 Feb 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-intro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</guid>
       <description>Discover why the Tidyverse is a game-changer for data science in R, simplifying data wrangling, visualization, and reproducibility.</description>
     </item>
     <item>
       <title>Building Strong Foundations: From Command-Line Tools to the Tidyverse Transition</title>
-      <link>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bioinformatics-foundations-tidyverse/</link>
       <pubDate>Mon, 10 Feb 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bioinformatics-foundations-tidyverse/</guid>
       <description>Discover how command-line tools, Git, Conda, and the Tidyverse form the foundation of reproducible bioinformatics workflows.</description>
     </item>
   </channel>

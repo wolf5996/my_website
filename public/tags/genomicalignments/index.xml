@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GenomicAlignments on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/genomicalignments/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/genomicalignments/</link>
     <description>Recent content in GenomicAlignments on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 May 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/genomicalignments/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/genomicalignments/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
   </channel>

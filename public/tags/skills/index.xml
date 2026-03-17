@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Skills on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/skills/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/skills/</link>
     <description>Recent content in Skills on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/skills/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/skills/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!</title>
-      <link>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-bioinformatics-open-source/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-bioinformatics-open-source/</guid>
       <description>Post 12 in the Claude series. Moving from the concept of Skills (Post 6) to a real implementation — five opinionated, interconnected Skills for R, scRNA-seq, and scientific documentation, with BadranSeq baked in as the default visualization layer.</description>
     </item>
     <item>
       <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
-      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</link>
       <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</guid>
       <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
     </item>
   </channel>

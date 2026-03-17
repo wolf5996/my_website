@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CLI on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/cli/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/cli/</link>
     <description>Recent content in CLI on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 25 Jan 2025 16:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Essential CLI Tools You Should Know - Part 5: bottom &amp; bat</title>
-      <link>http://localhost:1313/posts/cli-tools-bottom-bat/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-bottom-bat/</link>
       <pubDate>Sat, 25 Jan 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-bottom-bat/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-bottom-bat/</guid>
       <description>Explore &lt;code&gt;bottom&lt;/code&gt;, a better &lt;code&gt;htop&lt;/code&gt;, and &lt;code&gt;bat&lt;/code&gt;, a modern &lt;code&gt;cat&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
     <item>
       <title>Essential CLI Tools You Should Know - Part 2: zoxide &amp; ouch</title>
-      <link>http://localhost:1313/posts/cli-tools-zoxide-ouch/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-zoxide-ouch/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-zoxide-ouch/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-zoxide-ouch/</guid>
       <description>Explore &lt;code&gt;zoxide&lt;/code&gt;, a better &lt;code&gt;cd&lt;/code&gt;, and &lt;code&gt;ouch&lt;/code&gt;, a modern &lt;code&gt;tar&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
     <item>
       <title>Essential CLI Tools You Should Know - Part 1: dust &amp; lsd</title>
-      <link>http://localhost:1313/posts/cli-tools-dust-lsd/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/</link>
       <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-dust-lsd/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/</guid>
       <description>Explore &lt;code&gt;dust&lt;/code&gt;, a better &lt;code&gt;du&lt;/code&gt;, and &lt;code&gt;lsd&lt;/code&gt;, a modern &lt;code&gt;ls&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
   </channel>

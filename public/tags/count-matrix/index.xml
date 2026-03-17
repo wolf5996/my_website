@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Count Matrix on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/count-matrix/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/count-matrix/</link>
     <description>Recent content in Count Matrix on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 30 Jul 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/count-matrix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/count-matrix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
-      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</guid>
       <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</link>
       <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</guid>
       <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
     </item>
   </channel>

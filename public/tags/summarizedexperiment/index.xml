@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SummarizedExperiment on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/summarizedexperiment/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/summarizedexperiment/</link>
     <description>Recent content in SummarizedExperiment on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 10 Jun 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/summarizedexperiment/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/summarizedexperiment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
-      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</link>
       <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</guid>
       <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 13: SummarizedExperiment</title>
-      <link>http://localhost:1313/posts/summarizedexperiment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/summarizedexperiment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</guid>
       <description>Discover how SummarizedExperiment serves as the culminating container of the Bioconductor ecosystem, elegantly combining GRanges, DataFrame, and assay matrices into a unified object that ensures synchronized, reproducible genomic analyses across diverse experimental types.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
   </channel>

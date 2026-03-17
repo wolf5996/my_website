@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cell Filtering on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/cell-filtering/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/cell-filtering/</link>
     <description>Recent content in Cell Filtering on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 16 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cell-filtering/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/cell-filtering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 5: QC Metrics That Actually Matter!</title>
-      <link>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-qc-metrics-that-matter/</link>
       <pubDate>Thu, 16 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-qc-metrics-that-matter/</guid>
       <description>Learn to set quality control thresholds without throwing away good cells. Discover how histograms and scatter plots reveal your data&amp;rsquo;s unique characteristics for optimal filtering.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 4: Quality Control - The Make-or-Break Step!</title>
-      <link>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</link>
       <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</guid>
       <description>Why single-cell analysis lives or dies by quality control. Learn to spot the three villains that ruin downstream analysis and master the mindset shift that saves months of confusion.</description>
     </item>
   </channel>

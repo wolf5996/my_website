@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Session Memory on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/session-memory/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/session-memory/</link>
     <description>Recent content in Session Memory on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/session-memory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/session-memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!</title>
-      <link>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</guid>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</guid>
       <description>Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search.</description>
     </item>
   </channel>

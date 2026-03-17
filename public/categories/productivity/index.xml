@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Productivity on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/productivity/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/productivity/</link>
     <description>Recent content in Productivity on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!</title>
-      <link>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</guid>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</guid>
       <description>Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search.</description>
     </item>
     <item>
       <title>Claude Series – Post 11: How Claude Code Made Me Actually Love Version Control!</title>
-      <link>http://localhost:1313/posts/claude-code-made-me-love-version-control/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</link>
       <pubDate>Thu, 12 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-code-made-me-love-version-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</guid>
       <description>Version control was always the part of research coding I avoided doing well. Claude Code&amp;rsquo;s natural language git and gh integration removed every point of friction - and the impact on my reproducibility practices has been transformative.</description>
     </item>
     <item>
       <title>Claude Series – Post 10: Superpowers - The Plugin That Changes Everything!</title>
-      <link>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</link>
       <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</guid>
       <description>Stop letting Claude dump unplanned, untested code! Superpowers enforces a complete software development methodology - brainstorm, plan, test-first implementation, and continuous review - transforming your AI coding workflow permanently.</description>
     </item>
     <item>
       <title>Claude Series – Post 9: Plugins - The App Store Claude Code Was Missing!</title>
-      <link>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</link>
       <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</guid>
       <description>Stop configuring everything manually! Claude Code&amp;rsquo;s plugin ecosystem gives you 9,000+ one-command installs that bundle skills, agents, hooks, and MCP servers - from automated code review to real-time documentation injection.</description>
     </item>
     <item>
       <title>Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!</title>
-      <link>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</link>
       <pubDate>Fri, 06 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</guid>
       <description>Stop working sequentially! Learn how Claude Code subagents let you spawn parallel AI specialists - each with its own context window and expertise - to explore, review, test, and document your bioinformatics code simultaneously.</description>
     </item>
     <item>
       <title>Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!</title>
-      <link>http://localhost:1313/posts/claude-mcp-connect-to-everything/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-mcp-connect-to-everything/</link>
       <pubDate>Fri, 13 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-mcp-connect-to-everything/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-mcp-connect-to-everything/</guid>
       <description>Stop copy-pasting between tools! Learn how MCP turns Claude into a fully connected research assistant that can search PubMed, manage GitHub repos, access Google Drive, and interact with your entire research ecosystem - all from one terminal.</description>
     </item>
     <item>
       <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
-      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</link>
       <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</guid>
       <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
     </item>
     <item>
       <title>Essential CLI Tools You Should Know - Part 5: bottom &amp; bat</title>
-      <link>http://localhost:1313/posts/cli-tools-bottom-bat/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-bottom-bat/</link>
       <pubDate>Sat, 25 Jan 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-bottom-bat/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-bottom-bat/</guid>
       <description>Explore &lt;code&gt;bottom&lt;/code&gt;, a better &lt;code&gt;htop&lt;/code&gt;, and &lt;code&gt;bat&lt;/code&gt;, a modern &lt;code&gt;cat&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
     <item>
       <title>Essential CLI Tools You Should Know - Part 2: zoxide &amp; ouch</title>
-      <link>http://localhost:1313/posts/cli-tools-zoxide-ouch/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-zoxide-ouch/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-zoxide-ouch/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-zoxide-ouch/</guid>
       <description>Explore &lt;code&gt;zoxide&lt;/code&gt;, a better &lt;code&gt;cd&lt;/code&gt;, and &lt;code&gt;ouch&lt;/code&gt;, a modern &lt;code&gt;tar&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
     <item>
       <title>Essential CLI Tools You Should Know - Part 1: dust &amp; lsd</title>
-      <link>http://localhost:1313/posts/cli-tools-dust-lsd/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/</link>
       <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/cli-tools-dust-lsd/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/</guid>
       <description>Explore &lt;code&gt;dust&lt;/code&gt;, a better &lt;code&gt;du&lt;/code&gt;, and &lt;code&gt;lsd&lt;/code&gt;, a modern &lt;code&gt;ls&lt;/code&gt; replacement to improve your Linux workflow.</description>
     </item>
   </channel>

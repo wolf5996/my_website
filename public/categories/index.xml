@@ -2,353 +2,353 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/</link>
     <description>Recent content in Categories on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Tools</title>
-      <link>http://localhost:1313/categories/ai-tools/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/ai-tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bioinformatics</title>
-      <link>http://localhost:1313/categories/bioinformatics/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/bioinformatics/</guid>
+      <link>https://badran-elshenawy.netlify.app/categories/ai-tools/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/categories/ai-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Claude</title>
-      <link>http://localhost:1313/categories/claude/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/claude/</guid>
+      <link>https://badran-elshenawy.netlify.app/categories/claude/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/categories/claude/</guid>
       <description></description>
     </item>
     <item>
       <title>Developer Tools</title>
-      <link>http://localhost:1313/categories/developer-tools/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/developer-tools/</guid>
+      <link>https://badran-elshenawy.netlify.app/categories/developer-tools/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/categories/developer-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Open Source</title>
-      <link>http://localhost:1313/categories/open-source/</link>
-      <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/open-source/</guid>
+      <link>https://badran-elshenawy.netlify.app/categories/open-source/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/categories/open-source/</guid>
       <description></description>
     </item>
     <item>
       <title>Productivity</title>
-      <link>http://localhost:1313/categories/productivity/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/productivity/</link>
+      <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>https://badran-elshenawy.netlify.app/categories/productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bioinformatics</title>
+      <link>https://badran-elshenawy.netlify.app/categories/bioinformatics/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/productivity/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/bioinformatics/</guid>
       <description></description>
     </item>
     <item>
       <title>R Programming</title>
-      <link>http://localhost:1313/categories/r-programming/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/r-programming/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/r-programming/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/r-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Opinion</title>
-      <link>http://localhost:1313/categories/opinion/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/opinion/</link>
       <pubDate>Thu, 12 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/opinion/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/opinion/</guid>
       <description></description>
     </item>
     <item>
       <title>Research Tools</title>
-      <link>http://localhost:1313/categories/research-tools/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/research-tools/</link>
       <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/research-tools/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/research-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Pathway Analysis</title>
-      <link>http://localhost:1313/categories/pathway-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/pathway-analysis/</link>
       <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/pathway-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/pathway-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>R</title>
-      <link>http://localhost:1313/categories/r/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/r/</link>
       <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/r/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/r/</guid>
       <description></description>
     </item>
     <item>
       <title>Single-Cell RNA-Seq</title>
-      <link>http://localhost:1313/categories/single-cell-rna-seq/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/single-cell-rna-seq/</link>
       <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/single-cell-rna-seq/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/single-cell-rna-seq/</guid>
       <description></description>
     </item>
     <item>
       <title>Systems Biology</title>
-      <link>http://localhost:1313/categories/systems-biology/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/systems-biology/</link>
       <pubDate>Wed, 25 Feb 2026 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/systems-biology/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/systems-biology/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Analysis</title>
-      <link>http://localhost:1313/categories/data-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-analysis/</link>
       <pubDate>Tue, 02 Dec 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>RNA-Seq</title>
-      <link>http://localhost:1313/categories/rna-seq/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/rna-seq/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/rna-seq/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/rna-seq/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Analysis</title>
-      <link>http://localhost:1313/categories/functional-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/functional-analysis/</link>
       <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/functional-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/functional-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>Gene Ontology</title>
-      <link>http://localhost:1313/categories/gene-ontology/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/gene-ontology/</link>
       <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/gene-ontology/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/gene-ontology/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Visualization</title>
-      <link>http://localhost:1313/categories/data-visualization/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-visualization/</link>
       <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-visualization/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-visualization/</guid>
       <description></description>
     </item>
     <item>
       <title>Quality Control</title>
-      <link>http://localhost:1313/categories/quality-control/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/quality-control/</link>
       <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/quality-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/quality-control/</guid>
       <description></description>
     </item>
     <item>
       <title>R Packages</title>
-      <link>http://localhost:1313/categories/r-packages/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/r-packages/</link>
       <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/r-packages/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/r-packages/</guid>
       <description></description>
     </item>
     <item>
       <title>Clustering</title>
-      <link>http://localhost:1313/categories/clustering/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/clustering/</link>
       <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/clustering/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Ggplot2</title>
-      <link>http://localhost:1313/categories/ggplot2/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/ggplot2/</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/ggplot2/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/ggplot2/</guid>
       <description></description>
     </item>
     <item>
       <title>Differential Expression</title>
-      <link>http://localhost:1313/categories/differential-expression/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/differential-expression/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/differential-expression/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/differential-expression/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistics</title>
-      <link>http://localhost:1313/categories/statistics/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/statistics/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/statistics/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Transformation</title>
-      <link>http://localhost:1313/categories/data-transformation/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-transformation/</link>
       <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-transformation/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-transformation/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Normalization</title>
-      <link>http://localhost:1313/categories/data-normalization/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-normalization/</link>
       <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-normalization/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-normalization/</guid>
       <description></description>
     </item>
     <item>
       <title>Experimental Design</title>
-      <link>http://localhost:1313/categories/experimental-design/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/experimental-design/</link>
       <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/experimental-design/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/experimental-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Import</title>
-      <link>http://localhost:1313/categories/data-import/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-import/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-import/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-import/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Preprocessing</title>
-      <link>http://localhost:1313/categories/data-preprocessing/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-preprocessing/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-preprocessing/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-preprocessing/</guid>
       <description></description>
     </item>
     <item>
       <title>Gene Expression</title>
-      <link>http://localhost:1313/categories/gene-expression/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/gene-expression/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/gene-expression/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/gene-expression/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Structures</title>
-      <link>http://localhost:1313/categories/data-structures/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-structures/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-structures/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-structures/</guid>
       <description></description>
     </item>
     <item>
       <title>Genomics</title>
-      <link>http://localhost:1313/categories/genomics/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/genomics/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/genomics/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/genomics/</guid>
       <description></description>
     </item>
     <item>
       <title>File Formats</title>
-      <link>http://localhost:1313/categories/file-formats/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/file-formats/</link>
       <pubDate>Tue, 20 May 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/file-formats/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/file-formats/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Manipulation</title>
-      <link>http://localhost:1313/categories/data-manipulation/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-manipulation/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-manipulation/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-manipulation/</guid>
       <description></description>
     </item>
     <item>
       <title>Transcriptomics</title>
-      <link>http://localhost:1313/categories/transcriptomics/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/transcriptomics/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/transcriptomics/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/transcriptomics/</guid>
       <description></description>
     </item>
     <item>
       <title>Workflow Automation</title>
-      <link>http://localhost:1313/categories/workflow-automation/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/workflow-automation/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/workflow-automation/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/workflow-automation/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Science</title>
-      <link>http://localhost:1313/categories/data-science/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/data-science/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/data-science/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/data-science/</guid>
       <description></description>
     </item>
     <item>
       <title>Tidyverse</title>
-      <link>http://localhost:1313/categories/tidyverse/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/tidyverse/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/tidyverse/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/tidyverse/</guid>
       <description></description>
     </item>
     <item>
       <title>Big Data</title>
-      <link>http://localhost:1313/categories/big-data/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/big-data/</link>
       <pubDate>Tue, 11 Mar 2025 06:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/big-data/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/big-data/</guid>
       <description></description>
     </item>
     <item>
       <title>Reproducibility</title>
-      <link>http://localhost:1313/categories/reproducibility/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/reproducibility/</link>
       <pubDate>Mon, 10 Feb 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/reproducibility/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/reproducibility/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/categories/git/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/git/</link>
       <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/git/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Version Control</title>
-      <link>http://localhost:1313/categories/version-control/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/version-control/</link>
       <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/version-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/version-control/</guid>
       <description></description>
     </item>
     <item>
       <title>Quarto</title>
-      <link>http://localhost:1313/categories/quarto/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/quarto/</link>
       <pubDate>Wed, 29 Jan 2025 04:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/quarto/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/quarto/</guid>
       <description></description>
     </item>
     <item>
       <title>R Markdown</title>
-      <link>http://localhost:1313/categories/r-markdown/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/r-markdown/</link>
       <pubDate>Wed, 29 Jan 2025 04:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/r-markdown/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/r-markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>VS Code</title>
-      <link>http://localhost:1313/categories/vs-code/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/vs-code/</link>
       <pubDate>Wed, 29 Jan 2025 04:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/vs-code/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/vs-code/</guid>
       <description></description>
     </item>
     <item>
       <title>CLI Tools</title>
-      <link>http://localhost:1313/categories/cli-tools/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/cli-tools/</link>
       <pubDate>Sat, 25 Jan 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/cli-tools/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/cli-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/categories/linux/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/linux/</link>
       <pubDate>Sat, 25 Jan 2025 16:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/linux/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Personal</title>
-      <link>http://localhost:1313/categories/personal/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/personal/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/personal/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/personal/</guid>
       <description></description>
     </item>
     <item>
       <title>Tech</title>
-      <link>http://localhost:1313/categories/tech/</link>
+      <link>https://badran-elshenawy.netlify.app/categories/tech/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/tech/</guid>
+      <guid>https://badran-elshenawy.netlify.app/categories/tech/</guid>
       <description></description>
     </item>
   </channel>

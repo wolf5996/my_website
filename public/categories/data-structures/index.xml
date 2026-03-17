@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structures on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/data-structures/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/data-structures/</link>
     <description>Recent content in Data Structures on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 05 Jun 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/data-structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 13: SummarizedExperiment</title>
-      <link>http://localhost:1313/posts/summarizedexperiment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/summarizedexperiment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</guid>
       <description>Discover how SummarizedExperiment serves as the culminating container of the Bioconductor ecosystem, elegantly combining GRanges, DataFrame, and assay matrices into a unified object that ensures synchronized, reproducible genomic analyses across diverse experimental types.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 10: plyranges</title>
-      <link>http://localhost:1313/posts/plyranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/plyranges/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/plyranges/</guid>
       <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 9: Biostrings</title>
-      <link>http://localhost:1313/posts/biostrings/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/biostrings/</link>
       <pubDate>Tue, 13 May 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/biostrings/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/biostrings/</guid>
       <description>Explore how Biostrings revolutionizes biological sequence analysis in R with 2-bit encoding for DNA/RNA, specialized pattern matching algorithms, and seamless integration with the Bioconductor ecosystem for everything from basic manipulations to complex genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 6: GRangesList</title>
-      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</link>
       <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</guid>
       <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>http://localhost:1313/posts/genomic-iranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
-      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</link>
       <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</guid>
       <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
     </item>
   </channel>

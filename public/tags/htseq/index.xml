@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTSeq on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/htseq/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/htseq/</link>
     <description>Recent content in HTSeq on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 10 Apr 2025 12:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/htseq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/htseq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</guid>
       <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</link>
       <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</guid>
       <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
     </item>
   </channel>

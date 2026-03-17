@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GRanges on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/granges/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/granges/</link>
     <description>Recent content in GRanges on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 12 May 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/granges/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/granges/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 6: GRangesList</title>
-      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</link>
       <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</guid>
       <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
   </channel>

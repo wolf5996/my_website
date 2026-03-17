@@ -2,241 +2,241 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bioconductor on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/bioconductor/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/bioconductor/</link>
     <description>Recent content in Bioconductor on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 12 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/bioconductor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/bioconductor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 3: Seurat vs Bioconductor - The Great Single-Cell Divide!</title>
-      <link>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</link>
       <pubDate>Sun, 12 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</guid>
       <description>Why does &amp;lsquo;good enough&amp;rsquo; beat &amp;rsquo;technically perfect&amp;rsquo;? Explore the philosophical divide that shaped single-cell analysis and what it means for your learning journey.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!</title>
-      <link>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</link>
       <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</guid>
       <description>Skip the data hunting frustration! Learn how SeuratData provides curated, analysis-ready single-cell datasets from PBMC to brain tissue, letting you focus on mastering analysis techniques instead of debugging messy files.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!</title>
-      <link>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</link>
       <pubDate>Sun, 21 Sep 2025 01:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</guid>
       <description>Discover GSEA&amp;rsquo;s power to detect coordinated pathway changes using complete expression datasets. Learn advanced enrichment analysis techniques that reveal biological insights hidden from traditional ORA methods.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 15: Human-Curated Pathway Precision with Reactome!</title>
-      <link>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</link>
       <pubDate>Sat, 13 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</guid>
       <description>Master Reactome pathway analysis for human-focused research. Explore how expert-curated pathways provide clinical precision for disease studies, drug development, and precision medicine applications that GO and KEGG can&amp;rsquo;t match.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
-      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</link>
       <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</guid>
       <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
-      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</guid>
       <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
-      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</guid>
       <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
-      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</link>
       <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</guid>
       <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 13: SummarizedExperiment</title>
-      <link>http://localhost:1313/posts/summarizedexperiment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/summarizedexperiment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</guid>
       <description>Discover how SummarizedExperiment serves as the culminating container of the Bioconductor ecosystem, elegantly combining GRanges, DataFrame, and assay matrices into a unified object that ensures synchronized, reproducible genomic analyses across diverse experimental types.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 12: ShortRead</title>
-      <link>http://localhost:1313/posts/shortread/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/shortread/</link>
       <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/shortread/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/shortread/</guid>
       <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 11: rtracklayer</title>
-      <link>http://localhost:1313/posts/rtracklayer/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rtracklayer/</link>
       <pubDate>Tue, 20 May 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rtracklayer/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rtracklayer/</guid>
       <description>Discover how rtracklayer serves as the critical bridge between the diverse world of genomic file formats and Bioconductor&amp;rsquo;s analytical environment. Explore efficient techniques for importing, exporting, and converting between formats with a consistent interface that simplifies genomic workflows.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 10: plyranges</title>
-      <link>http://localhost:1313/posts/plyranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/plyranges/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/plyranges/</guid>
       <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 9: Biostrings</title>
-      <link>http://localhost:1313/posts/biostrings/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/biostrings/</link>
       <pubDate>Tue, 13 May 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/biostrings/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/biostrings/</guid>
       <description>Explore how Biostrings revolutionizes biological sequence analysis in R with 2-bit encoding for DNA/RNA, specialized pattern matching algorithms, and seamless integration with the Bioconductor ecosystem for everything from basic manipulations to complex genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 6: GRangesList</title>
-      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</link>
       <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</guid>
       <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>http://localhost:1313/posts/genomic-iranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
-      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</link>
       <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</guid>
       <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 11: Working with Databases in the Tidyverse using dbplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dbplyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dbplyr/</link>
       <pubDate>Wed, 05 Mar 2025 09:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dbplyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dbplyr/</guid>
       <description>Master database workflows in R with dbplyr. Learn to query, manipulate, and optimize large datasets in databases using Tidyverse syntax.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 10: String Manipulation Made Easy with stringr</title>
-      <link>http://localhost:1313/posts/tidyverse-stringr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-stringr/</link>
       <pubDate>Tue, 04 Mar 2025 07:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-stringr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-stringr/</guid>
       <description>Master text processing in R with stringr. Learn efficient ways to detect, extract, replace, and manipulate text for data analysis.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 8: Handling Dates &amp; Times with lubridate</title>
-      <link>http://localhost:1313/posts/tidyverse-lubridate/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-lubridate/</link>
       <pubDate>Fri, 28 Feb 2025 16:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-lubridate/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-lubridate/</guid>
       <description>Master date and time manipulation in R with lubridate. Learn how to efficiently parse, extract, and compute time-based calculations in the Tidyverse.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr</title>
-      <link>http://localhost:1313/posts/tidyverse-readr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-readr/</link>
       <pubDate>Wed, 26 Feb 2025 10:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-readr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-readr/</guid>
       <description>Master data import in R with readr. Learn to load, clean, and process large datasets efficiently using modern Tidyverse tools.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 6: Handling Categorical Data with forcats</title>
-      <link>http://localhost:1313/posts/tidyverse-forcats/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/</link>
       <pubDate>Tue, 25 Feb 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-forcats/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/</guid>
       <description>Master categorical data manipulation in R with forcats. Learn to reorder, lump, recode, and handle missing factor levels efficiently with real-world examples.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 5: Data Joins &amp; Merging with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr-joins/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</link>
       <pubDate>Wed, 19 Feb 2025 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr-joins/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</guid>
       <description>Master dataset merging with dplyr joins in R. Learn about inner, left, right, full, semi, and anti joins, with practical examples and handling missing data.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 4: The Power of Tidy Data</title>
-      <link>http://localhost:1313/posts/tidyverse-tidy-data/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</link>
       <pubDate>Tue, 18 Feb 2025 07:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-tidy-data/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</guid>
       <description>Discover how tidy data simplifies data wrangling, visualization, and analysis in R with the Tidyverse. Learn how to reshape and clean data efficiently.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr</title>
-      <link>http://localhost:1313/posts/tidyverse-tidyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</link>
       <pubDate>Mon, 17 Feb 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-tidyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</guid>
       <description>Discover how tidyr makes data reshaping and cleaning in R simple, readable, and efficient with functions like pivot_longer, pivot_wider, separate, unite, and more.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 2: Mastering Data Manipulation with dplyr</title>
-      <link>http://localhost:1313/posts/tidyverse-dplyr/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</link>
       <pubDate>Wed, 12 Feb 2025 09:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-dplyr/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</guid>
       <description>Discover how dplyr makes data manipulation in R simple, readable, and efficient with five key verbs: select, filter, mutate, arrange, and summarize.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 1: Why the Tidyverse is a Game-Changer for R</title>
-      <link>http://localhost:1313/posts/tidyverse-intro/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</link>
       <pubDate>Tue, 11 Feb 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tidyverse-intro/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</guid>
       <description>Discover why the Tidyverse is a game-changer for data science in R, simplifying data wrangling, visualization, and reproducibility.</description>
     </item>
     <item>
       <title>Building Strong Foundations: From Command-Line Tools to the Tidyverse Transition</title>
-      <link>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bioinformatics-foundations-tidyverse/</link>
       <pubDate>Mon, 10 Feb 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bioinformatics-foundations-tidyverse/</guid>
       <description>Discover how command-line tools, Git, Conda, and the Tidyverse form the foundation of reproducible bioinformatics workflows.</description>
     </item>
   </channel>

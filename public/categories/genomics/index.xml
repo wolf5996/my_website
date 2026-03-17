@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Genomics on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/genomics/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/genomics/</link>
     <description>Recent content in Genomics on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 05 Jun 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/genomics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/genomics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 13: SummarizedExperiment</title>
-      <link>http://localhost:1313/posts/summarizedexperiment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</link>
       <pubDate>Thu, 05 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/summarizedexperiment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</guid>
       <description>Discover how SummarizedExperiment serves as the culminating container of the Bioconductor ecosystem, elegantly combining GRanges, DataFrame, and assay matrices into a unified object that ensures synchronized, reproducible genomic analyses across diverse experimental types.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 12: ShortRead</title>
-      <link>http://localhost:1313/posts/shortread/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/shortread/</link>
       <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/shortread/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/shortread/</guid>
       <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 11: rtracklayer</title>
-      <link>http://localhost:1313/posts/rtracklayer/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/rtracklayer/</link>
       <pubDate>Tue, 20 May 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/rtracklayer/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/rtracklayer/</guid>
       <description>Discover how rtracklayer serves as the critical bridge between the diverse world of genomic file formats and Bioconductor&amp;rsquo;s analytical environment. Explore efficient techniques for importing, exporting, and converting between formats with a consistent interface that simplifies genomic workflows.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 10: plyranges</title>
-      <link>http://localhost:1313/posts/plyranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/plyranges/</link>
       <pubDate>Mon, 19 May 2025 00:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/plyranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/plyranges/</guid>
       <description>Discover how plyranges revolutionizes genomic data analysis by bringing tidyverse principles to Bioconductor. Explore how pipes, filters, joins and group operations make complex genomic analyses more readable, maintainable, and accessible while seamlessly connecting two powerful R ecosystems.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 9: Biostrings</title>
-      <link>http://localhost:1313/posts/biostrings/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/biostrings/</link>
       <pubDate>Tue, 13 May 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/biostrings/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/biostrings/</guid>
       <description>Explore how Biostrings revolutionizes biological sequence analysis in R with 2-bit encoding for DNA/RNA, specialized pattern matching algorithms, and seamless integration with the Bioconductor ecosystem for everything from basic manipulations to complex genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 8: DataFrame</title>
-      <link>http://localhost:1313/posts/dataframe/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/dataframe/</link>
       <pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/dataframe/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/dataframe/</guid>
       <description>Explore how the S4 DataFrame powers the Bioconductor ecosystem by enabling storage of complex genomic objects, providing familiar data.frame-like syntax, and offering enhanced performance for large-scale genomic analyses.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 7: GenomicAlignments</title>
-      <link>http://localhost:1313/posts/genomic-alignments/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</link>
       <pubDate>Wed, 07 May 2025 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-alignments/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</guid>
       <description>Explore the power of GenomicAlignments for working with sequence alignment data in R. Learn to import BAM/SAM files, extract biological insights, and integrate with the broader Bioconductor ecosystem.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 6: GRangesList</title>
-      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</link>
       <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</guid>
       <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>http://localhost:1313/posts/genomic-iranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
-      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</link>
       <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</guid>
       <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</guid>
       <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</link>
       <pubDate>Tue, 08 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</guid>
       <description>Understand how GTF and GFF files guide RNA-Seq read interpretation and enable accurate feature quantification. Discover practical use cases, including ERV annotation.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</guid>
       <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</link>
       <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
       <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</link>
       <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</guid>
       <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-alignment/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</link>
       <pubDate>Tue, 25 Mar 2025 05:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-alignment/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</guid>
       <description>Explore how to align RNA-Seq reads using STAR, HISAT2, and Minimap2. Understand the key features, commands, and strengths of each tool in transcriptomic workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-trimming/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</link>
       <pubDate>Mon, 24 Mar 2025 06:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-trimming/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</guid>
       <description>Master read trimming in RNA-Seq using Trimmomatic. Discover essential options, command examples, and how trimming enhances read quality before alignment.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</link>
       <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</guid>
       <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</link>
       <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</guid>
       <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
-      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</link>
       <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</guid>
       <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
     </item>
   </channel>

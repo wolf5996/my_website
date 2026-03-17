@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistics on Badran Elshenawy</title>
-    <link>http://localhost:1313/categories/statistics/</link>
+    <link>https://badran-elshenawy.netlify.app/categories/statistics/</link>
     <description>Recent content in Statistics on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 Aug 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
-      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</guid>
       <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 6: Data Transformations</title>
-      <link>http://localhost:1313/posts/data-transformations/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/data-transformations/</link>
       <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/data-transformations/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/data-transformations/</guid>
       <description>Discover why normalized counts still aren&amp;rsquo;t ready for PCA and clustering, and how VST and rlog transformations solve the variance problem. Learn to choose the right transformation method and integrate it properly into your RNA-seq workflow.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 5: Normalization Methods</title>
-      <link>http://localhost:1313/posts/normalization-methods/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/normalization-methods/</link>
       <pubDate>Wed, 13 Aug 2025 08:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/normalization-methods/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/normalization-methods/</guid>
       <description>Discover how normalization transforms meaningless raw counts into biologically interpretable expression values. Explore DESeq2&amp;rsquo;s robust median-of-ratios method and learn to identify normalization issues that could derail your analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 4: Experimental Design &amp; Count Matrix Setup</title>
-      <link>http://localhost:1313/posts/experimental-design-count-matrix/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</link>
       <pubDate>Thu, 31 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/experimental-design-count-matrix/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</guid>
       <description>Discover how experimental design determines the success of your RNA-seq analysis. Explore common design patterns, sample size guidelines, and best practices for handling complex experimental factors while avoiding the pitfalls that derail many analyses.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
   </channel>

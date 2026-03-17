@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Genomic Ranges on Badran Elshenawy</title>
-    <link>http://localhost:1313/tags/genomic-ranges/</link>
+    <link>https://badran-elshenawy.netlify.app/tags/genomic-ranges/</link>
     <description>Recent content in Genomic Ranges on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 23 Apr 2025 10:10:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/genomic-ranges/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://badran-elshenawy.netlify.app/tags/genomic-ranges/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>http://localhost:1313/posts/genomic-granges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-granges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>http://localhost:1313/posts/genomic-iranges/</link>
+      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
+      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
   </channel>
