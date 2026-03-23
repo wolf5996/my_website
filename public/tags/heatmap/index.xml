@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Heatmap on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/heatmap/</link>
+    <link>http://localhost:1313/tags/heatmap/</link>
     <description>Recent content in Heatmap on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 02 Dec 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/heatmap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/heatmap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 14: DEA Tables Are Just the Beginning!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</link>
+      <link>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</link>
       <pubDate>Tue, 02 Dec 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</guid>
       <description>From endless rows of numbers to biological insights - master volcano plots for targeted comparisons and heatmaps for comprehensive overviews in single-cell DEA.</description>
     </item>
   </channel>

@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Subagents on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/subagents/</link>
+    <link>http://localhost:1313/tags/subagents/</link>
     <description>Recent content in Subagents on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 06 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/subagents/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/subagents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
+      <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>
+      <pubDate>Mon, 23 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-series-capstone-retrospective/</guid>
+      <description>Post 14 in the Claude series. The capstone — a full retrospective covering every post, lessons learned about bridging technical and non-technical audiences, and why AI-assisted research is becoming infrastructure.</description>
+    </item>
     <item>
       <title>Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</link>
       <pubDate>Fri, 06 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</guid>
       <description>Stop working sequentially! Learn how Claude Code subagents let you spawn parallel AI specialists - each with its own context window and expertise - to explore, review, test, and document your bioinformatics code simultaneously.</description>
     </item>
   </channel>

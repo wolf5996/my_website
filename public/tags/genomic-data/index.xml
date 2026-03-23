@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Genomic Data on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/genomic-data/</link>
+    <link>http://localhost:1313/tags/genomic-data/</link>
     <description>Recent content in Genomic Data on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 22 Apr 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/genomic-data/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/genomic-data/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
+      <link>http://localhost:1313/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
+      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</link>
+      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
       <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</guid>
+      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
       <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
     </item>
   </channel>

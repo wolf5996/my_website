@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MCP Servers on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/mcp-servers/</link>
+    <link>http://localhost:1313/tags/mcp-servers/</link>
     <description>Recent content in MCP Servers on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 09 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/mcp-servers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/mcp-servers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 9: Plugins - The App Store Claude Code Was Missing!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</link>
       <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</guid>
       <description>Stop configuring everything manually! Claude Code&amp;rsquo;s plugin ecosystem gives you 9,000+ one-command installs that bundle skills, agents, hooks, and MCP servers - from automated code review to real-time documentation injection.</description>
     </item>
   </channel>

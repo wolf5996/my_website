@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Practice Datasets on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/practice-datasets/</link>
+    <link>http://localhost:1313/tags/practice-datasets/</link>
     <description>Recent content in Practice Datasets on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Fri, 10 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/practice-datasets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/practice-datasets/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 2: Meet Your Practice Playground - SeuratData!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</link>
+      <link>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</link>
       <pubDate>Fri, 10 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</guid>
       <description>Skip the data hunting frustration! Learn how SeuratData provides curated, analysis-ready single-cell datasets from PBMC to brain tissue, letting you focus on mastering analysis techniques instead of debugging messy files.</description>
     </item>
   </channel>

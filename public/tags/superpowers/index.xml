@@ -2,24 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Superpowers on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/superpowers/</link>
+    <link>http://localhost:1313/tags/superpowers/</link>
     <description>Recent content in Superpowers on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 10 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/superpowers/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/superpowers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
+      <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>
+      <pubDate>Mon, 23 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-series-capstone-retrospective/</guid>
+      <description>Post 14 in the Claude series. The capstone — a full retrospective covering every post, lessons learned about bridging technical and non-technical audiences, and why AI-assisted research is becoming infrastructure.</description>
+    </item>
     <item>
       <title>Claude Series – Post 10: Superpowers - The Plugin That Changes Everything!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</link>
+      <link>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</link>
       <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</guid>
+      <guid>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</guid>
       <description>Stop letting Claude dump unplanned, untested code! Superpowers enforces a complete software development methodology - brainstorm, plan, test-first implementation, and continuous review - transforming your AI coding workflow permanently.</description>
     </item>
     <item>
       <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
       <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
       <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
     </item>
   </channel>

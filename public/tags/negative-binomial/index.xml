@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Negative Binomial on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/negative-binomial/</link>
+    <link>http://localhost:1313/tags/negative-binomial/</link>
     <description>Recent content in Negative Binomial on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 29 Jul 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/negative-binomial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/negative-binomial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
+      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
+      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
   </channel>

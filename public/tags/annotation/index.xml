@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Annotation on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/annotation/</link>
+    <link>http://localhost:1313/tags/annotation/</link>
     <description>Recent content in Annotation on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 08 Apr 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/annotation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/annotation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</link>
       <pubDate>Tue, 08 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</guid>
       <description>Understand how GTF and GFF files guide RNA-Seq read interpretation and enable accurate feature quantification. Discover practical use cases, including ERV annotation.</description>
     </item>
   </channel>

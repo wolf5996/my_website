@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retrospective on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/retrospective/</link>
+    <description>Recent content in Retrospective on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/retrospective/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
+      <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>
+      <pubDate>Mon, 23 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-series-capstone-retrospective/</guid>
+      <description>Post 14 in the Claude series. The capstone — a full retrospective covering every post, lessons learned about bridging technical and non-technical audiences, and why AI-assisted research is becoming infrastructure.</description>
+    </item>
+  </channel>
+</rss>

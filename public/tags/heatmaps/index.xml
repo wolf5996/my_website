@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Heatmaps on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/heatmaps/</link>
+    <link>http://localhost:1313/tags/heatmaps/</link>
     <description>Recent content in Heatmaps on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Wed, 20 Aug 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/heatmaps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/heatmaps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 10: Heatmap Tools Battle!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</link>
+      <link>http://localhost:1313/posts/heatmap-tools-battle/</link>
       <pubDate>Wed, 20 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</guid>
+      <guid>http://localhost:1313/posts/heatmap-tools-battle/</guid>
       <description>Navigate the choice between pheatmap, ComplexHeatmap, and tidyHeatmap with practical guidance. Discover which package fits your workflow, experience level, and visualization goals through real-world examples and decision frameworks.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 9: The Power of Heatmaps!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/heatmaps-power/</link>
+      <link>http://localhost:1313/posts/heatmaps-power/</link>
       <pubDate>Tue, 19 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/heatmaps-power/</guid>
+      <guid>http://localhost:1313/posts/heatmaps-power/</guid>
       <description>Master heatmaps as the perfect complement to volcano plots for RNA-seq analysis. Explore how these pattern-recognition powerhouses reveal gene modules, validate sample quality, and transform lists of significant genes into coherent biological narratives.</description>
     </item>
   </channel>

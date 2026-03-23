@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cluster Validation on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/cluster-validation/</link>
+    <link>http://localhost:1313/tags/cluster-validation/</link>
     <description>Recent content in Cluster Validation on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Fri, 14 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/cluster-validation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/cluster-validation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 11: How to Actually Assess Clustering Quality!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-assess-clustering-quality-trees/</link>
+      <link>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</link>
       <pubDate>Fri, 14 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-assess-clustering-quality-trees/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</guid>
       <description>Beyond pretty UMAP plots - learn how clustering trees reveal cluster stability across resolutions and prove which algorithms deliver trustworthy, reproducible cell type assignments.</description>
     </item>
   </channel>

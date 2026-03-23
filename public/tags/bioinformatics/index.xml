@@ -2,136 +2,143 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bioinformatics on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/bioinformatics/</link>
+    <link>http://localhost:1313/tags/bioinformatics/</link>
     <description>Recent content in Bioinformatics on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
+      <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>
+      <pubDate>Mon, 23 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-series-capstone-retrospective/</guid>
+      <description>Post 14 in the Claude series. The capstone — a full retrospective covering every post, lessons learned about bridging technical and non-technical audiences, and why AI-assisted research is becoming infrastructure.</description>
+    </item>
     <item>
       <title>Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</link>
+      <link>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</link>
       <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</guid>
+      <guid>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</guid>
       <description>Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search.</description>
     </item>
     <item>
       <title>Claude Series – Post 12: I Built Custom Claude Code Skills for Bioinformatics - And Open-Sourced Them!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-bioinformatics-open-source/</link>
+      <link>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</link>
       <pubDate>Mon, 16 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-bioinformatics-open-source/</guid>
+      <guid>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</guid>
       <description>Post 12 in the Claude series. Moving from the concept of Skills (Post 6) to a real implementation — five opinionated, interconnected Skills for R, scRNA-seq, and scientific documentation, with BadranSeq baked in as the default visualization layer.</description>
     </item>
     <item>
       <title>Claude Series – Post 11: How Claude Code Made Me Actually Love Version Control!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</link>
+      <link>http://localhost:1313/posts/claude-code-made-me-love-version-control/</link>
       <pubDate>Thu, 12 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</guid>
+      <guid>http://localhost:1313/posts/claude-code-made-me-love-version-control/</guid>
       <description>Version control was always the part of research coding I avoided doing well. Claude Code&amp;rsquo;s natural language git and gh integration removed every point of friction - and the impact on my reproducibility practices has been transformative.</description>
     </item>
     <item>
       <title>Claude Series – Post 10: Superpowers - The Plugin That Changes Everything!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</link>
+      <link>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</link>
       <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</guid>
+      <guid>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</guid>
       <description>Stop letting Claude dump unplanned, untested code! Superpowers enforces a complete software development methodology - brainstorm, plan, test-first implementation, and continuous review - transforming your AI coding workflow permanently.</description>
     </item>
     <item>
       <title>Claude Series – Post 9: Plugins - The App Store Claude Code Was Missing!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</link>
       <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</guid>
       <description>Stop configuring everything manually! Claude Code&amp;rsquo;s plugin ecosystem gives you 9,000+ one-command installs that bundle skills, agents, hooks, and MCP servers - from automated code review to real-time documentation injection.</description>
     </item>
     <item>
       <title>Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</link>
       <pubDate>Fri, 06 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</guid>
       <description>Stop working sequentially! Learn how Claude Code subagents let you spawn parallel AI specialists - each with its own context window and expertise - to explore, review, test, and document your bioinformatics code simultaneously.</description>
     </item>
     <item>
       <title>Claude Series – Post 7: MCPs - Claude Just Learned To Talk To EVERYTHING!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-mcp-connect-to-everything/</link>
+      <link>http://localhost:1313/posts/claude-mcp-connect-to-everything/</link>
       <pubDate>Fri, 13 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-mcp-connect-to-everything/</guid>
+      <guid>http://localhost:1313/posts/claude-mcp-connect-to-everything/</guid>
       <description>Stop copy-pasting between tools! Learn how MCP turns Claude into a fully connected research assistant that can search PubMed, manage GitHub repos, access Google Drive, and interact with your entire research ecosystem - all from one terminal.</description>
     </item>
     <item>
       <title>Claude Series – Post 6: Skills - Turn Claude Into YOUR Specialist!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</link>
+      <link>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</link>
       <pubDate>Tue, 10 Feb 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</guid>
+      <guid>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</guid>
       <description>Stop repeating yourself every session! Learn how Claude Skills let you package your expertise, protocols, and standards into reusable modules that Claude loads automatically - from built-in document creation to custom bioinformatics workflows and the Superpowers marketplace.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 12: QC Heatmaps for Sample Quality!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/qc-heatmaps-sample-quality/</link>
+      <link>http://localhost:1313/posts/qc-heatmaps-sample-quality/</link>
       <pubDate>Fri, 29 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/qc-heatmaps-sample-quality/</guid>
+      <guid>http://localhost:1313/posts/qc-heatmaps-sample-quality/</guid>
       <description>Dive deep into sample quality control with correlation and distance heatmaps that reveal precise sample relationships. Learn to spot sample mix-ups, batch effects, and technical problems before they compromise your RNA-seq analysis.</description>
     </item>
     <item>
       <title>Version Control Series – Capstone: Mastering Git for Reproducible Research</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-capstone-mastering/</link>
+      <link>http://localhost:1313/posts/git-capstone-mastering/</link>
       <pubDate>Wed, 05 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-capstone-mastering/</guid>
+      <guid>http://localhost:1313/posts/git-capstone-mastering/</guid>
       <description>Consolidate your Git knowledge with this capstone guide covering essential Git workflows, best practices, and key takeaways.</description>
     </item>
     <item>
       <title>Version Control Series – Part 7: Git Diff &amp; Log – Tracking Changes Like a Pro</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-diff-log-tracking/</link>
+      <link>http://localhost:1313/posts/git-diff-log-tracking/</link>
       <pubDate>Tue, 04 Feb 2025 12:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-diff-log-tracking/</guid>
+      <guid>http://localhost:1313/posts/git-diff-log-tracking/</guid>
       <description>Master git diff and git log to track changes efficiently and enhance your version control workflow.</description>
     </item>
     <item>
       <title>Version Control Series – Part 6: Understanding .gitignore – Keeping Your Repo Clean</title>
-      <link>https://badran-elshenawy.netlify.app/posts/gitignore-best-practices/</link>
+      <link>http://localhost:1313/posts/gitignore-best-practices/</link>
       <pubDate>Mon, 03 Feb 2025 17:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/gitignore-best-practices/</guid>
+      <guid>http://localhost:1313/posts/gitignore-best-practices/</guid>
       <description>Learn how to effectively use .gitignore to keep your Git repositories clean and manageable.</description>
     </item>
     <item>
       <title>Version Control Series – Part 5: Undoing Mistakes in Git</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-undo-mistakes/</link>
+      <link>http://localhost:1313/posts/git-undo-mistakes/</link>
       <pubDate>Thu, 30 Jan 2025 12:20:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-undo-mistakes/</guid>
+      <guid>http://localhost:1313/posts/git-undo-mistakes/</guid>
       <description>Learn how to undo mistakes in Git using reset, revert, and other rollback techniques.</description>
     </item>
     <item>
       <title>Version Control Series – Part 4: GitHub &amp; Collaboration</title>
-      <link>https://badran-elshenawy.netlify.app/posts/github-collaboration/</link>
+      <link>http://localhost:1313/posts/github-collaboration/</link>
       <pubDate>Tue, 28 Jan 2025 06:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/github-collaboration/</guid>
+      <guid>http://localhost:1313/posts/github-collaboration/</guid>
       <description>Learn how to collaborate effectively on GitHub using pull requests, forks, and branching workflows.</description>
     </item>
     <item>
       <title>Version Control Series – Part 3: Branching &amp; Merging in Git</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-branching-merging/</link>
+      <link>http://localhost:1313/posts/git-branching-merging/</link>
       <pubDate>Mon, 27 Jan 2025 19:26:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-branching-merging/</guid>
+      <guid>http://localhost:1313/posts/git-branching-merging/</guid>
       <description>Understand Git branching and merging to work confidently without disrupting your main codebase.</description>
     </item>
     <item>
       <title>Version Control Series - Part 2: Essential Git Commands You Should Know</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-basics-part2/</link>
+      <link>http://localhost:1313/posts/git-basics-part2/</link>
       <pubDate>Sat, 25 Jan 2025 17:39:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-basics-part2/</guid>
+      <guid>http://localhost:1313/posts/git-basics-part2/</guid>
       <description>Learn essential Git commands like &lt;code&gt;add&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;push&lt;/code&gt;, and &lt;code&gt;pull&lt;/code&gt; to start mastering version control in bioinformatics.</description>
     </item>
     <item>
       <title>Version Control Series - Part 1: Why Every Bioinformatician Needs Git</title>
-      <link>https://badran-elshenawy.netlify.app/posts/git-version-control-part1/</link>
+      <link>http://localhost:1313/posts/git-version-control-part1/</link>
       <pubDate>Sat, 25 Jan 2025 17:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/git-version-control-part1/</guid>
+      <guid>http://localhost:1313/posts/git-version-control-part1/</guid>
       <description>Discover why Git is a game-changer for bioinformatics, providing version control, reproducibility, and seamless collaboration.</description>
     </item>
     <item>
       <title>Welcome to My Personal Blog</title>
-      <link>https://badran-elshenawy.netlify.app/posts/welcome-to-my-personal-blog/</link>
+      <link>http://localhost:1313/posts/welcome-to-my-personal-blog/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/welcome-to-my-personal-blog/</guid>
+      <guid>http://localhost:1313/posts/welcome-to-my-personal-blog/</guid>
       <description>&lt;h1 id=&#34;-welcome-to-my-personal-blog&#34;&gt;&#xA;  🚀 Welcome to My Personal Blog&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-welcome-to-my-personal-blog&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;For a while now, I’ve been posting daily on &lt;strong&gt;LinkedIn&lt;/strong&gt;—sharing insights on &lt;strong&gt;bioinformatics, command-line tools, and productivity&lt;/strong&gt;. But I wanted a space that’s truly my own. So, I built this site.&lt;/p&gt;&#xA;&lt;p&gt;This blog will be a &lt;strong&gt;continuation of my LinkedIn posts&lt;/strong&gt;, but with more flexibility. I’ll use it to:&lt;br&gt;&#xA;✅ Share &lt;strong&gt;quick insights&lt;/strong&gt; and &lt;strong&gt;technical tips&lt;/strong&gt;.&lt;br&gt;&#xA;✅ Write about &lt;strong&gt;bioinformatics, data science, and scripting&lt;/strong&gt;.&lt;br&gt;&#xA;✅ Explore &lt;strong&gt;philosophy, productivity, and deep work&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

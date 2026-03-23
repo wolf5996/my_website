@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Signal Processing on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/signal-processing/</link>
+    <link>http://localhost:1313/tags/signal-processing/</link>
     <description>Recent content in Signal Processing on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 23 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/signal-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/signal-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 7: PCA - From 20,000 Genes to Pure Signal!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</link>
+      <link>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</link>
       <pubDate>Thu, 23 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</guid>
       <description>From 20,000 genes to clear cell types - learn how PCA and highly variable genes partnership transforms overwhelming dimensionality into biological insight that drives discovery.</description>
     </item>
   </channel>

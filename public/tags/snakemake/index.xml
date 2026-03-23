@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Snakemake on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/snakemake/</link>
+    <link>http://localhost:1313/tags/snakemake/</link>
     <description>Recent content in Snakemake on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 10 Apr 2025 12:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/snakemake/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/snakemake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
       <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
       <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
     </item>
   </channel>

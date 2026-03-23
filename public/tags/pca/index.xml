@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PCA on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/pca/</link>
+    <link>http://localhost:1313/tags/pca/</link>
     <description>Recent content in PCA on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 27 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/pca/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/pca/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 8: Why PCA Plots Aren&#39;t Enough for Single-Cell!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
+      <link>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
       <pubDate>Mon, 27 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
       <description>From bulk simplicity to single-cell complexity - learn why you need 20+ principal components and how elbow plots guide the critical decision that determines everything downstream.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 7: PCA - From 20,000 Genes to Pure Signal!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</link>
+      <link>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</link>
       <pubDate>Thu, 23 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</guid>
       <description>From 20,000 genes to clear cell types - learn how PCA and highly variable genes partnership transforms overwhelming dimensionality into biological insight that drives discovery.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 11: PCA as Your RNA-seq Diagnostic Hero!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/pca-diagnostic-hero/</link>
+      <link>http://localhost:1313/posts/pca-diagnostic-hero/</link>
       <pubDate>Tue, 26 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/pca-diagnostic-hero/</guid>
+      <guid>http://localhost:1313/posts/pca-diagnostic-hero/</guid>
       <description>Discover why PCA is your RNA-seq X-ray machine, revealing the true structure of your data. Learn to read PCA plots like a detective, troubleshoot common problems, and use this powerful diagnostic tool to build confidence in your analysis or catch problems early.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 6: Data Transformations</title>
-      <link>https://badran-elshenawy.netlify.app/posts/data-transformations/</link>
+      <link>http://localhost:1313/posts/data-transformations/</link>
       <pubDate>Thu, 14 Aug 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/data-transformations/</guid>
+      <guid>http://localhost:1313/posts/data-transformations/</guid>
       <description>Discover why normalized counts still aren&amp;rsquo;t ready for PCA and clustering, and how VST and rlog transformations solve the variance problem. Learn to choose the right transformation method and integrate it properly into your RNA-seq workflow.</description>
     </item>
   </channel>

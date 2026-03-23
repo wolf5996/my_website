@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IRanges on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/iranges/</link>
+    <link>http://localhost:1313/tags/iranges/</link>
     <description>Recent content in IRanges on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 06 May 2025 11:54:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/iranges/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/iranges/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 6: GRangesList</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</link>
+      <link>http://localhost:1313/posts/genomic-grangeslist/</link>
       <pubDate>Tue, 06 May 2025 11:54:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</guid>
+      <guid>http://localhost:1313/posts/genomic-grangeslist/</guid>
       <description>Explore the power of GRangesList for grouped genomic analyses. Learn to create, access, and operate on multiple GRanges objects in a unified, memory-efficient structure.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 5: GRanges</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-granges/</link>
+      <link>http://localhost:1313/posts/genomic-granges/</link>
       <pubDate>Wed, 23 Apr 2025 10:10:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-granges/</guid>
+      <guid>http://localhost:1313/posts/genomic-granges/</guid>
       <description>Explore how GRanges adds chromosomes, strand, and metadata to IRanges. Learn to build, manipulate, and analyze GRanges for high-throughput genomic workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 4: IRanges</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</link>
+      <link>http://localhost:1313/posts/genomic-iranges/</link>
       <pubDate>Tue, 22 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</guid>
+      <guid>http://localhost:1313/posts/genomic-iranges/</guid>
       <description>Master IRanges in R for efficient genomic interval operations. Learn with examples how IRanges powers GRanges, ChIP-Seq analysis, and coverage workflows in Bioconductor.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 3: S4 Objects</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</link>
+      <link>http://localhost:1313/posts/genomic-s4-objects/</link>
       <pubDate>Mon, 21 Apr 2025 17:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</guid>
+      <guid>http://localhost:1313/posts/genomic-s4-objects/</guid>
       <description>Master the S4 object system in R and its critical role in Bioconductor and Seurat. Learn how structure, type safety, and modularity enable scalable genomic analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 2: Rle Vectors</title>
-      <link>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</link>
+      <link>http://localhost:1313/posts/genomic-rle-vectors/</link>
       <pubDate>Sat, 19 Apr 2025 17:20:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</guid>
+      <guid>http://localhost:1313/posts/genomic-rle-vectors/</guid>
       <description>Master the Rle class in R and understand how run-length encoding saves memory in genome-scale data analysis. Learn with examples and real use cases in Bioconductor.</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Efficient Workflows on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/efficient-workflows/</link>
+    <link>http://localhost:1313/tags/efficient-workflows/</link>
     <description>Recent content in Efficient Workflows on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 13 Mar 2025 16:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/efficient-workflows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/efficient-workflows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tidyverse Series – Post 14: Bringing It All Together – A Full Tidyverse Workflow</title>
-      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</link>
+      <link>http://localhost:1313/posts/tidyverse-full-workflow/</link>
       <pubDate>Thu, 13 Mar 2025 16:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</guid>
+      <guid>http://localhost:1313/posts/tidyverse-full-workflow/</guid>
       <description>Master the power of combining Tidyverse packages for a complete data analysis workflow. Learn how dplyr, tidyr, ggplot2, and more work together for seamless analysis.</description>
     </item>
   </channel>

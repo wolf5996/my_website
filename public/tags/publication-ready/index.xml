@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication Ready on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/publication-ready/</link>
+    <link>http://localhost:1313/tags/publication-ready/</link>
     <description>Recent content in Publication Ready on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Fri, 07 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/publication-ready/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/publication-ready/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 9.5: Not All UMAP Plots Are Created Equal!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-plots-not-created-equal/</link>
+      <link>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</link>
       <pubDate>Fri, 07 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-plots-not-created-equal/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</guid>
       <description>From basic defaults to publication masterpieces - learn how SCpubr, scplotter, and Seurat create dramatically different impressions with the same underlying data and analysis.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
+      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
   </channel>

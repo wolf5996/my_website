@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dimensionality Reduction on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/dimensionality-reduction/</link>
+    <link>http://localhost:1313/tags/dimensionality-reduction/</link>
     <description>Recent content in Dimensionality Reduction on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 03 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/dimensionality-reduction/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/dimensionality-reduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 9: From 20 PCs to Beautiful 2D Maps!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
+      <link>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
       <pubDate>Mon, 03 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
       <description>From elbow plot decisions to stunning visualizations - learn how manifold learning algorithms compress high-dimensional PC space into interpretable 2D maps that reveal cellular relationships.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 8: Why PCA Plots Aren&#39;t Enough for Single-Cell!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
+      <link>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</link>
       <pubDate>Mon, 27 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</guid>
       <description>From bulk simplicity to single-cell complexity - learn why you need 20+ principal components and how elbow plots guide the critical decision that determines everything downstream.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 7: PCA - From 20,000 Genes to Pure Signal!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</link>
+      <link>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</link>
       <pubDate>Thu, 23 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</guid>
       <description>From 20,000 genes to clear cell types - learn how PCA and highly variable genes partnership transforms overwhelming dimensionality into biological insight that drives discovery.</description>
     </item>
   </channel>

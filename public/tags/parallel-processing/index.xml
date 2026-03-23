@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Parallel Processing on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/parallel-processing/</link>
+    <link>http://localhost:1313/tags/parallel-processing/</link>
     <description>Recent content in Parallel Processing on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Fri, 06 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/parallel-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/parallel-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 8: Subagents - Your Terminal Now Has a Whole AI Team!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</link>
       <pubDate>Fri, 06 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</guid>
       <description>Stop working sequentially! Learn how Claude Code subagents let you spawn parallel AI specialists - each with its own context window and expertise - to explore, review, test, and document your bioinformatics code simultaneously.</description>
     </item>
   </channel>

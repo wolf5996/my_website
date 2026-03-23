@@ -2,24 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Plugins on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/plugins/</link>
+    <link>http://localhost:1313/tags/plugins/</link>
     <description>Recent content in Plugins on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
+      <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>
+      <pubDate>Mon, 23 Mar 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-series-capstone-retrospective/</guid>
+      <description>Post 14 in the Claude series. The capstone — a full retrospective covering every post, lessons learned about bridging technical and non-technical audiences, and why AI-assisted research is becoming infrastructure.</description>
+    </item>
     <item>
       <title>Claude Series – Post 13: claude-mem - Give Claude Code a Brain That Remembers!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</link>
+      <link>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</link>
       <pubDate>Tue, 17 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</guid>
+      <guid>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</guid>
       <description>Post 13 in the Claude series. Every Claude Code session starts from zero — claude-mem fixes that with automatic context capture, AI compression, and token-efficient progressive disclosure search.</description>
     </item>
     <item>
       <title>Claude Series – Post 9: Plugins - The App Store Claude Code Was Missing!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</link>
+      <link>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</link>
       <pubDate>Mon, 09 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</guid>
+      <guid>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</guid>
       <description>Stop configuring everything manually! Claude Code&amp;rsquo;s plugin ecosystem gives you 9,000+ one-command installs that bundle skills, agents, hooks, and MCP servers - from automated code review to real-time documentation injection.</description>
     </item>
   </channel>

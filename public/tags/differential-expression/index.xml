@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Differential Expression on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/differential-expression/</link>
+    <link>http://localhost:1313/tags/differential-expression/</link>
     <description>Recent content in Differential Expression on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 02 Dec 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/differential-expression/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/differential-expression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 14: DEA Tables Are Just the Beginning!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</link>
+      <link>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</link>
       <pubDate>Tue, 02 Dec 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</guid>
       <description>From endless rows of numbers to biological insights - master volcano plots for targeted comparisons and heatmaps for comprehensive overviews in single-cell DEA.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 13: Decoding Your DEA Results Like a Pro!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</link>
+      <link>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</link>
       <pubDate>Tue, 25 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</guid>
       <description>From mysterious numbers to biological insight - learn to read DEA tables like a detective and distinguish true cell type signatures from generic lineage markers.</description>
     </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 12: The DEA Strategy That Changes Everything!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</link>
+      <link>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</link>
       <pubDate>Wed, 19 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</guid>
       <description>From generic housekeeping patterns to specific biomarkers - learn how your DEA strategy choice between FindMarkers and FindAllMarkers shapes biological discovery and publication impact.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</link>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</guid>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
       <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</link>
+      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</guid>
+      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
       <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 2: DESeq2 Fundamentals</title>
-      <link>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</link>
+      <link>http://localhost:1313/posts/deseq2-fundamentals/</link>
       <pubDate>Tue, 29 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</guid>
+      <guid>http://localhost:1313/posts/deseq2-fundamentals/</guid>
       <description>Demystify DESeq2&amp;rsquo;s statistical framework with clear explanations designed for both experimentalists and bioinformaticians. Discover why count data requires specialized methods and how DESeq2&amp;rsquo;s approach transforms messy RNA-seq data into trustworthy biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
-      <link>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</link>
+      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
       <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</guid>
+      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
       <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
       <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
       <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
     </item>
   </channel>

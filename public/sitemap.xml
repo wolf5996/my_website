@@ -2,1418 +2,1430 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://badran-elshenawy.netlify.app/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/ai-tools/</loc>
+    <loc>http://localhost:1313/categories/ai-tools/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai-workflow/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/bioinformatics/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/bioinformatics/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/claude/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/claude-code/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/claude-series-capstone-retrospective/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/claude.md/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/git/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mcp/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/opinion/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/plugins/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/productivity/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/retrospective/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/series-capstone/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/skills/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/subagents/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/superpowers/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-03-23T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/claude-mem-persistent-memory-claude-code/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/ai-workflow/</loc>
+    <loc>http://localhost:1313/tags/claude-mem/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/</loc>
+    <loc>http://localhost:1313/tags/context-engineering/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bioinformatics/</loc>
+    <loc>http://localhost:1313/tags/developer-productivity/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/</loc>
+    <loc>http://localhost:1313/categories/developer-tools/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/claude/</loc>
+    <loc>http://localhost:1313/tags/mcp-tools/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/claude-code/</loc>
+    <loc>http://localhost:1313/categories/open-source/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-mem-persistent-memory-claude-code/</loc>
+    <loc>http://localhost:1313/tags/persistent-memory/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/claude-mem/</loc>
+    <loc>http://localhost:1313/tags/progressive-disclosure/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/context-engineering/</loc>
+    <loc>http://localhost:1313/tags/session-memory/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/developer-productivity/</loc>
+    <loc>http://localhost:1313/tags/sqlite/</loc>
     <lastmod>2026-03-17T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/developer-tools/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/mcp-tools/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/open-source/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/persistent-memory/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/plugins/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/productivity/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/progressive-disclosure/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/session-memory/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sqlite/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/</loc>
-    <lastmod>2026-03-17T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/badranseq/</loc>
+    <loc>http://localhost:1313/tags/badranseq/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/bioinformatics/</loc>
+    <loc>http://localhost:1313/posts/claude-skills-bioinformatics-open-source/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-skills-bioinformatics-open-source/</loc>
+    <loc>http://localhost:1313/tags/computational-biology/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/computational-biology/</loc>
+    <loc>http://localhost:1313/tags/quarto/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/quarto/</loc>
+    <loc>http://localhost:1313/tags/r-packages/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/r-packages/</loc>
+    <loc>http://localhost:1313/categories/r-programming/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/r-programming/</loc>
+    <loc>http://localhost:1313/tags/reproducibility/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/reproducibility/</loc>
+    <loc>http://localhost:1313/tags/scrna-seq/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scrna-seq/</loc>
+    <loc>http://localhost:1313/tags/seurat/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/seurat/</loc>
+    <loc>http://localhost:1313/tags/skill.md/</loc>
     <lastmod>2026-03-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/skill.md/</loc>
-    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/skills/</loc>
-    <lastmod>2026-03-16T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/claude/</loc>
+    <loc>http://localhost:1313/tags/claude/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-code-made-me-love-version-control/</loc>
+    <loc>http://localhost:1313/posts/claude-code-made-me-love-version-control/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/developer-experience/</loc>
+    <loc>http://localhost:1313/tags/developer-experience/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/git/</loc>
+    <loc>http://localhost:1313/tags/github/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/github/</loc>
+    <loc>http://localhost:1313/tags/github-cli/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/github-cli/</loc>
+    <loc>http://localhost:1313/tags/opinion/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/opinion/</loc>
+    <loc>http://localhost:1313/tags/research-workflow/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/opinion/</loc>
+    <loc>http://localhost:1313/tags/version-control/</loc>
     <lastmod>2026-03-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/research-workflow/</loc>
-    <lastmod>2026-03-12T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/version-control/</loc>
-    <lastmod>2026-03-12T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/agentic-coding/</loc>
+    <loc>http://localhost:1313/tags/agentic-coding/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/automation/</loc>
+    <loc>http://localhost:1313/tags/automation/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</loc>
+    <loc>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/obra/</loc>
+    <loc>http://localhost:1313/tags/obra/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/open-source/</loc>
+    <loc>http://localhost:1313/tags/open-source/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/research-tools/</loc>
+    <loc>http://localhost:1313/categories/research-tools/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/software-development/</loc>
+    <loc>http://localhost:1313/tags/software-development/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/superpowers/</loc>
+    <loc>http://localhost:1313/tags/tdd/</loc>
     <lastmod>2026-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tdd/</loc>
-    <lastmod>2026-03-10T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-plugins-app-store-for-your-terminal/</loc>
+    <loc>http://localhost:1313/posts/claude-plugins-app-store-for-your-terminal/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/developer-tools/</loc>
+    <loc>http://localhost:1313/tags/developer-tools/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/mcp-servers/</loc>
+    <loc>http://localhost:1313/tags/mcp-servers/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/plugin-marketplace/</loc>
+    <loc>http://localhost:1313/tags/plugin-marketplace/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/research-productivity/</loc>
+    <loc>http://localhost:1313/tags/research-productivity/</loc>
     <lastmod>2026-03-09T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/agent-teams/</loc>
+    <loc>http://localhost:1313/tags/agent-teams/</loc>
     <lastmod>2026-03-06T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/ai-agents/</loc>
+    <loc>http://localhost:1313/tags/ai-agents/</loc>
     <lastmod>2026-03-06T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-subagents-ai-team-in-your-terminal/</loc>
+    <loc>http://localhost:1313/posts/claude-subagents-ai-team-in-your-terminal/</loc>
     <lastmod>2026-03-06T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/custom-agents/</loc>
+    <loc>http://localhost:1313/tags/custom-agents/</loc>
     <lastmod>2026-03-06T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/parallel-processing/</loc>
+    <loc>http://localhost:1313/tags/parallel-processing/</loc>
     <lastmod>2026-03-06T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/subagents/</loc>
-    <lastmod>2026-03-06T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bioinformatics-tutorial/</loc>
+    <loc>http://localhost:1313/tags/bioinformatics-tutorial/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/clusterprofiler/</loc>
+    <loc>http://localhost:1313/tags/clusterprofiler/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-science/</loc>
+    <loc>http://localhost:1313/tags/data-science/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gene-ontology/</loc>
+    <loc>http://localhost:1313/tags/gene-ontology/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gsea/</loc>
+    <loc>http://localhost:1313/tags/gsea/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-marker-genes-to-biological-pathways/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-marker-genes-to-biological-pathways/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/ora/</loc>
+    <loc>http://localhost:1313/tags/ora/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/over-representation-analysis/</loc>
+    <loc>http://localhost:1313/tags/over-representation-analysis/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/pathway-analysis/</loc>
+    <loc>http://localhost:1313/categories/pathway-analysis/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pathway-enrichment/</loc>
+    <loc>http://localhost:1313/tags/pathway-enrichment/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/r/</loc>
+    <loc>http://localhost:1313/categories/r/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/r-programming/</loc>
+    <loc>http://localhost:1313/tags/r-programming/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/single-cell-rna-seq/</loc>
+    <loc>http://localhost:1313/categories/single-cell-rna-seq/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/systems-biology/</loc>
+    <loc>http://localhost:1313/categories/systems-biology/</loc>
     <lastmod>2026-02-25T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/api-integration/</loc>
+    <loc>http://localhost:1313/tags/api-integration/</loc>
     <lastmod>2026-02-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-mcp-connect-to-everything/</loc>
+    <loc>http://localhost:1313/posts/claude-mcp-connect-to-everything/</loc>
     <lastmod>2026-02-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/mcp/</loc>
+    <loc>http://localhost:1313/tags/model-context-protocol/</loc>
     <lastmod>2026-02-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/model-context-protocol/</loc>
+    <loc>http://localhost:1313/tags/pubmed/</loc>
     <lastmod>2026-02-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pubmed/</loc>
+    <loc>http://localhost:1313/tags/scientific-literature/</loc>
     <lastmod>2026-02-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scientific-literature/</loc>
-    <lastmod>2026-02-13T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/agent-skills/</loc>
+    <loc>http://localhost:1313/tags/agent-skills/</loc>
     <lastmod>2026-02-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/</loc>
+    <loc>http://localhost:1313/posts/claude-skills-turn-claude-into-your-specialist/</loc>
     <lastmod>2026-02-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/custom-ai/</loc>
+    <loc>http://localhost:1313/tags/custom-ai/</loc>
     <lastmod>2026-02-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-analysis/</loc>
+    <loc>http://localhost:1313/categories/data-analysis/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-visualization/</loc>
+    <loc>http://localhost:1313/tags/data-visualization/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dea-results/</loc>
+    <loc>http://localhost:1313/tags/dea-results/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/differential-expression/</loc>
+    <loc>http://localhost:1313/tags/differential-expression/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/findmarkers/</loc>
+    <loc>http://localhost:1313/tags/findmarkers/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/heatmap/</loc>
+    <loc>http://localhost:1313/tags/heatmap/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-tables-just-beginning/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-dea-tables-just-beginning/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/volcano-plot/</loc>
+    <loc>http://localhost:1313/tags/volcano-plot/</loc>
     <lastmod>2025-12-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/biomarker-discovery/</loc>
+    <loc>http://localhost:1313/tags/biomarker-discovery/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dea-interpretation/</loc>
+    <loc>http://localhost:1313/tags/dea-interpretation/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gene-expression/</loc>
+    <loc>http://localhost:1313/tags/gene-expression/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/marker-genes/</loc>
+    <loc>http://localhost:1313/tags/marker-genes/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-decode-dea-results-like-pro/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-decode-dea-results-like-pro/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pct.1-pct.2/</loc>
+    <loc>http://localhost:1313/tags/pct.1-pct.2/</loc>
     <lastmod>2025-11-25T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cell-type-markers/</loc>
+    <loc>http://localhost:1313/tags/cell-type-markers/</loc>
     <lastmod>2025-11-19T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dea-strategy/</loc>
+    <loc>http://localhost:1313/tags/dea-strategy/</loc>
     <lastmod>2025-11-19T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-dea-strategy-changes-everything/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-dea-strategy-changes-everything/</loc>
     <lastmod>2025-11-19T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/single-cell/</loc>
+    <loc>http://localhost:1313/tags/single-cell/</loc>
     <lastmod>2025-11-19T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cluster-validation/</loc>
+    <loc>http://localhost:1313/tags/cluster-validation/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/clustering-quality/</loc>
+    <loc>http://localhost:1313/tags/clustering-quality/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/clustering-trees/</loc>
+    <loc>http://localhost:1313/tags/clustering-trees/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/leiden-algorithm/</loc>
+    <loc>http://localhost:1313/tags/leiden-algorithm/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-assess-clustering-quality-trees/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-assess-clustering-quality-trees/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/resolution-optimization/</loc>
+    <loc>http://localhost:1313/tags/resolution-optimization/</loc>
     <lastmod>2025-11-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cell-types/</loc>
+    <loc>http://localhost:1313/tags/cell-types/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/clustering/</loc>
+    <loc>http://localhost:1313/tags/clustering/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/community-detection/</loc>
+    <loc>http://localhost:1313/tags/community-detection/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/graph-clustering/</loc>
+    <loc>http://localhost:1313/tags/graph-clustering/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/louvain-algorithm/</loc>
+    <loc>http://localhost:1313/tags/louvain-algorithm/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-clustering-algorithm-choice-matters/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-plots-not-created-equal/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-umap-plots-not-created-equal/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/publication-ready/</loc>
+    <loc>http://localhost:1313/tags/publication-ready/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rstats/</loc>
+    <loc>http://localhost:1313/tags/rstats/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scientific-figures/</loc>
+    <loc>http://localhost:1313/tags/scientific-figures/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scplotter/</loc>
+    <loc>http://localhost:1313/tags/scplotter/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scpubr/</loc>
+    <loc>http://localhost:1313/tags/scpubr/</loc>
     <lastmod>2025-11-07T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cell-mapping/</loc>
+    <loc>http://localhost:1313/tags/cell-mapping/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dimensionality-reduction/</loc>
+    <loc>http://localhost:1313/tags/dimensionality-reduction/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/manifold-learning/</loc>
+    <loc>http://localhost:1313/tags/manifold-learning/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/t-sne/</loc>
+    <loc>http://localhost:1313/tags/t-sne/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/umap/</loc>
+    <loc>http://localhost:1313/tags/umap/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/component-selection/</loc>
+    <loc>http://localhost:1313/tags/component-selection/</loc>
     <lastmod>2025-10-27T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/elbow-plot/</loc>
+    <loc>http://localhost:1313/tags/elbow-plot/</loc>
     <lastmod>2025-10-27T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-elbow-plots-pca-not-enough/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-elbow-plots-pca-not-enough/</loc>
     <lastmod>2025-10-27T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pca/</loc>
+    <loc>http://localhost:1313/tags/pca/</loc>
     <lastmod>2025-10-27T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/principal-components/</loc>
+    <loc>http://localhost:1313/tags/principal-components/</loc>
     <lastmod>2025-10-27T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-transformation/</loc>
+    <loc>http://localhost:1313/tags/data-transformation/</loc>
     <lastmod>2025-10-23T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/highly-variable-genes/</loc>
+    <loc>http://localhost:1313/tags/highly-variable-genes/</loc>
     <lastmod>2025-10-23T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-pca-genes-to-signal/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-pca-genes-to-signal/</loc>
     <lastmod>2025-10-23T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/signal-processing/</loc>
+    <loc>http://localhost:1313/tags/signal-processing/</loc>
     <lastmod>2025-10-23T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-why-raw-counts-ruin-analysis/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-why-raw-counts-ruin-analysis/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/normalization/</loc>
+    <loc>http://localhost:1313/tags/normalization/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/scaling/</loc>
+    <loc>http://localhost:1313/tags/scaling/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sctransform/</loc>
+    <loc>http://localhost:1313/tags/sctransform/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/technical-noise/</loc>
+    <loc>http://localhost:1313/tags/technical-noise/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/variable-features/</loc>
+    <loc>http://localhost:1313/tags/variable-features/</loc>
     <lastmod>2025-10-21T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cell-filtering/</loc>
+    <loc>http://localhost:1313/tags/cell-filtering/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/library-size/</loc>
+    <loc>http://localhost:1313/tags/library-size/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-qc-metrics-that-matter/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-qc-metrics-that-matter/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/mitochondrial-genes/</loc>
+    <loc>http://localhost:1313/tags/mitochondrial-genes/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/qc-metrics/</loc>
+    <loc>http://localhost:1313/tags/qc-metrics/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/quality-control/</loc>
+    <loc>http://localhost:1313/tags/quality-control/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/threshold-setting/</loc>
+    <loc>http://localhost:1313/tags/threshold-setting/</loc>
     <lastmod>2025-10-16T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cell-biology/</loc>
+    <loc>http://localhost:1313/tags/cell-biology/</loc>
     <lastmod>2025-10-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-preprocessing/</loc>
+    <loc>http://localhost:1313/tags/data-preprocessing/</loc>
     <lastmod>2025-10-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/empty-droplets/</loc>
+    <loc>http://localhost:1313/tags/empty-droplets/</loc>
     <lastmod>2025-10-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</loc>
     <lastmod>2025-10-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/single-cell-analysis/</loc>
+    <loc>http://localhost:1313/tags/single-cell-analysis/</loc>
     <lastmod>2025-10-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bioconductor/</loc>
+    <loc>http://localhost:1313/tags/bioconductor/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-seurat-vs-bioconductor-philosophy/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/package-design/</loc>
+    <loc>http://localhost:1313/tags/package-design/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/singlecellexperiment/</loc>
+    <loc>http://localhost:1313/tags/singlecellexperiment/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/software-philosophy/</loc>
+    <loc>http://localhost:1313/tags/software-philosophy/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tool-comparison/</loc>
+    <loc>http://localhost:1313/tags/tool-comparison/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/user-experience/</loc>
+    <loc>http://localhost:1313/tags/user-experience/</loc>
     <lastmod>2025-10-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/scrna-seq-seuratdata-practice-datasets/</loc>
+    <loc>http://localhost:1313/posts/scrna-seq-seuratdata-practice-datasets/</loc>
     <lastmod>2025-10-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pbmc-data/</loc>
+    <loc>http://localhost:1313/tags/pbmc-data/</loc>
     <lastmod>2025-10-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/practice-datasets/</loc>
+    <loc>http://localhost:1313/tags/practice-datasets/</loc>
     <lastmod>2025-10-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/seuratdata/</loc>
+    <loc>http://localhost:1313/tags/seuratdata/</loc>
     <lastmod>2025-10-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/complete-pipeline/</loc>
+    <loc>http://localhost:1313/tags/complete-pipeline/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-analysis/</loc>
+    <loc>http://localhost:1313/tags/data-analysis/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/deseq2/</loc>
+    <loc>http://localhost:1313/tags/deseq2/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</loc>
+    <loc>http://localhost:1313/posts/rna-seq-series-complete-workflow/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pathway-analysis/</loc>
+    <loc>http://localhost:1313/tags/pathway-analysis/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/rna-seq/</loc>
+    <loc>http://localhost:1313/categories/rna-seq/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rna-seq-workflow/</loc>
+    <loc>http://localhost:1313/tags/rna-seq-workflow/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/series-summary/</loc>
+    <loc>http://localhost:1313/tags/series-summary/</loc>
     <lastmod>2025-09-28T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/coordinated-expression/</loc>
+    <loc>http://localhost:1313/tags/coordinated-expression/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/enrichment-analysis/</loc>
+    <loc>http://localhost:1313/tags/enrichment-analysis/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/functional-analysis/</loc>
+    <loc>http://localhost:1313/tags/functional-analysis/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gene-set-enrichment/</loc>
+    <loc>http://localhost:1313/tags/gene-set-enrichment/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/go-analysis/</loc>
+    <loc>http://localhost:1313/tags/go-analysis/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/kegg-pathways/</loc>
+    <loc>http://localhost:1313/tags/kegg-pathways/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</loc>
+    <loc>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/reactome/</loc>
+    <loc>http://localhost:1313/tags/reactome/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/systems-biology/</loc>
+    <loc>http://localhost:1313/tags/systems-biology/</loc>
     <lastmod>2025-09-21T01:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/clinical-research/</loc>
+    <loc>http://localhost:1313/tags/clinical-research/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/disease-research/</loc>
+    <loc>http://localhost:1313/tags/disease-research/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/drug-development/</loc>
+    <loc>http://localhost:1313/tags/drug-development/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/human-pathways/</loc>
+    <loc>http://localhost:1313/tags/human-pathways/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</loc>
+    <loc>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/precision-medicine/</loc>
+    <loc>http://localhost:1313/tags/precision-medicine/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/reactomepa/</loc>
+    <loc>http://localhost:1313/tags/reactomepa/</loc>
     <lastmod>2025-09-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/drug-discovery/</loc>
+    <loc>http://localhost:1313/tags/drug-discovery/</loc>
     <lastmod>2025-09-09T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/kegg/</loc>
+    <loc>http://localhost:1313/tags/kegg/</loc>
     <lastmod>2025-09-09T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/kegg-metabolic-maps-pathway-analysis/</loc>
+    <loc>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</loc>
     <lastmod>2025-09-09T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/metabolic-pathways/</loc>
+    <loc>http://localhost:1313/tags/metabolic-pathways/</loc>
     <lastmod>2025-09-09T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pathview/</loc>
+    <loc>http://localhost:1313/tags/pathview/</loc>
     <lastmod>2025-09-09T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/functional-analysis/</loc>
+    <loc>http://localhost:1313/categories/functional-analysis/</loc>
     <lastmod>2025-09-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/gene-ontology/</loc>
+    <loc>http://localhost:1313/categories/gene-ontology/</loc>
     <lastmod>2025-09-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/go-enrichment/</loc>
+    <loc>http://localhost:1313/tags/go-enrichment/</loc>
     <lastmod>2025-09-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/go-enrichment-gene-lists-biology/</loc>
+    <loc>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</loc>
     <lastmod>2025-09-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rna-seq/</loc>
+    <loc>http://localhost:1313/tags/rna-seq/</loc>
     <lastmod>2025-09-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-visualization/</loc>
+    <loc>http://localhost:1313/categories/data-visualization/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/diagnostic-plots/</loc>
+    <loc>http://localhost:1313/tags/diagnostic-plots/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/distance-heatmap/</loc>
+    <loc>http://localhost:1313/tags/distance-heatmap/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/qc-heatmaps-sample-quality/</loc>
+    <loc>http://localhost:1313/posts/qc-heatmaps-sample-quality/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pheatmap/</loc>
+    <loc>http://localhost:1313/tags/pheatmap/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/quality-control/</loc>
+    <loc>http://localhost:1313/categories/quality-control/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sample-correlation/</loc>
+    <loc>http://localhost:1313/tags/sample-correlation/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sample-quality/</loc>
+    <loc>http://localhost:1313/tags/sample-quality/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/vst/</loc>
+    <loc>http://localhost:1313/tags/vst/</loc>
     <lastmod>2025-08-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/batch-effects/</loc>
+    <loc>http://localhost:1313/tags/batch-effects/</loc>
     <lastmod>2025-08-26T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/pca-diagnostic-hero/</loc>
+    <loc>http://localhost:1313/posts/pca-diagnostic-hero/</loc>
     <lastmod>2025-08-26T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/principal-component-analysis/</loc>
+    <loc>http://localhost:1313/tags/principal-component-analysis/</loc>
     <lastmod>2025-08-26T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rlog/</loc>
+    <loc>http://localhost:1313/tags/rlog/</loc>
     <lastmod>2025-08-26T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/complexheatmap/</loc>
+    <loc>http://localhost:1313/tags/complexheatmap/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/heatmaps/</loc>
+    <loc>http://localhost:1313/tags/heatmaps/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/heatmap-tools-battle/</loc>
+    <loc>http://localhost:1313/posts/heatmap-tools-battle/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/package-comparison/</loc>
+    <loc>http://localhost:1313/tags/package-comparison/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/r-packages/</loc>
+    <loc>http://localhost:1313/categories/r-packages/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tidyheatmap/</loc>
+    <loc>http://localhost:1313/tags/tidyheatmap/</loc>
     <lastmod>2025-08-20T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/clustering/</loc>
+    <loc>http://localhost:1313/categories/clustering/</loc>
     <lastmod>2025-08-19T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/heatmaps-power/</loc>
+    <loc>http://localhost:1313/posts/heatmaps-power/</loc>
     <lastmod>2025-08-19T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pattern-recognition/</loc>
+    <loc>http://localhost:1313/tags/pattern-recognition/</loc>
     <lastmod>2025-08-19T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/ggplot2/</loc>
+    <loc>http://localhost:1313/categories/ggplot2/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/ggplot2/</loc>
+    <loc>http://localhost:1313/tags/ggplot2/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/log2-fold-change/</loc>
+    <loc>http://localhost:1313/tags/log2-fold-change/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</loc>
+    <loc>http://localhost:1313/posts/volcano-plot-mastery/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/plotly/</loc>
+    <loc>http://localhost:1313/tags/plotly/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/publication-graphics/</loc>
+    <loc>http://localhost:1313/tags/publication-graphics/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/statistical-significance/</loc>
+    <loc>http://localhost:1313/tags/statistical-significance/</loc>
     <lastmod>2025-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/adjusted-p-value/</loc>
+    <loc>http://localhost:1313/tags/adjusted-p-value/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/differential-expression/</loc>
+    <loc>http://localhost:1313/categories/differential-expression/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gene-expression-analysis/</loc>
+    <loc>http://localhost:1313/tags/gene-expression-analysis/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</loc>
+    <loc>http://localhost:1313/posts/differential-expression-analysis/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/multiple-testing-correction/</loc>
+    <loc>http://localhost:1313/tags/multiple-testing-correction/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/p-value/</loc>
+    <loc>http://localhost:1313/tags/p-value/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/statistical-analysis/</loc>
+    <loc>http://localhost:1313/tags/statistical-analysis/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/statistics/</loc>
+    <loc>http://localhost:1313/categories/statistics/</loc>
     <lastmod>2025-08-15T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-transformation/</loc>
+    <loc>http://localhost:1313/categories/data-transformation/</loc>
     <lastmod>2025-08-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/heteroscedasticity/</loc>
+    <loc>http://localhost:1313/tags/heteroscedasticity/</loc>
     <lastmod>2025-08-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/data-transformations/</loc>
+    <loc>http://localhost:1313/posts/data-transformations/</loc>
     <lastmod>2025-08-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/variance-stabilization/</loc>
+    <loc>http://localhost:1313/tags/variance-stabilization/</loc>
     <lastmod>2025-08-14T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/composition-bias/</loc>
+    <loc>http://localhost:1313/tags/composition-bias/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-normalization/</loc>
+    <loc>http://localhost:1313/categories/data-normalization/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/normalization-methods/</loc>
+    <loc>http://localhost:1313/posts/normalization-methods/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/median-of-ratios/</loc>
+    <loc>http://localhost:1313/tags/median-of-ratios/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/size-factors/</loc>
+    <loc>http://localhost:1313/tags/size-factors/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tmm/</loc>
+    <loc>http://localhost:1313/tags/tmm/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tpm/</loc>
+    <loc>http://localhost:1313/tags/tpm/</loc>
     <lastmod>2025-08-13T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/design-formula/</loc>
+    <loc>http://localhost:1313/tags/design-formula/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/experimental-design/</loc>
+    <loc>http://localhost:1313/categories/experimental-design/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/experimental-design/</loc>
+    <loc>http://localhost:1313/tags/experimental-design/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/factorial-design/</loc>
+    <loc>http://localhost:1313/tags/factorial-design/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/experimental-design-count-matrix/</loc>
+    <loc>http://localhost:1313/posts/experimental-design-count-matrix/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/paired-samples/</loc>
+    <loc>http://localhost:1313/tags/paired-samples/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sample-size/</loc>
+    <loc>http://localhost:1313/tags/sample-size/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/statistical-modeling/</loc>
+    <loc>http://localhost:1313/tags/statistical-modeling/</loc>
     <lastmod>2025-07-31T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/count-matrix/</loc>
+    <loc>http://localhost:1313/tags/count-matrix/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-import/</loc>
+    <loc>http://localhost:1313/categories/data-import/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-import/</loc>
+    <loc>http://localhost:1313/tags/data-import/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-preprocessing/</loc>
+    <loc>http://localhost:1313/categories/data-preprocessing/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/deseqdataset/</loc>
+    <loc>http://localhost:1313/tags/deseqdataset/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/featurecounts/</loc>
+    <loc>http://localhost:1313/tags/featurecounts/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</loc>
+    <loc>http://localhost:1313/posts/data-import-preprocessing/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sample-metadata/</loc>
+    <loc>http://localhost:1313/tags/sample-metadata/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tximport/</loc>
+    <loc>http://localhost:1313/tags/tximport/</loc>
     <lastmod>2025-07-30T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/count-data/</loc>
+    <loc>http://localhost:1313/tags/count-data/</loc>
     <lastmod>2025-07-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/false-discovery-rate/</loc>
+    <loc>http://localhost:1313/tags/false-discovery-rate/</loc>
     <lastmod>2025-07-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/gene-expression/</loc>
+    <loc>http://localhost:1313/categories/gene-expression/</loc>
     <lastmod>2025-07-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/deseq2-fundamentals/</loc>
+    <loc>http://localhost:1313/posts/deseq2-fundamentals/</loc>
     <lastmod>2025-07-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/negative-binomial/</loc>
+    <loc>http://localhost:1313/tags/negative-binomial/</loc>
     <lastmod>2025-07-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bulk-rna-seq/</loc>
+    <loc>http://localhost:1313/tags/bulk-rna-seq/</loc>
     <lastmod>2025-06-10T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomics/</loc>
+    <loc>http://localhost:1313/tags/genomics/</loc>
     <lastmod>2025-06-10T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</loc>
+    <loc>http://localhost:1313/posts/rnaseq-analysis-introduction/</loc>
     <lastmod>2025-06-10T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/summarizedexperiment/</loc>
+    <loc>http://localhost:1313/tags/summarizedexperiment/</loc>
     <lastmod>2025-06-10T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/assays/</loc>
+    <loc>http://localhost:1313/tags/assays/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/chip-seq/</loc>
+    <loc>http://localhost:1313/tags/chip-seq/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/coldata/</loc>
+    <loc>http://localhost:1313/tags/coldata/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-structures/</loc>
+    <loc>http://localhost:1313/categories/data-structures/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dataframe/</loc>
+    <loc>http://localhost:1313/tags/dataframe/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/experimental-genomics/</loc>
+    <loc>http://localhost:1313/tags/experimental-genomics/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/summarizedexperiment/</loc>
+    <loc>http://localhost:1313/posts/summarizedexperiment/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomicranges/</loc>
+    <loc>http://localhost:1313/tags/genomicranges/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/genomics/</loc>
+    <loc>http://localhost:1313/categories/genomics/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rowranges/</loc>
+    <loc>http://localhost:1313/tags/rowranges/</loc>
     <lastmod>2025-06-05T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/biostrings/</loc>
+    <loc>http://localhost:1313/tags/biostrings/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/fastq/</loc>
+    <loc>http://localhost:1313/tags/fastq/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/filtering/</loc>
+    <loc>http://localhost:1313/tags/filtering/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/shortread/</loc>
+    <loc>http://localhost:1313/posts/shortread/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/ngs/</loc>
+    <loc>http://localhost:1313/tags/ngs/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sequencing-data/</loc>
+    <loc>http://localhost:1313/tags/sequencing-data/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/shortread/</loc>
+    <loc>http://localhost:1313/tags/shortread/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/trimming/</loc>
+    <loc>http://localhost:1313/tags/trimming/</loc>
     <lastmod>2025-05-22T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bed/</loc>
+    <loc>http://localhost:1313/tags/bed/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bigwig/</loc>
+    <loc>http://localhost:1313/tags/bigwig/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-export/</loc>
+    <loc>http://localhost:1313/tags/data-export/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/file-conversion/</loc>
+    <loc>http://localhost:1313/tags/file-conversion/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/file-formats/</loc>
+    <loc>http://localhost:1313/categories/file-formats/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/rtracklayer/</loc>
+    <loc>http://localhost:1313/posts/rtracklayer/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genome-browser/</loc>
+    <loc>http://localhost:1313/tags/genome-browser/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gff/</loc>
+    <loc>http://localhost:1313/tags/gff/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/gtf/</loc>
+    <loc>http://localhost:1313/tags/gtf/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rtracklayer/</loc>
+    <loc>http://localhost:1313/tags/rtracklayer/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/wig/</loc>
+    <loc>http://localhost:1313/tags/wig/</loc>
     <lastmod>2025-05-20T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/code-readability/</loc>
+    <loc>http://localhost:1313/tags/code-readability/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-manipulation/</loc>
+    <loc>http://localhost:1313/categories/data-manipulation/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dplyr/</loc>
+    <loc>http://localhost:1313/tags/dplyr/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/plyranges/</loc>
+    <loc>http://localhost:1313/posts/plyranges/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/join-operations/</loc>
+    <loc>http://localhost:1313/tags/join-operations/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/mutate/</loc>
+    <loc>http://localhost:1313/tags/mutate/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pipes/</loc>
+    <loc>http://localhost:1313/tags/pipes/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/plyranges/</loc>
+    <loc>http://localhost:1313/tags/plyranges/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tidyverse/</loc>
+    <loc>http://localhost:1313/tags/tidyverse/</loc>
     <lastmod>2025-05-19T00:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/aastring/</loc>
+    <loc>http://localhost:1313/tags/aastring/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dnastring/</loc>
+    <loc>http://localhost:1313/tags/dnastring/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/biostrings/</loc>
+    <loc>http://localhost:1313/posts/biostrings/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pattern-matching/</loc>
+    <loc>http://localhost:1313/tags/pattern-matching/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/reverse-complement/</loc>
+    <loc>http://localhost:1313/tags/reverse-complement/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rnastring/</loc>
+    <loc>http://localhost:1313/tags/rnastring/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sequence-analysis/</loc>
+    <loc>http://localhost:1313/tags/sequence-analysis/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/translation/</loc>
+    <loc>http://localhost:1313/tags/translation/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/xstringset/</loc>
+    <loc>http://localhost:1313/tags/xstringset/</loc>
     <lastmod>2025-05-13T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/dataframe/</loc>
+    <loc>http://localhost:1313/posts/dataframe/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomicalignments/</loc>
+    <loc>http://localhost:1313/tags/genomicalignments/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/granges/</loc>
+    <loc>http://localhost:1313/tags/granges/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/list-columns/</loc>
+    <loc>http://localhost:1313/tags/list-columns/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/metadata/</loc>
+    <loc>http://localhost:1313/tags/metadata/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rle/</loc>
+    <loc>http://localhost:1313/tags/rle/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/s4-classes/</loc>
+    <loc>http://localhost:1313/tags/s4-classes/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/s4vectors/</loc>
+    <loc>http://localhost:1313/tags/s4vectors/</loc>
     <lastmod>2025-05-12T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/bam/</loc>
+    <loc>http://localhost:1313/tags/bam/</loc>
     <lastmod>2025-05-07T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-alignments/</loc>
+    <loc>http://localhost:1313/posts/genomic-alignments/</loc>
     <lastmod>2025-05-07T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/rsamtools/</loc>
+    <loc>http://localhost:1313/tags/rsamtools/</loc>
     <lastmod>2025-05-07T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sam/</loc>
+    <loc>http://localhost:1313/tags/sam/</loc>
     <lastmod>2025-05-07T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-grangeslist/</loc>
+    <loc>http://localhost:1313/posts/genomic-grangeslist/</loc>
     <lastmod>2025-05-06T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/grangeslist/</loc>
+    <loc>http://localhost:1313/tags/grangeslist/</loc>
     <lastmod>2025-05-06T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/grouped-data/</loc>
+    <loc>http://localhost:1313/tags/grouped-data/</loc>
     <lastmod>2025-05-06T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/iranges/</loc>
+    <loc>http://localhost:1313/tags/iranges/</loc>
     <lastmod>2025-05-06T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/transcriptomics/</loc>
+    <loc>http://localhost:1313/tags/transcriptomics/</loc>
     <lastmod>2025-05-06T11:54:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-granges/</loc>
+    <loc>http://localhost:1313/posts/genomic-granges/</loc>
     <lastmod>2025-04-23T10:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genome-annotation/</loc>
+    <loc>http://localhost:1313/tags/genome-annotation/</loc>
     <lastmod>2025-04-23T10:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomic-ranges/</loc>
+    <loc>http://localhost:1313/tags/genomic-ranges/</loc>
     <lastmod>2025-04-23T10:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-iranges/</loc>
+    <loc>http://localhost:1313/posts/genomic-iranges/</loc>
     <lastmod>2025-04-22T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomic-data/</loc>
+    <loc>http://localhost:1313/tags/genomic-data/</loc>
     <lastmod>2025-04-22T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-s4-objects/</loc>
+    <loc>http://localhost:1313/posts/genomic-s4-objects/</loc>
     <lastmod>2025-04-21T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/s4/</loc>
+    <loc>http://localhost:1313/tags/s4/</loc>
     <lastmod>2025-04-21T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/efficiency/</loc>
+    <loc>http://localhost:1313/tags/efficiency/</loc>
     <lastmod>2025-04-19T17:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/genomic-rle-vectors/</loc>
+    <loc>http://localhost:1313/posts/genomic-rle-vectors/</loc>
     <lastmod>2025-04-19T17:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-capstone/</loc>
     <lastmod>2025-04-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/htseq/</loc>
+    <loc>http://localhost:1313/tags/htseq/</loc>
     <lastmod>2025-04-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/pipeline/</loc>
+    <loc>http://localhost:1313/tags/pipeline/</loc>
     <lastmod>2025-04-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/snakemake/</loc>
+    <loc>http://localhost:1313/tags/snakemake/</loc>
     <lastmod>2025-04-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/transcriptomics/</loc>
+    <loc>http://localhost:1313/categories/transcriptomics/</loc>
     <lastmod>2025-04-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/annotation/</loc>
+    <loc>http://localhost:1313/tags/annotation/</loc>
     <lastmod>2025-04-08T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</loc>
     <lastmod>2025-04-08T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genome-features/</loc>
+    <loc>http://localhost:1313/tags/genome-features/</loc>
     <lastmod>2025-04-08T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-snakemake/</loc>
     <lastmod>2025-04-07T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/workflow/</loc>
+    <loc>http://localhost:1313/tags/workflow/</loc>
     <lastmod>2025-04-07T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/workflow-automation/</loc>
+    <loc>http://localhost:1313/categories/workflow-automation/</loc>
     <lastmod>2025-04-07T15:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</loc>
     <lastmod>2025-04-01T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/fasta/</loc>
+    <loc>http://localhost:1313/tags/fasta/</loc>
     <lastmod>2025-04-01T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/file-formats/</loc>
+    <loc>http://localhost:1313/tags/file-formats/</loc>
     <lastmod>2025-04-01T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</loc>
     <lastmod>2025-03-26T10:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/read-quantification/</loc>
+    <loc>http://localhost:1313/tags/read-quantification/</loc>
     <lastmod>2025-03-26T10:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-alignment/</loc>
     <lastmod>2025-03-25T05:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/hisat2/</loc>
+    <loc>http://localhost:1313/tags/hisat2/</loc>
     <lastmod>2025-03-25T05:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/minimap2/</loc>
+    <loc>http://localhost:1313/tags/minimap2/</loc>
     <lastmod>2025-03-25T05:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/read-alignment/</loc>
+    <loc>http://localhost:1313/tags/read-alignment/</loc>
     <lastmod>2025-03-25T05:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/star/</loc>
+    <loc>http://localhost:1313/tags/star/</loc>
     <lastmod>2025-03-25T05:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-trimming/</loc>
     <lastmod>2025-03-24T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cutadapt/</loc>
+    <loc>http://localhost:1313/tags/cutadapt/</loc>
     <lastmod>2025-03-24T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/preprocessing/</loc>
+    <loc>http://localhost:1313/tags/preprocessing/</loc>
     <lastmod>2025-03-24T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/read-trimming/</loc>
+    <loc>http://localhost:1313/tags/read-trimming/</loc>
     <lastmod>2025-03-24T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/trimmomatic/</loc>
+    <loc>http://localhost:1313/tags/trimmomatic/</loc>
     <lastmod>2025-03-24T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-quality-control/</loc>
     <lastmod>2025-03-20T12:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/fastqc/</loc>
+    <loc>http://localhost:1313/tags/fastqc/</loc>
     <lastmod>2025-03-20T12:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/multiqc/</loc>
+    <loc>http://localhost:1313/tags/multiqc/</loc>
     <lastmod>2025-03-20T12:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-fastq/</loc>
     <lastmod>2025-03-19T11:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sequencing-reads/</loc>
+    <loc>http://localhost:1313/tags/sequencing-reads/</loc>
     <lastmod>2025-03-19T11:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/biostatistics/</loc>
+    <loc>http://localhost:1313/tags/biostatistics/</loc>
     <lastmod>2025-03-18T05:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</loc>
+    <loc>http://localhost:1313/posts/bulk-rna-seq-introduction/</loc>
     <lastmod>2025-03-18T05:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/genomic-analysis/</loc>
+    <loc>http://localhost:1313/tags/genomic-analysis/</loc>
     <lastmod>2025-03-18T05:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/data-science/</loc>
+    <loc>http://localhost:1313/categories/data-science/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-wrangling/</loc>
+    <loc>http://localhost:1313/tags/data-wrangling/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/efficient-workflows/</loc>
+    <loc>http://localhost:1313/tags/efficient-workflows/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tidyr/</loc>
+    <loc>http://localhost:1313/tags/tidyr/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/tidyverse/</loc>
+    <loc>http://localhost:1313/categories/tidyverse/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-full-workflow/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-full-workflow/</loc>
     <lastmod>2025-03-13T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/base-r-pipe/</loc>
+    <loc>http://localhost:1313/tags/base-r-pipe/</loc>
     <lastmod>2025-03-12T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/efficient-coding/</loc>
+    <loc>http://localhost:1313/tags/efficient-coding/</loc>
     <lastmod>2025-03-12T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/magrittr/</loc>
+    <loc>http://localhost:1313/tags/magrittr/</loc>
     <lastmod>2025-03-12T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/piping/</loc>
+    <loc>http://localhost:1313/tags/piping/</loc>
     <lastmod>2025-03-12T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-piping/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-piping/</loc>
     <lastmod>2025-03-12T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/arrow/</loc>
+    <loc>http://localhost:1313/tags/arrow/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/big-data/</loc>
+    <loc>http://localhost:1313/categories/big-data/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/big-data/</loc>
+    <loc>http://localhost:1313/tags/big-data/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/efficient-computing/</loc>
+    <loc>http://localhost:1313/tags/efficient-computing/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/parquet/</loc>
+    <loc>http://localhost:1313/tags/parquet/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/r/</loc>
+    <loc>http://localhost:1313/tags/r/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-arrow-parquet/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-arrow-parquet/</loc>
     <lastmod>2025-03-11T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/database-management/</loc>
+    <loc>http://localhost:1313/tags/database-management/</loc>
     <lastmod>2025-03-05T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/dbplyr/</loc>
+    <loc>http://localhost:1313/tags/dbplyr/</loc>
     <lastmod>2025-03-05T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sql/</loc>
+    <loc>http://localhost:1313/tags/sql/</loc>
     <lastmod>2025-03-05T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-dbplyr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-dbplyr/</loc>
     <lastmod>2025-03-05T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/regular-expressions/</loc>
+    <loc>http://localhost:1313/tags/regular-expressions/</loc>
     <lastmod>2025-03-04T07:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/stringr/</loc>
+    <loc>http://localhost:1313/tags/stringr/</loc>
     <lastmod>2025-03-04T07:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/text-processing/</loc>
+    <loc>http://localhost:1313/tags/text-processing/</loc>
     <lastmod>2025-03-04T07:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-stringr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-stringr/</loc>
     <lastmod>2025-03-04T07:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-manipulation/</loc>
+    <loc>http://localhost:1313/tags/data-manipulation/</loc>
     <lastmod>2025-03-03T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/functional-programming/</loc>
+    <loc>http://localhost:1313/tags/functional-programming/</loc>
     <lastmod>2025-03-03T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/iteration/</loc>
+    <loc>http://localhost:1313/tags/iteration/</loc>
     <lastmod>2025-03-03T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/purrr/</loc>
+    <loc>http://localhost:1313/tags/purrr/</loc>
     <lastmod>2025-03-03T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-purrr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-purrr/</loc>
     <lastmod>2025-03-03T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/date-handling/</loc>
+    <loc>http://localhost:1313/tags/date-handling/</loc>
     <lastmod>2025-02-28T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/lubridate/</loc>
+    <loc>http://localhost:1313/tags/lubridate/</loc>
     <lastmod>2025-02-28T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-lubridate/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-lubridate/</loc>
     <lastmod>2025-02-28T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/time-series/</loc>
+    <loc>http://localhost:1313/tags/time-series/</loc>
     <lastmod>2025-02-28T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/csv-handling/</loc>
+    <loc>http://localhost:1313/tags/csv-handling/</loc>
     <lastmod>2025-02-26T10:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/efficient-data-loading/</loc>
+    <loc>http://localhost:1313/tags/efficient-data-loading/</loc>
     <lastmod>2025-02-26T10:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/readr/</loc>
+    <loc>http://localhost:1313/tags/readr/</loc>
     <lastmod>2025-02-26T10:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-readr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-readr/</loc>
     <lastmod>2025-02-26T10:50:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/categorical-data/</loc>
+    <loc>http://localhost:1313/tags/categorical-data/</loc>
     <lastmod>2025-02-25T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/forcats/</loc>
+    <loc>http://localhost:1313/tags/forcats/</loc>
     <lastmod>2025-02-25T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-forcats/</loc>
     <lastmod>2025-02-25T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-merging/</loc>
+    <loc>http://localhost:1313/tags/data-merging/</loc>
     <lastmod>2025-02-19T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/joins/</loc>
+    <loc>http://localhost:1313/tags/joins/</loc>
     <lastmod>2025-02-19T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr-joins/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-dplyr-joins/</loc>
     <lastmod>2025-02-19T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/data-cleaning/</loc>
+    <loc>http://localhost:1313/tags/data-cleaning/</loc>
     <lastmod>2025-02-18T07:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/tidy-data/</loc>
+    <loc>http://localhost:1313/tags/tidy-data/</loc>
     <lastmod>2025-02-18T07:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-tidy-data/</loc>
     <lastmod>2025-02-18T07:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-tidyr/</loc>
     <lastmod>2025-02-17T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-dplyr/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-dplyr/</loc>
     <lastmod>2025-02-12T09:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/tidyverse-intro/</loc>
+    <loc>http://localhost:1313/posts/tidyverse-intro/</loc>
     <lastmod>2025-02-11T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/bioinformatics-foundations-tidyverse/</loc>
+    <loc>http://localhost:1313/posts/bioinformatics-foundations-tidyverse/</loc>
     <lastmod>2025-02-10T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/command-line-tools/</loc>
+    <loc>http://localhost:1313/tags/command-line-tools/</loc>
     <lastmod>2025-02-10T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/conda/</loc>
+    <loc>http://localhost:1313/tags/conda/</loc>
     <lastmod>2025-02-10T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/reproducibility/</loc>
+    <loc>http://localhost:1313/categories/reproducibility/</loc>
     <lastmod>2025-02-10T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/collaboration/</loc>
+    <loc>http://localhost:1313/tags/collaboration/</loc>
     <lastmod>2025-02-05T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/git/</loc>
+    <loc>http://localhost:1313/categories/git/</loc>
     <lastmod>2025-02-05T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/version-control/</loc>
+    <loc>http://localhost:1313/categories/version-control/</loc>
     <lastmod>2025-02-05T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-capstone-mastering/</loc>
+    <loc>http://localhost:1313/posts/git-capstone-mastering/</loc>
     <lastmod>2025-02-05T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-diff-log-tracking/</loc>
+    <loc>http://localhost:1313/posts/git-diff-log-tracking/</loc>
     <lastmod>2025-02-04T12:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/gitignore-best-practices/</loc>
+    <loc>http://localhost:1313/posts/gitignore-best-practices/</loc>
     <lastmod>2025-02-03T17:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-undo-mistakes/</loc>
+    <loc>http://localhost:1313/posts/git-undo-mistakes/</loc>
     <lastmod>2025-01-30T12:20:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/quarto-vscode/</loc>
+    <loc>http://localhost:1313/posts/quarto-vscode/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/open-science/</loc>
+    <loc>http://localhost:1313/tags/open-science/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/quarto/</loc>
+    <loc>http://localhost:1313/categories/quarto/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/r-markdown/</loc>
+    <loc>http://localhost:1313/categories/r-markdown/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/r-markdown/</loc>
+    <loc>http://localhost:1313/tags/r-markdown/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/vs-code/</loc>
+    <loc>http://localhost:1313/categories/vs-code/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/vs-code/</loc>
+    <loc>http://localhost:1313/tags/vs-code/</loc>
     <lastmod>2025-01-29T04:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/github-collaboration/</loc>
+    <loc>http://localhost:1313/posts/github-collaboration/</loc>
     <lastmod>2025-01-28T06:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-branching-merging/</loc>
+    <loc>http://localhost:1313/posts/git-branching-merging/</loc>
     <lastmod>2025-01-27T19:26:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-basics-part2/</loc>
+    <loc>http://localhost:1313/posts/git-basics-part2/</loc>
     <lastmod>2025-01-25T17:39:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/git-version-control-part1/</loc>
+    <loc>http://localhost:1313/posts/git-version-control-part1/</loc>
     <lastmod>2025-01-25T17:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/cli/</loc>
+    <loc>http://localhost:1313/tags/cli/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/cli-tools/</loc>
+    <loc>http://localhost:1313/categories/cli-tools/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/devops/</loc>
+    <loc>http://localhost:1313/tags/devops/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/cli-tools-bottom-bat/</loc>
+    <loc>http://localhost:1313/posts/cli-tools-bottom-bat/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/linux/</loc>
+    <loc>http://localhost:1313/categories/linux/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/linux/</loc>
+    <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/sysadmin/</loc>
+    <loc>http://localhost:1313/tags/sysadmin/</loc>
     <lastmod>2025-01-25T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/cli-tools-zoxide-ouch/</loc>
+    <loc>http://localhost:1313/posts/cli-tools-zoxide-ouch/</loc>
     <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/</loc>
+    <loc>http://localhost:1313/posts/cli-tools-dust-lsd/</loc>
     <lastmod>2024-12-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/authors/</loc>
+    <loc>http://localhost:1313/authors/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/authors/badran-elshenawy/</loc>
+    <loc>http://localhost:1313/authors/badran-elshenawy/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/tags/command-line/</loc>
+    <loc>http://localhost:1313/tags/command-line/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/personal/</loc>
+    <loc>http://localhost:1313/categories/personal/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/categories/tech/</loc>
+    <loc>http://localhost:1313/categories/tech/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/posts/welcome-to-my-personal-blog/</loc>
+    <loc>http://localhost:1313/posts/welcome-to-my-personal-blog/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://badran-elshenawy.netlify.app/series/</loc>
+    <loc>http://localhost:1313/series/</loc>
   </url>
 </urlset>

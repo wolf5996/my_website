@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>T-SNE on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/t-sne/</link>
+    <link>http://localhost:1313/tags/t-sne/</link>
     <description>Recent content in T-SNE on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 03 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/t-sne/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/t-sne/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 9: From 20 PCs to Beautiful 2D Maps!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
+      <link>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</link>
       <pubDate>Mon, 03 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-umap-pcs-to-beautiful-maps/</guid>
       <description>From elbow plot decisions to stunning visualizations - learn how manifold learning algorithms compress high-dimensional PC space into interpretable 2D maps that reveal cellular relationships.</description>
     </item>
   </channel>

@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pathway Analysis on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/pathway-analysis/</link>
+    <link>http://localhost:1313/tags/pathway-analysis/</link>
     <description>Recent content in Pathway Analysis on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Sun, 28 Sep 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/pathway-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/pathway-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 17: Series Wrap-Up &amp; The Complete Workflow!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</link>
+      <link>http://localhost:1313/posts/rna-seq-series-complete-workflow/</link>
       <pubDate>Sun, 28 Sep 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/rna-seq-series-complete-workflow/</guid>
+      <guid>http://localhost:1313/posts/rna-seq-series-complete-workflow/</guid>
       <description>The complete RNA-seq mastery journey! From foundational concepts to advanced pathway analysis, discover the full workflow that takes you from raw counts to publication-ready biological insights.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 16: GSEA - When Gene Lists Aren&#39;t Enough!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</link>
+      <link>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</link>
       <pubDate>Sun, 21 Sep 2025 01:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/gsea-gene-set-enrichment-analysis/</guid>
+      <guid>http://localhost:1313/posts/gsea-gene-set-enrichment-analysis/</guid>
       <description>Discover GSEA&amp;rsquo;s power to detect coordinated pathway changes using complete expression datasets. Learn advanced enrichment analysis techniques that reveal biological insights hidden from traditional ORA methods.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 15: Human-Curated Pathway Precision with Reactome!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</link>
+      <link>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</link>
       <pubDate>Sat, 13 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/reactome-human-curated-pathway-precision/</guid>
+      <guid>http://localhost:1313/posts/reactome-human-curated-pathway-precision/</guid>
       <description>Master Reactome pathway analysis for human-focused research. Explore how expert-curated pathways provide clinical precision for disease studies, drug development, and precision medicine applications that GO and KEGG can&amp;rsquo;t match.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 14: From Gene Functions to Metabolic Maps with KEGG!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/kegg-metabolic-maps-pathway-analysis/</link>
+      <link>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</link>
       <pubDate>Tue, 09 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/kegg-metabolic-maps-pathway-analysis/</guid>
+      <guid>http://localhost:1313/posts/kegg-metabolic-maps-pathway-analysis/</guid>
       <description>Bridge the gap between individual gene functions and complete biological networks with KEGG pathway analysis. Discover how to visualize gene interactions, identify drug targets, and understand the molecular mechanisms underlying your experimental results.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 13: From Gene Lists to Biology with GO Enrichment!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/go-enrichment-gene-lists-biology/</link>
+      <link>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</link>
       <pubDate>Fri, 05 Sep 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/go-enrichment-gene-lists-biology/</guid>
+      <guid>http://localhost:1313/posts/go-enrichment-gene-lists-biology/</guid>
       <description>Bridge the gap between gene lists and biological understanding with GO enrichment analysis. Master the practical application of over-representation analysis to discover which biological processes are affected by your experimental treatments.</description>
     </item>
   </channel>

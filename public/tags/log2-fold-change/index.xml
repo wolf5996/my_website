@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Log2 Fold Change on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/log2-fold-change/</link>
+    <link>http://localhost:1313/tags/log2-fold-change/</link>
     <description>Recent content in Log2 Fold Change on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/log2-fold-change/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/log2-fold-change/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 8: Volcano Plot Mastery!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</link>
+      <link>http://localhost:1313/posts/volcano-plot-mastery/</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/volcano-plot-mastery/</guid>
+      <guid>http://localhost:1313/posts/volcano-plot-mastery/</guid>
       <description>Transform your differential expression results into compelling volcano plots that tell clear biological stories. Discover the color coding strategy that emphasizes statistical confidence first, advanced interactive techniques, and how to avoid the common pitfalls that make volcano plots unreadable.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 7: Differential Expression Analysis!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</link>
+      <link>http://localhost:1313/posts/differential-expression-analysis/</link>
       <pubDate>Fri, 15 Aug 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/differential-expression-analysis/</guid>
+      <guid>http://localhost:1313/posts/differential-expression-analysis/</guid>
       <description>The climactic moment of RNA-seq analysis! Discover how DESeq2&amp;rsquo;s three-step statistical process identifies truly differentially expressed genes, learn to interpret results like a pro, and avoid the common pitfalls that can derail your biological discoveries.</description>
     </item>
   </channel>

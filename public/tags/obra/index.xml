@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Obra on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/obra/</link>
+    <link>http://localhost:1313/tags/obra/</link>
     <description>Recent content in Obra on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 10 Mar 2026 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/obra/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/obra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Series – Post 10: Superpowers - The Plugin That Changes Everything!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</link>
+      <link>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</link>
       <pubDate>Tue, 10 Mar 2026 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/claude-superpowers-plugin-that-changes-everything/</guid>
+      <guid>http://localhost:1313/posts/claude-superpowers-plugin-that-changes-everything/</guid>
       <description>Stop letting Claude dump unplanned, untested code! Superpowers enforces a complete software development methodology - brainstorm, plan, test-first implementation, and continuous review - transforming your AI coding workflow permanently.</description>
     </item>
   </channel>

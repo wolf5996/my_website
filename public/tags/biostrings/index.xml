@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Biostrings on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/biostrings/</link>
+    <link>http://localhost:1313/tags/biostrings/</link>
     <description>Recent content in Biostrings on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 22 May 2025 11:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/biostrings/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/biostrings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foundations of Genomic Data – Post 12: ShortRead</title>
-      <link>https://badran-elshenawy.netlify.app/posts/shortread/</link>
+      <link>http://localhost:1313/posts/shortread/</link>
       <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/shortread/</guid>
+      <guid>http://localhost:1313/posts/shortread/</guid>
       <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 9: Biostrings</title>
-      <link>https://badran-elshenawy.netlify.app/posts/biostrings/</link>
+      <link>http://localhost:1313/posts/biostrings/</link>
       <pubDate>Tue, 13 May 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/biostrings/</guid>
+      <guid>http://localhost:1313/posts/biostrings/</guid>
       <description>Explore how Biostrings revolutionizes biological sequence analysis in R with 2-bit encoding for DNA/RNA, specialized pattern matching algorithms, and seamless integration with the Bioconductor ecosystem for everything from basic manipulations to complex genomic analyses.</description>
     </item>
   </channel>

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Preprocessing on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/data-preprocessing/</link>
+    <link>http://localhost:1313/tags/data-preprocessing/</link>
     <description>Recent content in Data Preprocessing on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 13 Oct 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/data-preprocessing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/data-preprocessing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 4: Quality Control - The Make-or-Break Step!</title>
-      <link>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</link>
+      <link>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</link>
       <pubDate>Mon, 13 Oct 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/scrna-seq-quality-control-make-or-break-step/</guid>
+      <guid>http://localhost:1313/posts/scrna-seq-quality-control-make-or-break-step/</guid>
       <description>Why single-cell analysis lives or dies by quality control. Learn to spot the three villains that ruin downstream analysis and master the mindset shift that saves months of confusion.</description>
     </item>
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 3: Data Import &amp; Preprocessing</title>
-      <link>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</link>
+      <link>http://localhost:1313/posts/data-import-preprocessing/</link>
       <pubDate>Wed, 30 Jul 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/data-import-preprocessing/</guid>
+      <guid>http://localhost:1313/posts/data-import-preprocessing/</guid>
       <description>Bridge the gap between theory and practice by mastering RNA-seq data import and preprocessing. Discover step-by-step workflows for creating DESeqDataSet objects, handling different input formats, and performing essential quality checks before analysis.</description>
     </item>
     <item>
       <title>Foundations of Genomic Data – Post 12: ShortRead</title>
-      <link>https://badran-elshenawy.netlify.app/posts/shortread/</link>
+      <link>http://localhost:1313/posts/shortread/</link>
       <pubDate>Thu, 22 May 2025 11:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/shortread/</guid>
+      <guid>http://localhost:1313/posts/shortread/</guid>
       <description>Discover how ShortRead serves as the crucial starting point for genomic data analysis, providing comprehensive tools for importing, assessing, and preprocessing raw sequencing reads before they flow into the structured Bioconductor analysis pipeline.</description>
     </item>
   </channel>

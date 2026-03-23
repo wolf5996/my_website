@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Cleaning on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/data-cleaning/</link>
+    <link>http://localhost:1313/tags/data-cleaning/</link>
     <description>Recent content in Data Cleaning on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 18 Feb 2025 07:00:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tidyverse Series – Post 4: The Power of Tidy Data</title>
-      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</link>
+      <link>http://localhost:1313/posts/tidyverse-tidy-data/</link>
       <pubDate>Tue, 18 Feb 2025 07:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/</guid>
+      <guid>http://localhost:1313/posts/tidyverse-tidy-data/</guid>
       <description>Discover how tidy data simplifies data wrangling, visualization, and analysis in R with the Tidyverse. Learn how to reshape and clean data efficiently.</description>
     </item>
     <item>
       <title>Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr</title>
-      <link>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</link>
+      <link>http://localhost:1313/posts/tidyverse-tidyr/</link>
       <pubDate>Mon, 17 Feb 2025 11:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/</guid>
+      <guid>http://localhost:1313/posts/tidyverse-tidyr/</guid>
       <description>Discover how tidyr makes data reshaping and cleaning in R simple, readable, and efficient with functions like pivot_longer, pivot_wider, separate, unite, and more.</description>
     </item>
   </channel>

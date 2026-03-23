@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bulk RNA-Seq on Badran Elshenawy</title>
-    <link>https://badran-elshenawy.netlify.app/tags/bulk-rna-seq/</link>
+    <link>http://localhost:1313/tags/bulk-rna-seq/</link>
     <description>Recent content in Bulk RNA-Seq on Badran Elshenawy</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Tue, 10 Jun 2025 09:30:00 +0000</lastBuildDate>
-    <atom:link href="https://badran-elshenawy.netlify.app/tags/bulk-rna-seq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/bulk-rna-seq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Bulk RNA-seq Analysis – Post 1: Introduction</title>
-      <link>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</link>
+      <link>http://localhost:1313/posts/rnaseq-analysis-introduction/</link>
       <pubDate>Tue, 10 Jun 2025 09:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/rnaseq-analysis-introduction/</guid>
+      <guid>http://localhost:1313/posts/rnaseq-analysis-introduction/</guid>
       <description>Discover the complete roadmap for mastering bulk RNA-seq analysis in R. This series introduction outlines a 10-post journey from foundational concepts to advanced applications, building on genomic data structures to solve real biological questions through differential expression analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 10: Capstone &amp; Final Recap</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-capstone/</link>
       <pubDate>Thu, 10 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-capstone/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-capstone/</guid>
       <description>Master the RNA-Seq pipeline with this capstone recap. Includes practical examples, file structure tips, and command-line snippets to help you implement each step efficiently.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 9: Understanding GTF &amp; GFF Files for Feature Annotation</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</link>
       <pubDate>Tue, 08 Apr 2025 09:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-gtf-gff/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-gtf-gff/</guid>
       <description>Understand how GTF and GFF files guide RNA-Seq read interpretation and enable accurate feature quantification. Discover practical use cases, including ERV annotation.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 8: Automating Pipelines with Snakemake</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-snakemake/</link>
       <pubDate>Mon, 07 Apr 2025 15:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-snakemake/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-snakemake/</guid>
       <description>Discover how Snakemake can automate your RNA-Seq pipeline, from raw reads to final outputs. Improve reproducibility, efficiency, and scalability in bioinformatics workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 7: Understanding FASTQ vs. FASTA Files</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</link>
       <pubDate>Tue, 01 Apr 2025 12:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq-vs-fasta/</guid>
       <description>Learn the key differences between FASTQ and FASTA files in RNA-Seq analysis, from raw reads to reference sequences. Understand their roles in quality control, alignment, and data preprocessing.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 6: From BAM to Count Matrices with featureCounts &amp; HTSeq</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</link>
       <pubDate>Wed, 26 Mar 2025 10:10:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-count-matrix/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-count-matrix/</guid>
       <description>Generate RNA-Seq count matrices with featureCounts and HTSeq. Learn about annotation matching, strandedness, sorting, and best practices for accurate read quantification.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 5: Read Alignment with STAR, HISAT2 &amp; Minimap2</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-alignment/</link>
       <pubDate>Tue, 25 Mar 2025 05:20:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-alignment/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-alignment/</guid>
       <description>Explore how to align RNA-Seq reads using STAR, HISAT2, and Minimap2. Understand the key features, commands, and strengths of each tool in transcriptomic workflows.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-trimming/</link>
       <pubDate>Mon, 24 Mar 2025 06:00:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-trimming/</guid>
       <description>Master read trimming in RNA-Seq using Trimmomatic. Discover essential options, command examples, and how trimming enhances read quality before alignment.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 3: Quality Control with FastQC &amp; MultiQC</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-quality-control/</link>
       <pubDate>Thu, 20 Mar 2025 12:10:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-quality-control/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-quality-control/</guid>
       <description>Master quality control in bulk RNA-Seq analysis with FastQC and MultiQC. Learn how to assess sequencing read quality, identify adapter contamination, and interpret QC reports.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-fastq/</link>
       <pubDate>Wed, 19 Mar 2025 11:45:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-fastq/</guid>
       <description>Learn about RNA-Seq reads, the FASTQ format, quality scores, and preprocessing strategies for high-quality sequencing data analysis.</description>
     </item>
     <item>
       <title>Bulk RNA-Seq Series – Post 1: Introduction to Bulk RNA-Seq Analysis</title>
-      <link>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</link>
+      <link>http://localhost:1313/posts/bulk-rna-seq-introduction/</link>
       <pubDate>Tue, 18 Mar 2025 05:30:00 +0000</pubDate>
-      <guid>https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-introduction/</guid>
+      <guid>http://localhost:1313/posts/bulk-rna-seq-introduction/</guid>
       <description>Explore the fundamentals of bulk RNA-Seq analysis, from FASTQ files to differential gene expression. Learn about the tools and methods that drive transcriptomic research.</description>
     </item>
   </channel>
