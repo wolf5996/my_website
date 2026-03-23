@@ -14,10 +14,10 @@ A tutorial-driven blog covering bioinformatics, R programming, single-cell and b
 | **Foundational Genomics** | 12 | Biostrings, GenomicRanges, genome arithmetic, annotation |
 | **Bulk RNA-Seq** | 10 | End-to-end bulk RNA-seq pipeline |
 | **Git** | 8 | Version control for researchers |
-| **Claude Code** | 10 | AI-assisted coding with Claude — CLAUDE.md, skills, MCPs, subagents, plugins |
+| **Claude Code** | 14 | AI-assisted coding with Claude — CLAUDE.md, skills, MCPs, subagents, plugins |
 | **Command Line** | 3 | Terminal essentials for bioinformaticians |
 
-Plus standalone posts on VS Code, Quarto, and more. **87+ posts** and growing.
+Plus standalone posts on VS Code, Quarto, and more. **90+ posts** and growing.
 
 ## Built With
 
