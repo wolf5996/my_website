@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads & FASTQ Files">
   <meta name="twitter:description" content="A deep dive into RNA-Seq reads and the FASTQ file format, covering sequencing technologies, quality scores, paired-end vs. single-end reads, and best practices for preprocessing.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/">
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-fastq/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads & FASTQ Files">
   <meta property="og:description" content="A deep dive into RNA-Seq reads and the FASTQ file format, covering sequencing technologies, quality scores, paired-end vs. single-end reads, and best practices for preprocessing.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-19T11:45:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/">
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-fastq/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-fastq/">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-fastq/">
               Bulk RNA-Seq Series – Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files
             </a>
           </h1>
@@ -208,9 +208,9 @@
 
       <div class="post-content">
         
-        <h1 id="-bulk-rna-seq-series----post-2-understanding-rna-seq-reads--fastq-files">
+        <h1 id="-bulk-rna-seq-series--post-2-understanding-rna-seq-reads--fastq-files">
   🔬 Bulk RNA-Seq Series &ndash; Post 2: Understanding RNA-Seq Reads &amp; FASTQ Files
-  <a class="heading-link" href="#-bulk-rna-seq-series----post-2-understanding-rna-seq-reads--fastq-files">
+  <a class="heading-link" href="#-bulk-rna-seq-series--post-2-understanding-rna-seq-reads--fastq-files">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -228,9 +228,9 @@
 ✔️ Sequencing technologies generate raw reads in the <strong>FASTQ format</strong>, which we will explore in detail</p>
 <p>Understanding RNA-Seq reads and their storage format is <strong>crucial</strong> for preprocessing and downstream analysis.</p>
 <hr>
-<h2 id="-the-fastq-format----storing-sequencing-reads">
+<h2 id="-the-fastq-format--storing-sequencing-reads">
   📚 The FASTQ Format &ndash; Storing Sequencing Reads
-  <a class="heading-link" href="#-the-fastq-format----storing-sequencing-reads">
+  <a class="heading-link" href="#-the-fastq-format--storing-sequencing-reads">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -258,9 +258,9 @@
 🔹 <strong>Quality Scores (<code>!''*((...</code>)</strong> &ndash; ASCII-encoded Phred scores indicating confidence per base</p>
 <p>These quality scores help determine <strong>which reads are reliable</strong> and should be retained for analysis.</p>
 <hr>
-<h2 id="-single-end-vspaired-end-reads----whats-the-difference">
+<h2 id="-single-end-vspaired-end-reads--whats-the-difference">
   📊 Single-End vs. Paired-End Reads &ndash; What&rsquo;s the Difference?
-  <a class="heading-link" href="#-single-end-vspaired-end-reads----whats-the-difference">
+  <a class="heading-link" href="#-single-end-vspaired-end-reads--whats-the-difference">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -290,9 +290,9 @@
 ✔️ <strong>More expensive &amp; computationally intensive</strong></p>
 <p>💡 <strong>Choosing Between SE &amp; PE Reads:</strong> If your goal is simple <strong>gene expression analysis</strong>, single-end reads might be sufficient. However, for <strong>isoform discovery and structural variation detection</strong>, paired-end sequencing is <strong>highly recommended</strong>.</p>
 <hr>
-<h2 id="-quality-control----ensuring-high-quality-reads">
+<h2 id="-quality-control--ensuring-high-quality-reads">
   📈 Quality Control &ndash; Ensuring High-Quality Reads
-  <a class="heading-link" href="#-quality-control----ensuring-high-quality-reads">
+  <a class="heading-link" href="#-quality-control--ensuring-high-quality-reads">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -329,9 +329,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fastqc sample_1.fastq.gz -o qc_reports/
 </span></span></code></pre></div><p>✅ This generates an HTML report with detailed QC metrics.</p>
 <hr>
-<h2 id="-preprocessing-fastq-files----cleaning-your-data">
+<h2 id="-preprocessing-fastq-files">
   🔄 <strong>Preprocessing FASTQ Files &ndash; Cleaning Your Data</strong>
-  <a class="heading-link" href="#-preprocessing-fastq-files----cleaning-your-data">
+  <a class="heading-link" href="#-preprocessing-fastq-files">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -414,7 +414,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

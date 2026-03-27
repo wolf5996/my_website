@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Tidyverse Series – Post 6: Handling Categorical Data with forcats · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Tidyverse Series – Post 6: Handling Categorical Data with forcats">
   <meta name="twitter:description" content="A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/">
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-forcats/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Tidyverse Series – Post 6: Handling Categorical Data with forcats">
   <meta property="og:description" content="A comprehensive guide on handling categorical data in R using forcats. Learn how to reorder, lump, recode, and handle missing factor levels efficiently.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-25T12:00:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/">
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-forcats/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/tidyverse-forcats/">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-forcats/">
               Tidyverse Series – Post 6: Handling Categorical Data with forcats
             </a>
           </h1>
@@ -204,9 +204,9 @@
 
       <div class="post-content">
         
-        <h1 id="-tidyverse-series----post-6-handling-categorical-data-with-forcats">
+        <h1 id="-tidyverse-series--post-6-handling-categorical-data-with-forcats">
   🔬 Tidyverse Series &ndash; Post 6: Handling Categorical Data with <code>forcats</code>
-  <a class="heading-link" href="#-tidyverse-series----post-6-handling-categorical-data-with-forcats">
+  <a class="heading-link" href="#-tidyverse-series--post-6-handling-categorical-data-with-forcats">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -269,9 +269,9 @@
 </table>
 <p>Let&rsquo;s examine these functions in detail with real-world examples.</p>
 <hr>
-<h2 id="-reordering-factor-levels-with-fct_reorder">
+<h2 id="-reordering-factor-levels-with">
   🔄 <strong>Reordering Factor Levels with <code>fct_reorder()</code></strong>
-  <a class="heading-link" href="#-reordering-factor-levels-with-fct_reorder">
+  <a class="heading-link" href="#-reordering-factor-levels-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -340,9 +340,9 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&#34;identity&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>Without reordering, bars would be plotted alphabetically. <strong>With <code>fct_reorder()</code> applied, genes are sorted by expression level!</strong></p>
 <hr>
-<h2 id="-reversing-factor-levels-with-fct_rev">
+<h2 id="-reversing-factor-levels-with">
   🔄 <strong>Reversing Factor Levels with <code>fct_rev()</code></strong>
-  <a class="heading-link" href="#-reversing-factor-levels-with-fct_rev">
+  <a class="heading-link" href="#-reversing-factor-levels-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -359,9 +359,9 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Treatment</span> <span class="o">=</span> <span class="nf">fct_rev</span><span class="p">(</span><span class="n">Treatment</span><span class="p">))</span>
 </span></span></code></pre></div><p>This ensures that <strong>&ldquo;Control&rdquo; appears at the top rather than the bottom in plots</strong>.</p>
 <hr>
-<h2 id="-lumping-small-categories-with-fct_lump">
+<h2 id="-lumping-small-categories-with">
   🔄 <strong>Lumping Small Categories with <code>fct_lump()</code></strong>
-  <a class="heading-link" href="#-lumping-small-categories-with-fct_lump">
+  <a class="heading-link" href="#-lumping-small-categories-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -377,9 +377,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">SampleType</span> <span class="o">=</span> <span class="nf">fct_lump</span><span class="p">(</span><span class="n">SampleType</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">3</span><span class="p">))</span>
 </span></span></code></pre></div><p>✅ This retains the <strong>three most common categories</strong> and groups the rest under &ldquo;Other&rdquo;.</p>
-<h4 id="before--after-fct_lump-application">
+<h4 id="before--after">
   <strong>Before &amp; After <code>fct_lump()</code> Application</strong>
-  <a class="heading-link" href="#before--after-fct_lump-application">
+  <a class="heading-link" href="#before--after">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -416,9 +416,9 @@
 </table>
 <p>➡️ <strong>After <code>fct_lump(n = 3)</code>:</strong> | SampleType | Count | |&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;-| | Control | 150 | | Treated | 120 | | Disease | 80 | | Other | 15 |</p>
 <hr>
-<h2 id="-renaming-factor-levels-with-fct_recode">
+<h2 id="-renaming-factor-levels-with">
   🔄 <strong>Renaming Factor Levels with <code>fct_recode()</code></strong>
-  <a class="heading-link" href="#-renaming-factor-levels-with-fct_recode">
+  <a class="heading-link" href="#-renaming-factor-levels-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -437,9 +437,9 @@
 </span></span><span class="line"><span class="cl">                                <span class="s">&#34;Trt&#34;</span> <span class="o">=</span> <span class="s">&#34;Treatment&#34;</span><span class="p">))</span>
 </span></span></code></pre></div><p>✅ Now, <code>&quot;Control&quot;</code> becomes <code>&quot;Ctrl&quot;</code> and <code>&quot;Treatment&quot;</code> becomes <code>&quot;Trt&quot;</code>.</p>
 <hr>
-<h2 id="-making-missing-values-explicit-with-fct_explicit_na">
+<h2 id="-making-missing-values-explicit-with">
   🔄 <strong>Making Missing Values Explicit with <code>fct_explicit_na()</code></strong>
-  <a class="heading-link" href="#-making-missing-values-explicit-with-fct_explicit_na">
+  <a class="heading-link" href="#-making-missing-values-explicit-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -456,9 +456,9 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">mutate</span><span class="p">(</span><span class="n">Condition</span> <span class="o">=</span> <span class="nf">fct_explicit_na</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">na_level</span> <span class="o">=</span> <span class="s">&#34;Unknown&#34;</span><span class="p">))</span>
 </span></span></code></pre></div><p>✅ Now, <code>NA</code> values are replaced with <code>&quot;Unknown&quot;</code>.</p>
 <hr>
-<h2 id="-complete-example-using-forcats-in-a-workflow">
+<h2 id="-complete-example-using">
   📈 <strong>Complete Example: Using <code>forcats</code> in a Workflow</strong>
-  <a class="heading-link" href="#-complete-example-using-forcats-in-a-workflow">
+  <a class="heading-link" href="#-complete-example-using">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -550,7 +550,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Tidyverse Series – Post 3: Reshaping & Cleaning Data with tidyr">
   <meta name="twitter:description" content="A comprehensive guide to mastering data reshaping and cleaning with tidyr in R. Learn about pivoting, separating, uniting, and handling missing values efficiently.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/">
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-tidyr/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Tidyverse Series – Post 3: Reshaping & Cleaning Data with tidyr">
   <meta property="og:description" content="A comprehensive guide to mastering data reshaping and cleaning with tidyr in R. Learn about pivoting, separating, uniting, and handling missing values efficiently.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-17T11:00:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/">
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-tidyr/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/tidyverse-tidyr/">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-tidyr/">
               Tidyverse Series – Post 3: Reshaping &amp; Cleaning Data with tidyr
             </a>
           </h1>
@@ -204,9 +204,9 @@
 
       <div class="post-content">
         
-        <h1 id="-tidyverse-series----post-3-reshaping--cleaning-data-with-tidyr">
+        <h1 id="-tidyverse-series--post-3-reshaping--cleaning-data-with-tidyr">
   🔬 Tidyverse Series &ndash; Post 3: Reshaping &amp; Cleaning Data with <code>tidyr</code>
-  <a class="heading-link" href="#-tidyverse-series----post-3-reshaping--cleaning-data-with-tidyr">
+  <a class="heading-link" href="#-tidyverse-series--post-3-reshaping--cleaning-data-with-tidyr">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -255,9 +255,9 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<h4 id="before-wide-format">
+<h4 id="before-">
   <strong>Before (<code>wide format</code>)</strong>
-  <a class="heading-link" href="#before-wide-format">
+  <a class="heading-link" href="#before-">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -286,9 +286,9 @@
       </tr>
   </tbody>
 </table>
-<h4 id="using-pivot_longer">
+<h4 id="using">
   <strong>Using <code>pivot_longer()</code></strong>
-  <a class="heading-link" href="#using-pivot_longer">
+  <a class="heading-link" href="#using">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -300,9 +300,9 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="nf">starts_with</span><span class="p">(</span><span class="s">&#34;Sample&#34;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">               <span class="n">names_to</span> <span class="o">=</span> <span class="s">&#34;Sample&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">               <span class="n">values_to</span> <span class="o">=</span> <span class="s">&#34;Expression&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="after-long-format">
+</span></span></code></pre></div><h4 id="after-">
   <strong>After (<code>long format</code>)</strong>
-  <a class="heading-link" href="#after-long-format">
+  <a class="heading-link" href="#after-">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -627,7 +627,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

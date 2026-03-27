@@ -6,8 +6,15 @@
     <description>Recent content in Bioinformatics on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced scRNA-seq for Biologists – Post 0: Your Roadmap to Trajectory Analysis!</title>
+      <link>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</link>
+      <pubDate>Fri, 27 Mar 2026 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</guid>
+      <description>Your cells don&amp;rsquo;t just sit in clusters — they move, change, and decide their fate. This series teaches you how to see it.</description>
+    </item>
     <item>
       <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>
       <link>http://localhost:1313/posts/claude-series-capstone-retrospective/</link>

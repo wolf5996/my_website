@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Tidyverse Series – Post 4: The Power of Tidy Data · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Tidyverse Series – Post 4: The Power of Tidy Data">
   <meta name="twitter:description" content="An in-depth guide exploring the importance of tidy data in R. Learn how to structure, reshape, and clean data efficiently using Tidyverse principles.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/">
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-tidy-data/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Tidyverse Series – Post 4: The Power of Tidy Data">
   <meta property="og:description" content="An in-depth guide exploring the importance of tidy data in R. Learn how to structure, reshape, and clean data efficiently using Tidyverse principles.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-18T07:00:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/">
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-tidy-data/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/tidyverse-tidy-data/">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-tidy-data/">
               Tidyverse Series – Post 4: The Power of Tidy Data
             </a>
           </h1>
@@ -204,9 +204,9 @@
 
       <div class="post-content">
         
-        <h1 id="-tidyverse-series----post-4-the-power-of-tidy-data">
+        <h1 id="-tidyverse-series--post-4-the-power-of-tidy-data">
   🔬 Tidyverse Series &ndash; Post 4: The Power of Tidy Data
-  <a class="heading-link" href="#-tidyverse-series----post-4-the-power-of-tidy-data">
+  <a class="heading-link" href="#-tidyverse-series--post-4-the-power-of-tidy-data">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -320,9 +320,9 @@
   </a>
 </h2>
 <p>Using the Tidyverse, we can <strong>easily reshape data</strong> into a tidy format.</p>
-<h3 id="using-pivot_longer-to-convert-wide-to-long-format">
+<h3 id="using">
   <strong>Using <code>pivot_longer()</code> to Convert Wide to Long Format</strong>
-  <a class="heading-link" href="#using-pivot_longer-to-convert-wide-to-long-format">
+  <a class="heading-link" href="#using">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -355,9 +355,9 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<h3 id="using-group_by-and-summarize-for-aggregation">
+<h3 id="using-1">
   <strong>Using <code>group_by()</code> and <code>summarize()</code> for Aggregation</strong>
-  <a class="heading-link" href="#using-group_by-and-summarize-for-aggregation">
+  <a class="heading-link" href="#using-1">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -368,9 +368,9 @@
 </span></span><span class="line"><span class="cl">  <span class="nf">group_by</span><span class="p">(</span><span class="n">Gene</span><span class="p">)</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_expression</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">Expression</span><span class="p">))</span>
 </span></span></code></pre></div><p>✔️ <strong>Now, we have the mean expression per gene!</strong></p>
-<h3 id="using-ggplot2-for-visualization">
+<h3 id="using-2">
   <strong>Using <code>ggplot2</code> for Visualization</strong>
-  <a class="heading-link" href="#using-ggplot2-for-visualization">
+  <a class="heading-link" href="#using-2">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -440,7 +440,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

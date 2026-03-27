@@ -6,7 +6,7 @@
     <description>Recent content on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
@@ -14,6 +14,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;-about-me--my-journey-through-bioinformatics&#34;&gt;&#xA;  🚀 About Me – My Journey Through Bioinformatics&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-about-me--my-journey-through-bioinformatics&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Hi, I’m &lt;strong&gt;Badran Elshenawy&lt;/strong&gt;, a &lt;strong&gt;bioinformatician&lt;/strong&gt; passionate about unraveling the complexity of biological systems through &lt;strong&gt;data, computation, and automation&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-my-journey-into-bioinformatics&#34;&gt;&#xA;  📖 My Journey Into Bioinformatics&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#-my-journey-into-bioinformatics&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;It all started with a fascination for how &lt;strong&gt;biological systems adapt and evolve&lt;/strong&gt;. During my &lt;strong&gt;DPhil at Oxford&lt;/strong&gt;, I dived deep into &lt;strong&gt;hypoxic heterogeneity in triple-negative breast cancer (TNBC)&lt;/strong&gt; 🧫, exploring its molecular landscape using &lt;strong&gt;bulk and single-cell RNA sequencing&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Advanced scRNA-seq for Biologists – Post 0: Your Roadmap to Trajectory Analysis!</title>
+      <link>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</link>
+      <pubDate>Fri, 27 Mar 2026 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</guid>
+      <description>Your cells don&amp;rsquo;t just sit in clusters — they move, change, and decide their fate. This series teaches you how to see it.</description>
     </item>
     <item>
       <title>Claude Series – Post 14: The Complete Claude Code Toolkit - A Series Retrospective!</title>

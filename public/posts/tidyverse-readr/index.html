@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Tidyverse Series – Post 7: Importing & Handling Data Efficiently with readr">
   <meta name="twitter:description" content="A complete guide on efficiently importing and handling data in R using readr. Learn to load CSVs, TSVs, and other delimited files quickly, customize column types, and handle missing data.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/tidyverse-readr/">
+<meta property="og:url" content="http://localhost:1313/posts/tidyverse-readr/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Tidyverse Series – Post 7: Importing & Handling Data Efficiently with readr">
   <meta property="og:description" content="A complete guide on efficiently importing and handling data in R using readr. Learn to load CSVs, TSVs, and other delimited files quickly, customize column types, and handle missing data.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-26T10:50:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/tidyverse-readr/">
+<link rel="canonical" href="http://localhost:1313/posts/tidyverse-readr/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/tidyverse-readr/">
+            <a class="title-link" href="http://localhost:1313/posts/tidyverse-readr/">
               Tidyverse Series – Post 7: Importing &amp; Handling Data Efficiently with readr
             </a>
           </h1>
@@ -208,9 +208,9 @@
 
       <div class="post-content">
         
-        <h1 id="-tidyverse-series----post-7-importing--handling-data-efficiently-with-readr">
+        <h1 id="-tidyverse-series--post-7-importing--handling-data-efficiently-with-readr">
   🔬 Tidyverse Series &ndash; Post 7: Importing &amp; Handling Data Efficiently with <code>readr</code>
-  <a class="heading-link" href="#-tidyverse-series----post-7-importing--handling-data-efficiently-with-readr">
+  <a class="heading-link" href="#-tidyverse-series--post-7-importing--handling-data-efficiently-with-readr">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -289,9 +289,9 @@
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;expression_data.csv&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>✔️ Requires <code>stringsAsFactors = FALSE</code> to prevent automatic factor conversion. ✔️ Reads large files <strong>slowly</strong>, especially those with millions of rows.</p>
-<h3 id="-readr-approach">
+<h3 id="heading">
   <strong>➡️ <code>{readr}</code> approach:</strong>
-  <a class="heading-link" href="#-readr-approach">
+  <a class="heading-link" href="#heading">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -309,9 +309,9 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<h3 id="tab-separated-files-tsv">
+<h3 id="tab-separated-files-">
   <strong>Tab-Separated Files (<code>.tsv</code>)</strong>
-  <a class="heading-link" href="#tab-separated-files-tsv">
+  <a class="heading-link" href="#tab-separated-files-">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -364,9 +364,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">spec</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </span></span></code></pre></div><p>This <strong>prints a summary of detected column types</strong>.</p>
 <hr>
-<h2 id="-saving-data-with-readr">
+<h2 id="-saving-data-with">
   📝 <strong>Saving Data with <code>{readr}</code></strong>
-  <a class="heading-link" href="#-saving-data-with-readr">
+  <a class="heading-link" href="#-saving-data-with">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -381,9 +381,9 @@
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s">&#34;cleaned_data.csv&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>✔️ Unlike <a href="https://rdrr.io/r/utils/write.table.html"  class="external-link" target="_blank" rel="noopener"><code>write.csv()</code></a>, <code>{readr}</code>&rsquo;s <code>write_csv()</code> <strong>does not add row names by default</strong>, which avoids unwanted indexing issues.</p>
-<h3 id="saving-data-with-tab-separators-tsv">
+<h3 id="saving-data-with-tab-separators-">
   <strong>Saving Data with Tab Separators (<code>.tsv</code>)</strong>
-  <a class="heading-link" href="#saving-data-with-tab-separators-tsv">
+  <a class="heading-link" href="#saving-data-with-tab-separators-">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -429,9 +429,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;bigdata.csv&#34;</span><span class="p">,</span> <span class="n">n_max</span> <span class="o">=</span> <span class="m">1000</span><span class="p">)</span>
 </span></span></code></pre></div><p>✅ <strong>Useful for testing before loading massive files!</strong></p>
 <hr>
-<h2 id="-performance-comparison-readr-vsbase-r">
+<h2 id="-performance-comparison">
   📈 <strong>Performance Comparison: <code>{readr}</code> vs. Base R</strong>
-  <a class="heading-link" href="#-performance-comparison-readr-vsbase-r">
+  <a class="heading-link" href="#-performance-comparison">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -516,7 +516,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   

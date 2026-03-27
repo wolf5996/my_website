@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic · Badran Elshenawy
 </title>
@@ -22,11 +22,11 @@
   <meta name="twitter:title" content="Bulk RNA-Seq Series – Post 4: Read Trimming & Filtering with Trimmomatic">
   <meta name="twitter:description" content="A detailed guide on trimming and filtering RNA-Seq reads with Trimmomatic. Learn about adapter removal, quality thresholds, command structure, and best practices for preprocessing.">
 
-<meta property="og:url" content="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/">
+<meta property="og:url" content="http://localhost:1313/posts/bulk-rna-seq-trimming/">
   <meta property="og:site_name" content="Badran Elshenawy">
   <meta property="og:title" content="Bulk RNA-Seq Series – Post 4: Read Trimming & Filtering with Trimmomatic">
   <meta property="og:description" content="A detailed guide on trimming and filtering RNA-Seq reads with Trimmomatic. Learn about adapter removal, quality thresholds, command structure, and best practices for preprocessing.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-24T06:00:00+00:00">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/">
+<link rel="canonical" href="http://localhost:1313/posts/bulk-rna-seq-trimming/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,7 +51,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.bb7a78bfb4e57aba6e78691ce9ad3fef35238fff2f55149e48bb3c43becd260c.css" integrity="sha256-u3p4v7TlerpueGkc6a0/7zUjj/8vVRSeSLs8Q77NJgw=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -61,7 +61,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -109,7 +109,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://badran-elshenawy.netlify.app/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Badran Elshenawy
     </a>
     
@@ -144,7 +144,7 @@
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://badran-elshenawy.netlify.app/posts/bulk-rna-seq-trimming/">
+            <a class="title-link" href="http://localhost:1313/posts/bulk-rna-seq-trimming/">
               Bulk RNA-Seq Series – Post 4: Read Trimming &amp; Filtering with Trimmomatic
             </a>
           </h1>
@@ -208,9 +208,9 @@
 
       <div class="post-content">
         
-        <h1 id="-bulk-rna-seq-series----post-4-read-trimming--filtering-with-trimmomatic">
+        <h1 id="-bulk-rna-seq-series--post-4-read-trimming--filtering-with-trimmomatic">
   🔬 Bulk RNA-Seq Series &ndash; Post 4: Read Trimming &amp; Filtering with Trimmomatic
-  <a class="heading-link" href="#-bulk-rna-seq-series----post-4-read-trimming--filtering-with-trimmomatic">
+  <a class="heading-link" href="#-bulk-rna-seq-series--post-4-read-trimming--filtering-with-trimmomatic">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -273,14 +273,14 @@
   </a>
 </h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java -jar trimmomatic.jar PE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R1.fastq.gz sample_R2.fastq.gz <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R1_paired.fq.gz sample_R1_unpaired.fq.gz <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sample_R2_paired.fq.gz sample_R2_unpaired.fq.gz <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ILLUMINACLIP:adapters.fa:2:30:10 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  LEADING:3 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  TRAILING:3 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  SLIDINGWINDOW:4:20 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  MINLEN:36
+</span></span></span><span class="line"><span class="cl">  sample_R1.fastq.gz sample_R2.fastq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">  sample_R1_paired.fq.gz sample_R1_unpaired.fq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">  sample_R2_paired.fq.gz sample_R2_unpaired.fq.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">  ILLUMINACLIP:adapters.fa:2:30:10 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  LEADING:3 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  TRAILING:3 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  SLIDINGWINDOW:4:20 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  MINLEN:36
 </span></span></code></pre></div><h3 id="-what-each-option-does">
   🔍 What Each Option Does:
   <a class="heading-link" href="#-what-each-option-does">
@@ -412,7 +412,7 @@
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   
