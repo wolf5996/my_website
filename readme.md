@@ -15,9 +15,10 @@ A tutorial-driven blog covering bioinformatics, R programming, single-cell and b
 | **Bulk RNA-Seq** | 10 | End-to-end bulk RNA-seq pipeline |
 | **Git** | 8 | Version control for researchers |
 | **Claude Code** | 14 | AI-assisted coding with Claude — CLAUDE.md, skills, MCPs, subagents, plugins |
+| **Advanced scRNA-seq (Trajectories)** | 6 | Pseudotime, Monocle3, RNA velocity, method selection |
 | **Command Line** | 3 | Terminal essentials for bioinformaticians |
 
-Plus standalone posts on VS Code, Quarto, and more. **90+ posts** and growing.
+Plus standalone posts on VS Code, Quarto, and more. **96+ posts** and growing.
 
 ## Built With
 
