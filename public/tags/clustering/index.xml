@@ -6,8 +6,15 @@
     <description>Recent content in Clustering on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Nov 2025 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced scRNA-seq for Biologists – Post 1: Why Trajectories Matter</title>
+      <link>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</link>
+      <pubDate>Thu, 02 Apr 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</guid>
+      <description>Your UMAP shows clusters. But what&amp;rsquo;s happening BETWEEN them? Trajectory analysis captures what static clustering misses.</description>
+    </item>
     <item>
       <title>Mastering Single-Cell RNA-Seq Analysis – Post 10: Why Your Clustering Algorithm Choice Matters!</title>
       <link>http://localhost:1313/posts/scrna-seq-clustering-algorithm-choice-matters/</link>

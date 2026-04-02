@@ -4,37 +4,76 @@
   <url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/bioinformatics/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/bioinformatics/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cell-fate/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/clustering/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/computational-biology/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/conceptual/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/differentiation/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/pseudotime/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/scrna-seq/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/scrna-seq/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/single-cell/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/trajectory-analysis/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/trajectory-analysis/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tutorial/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/umap/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/wet-lab/</loc>
+    <lastmod>2026-04-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</loc>
     <lastmod>2026-03-27T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cell-biology/</loc>
     <lastmod>2026-03-27T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/computational-biology/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/differentiation/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/monocle3/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/pseudotime/</loc>
     <lastmod>2026-03-27T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/r/</loc>
@@ -43,28 +82,7 @@
     <loc>http://localhost:1313/tags/rna-velocity/</loc>
     <lastmod>2026-03-27T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/scrna-seq/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/scrna-seq/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/series-introduction/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/single-cell/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/trajectory-analysis/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/trajectory-analysis/</loc>
-    <lastmod>2026-03-27T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/tutorial/</loc>
     <lastmod>2026-03-27T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/ai-tools/</loc>
@@ -388,9 +406,6 @@
     <loc>http://localhost:1313/tags/cell-types/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/clustering/</loc>
-    <lastmod>2025-11-11T09:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/community-detection/</loc>
     <lastmod>2025-11-11T09:00:00+00:00</lastmod>
   </url><url>
@@ -434,9 +449,6 @@
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/t-sne/</loc>
-    <lastmod>2025-11-03T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/umap/</loc>
     <lastmod>2025-11-03T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/component-selection/</loc>

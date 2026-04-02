@@ -1,0 +1,258 @@
+---
+title: "Advanced scRNA-seq for Biologists – Post 2: Monocle3 Fundamentals"
+author: "Badran Elshenawy"
+date: 2026-04-03T14:00:00Z
+categories: ["scRNA-seq", "Trajectory Analysis", "Bioinformatics", "Tutorial", "R"]
+tags: ["scRNA-seq", "single-cell", "Monocle3", "pseudotime", "trajectory analysis", "Seurat", "R", "bioinformatics", "differentiation", "cell fate", "graph test"]
+description: "Step-by-step Monocle3 workflow from Seurat object to pseudotime. Understand what each step does biologically."
+slug: "advanced-scrnaseq-monocle3-fundamentals"
+draft: false
+output: hugodown::md_document
+aliases:
+  - /posts/advanced_scrnaseq_monocle3_fundamentals/
+summary: "Monocle3 is GPS, not autopilot. Learn the complete workflow — and what each step means for your biology."
+featured: true
+rmd_hash: 08da6e2f72e54a9f
+
+---
+
+# Advanced scRNA-seq for Biologists --- Post 2: Monocle3 Fundamentals! 🧭
+
+In Post 1, we established when trajectory analysis makes biological sense! Now it's time to actually do it! 🚀
+
+Monocle3 is the workhorse package for trajectory inference in R! It's well-maintained, handles complex branching trajectories, and integrates smoothly with Seurat workflows! By the end of this post, you'll understand not just the code, but what each step does biologically --- so you can make informed decisions about your own data! 🎯
+
+## Why Monocle3? 🤔
+
+The trajectory inference landscape has dozens of methods! Why start here?
+
+**Active development!** The Trapnell lab continues improving it! Documentation is solid! Community support exists! 📚
+
+**Handles branching!** Unlike methods that assume a single linear trajectory, Monocle3 can capture cell fate decisions where lineages split! 🌳
+
+**Seurat integration!** You can import your existing Seurat object --- clusters, UMAP coordinates, everything --- without starting from scratch! 🔗
+
+**Interpretable outputs!** The results are visualizations and gene lists you can present to collaborators! No black-box mysteries! 📊
+
+Is it the best method for every dataset? No! We'll discuss method selection in Post 5! But it's an excellent starting point and handles most common use cases well! ✅
+
+## The big picture workflow 🗺️
+
+Before we look at code, here's the conceptual flow:
+
+1.  **Convert** your Seurat object to Monocle3's format (cell_data_set) 🔄
+2.  **Learn** the trajectory graph that connects your cells 🧠
+3.  **Order** cells along that trajectory (pseudotime) ⏱️
+4.  **Analyze** genes that change along the trajectory 🔬
+
+Four steps! Each one builds on the previous! Let's walk through them! 💪
+
+## Step 1: Converting from Seurat 🔄
+
+Monocle3 uses its own data structure called a cell_data_set (cds)! The good news is that conversion from Seurat is straightforward using the SeuratWrappers package! ⚡
+
+``` r
+# Load required packages
+library(Seurat)
+library(monocle3)
+library(SeuratWrappers)
+
+# Convert Seurat object to cell_data_set
+cds <- as.cell_data_set(seurat_obj)
+```
+
+This transfers your expression data, metadata, and dimensionality reduction! However, Monocle3 uses different terminology than Seurat:
+
+- Seurat's "reductions" become Monocle3's "reducedDims"
+- Seurat's "meta.data" becomes Monocle3's "colData"
+- Seurat's "assays" become Monocle3's "assays"
+
+After conversion, you need to calculate clusters in Monocle3's framework --- even if you already clustered in Seurat:
+
+``` r
+# Recreate UMAP for Monocle3
+cds <- preprocess_cds(cds, method = "PCA")
+cds <- reduce_dimension(cds, reduction_method = "UMAP")
+cds <- cluster_cells(cds)
+```
+
+Alternatively, you can transfer your Seurat UMAP and clusters directly:
+
+``` r
+# Transfer UMAP coordinates from Seurat
+cds@int_colData$reducedDims$UMAP <- seurat_obj@reductions$umap@cell.embeddings
+
+# Transfer cluster labels
+cds@clusters$UMAP$clusters <- seurat_obj$seurat_clusters
+```
+
+The second approach is faster and ensures consistency with your existing analysis! 🎯
+
+## Step 2: Learning the trajectory graph 🧠
+
+This is where the magic happens! Monocle3 builds a principal graph --- essentially a skeleton that captures the structure of your data! ✨
+
+``` r
+cds <- learn_graph(cds)
+```
+
+What's happening under the hood? The algorithm finds a low-dimensional representation that describes the topology of your cells! Think of it as drawing the simplest possible "road network" that connects all your cells while respecting their relationships! 🛤️
+
+The result is visible when you plot:
+
+``` r
+plot_cells(cds,
+           color_cells_by = "cluster",
+           label_cell_groups = FALSE,
+           label_leaves = TRUE,
+           label_branch_points = TRUE,
+           graph_label_size = 3)
+```
+
+You'll see your UMAP with a black graph overlaid! **Branch points** are where lineages diverge! **Leaves** are endpoints (often mature cell types)! This graph structure is the foundation for pseudotime! 🌳
+
+Key parameters to consider:
+
+- `learn_graph(use_partition = TRUE)` --- keeps disconnected populations separate (usually what you want) ✅
+- `learn_graph(close_loop = FALSE)` --- prevents circular trajectories (default, usually appropriate) ✅
+
+## Step 3: Ordering cells in pseudotime ⏱️
+
+Now we assign each cell a pseudotime value --- its position along the trajectory! But pseudotime needs a starting point! 🏁
+
+``` r
+cds <- order_cells(cds)
+```
+
+This opens an interactive interface! You click on the graph to select the **root** --- the point where pseudotime equals zero! All other cells get pseudotime values based on their distance from this root along the trajectory! 🎯
+
+**Choosing the root is a biological decision!** This isn't something the algorithm can determine automatically because it doesn't know your biology! 🧬
+
+Practical guidelines for root selection:
+
+- **For differentiation:** Root should be your most undifferentiated cells! Look for stem cell markers, progenitor signatures, known early-stage identities! 🔬
+- **For disease progression:** Root should be healthy or early-stage cells! 🏥
+- **For cell cycle:** G1 cells are a natural starting point! 🔄
+- **If unsure:** Pick the population you know best! If you're confident that cluster 3 contains stem cells, root there! 🤔
+
+After ordering, visualize pseudotime:
+
+``` r
+plot_cells(cds,
+           color_cells_by = "pseudotime",
+           label_cell_groups = FALSE,
+           label_leaves = FALSE,
+           label_branch_points = FALSE)
+```
+
+Cells should show a gradient from low pseudotime (your root) to high pseudotime (terminal states)! If the gradient looks wrong --- say, your most differentiated cells have low pseudotime --- you may have selected the wrong root! Re-run `order_cells()` and choose differently! 🔧
+
+## Step 4: Finding dynamic genes 🔬
+
+With pseudotime assigned, you can identify genes that change along the trajectory! These are your differentiation markers --- genes that turn on or off as cells progress! 📈
+
+``` r
+# Find genes that vary significantly with pseudotime
+trajectory_genes <- graph_test(cds, neighbor_graph = "principal_graph")
+
+# Filter for significant results
+sig_genes <- subset(trajectory_genes, q_value < 0.05)
+
+# Sort by significance
+sig_genes <- sig_genes[order(sig_genes$q_value), ]
+```
+
+The output is a data frame with genes ranked by how significantly they vary across the trajectory! `q_value` is your multiple-testing-corrected p-value! Low values mean the gene's expression changes systematically as pseudotime increases! 📊
+
+To visualize specific genes:
+
+``` r
+plot_cells(cds,
+           genes = c("gene1", "gene2", "gene3"),
+           label_cell_groups = FALSE)
+```
+
+Or to see expression as a function of pseudotime:
+
+``` r
+plot_genes_in_pseudotime(cds[rownames(sig_genes)[1:5], ],
+                         color_cells_by = "cluster")
+```
+
+This shows line plots of expression versus pseudotime! You'll see which genes turn on early, which turn on late, and which are expressed in specific branches! 🎯
+
+## Handling branching trajectories 🌳
+
+If your data contains cell fate decisions --- a progenitor that can differentiate into two distinct lineages --- you'll want to analyze each branch separately!
+
+``` r
+# Identify cells in each branch/lineage
+# This is based on which "partition" they belong to after the branch point
+```
+
+For branch-specific analysis, you can subset your cds to cells in one lineage and re-run gene finding! This lets you compare: which genes drive lineage A versus lineage B? 🤔
+
+## Common mistakes and how to avoid them ⚠️
+
+**Wrong root selection!** If your pseudotime gradient doesn't match expected biology (mature cells have low pseudotime), re-run `order_cells()`! This is the most common and most fixable error! 🔧
+
+**Forcing trajectories on discrete data!** If you have genuinely separate cell types with no biological connection, the trajectory will be meaningless! Check Post 1 for guidance on when trajectory analysis is appropriate! ❌
+
+**Ignoring branch points!** If `learn_graph()` identifies branch points but you analyze everything as one linear trajectory, you're missing biological complexity! Investigate what's branching! 🌳
+
+**Over-interpreting pseudotime values!** Pseudotime is ordinal, not absolute! A cell with pseudotime 5 is "later" than one with pseudotime 3, but you can't say it's been differentiating "twice as long!" The numerical values are arbitrary! 📊
+
+## What good results look like ✅
+
+When trajectory analysis works well:
+
+- Pseudotime gradients align with known biology (stem markers at low pseudotime, mature markers at high) 🎯
+- Dynamic genes include expected differentiation markers 🧬
+- The trajectory structure (branches, endpoints) matches expected lineage relationships 🌳
+- Results are reproducible across different root selections within the same biological starting point 🔄
+
+When to be skeptical: 🤔
+
+- Pseudotime correlates more with batch than biology ⚠️
+- "Dynamic" genes are mostly housekeeping or technical artifacts ❌
+- The trajectory connects populations that shouldn't be connected 🚩
+
+## Complete minimal workflow 📋
+
+Putting it all together:
+
+``` r
+library(Seurat)
+library(monocle3)
+library(SeuratWrappers)
+
+# Convert from Seurat
+cds <- as.cell_data_set(seurat_obj)
+
+# Process for Monocle3
+cds <- preprocess_cds(cds)
+cds <- reduce_dimension(cds)
+cds <- cluster_cells(cds)
+
+# Learn trajectory
+cds <- learn_graph(cds)
+
+# Order cells (interactive - select root)
+cds <- order_cells(cds)
+
+# Visualize
+plot_cells(cds, color_cells_by = "pseudotime")
+
+# Find trajectory-dependent genes
+trajectory_genes <- graph_test(cds, neighbor_graph = "principal_graph")
+sig_genes <- subset(trajectory_genes, q_value < 0.05)
+```
+
+## Bottom line 🎯
+
+Monocle3 is GPS, not autopilot! It shows you possible routes through your data! Your job is to determine which route reflects real biology --- and that requires bringing your biological knowledge to the interpretation! 🧠
+
+The code is straightforward! The decisions are hard! In Post 3, we'll focus on the hardest decision of all: what pseudotime values actually mean and how to validate that your trajectory reflects reality! 🔬
+
+See you there! 🙏
+

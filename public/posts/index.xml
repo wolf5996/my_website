@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Badran Elshenawy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Mar 2026 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 09:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced scRNA-seq for Biologists – Post 1: Why Trajectories Matter</title>
+      <link>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</link>
+      <pubDate>Thu, 02 Apr 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</guid>
+      <description>Your UMAP shows clusters. But what&amp;rsquo;s happening BETWEEN them? Trajectory analysis captures what static clustering misses.</description>
+    </item>
     <item>
       <title>Advanced scRNA-seq for Biologists – Post 0: Your Roadmap to Trajectory Analysis!</title>
       <link>http://localhost:1313/posts/advanced-scrnaseq-trajectory-intro/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cell Fate on Badran Elshenawy</title>
+    <link>http://localhost:1313/tags/cell-fate/</link>
+    <description>Recent content in Cell Fate on Badran Elshenawy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Apr 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cell-fate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced scRNA-seq for Biologists – Post 1: Why Trajectories Matter</title>
+      <link>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</link>
+      <pubDate>Thu, 02 Apr 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/advanced-scrnaseq-why-trajectories-matter/</guid>
+      <description>Your UMAP shows clusters. But what&amp;rsquo;s happening BETWEEN them? Trajectory analysis captures what static clustering misses.</description>
+    </item>
+  </channel>
+</rss>
