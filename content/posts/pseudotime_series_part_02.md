@@ -1,7 +1,7 @@
 ---
 title: "Advanced scRNA-seq for Biologists – Post 2: Monocle3 Fundamentals"
 author: "Badran Elshenawy"
-date: 2026-04-03T14:00:00Z
+date: 2026-04-09T09:00:00Z
 categories: ["scRNA-seq", "Trajectory Analysis", "Bioinformatics", "Tutorial", "R"]
 tags: ["scRNA-seq", "single-cell", "Monocle3", "pseudotime", "trajectory analysis", "Seurat", "R", "bioinformatics", "differentiation", "cell fate", "graph test"]
 description: "Step-by-step Monocle3 workflow from Seurat object to pseudotime. Understand what each step does biologically."
@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_monocle3_fundamentals/
 summary: "Monocle3 is GPS, not autopilot. Learn the complete workflow — and what each step means for your biology."
 featured: true
-rmd_hash: 08da6e2f72e54a9f
+rmd_hash: bc14452362abfeb8
 
 ---
 
