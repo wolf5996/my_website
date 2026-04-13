@@ -1,7 +1,7 @@
 ---
 title: "Advanced scRNA-seq for Biologists – Post 3: Interpreting Pseudotime"
 author: "Badran Elshenawy"
-date: 2026-04-10T10:00:00Z
+date: 2026-04-12T09:00:00Z
 categories: ["scRNA-seq", "Trajectory Analysis", "Bioinformatics", "Tutorial", "Interpretation"]
 tags: ["scRNA-seq", "single-cell", "pseudotime", "trajectory analysis", "validation", "marker genes", "bioinformatics", "computational biology", "data interpretation", "Monocle3", "quality control"]
 description: "Pseudotime is ordinal, not absolute. Learn validation strategies and how to present trajectory results to collaborators."
@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_interpreting_pseudotime/
 summary: "Pseudotime = 7.3 means nothing by itself. Here's how to validate your trajectory and present results that convince your PI."
 featured: true
-rmd_hash: ea0ab82e0357a59c
+rmd_hash: 8ad7c643b14a62f8
 
 ---
 
