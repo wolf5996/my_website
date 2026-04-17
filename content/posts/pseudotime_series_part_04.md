@@ -173,7 +173,7 @@ But it requires additional preprocessing (spliced/unspliced quantification), wor
 
 Use it as a complementary tool, not a replacement for biological reasoning! 🧠
 
-In our final post, we bring everything together: how to choose between trajectory methods, troubleshoot common problems, and make practical decisions when analyzing real-world data! 🛠️
+In Post 5, we'll explore PAGA — a method that gives you a bird's eye view of cluster connectivity before diving into detailed trajectory analysis! 🕸️
 
 See you in Post 5! 🙏
 
