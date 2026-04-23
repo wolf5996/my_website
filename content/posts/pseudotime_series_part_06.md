@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_choosing_methods_troubleshooting/
 summary: "No single best method. Here's how to choose, troubleshoot, and know when trajectory analysis isn't right for your data."
 featured: true
-rmd_hash: ea2c64364aeafb24
+rmd_hash: ecd68ef19b24d9a9
 
 ---
 
@@ -147,6 +147,7 @@ Before trusting any trajectory analysis:
 - [ ] Branch points (if any) represent interpretable fate decisions
 - [ ] Results are robust to different root selections within the same biological starting point
 - [ ] RNA velocity (if used) supports the pseudotime direction
+- [ ] PAGA cluster connectivity agrees with detailed trajectory structure
 
 If most boxes aren't checked, go back and troubleshoot! 🔧
 

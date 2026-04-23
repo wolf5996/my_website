@@ -177,6 +177,7 @@ Before trusting any trajectory analysis:
 - [ ] Branch points (if any) represent interpretable fate decisions
 - [ ] Results are robust to different root selections within the same biological starting point
 - [ ] RNA velocity (if used) supports the pseudotime direction
+- [ ] PAGA cluster connectivity agrees with detailed trajectory structure
 
 If most boxes aren't checked, go back and troubleshoot! 🔧
 
