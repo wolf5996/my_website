@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_choosing_methods_troubleshooting/
 summary: "No single best method. Here's how to choose, troubleshoot, and know when trajectory analysis isn't right for your data."
 featured: true
-rmd_hash: ecd68ef19b24d9a9
+rmd_hash: 748db9fba3aa2c1b
 
 ---
 
@@ -52,7 +52,7 @@ Trajectory methods need cells at each stage of the process to accurately reconst
 This sounds trivial but matters for reproducibility and integration with your existing workflow! 🔧
 
 - **R ecosystem:** Monocle3, Slingshot, integrate naturally with Seurat 📦
-- **Python ecosystem:** PAGA (Scanpy), scVelo, CellRank 🐍
+- **Python ecosystem:** PAGA (Scanpy), scVelo 🐍
 
 You can transfer objects between ecosystems, but it adds complexity! 🤷
 
@@ -65,8 +65,6 @@ You can transfer objects between ecosystems, but it adds complexity! 🤷
 **PAGA (Python/Scanpy)** 🕸️ - Graph abstraction approach --- summarizes relationships between clusters - Good for exploratory analysis before committing to detailed trajectories - Best for: Initial exploration, complex datasets with unclear structure
 
 **scVelo (Python)** 🌊 - RNA velocity analysis - Adds directionality to any embedding - Requires spliced/unspliced quantification - Best for: Confirming trajectory direction, dynamic populations
-
-**CellRank (Python)** 🎲 - Combines velocity with other signals - Probabilistic fate mapping - Best for: Complex fate decisions, when velocity alone isn't enough
 
 ## Common problems and solutions 🔧
 
