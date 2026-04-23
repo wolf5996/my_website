@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_choosing_methods_troubleshooting/
 summary: "No single best method. Here's how to choose, troubleshoot, and know when trajectory analysis isn't right for your data."
 featured: true
-rmd_hash: 748db9fba3aa2c1b
+rmd_hash: 7431ca71503fe5c5
 
 ---
 
@@ -37,7 +37,11 @@ If you expect a single, linear progression (one starting population differentiat
 
 Root selection matters enormously for pseudotime! If you know which cells are your progenitors (based on markers, experimental design, or prior literature), you can select the root confidently! 🎯
 
-If you don't know where to start: - RNA velocity can suggest directionality 🏹 - Multiple root selections can test robustness 🔄 - Marker gene validation becomes even more critical 🔬
+If you don't know where to start:
+
+- RNA velocity can suggest directionality 🏹
+- Multiple root selections can test robustness 🔄
+- Marker gene validation becomes even more critical 🔬
 
 **Question 3: How many cells do you have?**
 
@@ -58,13 +62,32 @@ You can transfer objects between ecosystems, but it adds complexity! 🤷
 
 ## Method quick reference 📋
 
-**Monocle3 (R)** 🧭 - Handles branching trajectories well - Integrates with Seurat via SeuratWrappers - Interactive root selection - graph_test() for trajectory-dependent genes - Best for: General-purpose trajectory analysis in R
+**Monocle3 (R)** 🧭
 
-**Slingshot (R)** 🛤️ - Elegant handling of multiple lineages - Returns smooth curves, not just graphs - Good for: Well-separated lineages, when you want lineage-specific pseudotime
+- Handles branching trajectories well
+- Integrates with Seurat via SeuratWrappers
+- Interactive root selection
+- graph_test() for trajectory-dependent genes
+- Best for: General-purpose trajectory analysis in R
 
-**PAGA (Python/Scanpy)** 🕸️ - Graph abstraction approach --- summarizes relationships between clusters - Good for exploratory analysis before committing to detailed trajectories - Best for: Initial exploration, complex datasets with unclear structure
+**Slingshot (R)** 🛤️
 
-**scVelo (Python)** 🌊 - RNA velocity analysis - Adds directionality to any embedding - Requires spliced/unspliced quantification - Best for: Confirming trajectory direction, dynamic populations
+- Elegant handling of multiple lineages
+- Returns smooth curves, not just graphs
+- Good for: Well-separated lineages, when you want lineage-specific pseudotime
+
+**PAGA (Python/Scanpy)** 🕸️
+
+- Graph abstraction approach --- summarizes relationships between clusters
+- Good for exploratory analysis before committing to detailed trajectories
+- Best for: Initial exploration, complex datasets with unclear structure
+
+**scVelo (Python)** 🌊
+
+- RNA velocity analysis
+- Adds directionality to any embedding
+- Requires spliced/unspliced quantification
+- Best for: Confirming trajectory direction, dynamic populations
 
 ## Common problems and solutions 🔧
 
@@ -98,7 +121,11 @@ The learned graph has branches everywhere (or no branches when you expect them)!
 
 *Diagnosis:* Graph complexity is influenced by data density and algorithm parameters!
 
-*Solutions:* - Adjust `learn_graph()` parameters (e.g., `minimal_branch_len`) 🔧 - Check cell density in putative branch regions 📊 - Consider whether your biological expectation matches the data 🤔
+*Solutions:*
+
+- Adjust `learn_graph()` parameters (e.g., `minimal_branch_len`) 🔧
+- Check cell density in putative branch regions 📊
+- Consider whether your biological expectation matches the data 🤔
 
 **Problem: Pseudotime gradient is reversed** 🔄
 
@@ -114,7 +141,11 @@ graph_test() returns genes that don't match expected differentiation markers!
 
 *Diagnosis:* Either the trajectory doesn't reflect real biology, or your expectations need updating!
 
-*Solutions:* - Check that top genes aren't technical artifacts (ribosomal, mitochondrial) 🔬 - Validate trajectory with known markers first ✅ - Consider whether you're discovering something new 💡
+*Solutions:*
+
+- Check that top genes aren't technical artifacts (ribosomal, mitochondrial) 🔬
+- Validate trajectory with known markers first ✅
+- Consider whether you're discovering something new 💡
 
 ## The troubleshooting mindset 🧠
 

@@ -37,6 +37,7 @@ If you expect a single, linear progression (one starting population differentiat
 Root selection matters enormously for pseudotime! If you know which cells are your progenitors (based on markers, experimental design, or prior literature), you can select the root confidently! 🎯
 
 If you don't know where to start:
+
 - RNA velocity can suggest directionality 🏹
 - Multiple root selections can test robustness 🔄
 - Marker gene validation becomes even more critical 🔬
@@ -62,6 +63,7 @@ You can transfer objects between ecosystems, but it adds complexity! 🤷
 ## Method quick reference 📋
 
 **Monocle3 (R)** 🧭
+
 - Handles branching trajectories well
 - Integrates with Seurat via SeuratWrappers
 - Interactive root selection
@@ -69,16 +71,19 @@ You can transfer objects between ecosystems, but it adds complexity! 🤷
 - Best for: General-purpose trajectory analysis in R
 
 **Slingshot (R)** 🛤️
+
 - Elegant handling of multiple lineages
 - Returns smooth curves, not just graphs
 - Good for: Well-separated lineages, when you want lineage-specific pseudotime
 
 **PAGA (Python/Scanpy)** 🕸️
+
 - Graph abstraction approach — summarizes relationships between clusters
 - Good for exploratory analysis before committing to detailed trajectories
 - Best for: Initial exploration, complex datasets with unclear structure
 
 **scVelo (Python)** 🌊
+
 - RNA velocity analysis
 - Adds directionality to any embedding
 - Requires spliced/unspliced quantification
@@ -118,6 +123,7 @@ The learned graph has branches everywhere (or no branches when you expect them)!
 *Diagnosis:* Graph complexity is influenced by data density and algorithm parameters!
 
 *Solutions:*
+
 - Adjust `learn_graph()` parameters (e.g., `minimal_branch_len`) 🔧
 - Check cell density in putative branch regions 📊
 - Consider whether your biological expectation matches the data 🤔
@@ -137,6 +143,7 @@ graph_test() returns genes that don't match expected differentiation markers!
 *Diagnosis:* Either the trajectory doesn't reflect real biology, or your expectations need updating!
 
 *Solutions:*
+
 - Check that top genes aren't technical artifacts (ribosomal, mitochondrial) 🔬
 - Validate trajectory with known markers first ✅
 - Consider whether you're discovering something new 💡
