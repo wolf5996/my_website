@@ -12,13 +12,13 @@ aliases:
   - /posts/advanced_scrnaseq_choosing_methods_troubleshooting/
 summary: "No single best method. Here's how to choose, troubleshoot, and know when trajectory analysis isn't right for your data."
 featured: true
-rmd_hash: 7431ca71503fe5c5
+rmd_hash: 141278d0bd99d1fc
 
 ---
 
 # Advanced scRNA-seq for Biologists --- Post 6: Choosing Methods and Troubleshooting! 🛠️
 
-Over the last five posts, we've built your trajectory analysis toolkit: the biological foundations, Monocle3 implementation, pseudotime interpretation, RNA velocity, and PAGA for exploratory analysis! Now it's time for the practical wisdom that usually takes years to accumulate: how do you actually make decisions when analyzing real-world data? 🧠
+Over the last six posts, we've built your trajectory analysis toolkit: the biological foundations, Monocle3 implementation, pseudotime interpretation, RNA velocity, and PAGA for exploratory analysis! Now it's time for the practical wisdom that usually takes years to accumulate: how do you actually make decisions when analyzing real-world data? 🧠
 
 This post is about the messy reality of trajectory analysis --- choosing between methods, fixing things when they break, and knowing when to walk away! 💪
 

@@ -4,7 +4,7 @@ author: "Badran Elshenawy"
 date: 2026-03-27T10:00:00Z
 categories: ["scRNA-seq", "Trajectory Analysis", "Bioinformatics", "Tutorial", "Series Introduction"]
 tags: ["scRNA-seq", "single-cell", "trajectory analysis", "pseudotime", "Monocle3", "RNA velocity", "bioinformatics", "computational biology", "cell biology", "differentiation", "R"]
-description: "Introducing a 5-part series on trajectory analysis for wet lab researchers. Learn pseudotime, Monocle3, RNA velocity, and practical interpretation."
+description: "Introducing a 6-part series on trajectory analysis for wet lab researchers. Learn pseudotime, Monocle3, RNA velocity, PAGA, and practical interpretation."
 slug: "advanced-scrnaseq-trajectory-intro"
 draft: false
 output: hugodown::md_document
@@ -12,7 +12,7 @@ aliases:
   - /posts/advanced_scrnaseq_trajectory_intro/
 summary: "Your cells don't just sit in clusters — they move, change, and decide their fate. This series teaches you how to see it."
 featured: true
-rmd_hash: d199fd871976ba92
+rmd_hash: 65000a8a3f194560
 
 ---
 
@@ -36,7 +36,7 @@ This series fixes that! 🔧
 
 ## What you'll learn 📚
 
-Over the next five posts, we're going to build your trajectory analysis toolkit from the ground up! Each post focuses on one core concept, explained in biological terms first, with implementation details second! 🧠
+Over the next six posts, we're going to build your trajectory analysis toolkit from the ground up! Each post focuses on one core concept, explained in biological terms first, with implementation details second! 🧠
 
 **Post 1: Why trajectories matter --- the biology behind the math** 🔬
 
@@ -54,7 +54,11 @@ Getting pseudotime values is easy! Understanding what they mean is harder! We'll
 
 Pseudotime tells you where cells are on a trajectory! RNA velocity tells you where they're *going*! We'll demystify this powerful technique, explain when it works well (and when it doesn't), and show you how to integrate velocity with your trajectory analysis! Think of it as adding arrows to your roadmap! 🏹
 
-**Post 5: Practical decisions --- choosing methods and troubleshooting** 🛠️
+**Post 5: PAGA --- the bird's eye view of your data** 🕸️
+
+Before mapping every single-cell footpath, sometimes you need to scout the terrain from above! PAGA gives you a cluster-level connectivity map --- showing which populations relate to which --- before you commit to detailed trajectory inference! It's reconnaissance before exploration! 🗺️
+
+**Post 6: Practical decisions --- choosing methods and troubleshooting** 🛠️
 
 The real world is messy! Your data won't look like the tutorials! In this final post, we'll cover decision frameworks for choosing between methods, common failure modes and how to fix them, and the trade-offs that experienced analysts actually think about! This is the wisdom that usually takes years to accumulate! 💪
 

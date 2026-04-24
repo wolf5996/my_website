@@ -16,7 +16,7 @@ featured: true
 
 # Advanced scRNA-seq for Biologists — Post 6: Choosing Methods and Troubleshooting! 🛠️
 
-Over the last five posts, we've built your trajectory analysis toolkit: the biological foundations, Monocle3 implementation, pseudotime interpretation, RNA velocity, and PAGA for exploratory analysis! Now it's time for the practical wisdom that usually takes years to accumulate: how do you actually make decisions when analyzing real-world data? 🧠
+Over the last six posts, we've built your trajectory analysis toolkit: the biological foundations, Monocle3 implementation, pseudotime interpretation, RNA velocity, and PAGA for exploratory analysis! Now it's time for the practical wisdom that usually takes years to accumulate: how do you actually make decisions when analyzing real-world data? 🧠
 
 This post is about the messy reality of trajectory analysis — choosing between methods, fixing things when they break, and knowing when to walk away! 💪
 
