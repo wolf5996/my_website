@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_why_switching/
 summary: "After 33 posts in R and building my own package, I'm adding Python to the toolkit. Here's why — and what's coming next."
 featured: true
-rmd_hash: 291354d00d54e9df
+rmd_hash: fb2cbb5b2c0f1f73
 
 ---
 
@@ -34,13 +34,13 @@ If you've been following single-cell genomics over the past couple of years, you
 
 Here's what I mean:
 
-- **CellTypist** --- automated cell type annotation using machine learning models trained on massive reference datasets. No real R equivalent with the same breadth of pre-trained models.
+- **CellTypist:** automated cell type annotation using machine learning models trained on massive reference datasets. No real R equivalent with the same breadth of pre-trained models.
 
-- **scVI / scANVI** --- deep learning-based integration and annotation that handles batch effects with a sophistication that traditional methods struggle to match. Built entirely on PyTorch and anndata.
+- **scVI / scANVI:** deep learning-based integration and annotation that handles batch effects with a sophistication that traditional methods struggle to match. Built entirely on PyTorch and anndata.
 
-- **scVelo** --- RNA velocity analysis that predicts future cell states from splicing dynamics. The R wrappers exist, but the core engine is Python.
+- **scVelo:** RNA velocity analysis that predicts future cell states from splicing dynamics. The R wrappers exist, but the core engine is Python.
 
-- **CellRank** --- fate probability estimation combining RNA velocity with transcriptomic similarity. Again, Python-native, anndata-native.
+- **CellRank:** fate probability estimation combining RNA velocity with transcriptomic similarity. Again, Python-native, anndata-native.
 
 These aren't niche tools. They're becoming standard in high-impact single-cell papers. And they all speak the same language: anndata objects, scanpy preprocessing, scverse conventions.
 
@@ -66,11 +66,11 @@ That's what this series is.
 
 If you're an R user who's dipped a toe into Python, you've probably hit at least one of these walls:
 
-- **conda** --- You tried to set up an environment, spent 45 minutes resolving dependencies, and ended up with a broken installation that somehow conflicts with your system Python. You went back to R.
+- **conda:** You tried to set up an environment, spent 45 minutes resolving dependencies, and ended up with a broken installation that somehow conflicts with your system Python. You went back to R.
 
-- **pandas** --- You wrote a chain of `.groupby().agg().reset_index()` and thought "this is worse than dplyr in every way." You weren't entirely wrong.
+- **pandas:** You wrote a chain of `.groupby().agg().reset_index()` and thought "this is worse than dplyr in every way." You weren't entirely wrong.
 
-- **Jupyter notebooks** --- You opened a .ipynb file in a text editor, saw raw JSON with base64-encoded images, and wondered why anyone would choose this over RMarkdown.
+- **Jupyter notebooks:** You opened a .ipynb file in a text editor, saw raw JSON with base64-encoded images, and wondered why anyone would choose this over RMarkdown.
 
 Every one of these pain points has a modern solution that didn't exist (or wasn't mature) two years ago. That's the whole thesis of this series.
 
@@ -80,13 +80,13 @@ The Python ecosystem has been quietly undergoing a revolution in developer exper
 
 Here's what's coming:
 
-- **Post 2: Polars vs Pandas** --- Polars is a DataFrame library that will feel eerily familiar if you love the tidyverse. Method chaining, lazy evaluation, expressive syntax. We'll compare the same operations side by side: dplyr, pandas, and polars.
+- **Post 2: Polars vs Pandas:** Polars is a DataFrame library that will feel eerily familiar if you love the tidyverse. Method chaining, lazy evaluation, expressive syntax. We'll compare the same operations side by side: dplyr, pandas, and polars.
 
-- **Post 3: uv vs conda** --- uv is a package and environment manager written in Rust that makes conda feel like it's from 2010. Fast installs, deterministic resolution, no more "solving environment" for 20 minutes.
+- **Post 3: uv vs conda:** uv is a package and environment manager written in Rust that makes conda feel like it's from 2010. Fast installs, deterministic resolution, no more "solving environment" for 20 minutes.
 
-- **Post 4: qmd vs ipynb** --- Quarto now has native Python support, which means you can write reproducible notebooks in plain text markdown instead of JSON. Better for version control, better for LLM-assisted coding, better for your sanity.
+- **Post 4: qmd vs ipynb:** Quarto now has native Python support, which means you can write reproducible notebooks in plain text markdown instead of JSON. Better for version control, better for LLM-assisted coding, better for your sanity.
 
-- **Posts 5+: The Real Stuff** --- Deep dives into scanpy, CellTypist, scVelo, and more. Not toy examples --- real analysis pipelines on real data, with the biological reasoning front and centre.
+- **Posts 5+: The Real Stuff:** Deep dives into scanpy, CellTypist, scVelo, and more. Not toy examples --- real analysis pipelines on real data, with the biological reasoning front and centre.
 
 ## Who This Series Is For
 
