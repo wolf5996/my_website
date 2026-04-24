@@ -1,7 +1,7 @@
 ---
 title: "From Tidyverse to Scverse – Post 1: Why I'm Making the Switch to Python"
 author: "Badran Elshenawy"
-date: 2026-04-28T10:00:00Z
+date: 2026-04-24T09:00:00Z
 categories: ["Python", "Bioinformatics", "scRNA-seq", "Tutorial", "Series Introduction"]
 tags: ["Python", "R", "tidyverse", "scverse", "scanpy", "single-cell", "bioinformatics", "computational biology", "polars", "uv", "quarto", "data science"]
 description: "Why an R-native bioinformatician is expanding into Python and scverse — and how this series will help you make the same transition."
@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_why_switching/
 summary: "After 33 posts in R and building my own package, I'm adding Python to the toolkit. Here's why — and what's coming next."
 featured: true
-rmd_hash: 9b13588652c0ccfa
+rmd_hash: 291354d00d54e9df
 
 ---
 
