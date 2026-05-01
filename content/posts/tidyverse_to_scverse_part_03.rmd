@@ -22,6 +22,8 @@ When you move to Python, the first thing everyone tells you is "use conda." So y
 
 This is not an exaggeration. Package management has been Python's biggest barrier to entry for R users for years. The good news is that it doesn't have to be this way anymore.
 
+![Infographic comparing slow conda package installation with fast uv package installation](/posts/images/tidyverse_to_scverse_uv_vs_conda.png)
+
 ## What Went Wrong with conda
 
 Conda isn't a bad tool: it solves a genuinely hard problem. Python packages often depend on compiled C/C++ libraries (BLAS, HDF5, CUDA), and pip can't manage those system-level dependencies. Conda can. It distributes pre-compiled binaries that include everything a package needs, across operating systems.
