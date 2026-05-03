@@ -22,6 +22,8 @@ What you'll see is raw JSON. Cell metadata objects. Kernel specification blocks.
 
 Now open an RMarkdown file in a text editor. It's just text. YAML header at the top, prose in between, code in fenced blocks. Human-readable, diffable, greppable.
 
+![Infographic comparing messy Jupyter notebook JSON with clean Quarto qmd plain-text analysis](/posts/images/tidyverse_to_scverse_qmd_vs_ipynb.png)
+
 If you've spent any time with RMarkdown or Quarto in R, you already know that notebooks don't have to be like this. And with Quarto's native Python support, they no longer have to be.
 
 ## What's Actually Wrong with .ipynb

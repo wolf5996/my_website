@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_qmd_vs_ipynb/
 summary: "Jupyter notebooks are JSON with embedded images. Quarto notebooks are plain text. For version control, LLMs, and reproducibility, qmd wins."
 featured: true
-rmd_hash: 0fef315dd77f815c
+rmd_hash: c810fc3816596c05
 
 ---
 
@@ -23,6 +23,11 @@ Go ahead. I'll wait.
 What you'll see is raw JSON. Cell metadata objects. Kernel specification blocks. And if you've run any plots, you'll find base64-encoded PNG images embedded directly in the file: thousands of characters of gibberish that represent your UMAP.
 
 Now open an RMarkdown file in a text editor. It's just text. YAML header at the top, prose in between, code in fenced blocks. Human-readable, diffable, greppable.
+
+<figure>
+<img src="/posts/images/tidyverse_to_scverse_qmd_vs_ipynb.png" alt="Infographic comparing messy Jupyter notebook JSON with clean Quarto qmd plain-text analysis" />
+<figcaption aria-hidden="true">Infographic comparing messy Jupyter notebook JSON with clean Quarto qmd plain-text analysis</figcaption>
+</figure>
 
 If you've spent any time with RMarkdown or Quarto in R, you already know that notebooks don't have to be like this. And with Quarto's native Python support, they no longer have to be.
 
