@@ -1,7 +1,7 @@
 ---
 title: "From Tidyverse to Scverse – Post 5: marimo — The Notebook That's Actually a .py File"
 author: "Badran Elshenawy"
-date: 2026-05-26T10:00:00Z
+date: 2026-05-06T09:00:00Z
 categories: ["Python", "Notebooks", "Bioinformatics", "Tutorial", "marimo"]
 tags: ["marimo", "jupyter", "notebooks", "Python", "reactive", "version control", "git", "LLM", "Claude Code", "bioinformatics", "computational biology", "reproducibility"]
 description: "Why marimo's pure Python .py backend makes it the best notebook for version control, LLM-assisted coding, and reproducible bioinformatics."
