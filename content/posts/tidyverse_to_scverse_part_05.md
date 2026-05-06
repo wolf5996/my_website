@@ -1,5 +1,5 @@
 ---
-title: "From Tidyverse to Scverse – Post 5: marimo — The Notebook That's Actually a .py File"
+title: "From Tidyverse to Scverse – Post 5: marimo: The Notebook That's Actually a .py File"
 author: "Badran Elshenawy"
 date: 2026-05-06T09:00:00Z
 categories: ["Python", "Notebooks", "Bioinformatics", "Tutorial", "marimo"]
