@@ -30,7 +30,7 @@ Open a marimo notebook in any text editor and you'll see regular Python function
 
 But the storage format is only the beginning. marimo also fixes Jupyter's deepest architectural problem: hidden state.
 
-![marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module](/posts/images/tidyverse_to_scverse_marimo.png)
+![marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module](/posts/images/tidyverse_to_scverse_marimo_notebook_structure.png)
 
 ## Reactivity Solves the Reproducibility Problem
 
