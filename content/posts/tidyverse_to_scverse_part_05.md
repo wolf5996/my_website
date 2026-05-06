@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_marimo_notebooks/
 summary: "marimo stores notebooks as .py files — not JSON. Reactive, reproducible, git-friendly, and the most LLM-compatible notebook format available."
 featured: true
-rmd_hash: f5932f1bd0157d43
+rmd_hash: aeec9432113e03ad
 
 ---
 
@@ -31,6 +31,11 @@ marimo is a reactive Python notebook --- open source, first released in August 2
 Open a marimo notebook in any text editor and you'll see regular Python functions. Each cell is a function. The notebook itself is a valid Python module. You can run it with `python notebook.py`, import functions from it into other scripts, and test it with pytest. It's just Python, all the way down.
 
 But the storage format is only the beginning. marimo also fixes Jupyter's deepest architectural problem: hidden state.
+
+<figure>
+<img src="/posts/images/tidyverse_to_scverse_marimo.png" alt="marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module" />
+<figcaption aria-hidden="true">marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module</figcaption>
+</figure>
 
 ## Reactivity Solves the Reproducibility Problem
 

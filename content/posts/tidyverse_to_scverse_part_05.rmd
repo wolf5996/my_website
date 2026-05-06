@@ -30,6 +30,8 @@ Open a marimo notebook in any text editor and you'll see regular Python function
 
 But the storage format is only the beginning. marimo also fixes Jupyter's deepest architectural problem: hidden state.
 
+![marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module](/posts/images/tidyverse_to_scverse_marimo.png)
+
 ## Reactivity Solves the Reproducibility Problem
 
 In Jupyter, you can run cells in any order. Cell 5 might define a variable, Cell 3 might overwrite it, and Cell 8 might use a version that only exists because you ran things in a specific sequence during one Tuesday afternoon session. Restart the kernel, run top-to-bottom, and everything breaks. This is the hidden state problem, and it's responsible for more broken analyses than any of us want to admit.
