@@ -22,7 +22,7 @@ I've open-sourced a repository called **scanpy-done-right** that rebuilds the ca
 
 The repo is here: [github.com/wolf5996/scanpy-done-right](https://github.com/wolf5996/scanpy-done-right)
 
-![Figure 1: The scanpy-done-right pipeline. The 2019 stack (pandas, seaborn, ggplot2, Jupyter) is replaced by Polars, Plotnine, Marimo, and uv. The same four analysis steps — QC, normalisation, clustering, and annotation — now produce publication-quality figures and clean data tables with dramatically better developer experience.](images/tidyverse_to_scverse_scanpy_done_right_pipeline.png)
+![The scanpy-done-right pipeline: the 2019 stack (pandas, seaborn, ggplot2, Jupyter) replaced by Polars, Plotnine, Marimo, and uv — same four analysis steps, dramatically better developer experience](/posts/images/tidyverse_to_scverse_scanpy_done_right_pipeline.png)
 
 ## The Old Way vs. The New Way
 

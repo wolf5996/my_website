@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_scanpy_done_right/
 summary: "Every tool from this series — Polars, uv, Marimo, and now Plotnine — converge in a real scRNA-seq pipeline. Clone it, run it, make it yours."
 featured: true
-rmd_hash: 6c0b1945f7d2349b
+rmd_hash: 38a27ba2d9e8e024
 
 ---
 
@@ -25,8 +25,8 @@ I've open-sourced a repository called **scanpy-done-right** that rebuilds the ca
 The repo is here: [github.com/wolf5996/scanpy-done-right](https://github.com/wolf5996/scanpy-done-right)
 
 <figure>
-<img src="images/tidyverse_to_scverse_scanpy_done_right_pipeline.png" alt="Figure 1: The scanpy-done-right pipeline. The 2019 stack (pandas, seaborn, ggplot2, Jupyter) is replaced by Polars, Plotnine, Marimo, and uv. The same four analysis steps — QC, normalisation, clustering, and annotation — now produce publication-quality figures and clean data tables with dramatically better developer experience." />
-<figcaption aria-hidden="true">Figure 1: The scanpy-done-right pipeline. The 2019 stack (pandas, seaborn, ggplot2, Jupyter) is replaced by Polars, Plotnine, Marimo, and uv. The same four analysis steps — QC, normalisation, clustering, and annotation — now produce publication-quality figures and clean data tables with dramatically better developer experience.</figcaption>
+<img src="/posts/images/tidyverse_to_scverse_scanpy_done_right_pipeline.png" alt="The scanpy-done-right pipeline: the 2019 stack (pandas, seaborn, ggplot2, Jupyter) replaced by Polars, Plotnine, Marimo, and uv — same four analysis steps, dramatically better developer experience" />
+<figcaption aria-hidden="true">The scanpy-done-right pipeline: the 2019 stack (pandas, seaborn, ggplot2, Jupyter) replaced by Polars, Plotnine, Marimo, and uv — same four analysis steps, dramatically better developer experience</figcaption>
 </figure>
 
 ## The Old Way vs. The New Way
