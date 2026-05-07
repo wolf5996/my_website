@@ -1,7 +1,7 @@
 ---
 title: "From Tidyverse to Scverse – Post 6: Scanpy Done Right — The Modern PBMC 3k Pipeline"
 author: "Badran Elshenawy"
-date: 2026-05-06T09:00:00Z
+date: 2026-05-07T09:00:00Z
 categories: ["Python", "scRNA-seq", "Bioinformatics", "Tutorial", "scanpy"]
 tags: ["scanpy", "polars", "plotnine", "marimo", "uv", "PBMC 3k", "scRNA-seq", "bioinformatics", "single-cell", "pipeline", "grammar of graphics", "ggplot"]
 description: "A modern re-implementation of the canonical Scanpy PBMC 3k tutorial using Polars, Plotnine, uv, and Marimo — the full stack from this series, working together."
@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_scanpy_done_right/
 summary: "Every tool from this series — Polars, uv, Marimo, and now Plotnine — converge in a real scRNA-seq pipeline. Clone it, run it, make it yours."
 featured: true
-rmd_hash: 151c6d794ec495f6
+rmd_hash: 6c0b1945f7d2349b
 
 ---
 
@@ -23,6 +23,11 @@ For five posts, I've been building the case that Python's developer experience h
 I've open-sourced a repository called **scanpy-done-right** that rebuilds the canonical Scanpy PBMC 3k tutorial from scratch with a deliberately modern stack. Same analysis pipeline --- QC, normalisation, highly variable genes, PCA, UMAP, Leiden clustering, marker genes --- but with every supporting tool replaced by its 2026 equivalent.
 
 The repo is here: [github.com/wolf5996/scanpy-done-right](https://github.com/wolf5996/scanpy-done-right)
+
+<figure>
+<img src="images/tidyverse_to_scverse_scanpy_done_right_pipeline.png" alt="Figure 1: The scanpy-done-right pipeline. The 2019 stack (pandas, seaborn, ggplot2, Jupyter) is replaced by Polars, Plotnine, Marimo, and uv. The same four analysis steps — QC, normalisation, clustering, and annotation — now produce publication-quality figures and clean data tables with dramatically better developer experience." />
+<figcaption aria-hidden="true">Figure 1: The scanpy-done-right pipeline. The 2019 stack (pandas, seaborn, ggplot2, Jupyter) is replaced by Polars, Plotnine, Marimo, and uv. The same four analysis steps — QC, normalisation, clustering, and annotation — now produce publication-quality figures and clean data tables with dramatically better developer experience.</figcaption>
+</figure>
 
 ## The Old Way vs. The New Way
 
