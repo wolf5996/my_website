@@ -1,7 +1,7 @@
 ---
 title: "Lockfiles – Post 2: uv.lock vs renv.lock in Practice"
 author: "Badran Elshenawy"
-date: 2026-05-24T09:00:00Z
+date: 2026-05-23T09:00:00Z
 categories: ["Reproducibility", "Bioinformatics", "Python", "R", "Tutorial", "Practical"]
 tags: ["uv", "renv", "lockfiles", "reproducibility", "package management", "rv", "uvr", "bioinformatics", "computational biology", "python", "r", "research software"]
 description: "A practical comparison of `uv.lock` and `renv.lock`: what each one captures, where they differ, and how newer R tools are moving toward Python's declarative model."
@@ -12,7 +12,7 @@ aliases:
   - /posts/uv_lock_vs_renv_lock_practical_comparison/
 summary: "Both Python and R have lockfiles, but they do not work the same way. Here is the practical difference between `uv.lock`, `renv.lock`, and the newer R tools closing the gap."
 featured: true
-rmd_hash: b4f8fb2c9fa42290
+rmd_hash: 8b0ca5f208ce9c10
 
 ---
 
