@@ -18,9 +18,9 @@ A tutorial-driven blog covering bioinformatics, R programming, single-cell and b
 | **Advanced scRNA-seq (Trajectories)** | 7 | Pseudotime, Monocle3, RNA velocity, PAGA, method selection |
 | **Command Line** | 3 | Terminal essentials for bioinformaticians |
 | **Tidyverse to Scverse** | 6 | Transitioning from R/tidyverse to Python/scverse for single-cell analysis |
-| **Lockfiles** | 1 | Reproducible environments in Python and R with `uv.lock`, `renv.lock`, and modern dependency management |
+| **Lockfiles** | 2 | Reproducible environments in Python and R with `uv.lock`, `renv.lock`, and modern dependency management |
 
-Plus standalone posts on VS Code, Quarto, and more. **103+ posts** and growing.
+Plus standalone posts on VS Code, Quarto, and more. **104+ posts** and growing.
 
 ## Built With
 
