@@ -151,7 +151,7 @@ uv run marimo edit scripts/01_glass_box_umap_marimo.py
 uv run python scripts/01_glass_box_umap_marimo.py
 ```
 
-Open the notebook, step through the cells, and hover over the interactive Bokeh plot. Watch the contribution maps update as you toggle between features. That is the moment the black box becomes glass --- and it is worth experiencing firsthand.
+Open the notebook, step through the cells, and hover over the interactive Bokeh plot. Watch the contribution maps update as you toggle between features. That is the moment the black box becomes glass, and it is worth experiencing firsthand.
 
 ## What's next
 
