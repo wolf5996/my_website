@@ -20,6 +20,8 @@ You did not ask for it. You did not configure anything to produce it. It is simp
 
 This post is about what is inside that file, what the application built to read it can actually do, and why the day one triage workflow it enables will catch problems that no QC table surfaces.
 
+![Infographic mapping the .cloupe lifecycle: Cell Ranger and Space Ranger pipelines auto-generating cloupe.cloupe in the outs folder, the downstream Loupe Browser features split into single cell capabilities (instant gene search, local sSeq differential expression, multi sample pseudobulk DE, feature plots, filter and recluster) and spatial capabilities (lasso and freehand selection on tissue, Moran's I spatial enrichment tables, Visium HD bin support, cell segmentation), the upstream integration where Loupe handles manual fiducial alignment, tissue selection and CytAssist registration before exporting a JSON for Space Ranger, and the recommended day one workflow ending in a barcode CSV exported into Seurat](/posts/images/loupe_ecosystem_cloupe_file_capabilities.png)
+
 ## Where the file comes from 📂
 
 `.cloupe` generation is built into the pipelines rather than bolted on afterwards. Per the [Cell Ranger outputs documentation](https://www.10xgenomics.com/support/software/cell-ranger/latest/analysis/outputs/cr-outputs-overview) and the [Space Ranger outputs overview](https://www.10xgenomics.com/support/software/space-ranger/latest/analysis/outputs/output-overview), you get one from:

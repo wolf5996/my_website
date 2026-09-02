@@ -12,7 +12,7 @@ aliases:
   - /posts/loupe_ecosystem_post_2_loupe_browser_capabilities/
 summary: "Local differential expression, Moran's I, Visium HD segmentation, and the manual aligner. Loupe bookends your spatial pipeline rather than trailing it."
 featured: true
-rmd_hash: 7b14553f4d86e60b
+rmd_hash: c2e3ce344c9542a5
 
 ---
 
@@ -21,6 +21,11 @@ Open a terminal and navigate to your most recent Cell Ranger or Space Ranger run
 You did not ask for it. You did not configure anything to produce it. It is simply there, on every run, and for most people it has never been opened.
 
 This post is about what is inside that file, what the application built to read it can actually do, and why the day one triage workflow it enables will catch problems that no QC table surfaces.
+
+<figure>
+<img src="/posts/images/loupe_ecosystem_cloupe_file_capabilities.png" alt="Infographic mapping the .cloupe lifecycle: Cell Ranger and Space Ranger pipelines auto-generating cloupe.cloupe in the outs folder, the downstream Loupe Browser features split into single cell capabilities (instant gene search, local sSeq differential expression, multi sample pseudobulk DE, feature plots, filter and recluster) and spatial capabilities (lasso and freehand selection on tissue, Moran’s I spatial enrichment tables, Visium HD bin support, cell segmentation), the upstream integration where Loupe handles manual fiducial alignment, tissue selection and CytAssist registration before exporting a JSON for Space Ranger, and the recommended day one workflow ending in a barcode CSV exported into Seurat" />
+<figcaption aria-hidden="true">Infographic mapping the .cloupe lifecycle: Cell Ranger and Space Ranger pipelines auto-generating cloupe.cloupe in the outs folder, the downstream Loupe Browser features split into single cell capabilities (instant gene search, local sSeq differential expression, multi sample pseudobulk DE, feature plots, filter and recluster) and spatial capabilities (lasso and freehand selection on tissue, Moran’s I spatial enrichment tables, Visium HD bin support, cell segmentation), the upstream integration where Loupe handles manual fiducial alignment, tissue selection and CytAssist registration before exporting a JSON for Space Ranger, and the recommended day one workflow ending in a barcode CSV exported into Seurat</figcaption>
+</figure>
 
 ## Where the file comes from 📂
 
