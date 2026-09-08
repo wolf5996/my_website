@@ -1,7 +1,7 @@
 ---
 title: "The Modern Terminal – Post 1: eza and the ls Command You Never Questioned"
 author: "Badran Elshenawy"
-date: 2026-09-09T09:00:00Z
+date: 2026-09-08T09:00:00Z
 categories:
   - "Command Line"
   - "Developer Tools"

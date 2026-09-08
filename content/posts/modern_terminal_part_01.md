@@ -1,7 +1,7 @@
 ---
 title: "The Modern Terminal – Post 1: eza and the ls Command You Never Questioned"
 author: "Badran Elshenawy"
-date: 2026-09-09T09:00:00Z
+date: 2026-09-08T09:00:00Z
 categories:
   - "Command Line"
   - "Developer Tools"
@@ -29,7 +29,7 @@ aliases:
   - /posts/modern_terminal_post_1_eza/
 summary: "You run ls a hundred times a day and have never once evaluated it. eza is the drop in replacement that fixes defaults ls got stuck with in 1971."
 featured: true
-rmd_hash: 0dffe79f5beef891
+rmd_hash: 79b32a82347c0abd
 
 ---
 
