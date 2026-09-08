@@ -1,7 +1,7 @@
 ---
 title: "Advanced scRNA-seq for Biologists – Post 4: RNA Velocity with scVelo"
 author: "Badran Elshenawy"
-date: 2026-04-10T14:00:00Z
+date: 2026-04-13T09:00:00Z
 categories: ["scRNA-seq", "Trajectory Analysis", "Bioinformatics", "Tutorial", "Python"]
 tags: ["scRNA-seq", "single-cell", "RNA velocity", "scVelo", "trajectory analysis", "splicing", "bioinformatics", "computational biology", "differentiation", "cell fate", "dynamics"]
 description: "RNA velocity predicts where cells are going, not just where they are. Learn when it works and when to be cautious."

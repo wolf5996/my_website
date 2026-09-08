@@ -20,8 +20,9 @@ A tutorial-driven blog covering bioinformatics, R programming, single-cell and b
 | **Tidyverse to Scverse** | 7 | Transitioning from R/tidyverse to Python/scverse for single-cell analysis |
 | **Lockfiles** | 2 | Reproducible environments in Python and R with `uv.lock`, `renv.lock`, and modern dependency management |
 | **The Loupe Ecosystem** | 3 | Point and click exploration of 10x single cell and spatial data with Loupe Browser, `.cloupe` files, and `loupeR` |
+| **The Modern Terminal** | 1 | Modern replacements for the core CLI tools: `eza`, `zoxide`, `fd`, `ripgrep`, and friends |
 
-Plus standalone posts on VS Code, Quarto, and more. **108+ posts** and growing.
+Plus standalone posts on VS Code, Quarto, and more. **109+ posts** and growing.
 
 ## Built With
 
