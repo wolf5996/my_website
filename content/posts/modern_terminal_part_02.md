@@ -29,7 +29,7 @@ aliases:
   - /posts/modern_terminal_post_2_zoxide/
 summary: "Your analysis lives eight directories deep and cd has no memory of it. zoxide learns your filesystem so you can jump with a single word."
 featured: true
-rmd_hash: 3be30b7755cca14b
+rmd_hash: 7ebc3b1af8b49ab9
 
 ---
 
@@ -39,9 +39,9 @@ Every time you navigate, you start from nothing. The shell has watched you type 
 
 ## The shape of the problem in research computing 🗺️
 
-Look at a path from a real project:
+Look at the kind of path these pipelines actually produce:
 
-    /well/group/projects/2026_spatial_pilot/analysis/visium_hd/sample_A1/outs/binned_outputs/square_008um
+    /data/projects/spatial_pilot/analysis/visium_hd/sample_A1/outs/binned_outputs/square_008um
 
 Now consider that in a normal working session you might bounce between that directory, the scripts folder in a completely different tree, a scratch directory on the cluster, and your local repository. Fifty times a day, easily.
 
@@ -52,6 +52,11 @@ The underlying issue is that all of these ask you to declare where you will want
 ## What zoxide does with that ⚡
 
 [zoxide](https://github.com/ajeetdsouza/zoxide) tracks every directory you visit and scores it. The scoring metric is usually called frecency: a combination of how often you visit a directory and how recently. A folder you opened once in March scores near zero. A folder you have been in twenty times this week scores high.
+
+<figure>
+<img src="/posts/images/modern_terminal_zoxide_frecency_jumping.png" alt="Infographic contrasting directory navigation with cd and with zoxide. The upper panel, labelled the old way, shows a long chain of repeated cd ../../ commands running left to right with tangled crossing arrows into scattered folders, annotated no memory, start from zero and tangled paths. The lower panel, labelled the modern way, shows the single command z spatial feeding into a central zoxide intelligence hub scored by frecency, meaning frequency plus recency, backed by a database that learns your destinations, which fans out to the frequent and recent folders you actually work in. Also shown are the interactive fzf picker and the z dash shortcut for going back" />
+<figcaption aria-hidden="true">Infographic contrasting directory navigation with cd and with zoxide. The upper panel, labelled the old way, shows a long chain of repeated cd ../../ commands running left to right with tangled crossing arrows into scattered folders, annotated no memory, start from zero and tangled paths. The lower panel, labelled the modern way, shows the single command z spatial feeding into a central zoxide intelligence hub scored by frecency, meaning frequency plus recency, backed by a database that learns your destinations, which fans out to the frequent and recent folders you actually work in. Also shown are the interactive fzf picker and the z dash shortcut for going back</figcaption>
+</figure>
 
 Then it lets you jump using any fragment of the path:
 
