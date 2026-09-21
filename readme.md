@@ -1,6 +1,6 @@
 # Bioinformatics & Computational Biology Blog
 
-A tutorial-driven blog covering bioinformatics, R programming, single-cell and bulk RNA-seq analysis, and AI-assisted research workflows. Written by [Badran Elshenawy](https://www.tdi.ox.ac.uk/team/badran-elshenawy), postdoctoral researcher at the University of Oxford.
+A tutorial-driven blog covering bioinformatics, R programming, single-cell and bulk RNA-seq analysis, and AI-assisted research workflows. Written by [Badran Elshenawy](https://www.linkedin.com/in/dr-badran-m-e-65414b113/), a computational biologist at the University of Oxford.
 
 **Live at:** [badran-elshenawy.netlify.app](https://badran-elshenawy.netlify.app/)
 

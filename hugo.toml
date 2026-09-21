@@ -17,7 +17,7 @@ unsafe = true  # Allow raw HTML (important for Rmd rendering)
 
 [params]
   author = "Badran Elshenawy"
-  description = "Bioinformatician | R & Command-Line Enthusiast | High-Performance Computing | Git & Automation | Exploring Systems & Ideas"
+  description = "Computational biologist | Single-cell & spatial genomics of brain tumours | R, Python & the command line"
   keywords = ["bioinformatics", "data science", "linux", "command-line", "HPC", "automation"]
   avatarURL = "images/personal_image_1.jpg"
   dateFormat = "January 2, 2006"

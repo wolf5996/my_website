@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Hugo personal website for Badran Elshenawy (bioinformatician, Oxford postdoc). Uses the Coder theme, deployed on Netlify. Contains 85+ blog posts across multiple tutorial series.
+Hugo personal website for Badran Elshenawy (computational biologist, Senior Computational Postdoc, Pathania Group, Ludwig Oxford). Uses the Coder theme, deployed on Netlify. Contains 85+ blog posts across multiple tutorial series.
 
 ## Development Commands
 
