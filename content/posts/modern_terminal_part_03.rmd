@@ -53,7 +53,7 @@ Every round of the dance also walks the tree again. On a local SSD that is fine.
 
 [dust](https://github.com/bootandy/dust) walks the tree once, in parallel, and prints a single tree of the largest things underneath where you are, with percentage bars, trimmed to fit your terminal. The biggest entries print last, so they end up right above your prompt where your eyes already are.
 
-![Infographic contrasting finding disk usage with du and with dust. The left panel, labelled the old way, shows a tired scientist carrying a torch down a long staircase of folders, each step marked with a tape measure, with a clock in the corner and the caption du, one level at a time. The right panel, labelled the modern way, shows a calm scientist holding a tablet that projects a single folder tree with size bars beside each folder, where one branch is highlighted orange with the longest bar and an arrow points down to a large BAM file, captioned dust, one tree](/posts/images/modern_terminal_dust_one_tree.png)
+![du, one level at a time, versus dust, one tree](/posts/images/modern_terminal_dust_one_tree.png)
 
 Run it in a Space Ranger project and you get something like this (simplified):
 

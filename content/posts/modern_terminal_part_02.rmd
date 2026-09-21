@@ -53,7 +53,7 @@ The underlying issue is that all of these ask you to declare where you will want
 
 [zoxide](https://github.com/ajeetdsouza/zoxide) tracks every directory you visit and scores it. The scoring metric is usually called frecency: a combination of how often you visit a directory and how recently. A folder you opened once in March scores near zero. A folder you have been in twenty times this week scores high.
 
-![Infographic contrasting directory navigation with cd and with zoxide. The upper panel, labelled the old way, shows a long chain of repeated cd ../../ commands running left to right with tangled crossing arrows into scattered folders, annotated no memory, start from zero and tangled paths. The lower panel, labelled the modern way, shows the single command z spatial feeding into a central zoxide intelligence hub scored by frecency, meaning frequency plus recency, backed by a database that learns your destinations, which fans out to the frequent and recent folders you actually work in. Also shown are the interactive fzf picker and the z dash shortcut for going back](/posts/images/modern_terminal_zoxide_frecency_jumping.png)
+![cd one level at a time versus zoxide jumping by frecency](/posts/images/modern_terminal_zoxide_frecency_jumping.png)
 
 Then it lets you jump using any fragment of the path:
 

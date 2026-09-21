@@ -30,7 +30,7 @@ A Seurat update here. A Matrix breaking change there. A transitive dependency yo
 
 That is the reproducibility illusion: version control makes you feel safe, but source code only preserves part of the story.
 
-![Side-by-side infographic showing failed, inconsistent builds without a lockfile and deterministic, reproducible builds with a lockfile](/posts/images/lockfiles_without_vs_with_lockfile.png)
+![Builds without and with a lockfile](/posts/images/lockfiles_without_vs_with_lockfile.png)
 
 ## Source code is only half the story 📖
 

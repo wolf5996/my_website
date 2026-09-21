@@ -20,7 +20,7 @@ Cell Ranger tells you that you have 12,483 cells at a median of 4,100 genes each
 
 Closing that gap is exploratory data analysis, and most of us do it badly. Not because we lack skill, but because we do it in an environment that charges us far too much for each question we ask.
 
-![Infographic contrasting the slow scripted workflow, where a FeaturePlot takes ninety seconds to render, with the Loupe ecosystem, where the same question is answered in two hundred milliseconds, and showing the .cloupe file as the handoff format between the two](/posts/images/loupe_ecosystem_traditional_vs_loupe_workflow.png)
+![Scripted plotting versus Loupe Browser, with .cloupe as the handoff](/posts/images/loupe_ecosystem_traditional_vs_loupe_workflow.png)
 
 ## Exploratory analysis is a latency problem ⏱️
 

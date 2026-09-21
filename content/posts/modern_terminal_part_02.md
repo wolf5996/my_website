@@ -29,7 +29,7 @@ aliases:
   - /posts/modern_terminal_post_2_zoxide/
 summary: "Your analysis lives eight directories deep and cd has no memory of it. zoxide learns your filesystem so you can jump with a single word."
 featured: true
-rmd_hash: 7ebc3b1af8b49ab9
+rmd_hash: 6304d9cb23ac6920
 
 ---
 
@@ -54,8 +54,8 @@ The underlying issue is that all of these ask you to declare where you will want
 [zoxide](https://github.com/ajeetdsouza/zoxide) tracks every directory you visit and scores it. The scoring metric is usually called frecency: a combination of how often you visit a directory and how recently. A folder you opened once in March scores near zero. A folder you have been in twenty times this week scores high.
 
 <figure>
-<img src="/posts/images/modern_terminal_zoxide_frecency_jumping.png" alt="Infographic contrasting directory navigation with cd and with zoxide. The upper panel, labelled the old way, shows a long chain of repeated cd ../../ commands running left to right with tangled crossing arrows into scattered folders, annotated no memory, start from zero and tangled paths. The lower panel, labelled the modern way, shows the single command z spatial feeding into a central zoxide intelligence hub scored by frecency, meaning frequency plus recency, backed by a database that learns your destinations, which fans out to the frequent and recent folders you actually work in. Also shown are the interactive fzf picker and the z dash shortcut for going back" />
-<figcaption aria-hidden="true">Infographic contrasting directory navigation with cd and with zoxide. The upper panel, labelled the old way, shows a long chain of repeated cd ../../ commands running left to right with tangled crossing arrows into scattered folders, annotated no memory, start from zero and tangled paths. The lower panel, labelled the modern way, shows the single command z spatial feeding into a central zoxide intelligence hub scored by frecency, meaning frequency plus recency, backed by a database that learns your destinations, which fans out to the frequent and recent folders you actually work in. Also shown are the interactive fzf picker and the z dash shortcut for going back</figcaption>
+<img src="/posts/images/modern_terminal_zoxide_frecency_jumping.png" alt="cd one level at a time versus zoxide jumping by frecency" />
+<figcaption aria-hidden="true">cd one level at a time versus zoxide jumping by frecency</figcaption>
 </figure>
 
 Then it lets you jump using any fragment of the path:

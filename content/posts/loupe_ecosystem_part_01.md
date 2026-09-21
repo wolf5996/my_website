@@ -12,7 +12,7 @@ aliases:
   - /posts/loupe_ecosystem_post_1_point_and_click_eda/
 summary: "Exploratory analysis is a latency problem. When a question costs 200ms instead of 90 seconds, you ask fifty instead of five."
 featured: true
-rmd_hash: 145861e18fb98eb6
+rmd_hash: b3ffd26b5698cf74
 
 ---
 
@@ -23,8 +23,8 @@ Cell Ranger tells you that you have 12,483 cells at a median of 4,100 genes each
 Closing that gap is exploratory data analysis, and most of us do it badly. Not because we lack skill, but because we do it in an environment that charges us far too much for each question we ask.
 
 <figure>
-<img src="/posts/images/loupe_ecosystem_traditional_vs_loupe_workflow.png" alt="Infographic contrasting the slow scripted workflow, where a FeaturePlot takes ninety seconds to render, with the Loupe ecosystem, where the same question is answered in two hundred milliseconds, and showing the .cloupe file as the handoff format between the two" />
-<figcaption aria-hidden="true">Infographic contrasting the slow scripted workflow, where a FeaturePlot takes ninety seconds to render, with the Loupe ecosystem, where the same question is answered in two hundred milliseconds, and showing the .cloupe file as the handoff format between the two</figcaption>
+<img src="/posts/images/loupe_ecosystem_traditional_vs_loupe_workflow.png" alt="Scripted plotting versus Loupe Browser, with .cloupe as the handoff" />
+<figcaption aria-hidden="true">Scripted plotting versus Loupe Browser, with .cloupe as the handoff</figcaption>
 </figure>
 
 ## Exploratory analysis is a latency problem ⏱️

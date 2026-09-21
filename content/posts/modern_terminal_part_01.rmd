@@ -51,7 +51,7 @@ The problem is not that `ls` is bad. It is that the useful behaviour is opt in, 
 
 [eza](https://github.com/eza-community/eza) is a modern replacement for `ls`, written in Rust and distributed as a single binary with no runtime dependencies. It is not a wrapper or a shell function. It is a separate program that does the same job with better defaults.
 
-![Side by side comparison of a directory listing rendered by ls and by eza. The left panel, labelled monochrome and raw, shows grey undifferentiated icons, filenames in a single colour, raw byte counts such as 34567 bytes and 117000 bytes, and truncated type labels. The right panel, labelled coloured and organised, shows the same files with per type coloured icons and filenames, human readable sizes such as 34 KB and 117 KB, full type names, and a git status column marking index.html as Modified, styles.css as Added and script.js as Committed](/posts/images/modern_terminal_eza_vs_ls.png)
+![The same directory listed by ls and by eza](/posts/images/modern_terminal_eza_vs_ls.png)
 
 The differences you notice in the first five minutes:
 

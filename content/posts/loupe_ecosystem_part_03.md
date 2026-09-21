@@ -12,7 +12,7 @@ aliases:
   - /posts/loupe_ecosystem_post_3_louper_seurat_conversion/
 summary: "One function call turns six weeks of integration and annotation into a file your PI can double click. Plus the six constraints nobody documents well."
 featured: true
-rmd_hash: 75ac1b79ef8aa50a
+rmd_hash: 52329a2c281f026e
 
 ---
 
@@ -25,8 +25,8 @@ None of that reaches Loupe Browser by default. Which means none of it reaches th
 [loupeR](https://github.com/10XGenomics/loupeR) closes that gap. It is an R package built and maintained by 10x Genomics that converts Seurat objects into `.cloupe` files, and it is genuinely straightforward once you know the half dozen things that will otherwise cost you an afternoon. The [official tutorial](https://www.10xgenomics.com/support/software/loupe-browser/latest/tutorials/introduction/lb-louper) is the reference for everything below.
 
 <figure>
-<img src="/posts/images/loupe_ecosystem_louper_seurat_bridge.png" alt="Infographic showing loupeR as the bridge between Seurat and Loupe Browser: the Cell Ranger pipeline produces a default unannotated .cloupe, weeks of Seurat work add normalisation, integration, dimensionality reduction, clustering and cell type annotation that collaborators cannot open in R, and loupeR carries the RNA counts matrix, two dimensional reductions and factor metadata columns through create_loupe_from_seurat into a fully annotated shareable .cloupe. The workflow loop closes when a collaborator identifies a region in Loupe Browser, exports barcodes as CSV, and the Seurat object is subset on them in R. Setup is three steps, install HDF5, install loupeR, run setup, and the key gotchas are RNA counts only, factor columns only, and 10x barcode format required" />
-<figcaption aria-hidden="true">Infographic showing loupeR as the bridge between Seurat and Loupe Browser: the Cell Ranger pipeline produces a default unannotated .cloupe, weeks of Seurat work add normalisation, integration, dimensionality reduction, clustering and cell type annotation that collaborators cannot open in R, and loupeR carries the RNA counts matrix, two dimensional reductions and factor metadata columns through create_loupe_from_seurat into a fully annotated shareable .cloupe. The workflow loop closes when a collaborator identifies a region in Loupe Browser, exports barcodes as CSV, and the Seurat object is subset on them in R. Setup is three steps, install HDF5, install loupeR, run setup, and the key gotchas are RNA counts only, factor columns only, and 10x barcode format required</figcaption>
+<img src="/posts/images/loupe_ecosystem_louper_seurat_bridge.png" alt="loupeR turns a Seurat object into a shareable .cloupe" />
+<figcaption aria-hidden="true">loupeR turns a Seurat object into a shareable .cloupe</figcaption>
 </figure>
 
 ## Installation 🛠️

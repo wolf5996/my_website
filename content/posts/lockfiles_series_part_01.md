@@ -12,7 +12,7 @@ aliases:
   - /posts/lockfiles_reproducibility_layer/
 summary: "Your code is on GitHub, your README is clean, and your pipeline worked perfectly six months ago. Here is why lockfiles are the missing piece."
 featured: true
-rmd_hash: 73097922dfe02251
+rmd_hash: 6f087ac6d27c64ec
 
 ---
 
@@ -33,8 +33,8 @@ A Seurat update here. A Matrix breaking change there. A transitive dependency yo
 That is the reproducibility illusion: version control makes you feel safe, but source code only preserves part of the story.
 
 <figure>
-<img src="/posts/images/lockfiles_without_vs_with_lockfile.png" alt="Side-by-side infographic showing failed, inconsistent builds without a lockfile and deterministic, reproducible builds with a lockfile" />
-<figcaption aria-hidden="true">Side-by-side infographic showing failed, inconsistent builds without a lockfile and deterministic, reproducible builds with a lockfile</figcaption>
+<img src="/posts/images/lockfiles_without_vs_with_lockfile.png" alt="Builds without and with a lockfile" />
+<figcaption aria-hidden="true">Builds without and with a lockfile</figcaption>
 </figure>
 
 ## Source code is only half the story 📖

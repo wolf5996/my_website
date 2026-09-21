@@ -28,7 +28,7 @@ output: hugodown::md_document
 aliases:
   - /posts/modern_terminal_post_3_dust/
 summary: "du tells you how big things are, one level at a time. dust tells you where the space went. On a quota-limited cluster, that is the question you actually have."
-rmd_hash: 28d428f3bf00097e
+rmd_hash: ca7ea358bb0c641b
 
 ---
 
@@ -56,8 +56,8 @@ Every round of the dance also walks the tree again. On a local SSD that is fine.
 [dust](https://github.com/bootandy/dust) walks the tree once, in parallel, and prints a single tree of the largest things underneath where you are, with percentage bars, trimmed to fit your terminal. The biggest entries print last, so they end up right above your prompt where your eyes already are.
 
 <figure>
-<img src="/posts/images/modern_terminal_dust_one_tree.png" alt="Infographic contrasting finding disk usage with du and with dust. The left panel, labelled the old way, shows a tired scientist carrying a torch down a long staircase of folders, each step marked with a tape measure, with a clock in the corner and the caption du, one level at a time. The right panel, labelled the modern way, shows a calm scientist holding a tablet that projects a single folder tree with size bars beside each folder, where one branch is highlighted orange with the longest bar and an arrow points down to a large BAM file, captioned dust, one tree" />
-<figcaption aria-hidden="true">Infographic contrasting finding disk usage with du and with dust. The left panel, labelled the old way, shows a tired scientist carrying a torch down a long staircase of folders, each step marked with a tape measure, with a clock in the corner and the caption du, one level at a time. The right panel, labelled the modern way, shows a calm scientist holding a tablet that projects a single folder tree with size bars beside each folder, where one branch is highlighted orange with the longest bar and an arrow points down to a large BAM file, captioned dust, one tree</figcaption>
+<img src="/posts/images/modern_terminal_dust_one_tree.png" alt="du, one level at a time, versus dust, one tree" />
+<figcaption aria-hidden="true">du, one level at a time, versus dust, one tree</figcaption>
 </figure>
 
 Run it in a Space Ranger project and you get something like this (simplified):

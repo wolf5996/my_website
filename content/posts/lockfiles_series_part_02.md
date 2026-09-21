@@ -12,7 +12,7 @@ aliases:
   - /posts/uv_lock_vs_renv_lock_practical_comparison/
 summary: "Both Python and R have lockfiles, but they do not work the same way. Here is the practical difference between `uv.lock`, `renv.lock`, and the newer R tools closing the gap."
 featured: true
-rmd_hash: 8b0ca5f208ce9c10
+rmd_hash: 974aabb56ac8af1b
 
 ---
 
@@ -31,8 +31,8 @@ R's `renv` is snapshot-based. You install packages using standard R workflows, t
 That difference sounds subtle, but it has real consequences for speed, reproducibility, cross-platform behavior, and day-to-day workflow.
 
 <figure>
-<img src="/posts/images/lockfiles_uv_vs_renv_declarative_vs_snapshot.png" alt="Infographic comparing uv’s declarative resolve-then-install model with renv’s install-then-snapshot model, plus the evolution toward rv and uvr in the R ecosystem" />
-<figcaption aria-hidden="true">Infographic comparing uv’s declarative resolve-then-install model with renv’s install-then-snapshot model, plus the evolution toward rv and uvr in the R ecosystem</figcaption>
+<img src="/posts/images/lockfiles_uv_vs_renv_declarative_vs_snapshot.png" alt="uv resolves then installs; renv installs then snapshots" />
+<figcaption aria-hidden="true">uv resolves then installs; renv installs then snapshots</figcaption>
 </figure>
 
 ## `uv.lock` in practice 🐍

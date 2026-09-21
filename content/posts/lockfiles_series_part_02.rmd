@@ -28,7 +28,7 @@ R's `renv` is snapshot-based. You install packages using standard R workflows, t
 
 That difference sounds subtle, but it has real consequences for speed, reproducibility, cross-platform behavior, and day-to-day workflow.
 
-![Infographic comparing uv's declarative resolve-then-install model with renv's install-then-snapshot model, plus the evolution toward rv and uvr in the R ecosystem](/posts/images/lockfiles_uv_vs_renv_declarative_vs_snapshot.png)
+![uv resolves then installs; renv installs then snapshots](/posts/images/lockfiles_uv_vs_renv_declarative_vs_snapshot.png)
 
 ## `uv.lock` in practice 🐍
 

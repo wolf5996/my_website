@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_uv_vs_conda/
 summary: "conda made you hate Python before you even started coding. uv fixes it: 10-100x faster installs, deterministic environments, and zero confusion."
 featured: true
-rmd_hash: 234c15fe0971815f
+rmd_hash: 380905a919e2f240
 
 ---
 
@@ -25,8 +25,8 @@ When you move to Python, the first thing everyone tells you is "use conda." So y
 This is not an exaggeration. Package management has been Python's biggest barrier to entry for R users for years. The good news is that it doesn't have to be this way anymore.
 
 <figure>
-<img src="/posts/images/tidyverse_to_scverse_uv_vs_conda.png" alt="Infographic comparing slow conda package installation with fast uv package installation" />
-<figcaption aria-hidden="true">Infographic comparing slow conda package installation with fast uv package installation</figcaption>
+<img src="/posts/images/tidyverse_to_scverse_uv_vs_conda.png" alt="Installing packages with conda versus uv" />
+<figcaption aria-hidden="true">Installing packages with conda versus uv</figcaption>
 </figure>
 
 ## What Went Wrong with conda

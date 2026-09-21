@@ -12,7 +12,7 @@ aliases:
   - /posts/tidyverse_to_scverse_marimo_notebooks/
 summary: "marimo stores notebooks as .py files — not JSON. Reactive, reproducible, git-friendly, and the most LLM-compatible notebook format available."
 featured: true
-rmd_hash: 1031e823f059bc71
+rmd_hash: 4fc7cfcc3e8c24bd
 
 ---
 
@@ -33,8 +33,8 @@ Open a marimo notebook in any text editor and you'll see regular Python function
 But the storage format is only the beginning. marimo also fixes Jupyter's deepest architectural problem: hidden state.
 
 <figure>
-<img src="/posts/images/tidyverse_to_scverse_marimo_notebook_structure.png" alt="marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module" />
-<figcaption aria-hidden="true">marimo stores notebooks as .py files — each cell is a Python function, and the notebook is a valid Python module</figcaption>
+<img src="/posts/images/tidyverse_to_scverse_marimo_notebook_structure.png" alt="A marimo notebook is a plain Python module" />
+<figcaption aria-hidden="true">A marimo notebook is a plain Python module</figcaption>
 </figure>
 
 ## Reactivity Solves the Reproducibility Problem

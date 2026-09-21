@@ -29,7 +29,7 @@ aliases:
   - /posts/modern_terminal_post_1_eza/
 summary: "You run ls a hundred times a day and have never once evaluated it. eza is the drop in replacement that fixes defaults ls got stuck with in 1971."
 featured: true
-rmd_hash: 79b32a82347c0abd
+rmd_hash: 7bcd0cb1d64f4a20
 
 ---
 
@@ -54,8 +54,8 @@ The problem is not that `ls` is bad. It is that the useful behaviour is opt in, 
 [eza](https://github.com/eza-community/eza) is a modern replacement for `ls`, written in Rust and distributed as a single binary with no runtime dependencies. It is not a wrapper or a shell function. It is a separate program that does the same job with better defaults.
 
 <figure>
-<img src="/posts/images/modern_terminal_eza_vs_ls.png" alt="Side by side comparison of a directory listing rendered by ls and by eza. The left panel, labelled monochrome and raw, shows grey undifferentiated icons, filenames in a single colour, raw byte counts such as 34567 bytes and 117000 bytes, and truncated type labels. The right panel, labelled coloured and organised, shows the same files with per type coloured icons and filenames, human readable sizes such as 34 KB and 117 KB, full type names, and a git status column marking index.html as Modified, styles.css as Added and script.js as Committed" />
-<figcaption aria-hidden="true">Side by side comparison of a directory listing rendered by ls and by eza. The left panel, labelled monochrome and raw, shows grey undifferentiated icons, filenames in a single colour, raw byte counts such as 34567 bytes and 117000 bytes, and truncated type labels. The right panel, labelled coloured and organised, shows the same files with per type coloured icons and filenames, human readable sizes such as 34 KB and 117 KB, full type names, and a git status column marking index.html as Modified, styles.css as Added and script.js as Committed</figcaption>
+<img src="/posts/images/modern_terminal_eza_vs_ls.png" alt="The same directory listed by ls and by eza" />
+<figcaption aria-hidden="true">The same directory listed by ls and by eza</figcaption>
 </figure>
 
 The differences you notice in the first five minutes:
