@@ -4,7 +4,7 @@
 
 **Tutorial series for biologists who want to run their own analysis**
 
-![Posts](https://img.shields.io/badge/posts-115-success)
+![Posts](https://img.shields.io/badge/posts-116-success)
 ![Series](https://img.shields.io/badge/series-13-8A2BE2)
 ![Since](https://img.shields.io/badge/since-December%202024-lightgrey)
 ![R](https://img.shields.io/badge/R-tidyverse%20%7C%20Bioconductor-276DC3?logo=r&logoColor=white)
@@ -23,7 +23,7 @@
 | **What** | Tutorial series on single-cell, spatial and bulk RNA-seq, R, Python, and the tools around them |
 | **Who it's for** | Biologists who are one clear explanation away from running their own analysis |
 | **Approach** | What a tool actually does, where its assumptions hide, and how to use it on real data |
-| **Scale** | **115 posts** across 13 series |
+| **Scale** | **116 posts** across 13 series |
 | **Author** | [Badran Elshenawy](https://www.linkedin.com/in/dr-badran-m-e-65414b113/), computational biologist at the University of Oxford |
 
 ---
@@ -81,7 +81,7 @@ flowchart LR
 | **Git** | 8 | Version control for researchers | [Why you need Git](https://badran-elshenawy.netlify.app/posts/git-version-control-part1/) |
 | **Lockfiles** | 2 | Reproducible environments with `uv.lock` and `renv.lock` | [The missing layer](https://badran-elshenawy.netlify.app/posts/lockfiles-reproducibility-layer/) |
 | **Command Line** | 3 | Terminal essentials for bioinformaticians | [dust and lsd](https://badran-elshenawy.netlify.app/posts/cli-tools-dust-lsd/) |
-| **The Modern Terminal** | 5 | Modern replacements for the core CLI tools: `eza`, `zoxide`, `dust`, `ouch`, `bat` | [eza](https://badran-elshenawy.netlify.app/posts/modern-terminal-post-1-eza/) |
+| **The Modern Terminal** | 6 | Modern replacements for the core CLI tools: `eza`, `zoxide`, `dust`, `ouch`, `bat`, plus `tmux` | [eza](https://badran-elshenawy.netlify.app/posts/modern-terminal-post-1-eza/) |
 | **Claude Code** | 9 | AI-assisted research: skills, MCPs, subagents, plugins | [Skills](https://badran-elshenawy.netlify.app/posts/claude-skills-turn-claude-into-your-specialist/) |
 
 Plus 3 standalone posts, on VS Code and Quarto visual mode, the tidyverse transition, and where it all started.
