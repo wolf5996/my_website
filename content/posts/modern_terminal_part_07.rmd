@@ -1,0 +1,141 @@
+---
+title: "The Modern Terminal – Post 7: fd and the Search Box the Cluster Does Not Have"
+author: "Badran Elshenawy"
+date: 2026-10-14T09:00:00Z
+categories:
+  - "Command Line"
+  - "Developer Tools"
+  - "Bioinformatics"
+  - "Productivity"
+  - "Open Source"
+tags:
+  - "fd"
+  - "find"
+  - "command line"
+  - "terminal"
+  - "Rust"
+  - "CLI tools"
+  - "bioinformatics"
+  - "computational biology"
+  - "HPC"
+  - "beginners"
+  - "gitignore"
+  - "productivity"
+description: "On your laptop you find files with a search box. On a remote computer there isn't one. fd is the replacement, and it takes about a minute to learn."
+slug: "modern-terminal-post-7-fd"
+draft: false
+output: hugodown::md_document
+aliases:
+  - /posts/modern_terminal_post_7_fd/
+summary: "There is no Finder window on the cluster. fd is the search box you are missing, and it can also tell you what last night's run produced and which files are eating your quota."
+---
+
+On your own laptop, finding a file is easy. You type part of its name into a search box and the computer shows you where it is. You barely think about it.
+
+On a remote computer there is no search box. No Finder window, no File Explorer, no magnifying glass in the corner. There is a blank prompt and a folder structure you cannot see. So most people do the only obvious thing: walk into folders one at a time, list the contents of each, and hope something looks familiar.
+
+[fd](https://github.com/sharkdp/fd) is the search box you are missing.
+
+## The whole idea 🔍
+
+```bash
+fd filtered
+```
+
+That prints every file and folder beneath where you are standing whose name contains `filtered`, along with the path to each one.
+
+That is the tool. Most days, that is all I type.
+
+![fd, the search box a remote computer does not have](/posts/images/modern_terminal_fd_the_missing_search_box.png)
+
+You can point it at a particular folder, and it is relaxed about capital letters:
+
+```bash
+fd sample results/
+```
+
+A lowercase search ignores capitalisation. If you type a capital letter yourself, it starts paying attention to them. That is almost always what you meant either way.
+
+If you have used the terminal before, fd is a replacement for `find`. The same search in `find` is `find . -iname "*filtered*"`, which is four pieces of syntax for one idea, and the reason most of us look it up every time.
+
+## A few variations worth knowing 📋
+
+- **`fd -e bam`:** only files ending in `.bam`
+- **`fd -t f`:** only files, not folders
+- **`fd -t d`:** only folders
+- **`fd -E work pattern`:** skip a folder you do not care about
+- **`fd -uu pattern`:** search absolutely everything (see the warning below)
+
+That is enough to be genuinely useful. Everything else in fd is a refinement of these.
+
+## Two questions a search box cannot answer 🧬
+
+This is where fd stops being a convenience.
+
+**What did last night's run actually produce?**
+
+```bash
+fd --changed-within 12h -e bam
+```
+
+Every BAM file touched in the last twelve hours. Pipeline folders accumulate months of output, and usually you only care about what is new.
+
+**Which files are eating my disk space?**
+
+```bash
+fd -t f -S +5G
+```
+
+Every file over five gigabytes, wherever it is hiding. When the cluster emails to say you are near your quota, that one line is your shortlist.
+
+Neither of those is something a graphical search box does well, and both answer questions you genuinely have.
+
+## The default that will hide your data ⚠️
+
+One thing to know before it confuses you.
+
+fd ignores anything listed in your project's `.gitignore` file. For code that is exactly right: nobody wants search results from a folder full of temporary build files.
+
+For research projects it can mislead you, because our `.gitignore` files usually list the directories holding the data:
+
+```
+data/
+results/
+*.bam
+```
+
+Search that project with `fd -e bam` and fd will report nothing at all. It is not broken. It is obeying instructions you wrote for a different tool, for a different reason.
+
+`fd -uu` turns the filtering off. I keep an alias so it is a deliberate choice rather than something I forget:
+
+```bash
+alias fda='fd -uu'   # fd all
+```
+
+Plain `fd` for code, `fda` for everything else.
+
+## Names, not contents 📖
+
+Worth being clear about the boundary. fd searches file **names**. If you want to search what is **inside** the files, that is a different tool, and it is the subject of the next post.
+
+## Setup 🛠️
+
+```bash
+brew install fd
+```
+
+```bash
+cargo install fd-find
+```
+
+On Debian and Ubuntu, the package installs the command as `fdfind`, so add `alias fd=fdfind` to your shell configuration. On a cluster where you cannot install software, prebuilt binaries are on the project's GitHub releases page: download one into `~/.local/bin` and it works.
+
+One small note for later: `find` is installed on every machine in existence and fd is not, so when you start writing scripts that other people run, keep `find` for those. For your own interactive work, fd is the one to reach for.
+
+## The bottom line 🎯
+
+Your laptop gives you a search box because finding files is a normal thing to want. The terminal does not, so most people walk the folders by hand and quietly accept it as the cost of working on a remote machine.
+
+It is not. `fd` plus part of a name is the whole thing, and once you have it, questions like "what did last night's run produce" become things you simply ask.
+
+Next post: ripgrep, and searching inside the files rather than just their names.
