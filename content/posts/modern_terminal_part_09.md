@@ -28,7 +28,7 @@ output: hugodown::md_document
 aliases:
   - /posts/modern_terminal_post_9_yazi/
 summary: "Every tool in this series answered one question. yazi puts them in one window: browse folders, jump with zoxide, search with fd and ripgrep, and preview files without ever downloading them."
-rmd_hash: abce68c08f13c5bd
+rmd_hash: 6b3c74677dad2d64
 
 ---
 
@@ -49,6 +49,11 @@ yazi
 The screen splits into three columns. The middle one is the folder you are in. The left one is the folder above it. The right one is a preview of whatever you have highlighted: the contents of a subfolder, the first lines of a script, the rows of a CSV.
 
 If you have ever used column view in the Mac Finder, you already know how to use it.
+
+<figure>
+<img src="/posts/images/modern_terminal_yazi_finder_for_the_cluster.png" alt="yazi: folders, previews and the series tools in one window" />
+<figcaption aria-hidden="true">yazi: folders, previews and the series tools in one window</figcaption>
+</figure>
 
 ## Moving around 📋
 

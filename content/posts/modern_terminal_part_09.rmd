@@ -48,6 +48,8 @@ The screen splits into three columns. The middle one is the folder you are in. T
 
 If you have ever used column view in the Mac Finder, you already know how to use it.
 
+![yazi: folders, previews and the series tools in one window](/posts/images/modern_terminal_yazi_finder_for_the_cluster.png)
+
 
 ## Moving around 📋
 
