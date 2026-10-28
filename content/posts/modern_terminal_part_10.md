@@ -28,7 +28,7 @@ output: hugodown::md_document
 aliases:
   - /posts/modern_terminal_post_10_code/
 summary: "Every post in this series lived in the terminal. This one builds the bridge out: open any folder you are standing in straight into VS Code or Positron, jump to the exact line ripgrep found, and compare two sample sheets side by side."
-rmd_hash: 3bdc399ae9796fc8
+rmd_hash: 7bff8411d4742d41
 
 ---
 
@@ -53,6 +53,11 @@ positron .
 ```
 
 Positron is built on the same open-source foundation as VS Code, so everything in this post works identically. Just swap the word.
+
+<figure>
+<img src="/posts/images/modern_terminal_code_from_terminal_to_editor.png" alt="One word from the terminal folder to the editor" />
+<figcaption aria-hidden="true">One word from the terminal folder to the editor</figcaption>
+</figure>
 
 ## Jump, then open 🚀
 

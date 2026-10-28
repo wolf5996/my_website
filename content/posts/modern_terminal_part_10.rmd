@@ -52,6 +52,8 @@ positron .
 
 Positron is built on the same open-source foundation as VS Code, so everything in this post works identically. Just swap the word.
 
+![One word from the terminal folder to the editor](/posts/images/modern_terminal_code_from_terminal_to_editor.png)
+
 
 ## Jump, then open 🚀
 
